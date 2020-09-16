@@ -19,7 +19,7 @@ $( document ).ready(function() {
         $(".menu-content-list>div").addClass("visible");
         $(".close-icon").show();
 		$('.menu li li ul').parent().addClass('hasSubChild');
-		$("#menu-main-menu-1 li:first").addClass('selected');
+		$(".list-view ul li:not(li li):nth-child(2)").addClass('selected');
     });
     $(".close-icon").click(function(e) {
         $(".menu-content-list>div").removeClass("visible");

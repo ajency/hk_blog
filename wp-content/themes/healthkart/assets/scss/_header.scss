@@ -6,6 +6,7 @@
 }
 .site-header{
     box-shadow: 0px 0px 8px 0px #cacaca;
+    padding: 0 10px;
 	.tob-bar-menu{
 		display: none;
 		@media (min-width: 992px){
@@ -154,6 +155,21 @@
 				padding-left: 0;
 				display: flex;
 				margin-bottom: 0;
+				@media (min-width: 992px){
+					> li:first-child{
+						display: none;
+						.sub-menu{
+							> li:first-child{
+								display: block;
+								.sub-menu{
+									> li:first-child{
+										display: block;
+									}
+								}
+							}
+						}
+					}
+				}
 				li{
 					list-style-type: none;
 					padding-right: 34px;
@@ -473,6 +489,25 @@
 				        height: 100%;
 				        position: relative;
 			            width: 100%;
+		                padding-top: 6px;
+						> li:first-child{
+							position: relative;
+							margin-left: 24px;
+							list-style-type: none;
+							a{
+								font-weight: 700;
+								font-size: 14px;
+							}
+							&:after{
+								content: '';
+								position: absolute;
+								top: 8px;
+								left: -6px;
+								right: 0;
+								bottom: 0;
+								background: url(../images/shop-menu.png) no-repeat;
+							}
+						}
 						li{
 							a{
 								font-size: 13px;
