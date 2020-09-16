@@ -81,7 +81,7 @@ do_action( 'genesis_header' );
  * @since 1.0.0
  */
 do_action( 'genesis_after_header' );
-
+?><div> <?php
 genesis_markup(
 	[
 		'open'    => '<div %s>',

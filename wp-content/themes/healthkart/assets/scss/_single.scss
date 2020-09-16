@@ -1,0 +1,27 @@
+.single-post{
+	.breadcrumbs-wrapper{
+		.breadcrumbs-inside{ 
+			margin: 20px 0;
+			a{
+				font-size: 13px;
+				padding: 0 10px;
+				color: #d8d8d8;
+			}
+			.breadcrumb-title{
+				font-size: 13px;
+			}
+		}
+	}
+	.single_post_page{
+		.entry-header{
+			.category{
+				margin: 10px 0;
+				a{
+					color: #00bfbf;
+					font-weight: 500;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

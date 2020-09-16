@@ -24,7 +24,7 @@ genesis_markup(
  *
  * @since 1.0.0
  */
-do_action( 'genesis_before_footer' );
+// do_action( 'genesis_before_footer' );
 
 /**
  * Fires to display the main footer content.
@@ -38,15 +38,15 @@ do_action( 'genesis_before_footer' );
         <div class="footer-wrapper row container m-auto p-0">
             <div class="footer-sidebar col-12">
                 <?php
-                    if(is_active_sidebar('footer-sidebar-1')){
-                    dynamic_sidebar('footer-sidebar-1');
+                    if(is_active_sidebar('footer-1')){
+                    dynamic_sidebar('footer-1');
                     }
                 ?>
             </div>
             <div class="footer-sidebar col-12">
                 <?php
-                    if(is_active_sidebar('footer-sidebar-2')){
-                    dynamic_sidebar('footer-sidebar-2');
+                    if(is_active_sidebar('footer-2')){
+                    dynamic_sidebar('footer-2');
                     }
                 ?>
             </div>
@@ -56,8 +56,8 @@ do_action( 'genesis_before_footer' );
         <div class="row container m-auto p-0">
             <div class="disclaimer-copyright col-12">
                 <?php
-                    if(is_active_sidebar('footer-sidebar-3')){
-                    dynamic_sidebar('footer-sidebar-3');
+                    if(is_active_sidebar('footer-3')){
+                    dynamic_sidebar('footer-3');
                     }
                 ?>
             </div>
