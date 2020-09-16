@@ -199,3 +199,78 @@ function genesis_sample_comments_gravatar( $args ) {
 	return $args;
 
 }
+add_action( 'wp_enqueue_scripts', 'my_child_theme_scripts' );
+
+function my_child_theme_scripts() {
+    wp_enqueue_style( 'parent-theme-css', get_stylesheet_directory_uri() . '/style.css' );
+ 	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '', false);
+ 	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '', false);
+    wp_enqueue_style('font-family', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">', array(), '', false);
+}
+//* this will bring in the Genesis Parent files needed:
+include_once( get_template_directory() . '/lib/init.php' );
+
+function enqueue_theme_scripts() { 
+    wp_register_script( 'jquery-js', get_stylesheet_directory_uri().'/assets/js/jquery.js' , '', '', true );
+    wp_register_script( 'bootstrap-js', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js' , '', '', true );
+    wp_register_script( 'themescripts-js', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', '', true );
+   	
+   	wp_enqueue_script('jquery-js');
+    wp_enqueue_script('bootstrap-js');
+    wp_enqueue_script('themescripts-js');     
+}
+add_action("wp_enqueue_scripts", "enqueue_theme_scripts");
+
+
+/*
+=============================================================
+Register Menus
+=============================================================
+*/
+
+function register_menus() {
+	register_nav_menus(
+		array(
+		'top-menu' => __('Topmenu'),	
+		'main-menu' => __('Headermenu')
+		)
+	);
+}
+	
+add_action('init', 'register_menus');
+
+/*
+=============================================================
+Footer Widgets
+=============================================================
+*/
+function footer_widgets_init() {
+	register_sidebar( array(
+		'name' => 'Footer Sidebar 1',
+		'id' => 'footer-sidebar-1',
+		'description' => 'Appears in the footer area',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => 'Footer Sidebar 2',
+		'id' => 'footer-sidebar-2',
+		'description' => 'Appears in the footer area',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+	register_sidebar( array(
+		'name' => 'Footer Sidebar 3',
+		'id' => 'footer-sidebar-3',
+		'description' => 'Appears in the footer area',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+}
+add_action('widgets_init','footer_widgets_init');
