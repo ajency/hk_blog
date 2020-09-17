@@ -227,12 +227,12 @@
 						    		li{
 										background: transparent;
 										position: unset;
-										width: auto;
+										width: 165px;
 										padding: 0 15px;
 									    z-index: 2;
 				    					a{
 				    						font-weight: 500;
-				    						white-space: nowrap;
+				    						white-space: normal;
 				    						&:hover{
 				    							color: #00bfbf;
 				    						}
@@ -581,10 +581,16 @@
 													padding-top: 15px;
 													padding-bottom: 15px;
 												    border-bottom: 1px solid #fff;
+												    padding-left: 30px;
 			    								}
 				    							&.selected{
 				    								.sub-menu{
 				    									display: block !important;
+				    									li{
+				    										a{
+				    											padding-left: 45px;
+				    										}
+				    									}
 				    								}
 				    							}
 			    							}
