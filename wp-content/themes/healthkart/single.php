@@ -25,7 +25,7 @@ get_header();
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
   						<a href="<?php echo get_site_url(); ?>/">Home</a> <span class="sep-icon">/</span> 
-  						<span><a class="mr-1" href="<?php echo get_site_url(); ?>/exhibiting-advice">exhibiting advice</a><span class="sep-icon">/</span> <span class="breadcrumb-title"><?php the_title(); ?></span></span>
+  						<span><?php the_category(' , '); ?><span class="sep-icon">/</span> <span class="breadcrumb-title"><?php the_title(); ?></span></span>
   					</div>
   				</div>
 			</div>
