@@ -520,6 +520,9 @@
 								color: white;
 								text-decoration: none;
 							    padding: 8px 15px;
+								&:focus{
+									outline: 0;
+								}
 							}
 							&.hassub{
 								display: flex;
@@ -667,6 +670,9 @@
 										display: block;
 									}
 								}
+							}
+							&:focus{
+								outline: 0;
 							}
 						}
 					}
