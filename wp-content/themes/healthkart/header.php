@@ -101,8 +101,8 @@ do_action( 'genesis_after_header' );
 							   	$custom_logo_id = get_theme_mod( 'custom_logo' );
 							   	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 					      	?>
-							<img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
-							<span class="pr-4 f-24 font-weight-500">Blog</span>
+							<a href="<?php echo get_site_url(); ?>/"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
+							<span class="pr-4 f-24 font-weight-500">Blog</span></a>
 						</div>
 						<div class="input-group">
 							<input type="text" class="form-control search-bar" placeholder="Search Healthkart Blog">
