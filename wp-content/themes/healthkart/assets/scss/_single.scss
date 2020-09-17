@@ -1,3 +1,4 @@
+
 .single-post{
 	.breadcrumbs-wrapper{
 		.breadcrumbs-inside{ 
@@ -5,12 +6,25 @@
 			a{
 				font-size: 13px;
 				padding: 0 10px;
-				color: #d8d8d8;
+			    color: rgba(0, 0, 0,0.3);
 			}
 			.breadcrumb-title{
 				font-size: 13px;
 			}
 		}
+	}
+	a{
+		color: #00bfbf;
+		span{
+			color: #00bfbf !important;
+		    font-weight: 400;
+		}
+	}
+	.section-title{
+		font-size: 18px;
+		color: #090909;
+		font-weight: 800;
+		text-transform: uppercase;
 	}
 	.single_post_page{
 		.entry-header{
@@ -21,6 +35,41 @@
 					font-weight: 500;
 					font-size: 14px;
 				}
+			}
+			.last-read{
+				color: rgba(0,0,0,0.49);
+				font-size: 14px;
+				line-height: 26px;
+				padding-left: 20px;
+			}
+		}
+		.entry-title{
+			font-size: 33px;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+		h2{
+			font-size: 26px;
+			line-height: 30px;
+		}
+		.entry-content{
+		    font-size: 14px;
+   			line-height: 30px;
+		}
+		.share{
+			margin: 30px 0;
+			padding: 30px 0;
+			border-top: 1px solid #bfbfbf;
+			border-bottom: 1px solid #bfbfbf;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&-icons{
+				color: #9c9c9c;
+			}
+			@media (max-width: 767px){ 
+				display: block;
+				text-align: left;
 			}
 		}
 	}

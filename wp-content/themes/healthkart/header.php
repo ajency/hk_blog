@@ -125,30 +125,26 @@ do_action( 'genesis_after_header' );
 		</div>
 		<!-- Mobile Menu -->
 		<div class="menu-list-container">
-			<div class="mweb-innnermenu">
-				<div class="menu-section">
-					<div class="menu-content-list expandable">
-						<div class="">
-							<div class="user-bar">
-								<div class="greet-container">
-									<span class="close-icon"></span>
-									<span class="user-name">To get personalised Offers</span>
-								</div>
-								<div class="user-mweb-button">
-									<ul>
-										<li class="login-link-mweb">
-											<a href="https://www.healthkart.com/account/" target="_blank">Log In</a>
-										</li>
-										<li class="registeruser">
-											<a href="https://www.healthkart.com/account/" target="_blank">Sign Up</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="list-view">
-								<?php wp_nav_menu(); ?>
-							</div>
+			<div class="menu-content-list expandable">
+				<div class="">
+					<div class="user-bar">
+						<div class="greet-container">
+							<span class="close-icon"></span>
+							<span class="user-name">To get personalised Offers</span>
 						</div>
+						<div class="user-mweb-button">
+							<ul>
+								<li class="login-link-mweb">
+									<a href="https://www.healthkart.com/account/" target="_blank">Log In</a>
+								</li>
+								<li class="registeruser">
+									<a href="https://www.healthkart.com/account/" target="_blank">Sign Up</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="list-view">
+						<?php wp_nav_menu(); ?>
 					</div>
 				</div>
 			</div>

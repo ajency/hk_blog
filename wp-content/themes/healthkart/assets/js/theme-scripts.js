@@ -18,12 +18,14 @@ $( document ).ready(function() {
 		e.preventDefault();
         $(".menu-content-list>div").addClass("visible");
         $(".close-icon").show();
+        $("body").addClass("no-scrolling");
 		$('.menu li li ul').parent().addClass('hasSubChild');
 		$(".list-view ul li:not(li li):nth-child(2)").addClass('selected');
     });
     $(".close-icon").click(function(e) {
         $(".menu-content-list>div").removeClass("visible");
     	$(".close-icon").hide();
+    	$("body").removeClass("no-scrolling");
     });
     if( $(window).width() < 992 ){
 	 	$("ul.menu li:not(li li)").click(function(e) {
