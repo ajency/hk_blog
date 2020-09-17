@@ -1,0 +1,190 @@
+.seperator{
+	border-top: 1px solid #333B73;
+    margin: 30px -10px;
+}
+
+.m{
+	&l-05 {
+		margin-left: 5px !important;	
+	}
+	&r-05 {
+		margin-right: 5px !important;
+	}
+	&t-05 {
+		margin-top: 5px !important;	
+	}
+	&b-05 {
+		margin-bottom: 5px !important;
+	}
+	&l-15 {
+		margin-left: 15px !important;	
+	}
+	&r-15 {
+		margin-right: 15px !important;
+	}
+	&t-15 {
+		margin-top: 15px !important;	
+	}
+	&b-15 {
+		margin-bottom: 15px !important;
+	}
+	&t-25{
+		margin-top: 25px;
+	}
+}
+
+.p{
+	&l-05 {
+		padding-left: 5px !important;	
+	}
+	&r-05 {
+		padding-right: 5px !important;
+	}
+	&t-05 {
+		padding-top: 5px !important;	
+	}
+	&b-05 {
+		padding-bottom: 5px !important;
+	}
+	&l-15 {
+		padding-left: 15px !important;	
+	}
+	&r-15 {
+		padding-right: 15px !important;
+	}
+	&t-15 {
+		padding-top: 15px !important;	
+	}
+	&b-15 {
+		padding-bottom: 15px !important;
+	}
+	&t-25{
+		padding-top: 25px;
+	}
+	&b-25{
+		padding-bottom: 25px;
+	}
+}
+
+.text {
+	&-white {
+		color: #ffffff;
+		&--5 {
+			color: rgba(#ffffff, 0.5);
+		}
+		&--7 {
+			color: rgba(#ffffff, 0.7);
+		}
+		&--8 {
+			color: rgba(#ffffff, 0.8);
+		}
+	}
+}
+
+.text {
+	&-decoration {
+		&-none {
+			text-decoration: none;
+		}
+	}
+}
+
+.f{
+	&-0{
+		font-size: 0;
+	}
+	&-7 {
+		font-size: 7px;
+		line-height: 10px;
+	}
+	&-8 {
+		font-size: 8px;
+		line-height: 10px;
+	}
+	&-9 {
+		font-size: 9px;
+		line-height: 11px;
+	}
+	&-10 {
+		font-size: 10px;
+		line-height: 14px;
+	}
+	&-12 {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	&-18 {
+		font-size: 18px;
+		line-height: 20px;
+	}
+	&-40 {
+		font-size: 40px;
+		line-height: 48px;
+	}
+}
+
+.fw {
+	&-300 {
+		font-weight: 300;
+	}
+	&-900 {
+		font-weight: 900;
+	}
+}
+
+.p{
+	&-t{
+		&-130{
+			padding-top: 130px;
+			@media (max-width: 767px) {
+				padding-top: 40px;
+			}
+		}
+		&-140{
+			padding-top: 140px;
+			@media (max-width: 767px) {
+				padding-top: 40px;
+			}
+		}
+		&-150{
+			padding-top: 150px;
+			@media (max-width: 767px) {
+				padding-top: 40px;
+			}
+		}
+	}
+}
+
+.max {
+	&-935 { 
+		max-width: 935px;
+		margin: 0 auto;
+	}
+	&-145{
+		max-width: 145px;
+	}
+	&-470{
+		max-width: 470px;
+	}
+	&-275{
+		@media(min-width: 768px){
+			max-width: 275px;
+		}
+	}
+}
+
+.min{
+	&-25{
+		min-width: 25px;
+	}
+	&-70{
+		min-width: 70px;
+	}
+}
+
+.section-title{
+	font-size: 18px;
+	color: #090909;
+	font-weight: 800;
+	text-transform: uppercase;
+}

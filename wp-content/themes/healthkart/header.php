@@ -23,15 +23,29 @@ do_action( 'genesis_doctype' );
  *
  * @since 1.0.0
  */
-do_action( 'genesis_title' );
+do_action( 'genesis_title' ); 
 
 /**
  * Fires immediately after `genesis_title` action hook, in header.php to render the meta elements.
  *
  * @since 1.0.0
  */
-do_action( 'genesis_meta' );
-
+//do_action( 'genesis_meta' ); ?>
+	<!-- facebook -->
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content= "<?php echo get_the_title() ?>" />
+	<meta property="og:url" content= "<?php echo get_the_permalink() ?> "/>
+	<meta property="og:description" content= "<?php echo get_the_excerpt() ?>" />
+	<meta property="og:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" />
+	<!-- /facebook -->
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content= "<?php echo get_the_title() ?>" >
+	<meta name="twitter:description" content= "<?php echo get_the_excerpt() ?>" >
+	<meta name="twitter:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" >
+	<!-- /Twitter -->
+	<!-- / end of meta tags -->
+<?php
 wp_head(); // We need this for plugins.
 ?>
 </head>
@@ -101,7 +115,7 @@ do_action( 'genesis_after_header' );
 							   	$custom_logo_id = get_theme_mod( 'custom_logo' );
 							   	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 					      	?>
-							<a href="<?php echo get_site_url(); ?>/"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
+							<a href="<?php echo get_site_url(); ?>/" class="d-flex align-items-center"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
 							<span class="pr-4 f-24 font-weight-500">Blog</span></a>
 						</div>
 						<div class="input-group">

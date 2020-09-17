@@ -69,6 +69,15 @@
 							display: none;
 						}
 					}
+					a{
+						color: black;
+						&:hover{
+							text-decoration: none;
+						}
+						&:focus{
+							outline: 0;
+						}
+					}
 					img{
 						@media (max-width: 991px){
 							max-width: 145px;

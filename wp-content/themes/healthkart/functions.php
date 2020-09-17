@@ -204,7 +204,7 @@ add_action( 'wp_enqueue_scripts', 'my_child_theme_scripts' );
 function my_child_theme_scripts() {
     wp_enqueue_style( 'parent-theme-css', get_stylesheet_directory_uri() . '/style.css' );
  	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '', false);
- 	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', array(), '', false);
+ 	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=5.4.2', array(), '', false);
     wp_enqueue_style('font-family', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">', array(), '', false);
 }
 //* this will bring in the Genesis Parent files needed:
@@ -236,6 +236,102 @@ function register_menus() {
 		)
 	);
 }
-	
+
+
+
+
 add_action('init', 'register_menus');
 
+add_shortcode( 'banner', function(){?>
+	<p>test</p>
+<?php });
+
+add_shortcode( 'related-articles', function(){?>
+<div class="related-articles">
+	<div class="section-title pb-3">Related Articles</div>
+		<?php
+
+		$args = array(
+		'posts_per_page' => 3,
+		'post__not_in'   => array( get_the_ID() ),
+		'no_found_rows'  => true, 
+		);
+
+		// Check for current post category and add tax_query to the query arguments
+		$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
+		$cats_ids = array();  
+		foreach( $cats as $wpex_related_cat ) {
+		$cats_ids[] = $wpex_related_cat->term_id; 
+		}
+		if ( ! empty( $cats_ids ) ) {
+		$args['category__in'] = $cats_ids;
+		}
+
+		// Query posts
+		$wpex_query = new wp_query( $args );
+
+		// Loop through posts
+		foreach( $wpex_query->posts as $post ) : setup_postdata( $post );  ?>
+
+			<div class="recent-post">
+				<div class="row py-4">
+					<div class="col-md-4">
+						<div class="recent-post-featured-img">
+							<a href="<?php the_permalink(); ?>">
+								<?php
+								// $post_thumbnail_url = get_the_post_thumbnail_url($attachment_id,'post-thumb');
+								$post_title = get_the_title();
+
+								?>
+								<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<span>
+							<span class="category">
+							<?php the_category(' , '); ?>
+							</span>
+							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+							<span class="last-read">2 MINS READ</span>
+							</span>
+						<div class="recent-post-header">
+							<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+	<?php endforeach; ?>
+</div>
+<?php });
+
+add_shortcode( 'form', function(){?>
+	<div class="form-wrapper">
+		<div class="wrap">
+			<h2 class="form-title">Ask A Question</h2>
+			<div class="form-group">
+				<label for="category">Select Topic</label>
+				<select class="form-control" id="category">
+					<option>BodyBuilding</option>
+					<option>HealthyLiving</option>
+					<option>Weightloss</option>
+					<option>Celebrity</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="comment">What's your question</label>
+	  			<textarea class="form-control" rows="5" id="comment" placeholder="Please specify in detail"></textarea>
+			</div>
+			<button type="submit" class="hk-btn">Submit Question</button>
+		</div>
+		<hr>
+		<div class="wrap">
+			<h2 class="form-title">Subscribe to Healthkart Blog</h2>
+			<p>We’ll email you the latest developments about the Fitness & nutrition and Muscleblaze’s top health news stories, daily.</p>
+			<div class="form-group">
+		      	<input type="email" class="form-control" id="email" placeholder="Enter email">
+			</div>
+			<button type="submit" class="hk-btn">Subscribe Now</button>
+		</div>
+	</div>
+<?php });

@@ -5,8 +5,15 @@
 			margin: 20px 0;
 			a{
 				font-size: 13px;
-				padding: 0 10px;
 			    color: rgba(0, 0, 0,0.3);
+			    &:hover{
+			    	text-decoration: none;
+			    }
+			    &:after{
+		    	    content: "/";
+				    margin: 0 10px;
+    				color: rgba(0, 0, 0,0.3);
+			    }
 			}
 			.breadcrumb-title{
 				font-size: 13px;
@@ -20,46 +27,60 @@
 		    font-weight: 400;
 		}
 	}
-	.section-title{
-		font-size: 18px;
-		color: #090909;
-		font-weight: 800;
-		text-transform: uppercase;
-	}
 	.single_post_page{
-		.entry-header{
-			.category{
-				margin: 10px 0;
-				a{
-					color: #00bfbf;
-					font-weight: 500;
-					font-size: 14px;
-				}
-			}
-			.last-read{
-				color: rgba(0,0,0,0.49);
+		.category{
+			margin: 10px 0;
+			a{
+				color: #00bfbf;
+				font-weight: 500;
 				font-size: 14px;
-				line-height: 26px;
-				padding-left: 20px;
+			    line-height: 18px;
+			    &:hover{
+			    	text-decoration: none;
+			    }
 			}
+		}
+		.dot{
+		    padding: 0 8px;
+			i{
+				font-size: 5px;
+				vertical-align: middle;
+			}
+		}
+		.last-read{
+			color: rgba(0,0,0,0.49);
+			font-size: 14px;
+			line-height: 26px;
 		}
 		.entry-title{
 			font-size: 33px;
-			line-height: 39px;
+			line-height: 44px;
 			font-weight: bold;
-			margin-top: 10px;
+			margin-top: 15px;
 			@media (max-width: 767px){
-				font-size: 24px;
-				line-height: 30px;
+				font-size: 26px;
+				line-height: 33px;
 			}
 		}
 		h2{
 			font-size: 26px;
 			line-height: 30px;
+		    padding: 15px 0;
 		}
-		.entry-content{
-		    font-size: 14px;
-   			line-height: 30px;
+		.entry-content {
+			p, span{
+			    font-size: 14px !important;
+			    font-family: 'Roboto', sans-serif !important;
+	   			line-height: 30px;
+	   			padding-bottom: 10px;
+   			}
+   			ul, ol{
+   				li{
+				    font-size: 14px !important;
+		   			line-height: 30px;
+		   			padding-bottom: 10px;
+   				}
+   			}
 		}
 		.share{
 			margin: 30px 0;
@@ -71,10 +92,48 @@
 			align-items: center;
 			&-icons{
 				color: #9c9c9c;
+				span{
+					font-size: 12px;
+				}
+				a{
+					color: #9c9c9c;
+					i{
+						font-size: 18px;
+						padding-right: 14px;
+						cursor: pointer;
+					}
+					&:hover{
+						text-decoration: none;
+					}
+				}
 			}
 			@media (max-width: 767px){ 
 				display: block;
 				text-align: left;
+			}
+		}
+		.latest-reads{
+			 margin: 60px 0 30px;
+			.recent-post{
+			    border-top: 1px solid #bfbfbf;
+				&-header{
+					.title{
+						padding: 0;
+						a{
+							font-size: 18px;
+							line-height: 26px;
+							font-weight: 900;
+							color: black;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+					}
+				}
+				&-excerpt{
+					font-size: 14px;
+					line-height: 22px;
+				}
 			}
 		}
 	}

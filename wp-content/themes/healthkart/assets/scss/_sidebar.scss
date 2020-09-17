@@ -1,0 +1,87 @@
+.sidebar{
+	float: none;
+	width: 100%;
+	.form-wrapper{
+		background: #F2F2F2;
+		padding: 26px;
+		.wrap{
+			padding-bottom: 30px;
+			.form-title{
+				font-size: 18px;
+				line-height: 24px;
+				color: black;
+				font-weight: 800;
+				text-transform: capitalize;
+			}
+		    label{
+		    	font-size: 16px;
+				color: #1D252D;
+			    margin: 10px 0 15px;
+		    }
+		    p{
+	    	    font-size: 14px;
+		    }
+		    input, textarea{
+		    	&::placeholder{
+		    		color: rgba(80, 109, 133, 0.8);
+		    	}
+		    }
+		    textarea{
+		    	border-radius: 8px;
+		    }
+			.form-control{
+				border: 1px solid #BCCCDB;
+				padding: 10px;
+				box-shadow: 0px 0px 30px 0px #1D252D0A;
+			    color: #506D85;
+			}
+			.hk-btn{
+				background: #18C7C7;
+				height: 48px;
+				border-radius: 4px;
+			    width: 100%;
+			    text-transform: uppercase;
+			    font-size: 15px;
+			    line-height: 20px;
+			    letter-spacing: 0.6px;
+			}
+			&:first-child{
+				.form-title{
+					border-bottom: 1px solid #bfbfbf;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+	.related-articles{
+		.section-title{
+			border-bottom: 1px solid #707070;
+		}
+		.recent-post{
+			border-bottom: 1px solid #bfbfbf;
+			.category{
+				a{
+					font-size: 12px;
+				}
+			}
+			.last-read{
+				font-size: 12px;
+			}
+			h2.title{
+				padding: 0;
+				a{
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 900;
+					color: black;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+			&:last-child{
+				border-bottom: 0;
+			}
+		}
+	}
+}

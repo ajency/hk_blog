@@ -18,14 +18,15 @@ get_header();
 
 ?>
 
-<div class="single-post">
+<div class="single-post pt-25">
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
-  						<a href="<?php echo get_site_url(); ?>/">Home</a> <span class="sep-icon">/</span> 
-  						<span><?php the_category(' , '); ?><span class="sep-icon">/</span> <span class="breadcrumb-title"><?php the_title(); ?></span></span>
+  						<a href="<?php echo get_site_url(); ?>/"><i class="fa fa-home" aria-hidden="true"></i></a>
+  						<?php the_category(' , '); ?>
+  						<span class="breadcrumb-title"><?php the_title(); ?></span>
   					</div>
   				</div>
 			</div>
@@ -34,43 +35,116 @@ get_header();
 
 	<div class="single_post_page">
 		<div class="container">
-			<div class="col-md-8">
-				<?php if ( have_posts() ) : ?>
-					<?php			
-					while ( have_posts() ) :
-					  the_post();
-					?>
-						<div class="blog_featured_img">
-							<?php
-							if ( has_post_thumbnail() ) :
-							the_post_thumbnail( 'medium-large' );
-							endif;
-							?>
-						</div>
-						<header class="entry-header">
-							<span><span class="category"><?php the_category(' , '); ?><span class="last-read">2 Min Read</span></span>
-							<h2 class="entry-title"><?php the_title(); ?></h2>
-						</header>
-						<div class="entry-content"><?php the_content(); ?></div>  
-						<span class="entry-tags"><?php the_tags( null, ''); ?></span>
-						<div class="share">
-							<div class="share-title section-title"> Share </div>
-							<div class="share-icons">
-								<!-- <i class="fa fa-envelope" aria-hidden="true"></i>
-								<i class="fa fa-facebook" aria-hidden="true"></i>
-								<i class="fa fa-twitter" aria-hidden="true"></i>
-								<i class="fa fa-pinterest-p" aria-hidden="true"></i>
-								<i class="fa fa-reddit" aria-hidden="true"></i>
-								<span>FEEDBACK</span>
-								<i class="fa fa-smile-o" aria-hidden="true"></i>
-								<i class="fa fa-frown-o" aria-hidden="true"></i> -->
+			<div class="row">
+				<div class="col-md-8">
+					<?php if ( have_posts() ) : ?>
+						<?php			
+						while ( have_posts() ) :
+						  the_post();
+						?>
+							<div class="blog_featured_img">
+								<?php
+								if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'medium-large' );
+								endif;
+								?>
 							</div>
-						</div>
-						<div class="post-list-view">
-							<div class="section-title">Read these next</div>
-						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
+							<header class="entry-header">
+								<span>
+									<span class="category">
+										<?php the_category(' , '); ?>
+									</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="last-read">2 MINS READ</span>
+								</span>
+								<h2 class="entry-title"><?php the_title(); ?></h2>
+							</header>
+							<div class="entry-content"><?php the_content(); ?></div>  
+							  <?php 
+                                $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
+                                $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
+                            ?>
+							<div class="share">
+								<div class="share-title section-title"> Share </div>
+								<div class="share-icons">
+									<a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									</a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+									<i class="fa fa-reddit" aria-hidden="true"></i>
+									<span class="ml-2">FEEDBACK:</span>
+									<i class="fa fa-smile-o mr-1" aria-hidden="true"></i>
+									<i class="fa fa-frown-o" aria-hidden="true"></i>
+								</div>
+							</div>
+							<div class="latest-reads">
+								<div class="section-title pb-3">Read these next</div>
+								<?php
+
+									$args = array(
+										'posts_per_page' => 3,
+										'post__not_in'   => array( get_the_ID() ),
+										'no_found_rows'  => true, 
+									);
+
+									// Check for current post category and add tax_query to the query arguments
+									$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
+									$cats_ids = array();  
+									foreach( $cats as $wpex_related_cat ) {
+										$cats_ids[] = $wpex_related_cat->term_id; 
+									}
+									if ( ! empty( $cats_ids ) ) {
+										$args['category__in'] = $cats_ids;
+									}
+
+									// Query posts
+									$wpex_query = new wp_query( $args );
+
+									// Loop through posts
+									foreach( $wpex_query->posts as $post ) : setup_postdata( $post );  ?>
+									
+											<div class="col-12 recent-post p-0">
+												<div class="row py-4">
+													<div class="col-md-4">
+														<div class="recent-post-featured-img">
+															<a href="<?php the_permalink(); ?>">
+																<?php
+																	$post_thumbnail_url = get_the_post_thumbnail_url($attachment_id,'post-thumb');
+																	$post_title = get_the_title();
+															       
+																?>
+																<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
+															</a>
+														</div>
+													</div>
+													<div class="col-md-8">
+														<span>
+															<span class="category">
+																<?php the_category(' , '); ?>
+															</span>
+															<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+															<span class="last-read">2 MINS READ</span>
+														</span>
+														<div class="recent-post-header">
+															<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+														</div>
+														<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 15, '...'); ?>
+														</div>
+													</div>
+												</div>
+											</div>
+									<?php endforeach; ?>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-4">
+					<?php
+	                    get_sidebar();
+	                ?>
+				</div>
 			</div>
 		</div>
 	</div>
