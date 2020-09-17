@@ -34,42 +34,44 @@ get_header();
 
 	<div class="single_post_page">
 		<div class="container">
-			<?php if ( have_posts() ) : ?>
-				<?php			
-				while ( have_posts() ) :
-				  the_post();
-				?>
-					<div class="blog_featured_img">
-						<?php
-						if ( has_post_thumbnail() ) :
-						the_post_thumbnail( 'medium-large' );
-						endif;
-						?>
-					</div>
-					<header class="entry-header">
-						<span><span class="category"><?php the_category(' , '); ?><span class="last-read">2 Min Read</span></span>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
-					</header>
-					<div class="entry-content"><?php the_content(); ?></div>  
-					<span class="entry-tags"><?php the_tags( null, ''); ?></span>
-					<div class="share">
-						<div class="share-title section-title"> Share </div>
-						<div class="share-icons">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-							<i class="fa fa-facebook" aria-hidden="true"></i>
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-							<i class="fa fa-pinterest-p" aria-hidden="true"></i>
-							<i class="fa fa-reddit" aria-hidden="true"></i>
-							<span>FEEDBACK</span>
-							<i class="fa fa-smile-o" aria-hidden="true"></i>
-							<i class="fa fa-frown-o" aria-hidden="true"></i>
+			<div class="col-md-8">
+				<?php if ( have_posts() ) : ?>
+					<?php			
+					while ( have_posts() ) :
+					  the_post();
+					?>
+						<div class="blog_featured_img">
+							<?php
+							if ( has_post_thumbnail() ) :
+							the_post_thumbnail( 'medium-large' );
+							endif;
+							?>
 						</div>
-					</div>
-					<div class="post-list-view">
-						<div class="section-title">Read these next</div>
-					</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
+						<header class="entry-header">
+							<span><span class="category"><?php the_category(' , '); ?><span class="last-read">2 Min Read</span></span>
+							<h2 class="entry-title"><?php the_title(); ?></h2>
+						</header>
+						<div class="entry-content"><?php the_content(); ?></div>  
+						<span class="entry-tags"><?php the_tags( null, ''); ?></span>
+						<div class="share">
+							<div class="share-title section-title"> Share </div>
+							<div class="share-icons">
+								<!-- <i class="fa fa-envelope" aria-hidden="true"></i>
+								<i class="fa fa-facebook" aria-hidden="true"></i>
+								<i class="fa fa-twitter" aria-hidden="true"></i>
+								<i class="fa fa-pinterest-p" aria-hidden="true"></i>
+								<i class="fa fa-reddit" aria-hidden="true"></i>
+								<span>FEEDBACK</span>
+								<i class="fa fa-smile-o" aria-hidden="true"></i>
+								<i class="fa fa-frown-o" aria-hidden="true"></i> -->
+							</div>
+						</div>
+						<div class="post-list-view">
+							<div class="section-title">Read these next</div>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </div>

@@ -24,7 +24,7 @@
 						line-height: 20px;
 						display: inline-block;
 						position: relative;
-						font-weight: 300;
+						font-weight: 400;
 						padding: 0 10px;
 						color: #626262;
 						text-decoration: none;
@@ -186,6 +186,9 @@
 						padding: 8px 0;
 						&:hover{
 							color: #212121;
+						}
+						&:focus{
+							outline: 0;
 						}
 					}
 					@media (min-width: 992px){
@@ -353,6 +356,9 @@
 							}
 						}
 					}
+				}
+				&:focus{
+					outline: 0;
 				}
 				@media (max-width: 991px){
 					display: none;
