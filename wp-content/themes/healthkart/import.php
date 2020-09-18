@@ -4,13 +4,14 @@
 * Template Name: Import
 * The template for migrating data
 */
+set_time_limit(0);
 require_once("../../../wp-load.php");
 require_once( '../../../wp-admin/includes/post.php' );
 require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
+$nodes = $mydb->get_results("select * from node where nid=9439 and type in ('".implode("','", array_keys($post_types))."')");
 $x=1;
 foreach ($nodes as $node) {
 	$field_data_body = $mydb->get_row("select * from field_data_body where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
@@ -29,8 +30,10 @@ foreach ($nodes as $node) {
 					$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_upload_image->field_upload_image_fid."'");
 					if($file_managed){
 						$media_id = add_image($file_managed->uri, $field_data_field_upload_image->field_upload_image_alt, $field_data_field_upload_image->field_upload_image_title);
-						$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".wp_get_attachment_image_src( $media_id, 'full' )[0]."'></div></div></div>";
-						$body .= $image_markup;
+						if($media_id){
+							$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".wp_get_attachment_image_src( $media_id, 'full' )[0]."'></div></div></div>";
+							$body .= $image_markup;
+						}
 					}
 				}
 			}
@@ -75,7 +78,9 @@ foreach ($nodes as $node) {
 		$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_image->field_image_fid."'");
 		if($file_managed){
 			$media_id = add_image($file_managed->uri, $field_data_field_image->field_image_alt, $field_data_field_image->field_image_title);
-			add_post_meta($post_id, '_thumbnail_id', $media_id);
+			if($media_id){
+				add_post_meta($post_id, '_thumbnail_id', $media_id);
+			}
 		}
 	}
 	

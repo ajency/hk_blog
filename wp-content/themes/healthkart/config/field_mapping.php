@@ -226,10 +226,11 @@ function add_image($image_name, $alt, $title){
 		$image_url = "https://img1.hkrtcdn.com/ff/". $image_name ;
 	}
 
-	$upload_dir = wp_upload_dir();
-
 	$image_data = get_data( $image_url );
-
+	if(!$image_data){
+		return false;
+	}
+	$upload_dir = wp_upload_dir();
 	$filename = basename( $image_url );
 
 	if ( wp_mkdir_p( $upload_dir['path'] ) ) {
@@ -274,7 +275,7 @@ function get_data($url) {
 	if (!$html) {
 	    echo "<br />cURL error number:" .curl_errno($ch);
 	    echo "<br />cURL error:" . curl_error($ch);
-	    exit;
+	    return false;
 	}
 	else{
 	    return $html;
