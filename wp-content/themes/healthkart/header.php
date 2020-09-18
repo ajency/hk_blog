@@ -32,6 +32,7 @@ do_action( 'genesis_title' );
  */
 //do_action( 'genesis_meta' ); ?>
 	<!-- facebook -->
+	<meta property="fb:app_id" content="<?php echo FB_APP_ID; ?>"/>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content= "<?php echo get_the_title() ?>" />
 	<meta property="og:url" content= "<?php echo get_the_permalink() ?> "/>

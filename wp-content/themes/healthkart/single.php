@@ -17,6 +17,15 @@
 get_header(); 
 
 ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo FB_APP_ID; ?>";
+ fjs.parentNode.insertBefore(js, fjs); }
+(document, 'script', 'facebook-jssdk'));
+</script>
 
 <div class="single-post pt-25">
 	<div class="header_image position-relative">
@@ -145,6 +154,7 @@ get_header();
 	                ?>
 				</div>
 			</div>
+			<div class="fb-comments" data-href="<?php the_permalink() ?>"></div>
 		</div>
 	</div>
 </div>
