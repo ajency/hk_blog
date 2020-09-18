@@ -107,7 +107,7 @@ get_header();
 									
 											<div class="col-12 recent-post p-0">
 												<div class="row py-4">
-													<div class="col-md-4">
+													<div class="col-md-3">
 														<div class="recent-post-featured-img">
 															<a href="<?php the_permalink(); ?>">
 																<?php
@@ -118,7 +118,7 @@ get_header();
 															</a>
 														</div>
 													</div>
-													<div class="col-md-8">
+													<div class="col-md-9">
 														<span>
 															<span class="category">
 																<?php the_category(' , '); ?>
@@ -129,7 +129,7 @@ get_header();
 														<div class="recent-post-header">
 															<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 														</div>
-														<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 15, '...'); ?>
+														<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
 														</div>
 													</div>
 												</div>
