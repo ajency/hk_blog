@@ -243,67 +243,69 @@ function register_menus() {
 add_action('init', 'register_menus');
 
 add_shortcode( 'banner', function(){?>
-	<p>test</p>
+	<div class="banner-image">
+		
+	</div>
 <?php });
 
 add_shortcode( 'related-articles', function(){?>
 <div class="related-articles">
 	<div class="section-title pb-3">Related Articles</div>
-		<?php
+		<?php 
+			global $post;
+			$tags = wp_get_post_tags($post->ID);
+			if ($tags) {
 
-		$args = array(
-		'posts_per_page' => 3,
-		'post__not_in'   => array( get_the_ID() ),
-		'no_found_rows'  => true, 
-		);
+			$tag_ids = array();
+			foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+			$args=array(
+			'tag__in' => $tag_ids,
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>4, // Number of related posts that will be shown.
+			'ignore_sticky_posts'=>1
+			);
 
-		// Check for current post category and add tax_query to the query arguments
-		$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
-		$cats_ids = array();  
-		foreach( $cats as $wpex_related_cat ) {
-		$cats_ids[] = $wpex_related_cat->term_id; 
-		}
-		if ( ! empty( $cats_ids ) ) {
-		$args['category__in'] = $cats_ids;
-		}
+			$my_query = new wp_query( $args );
+			if( $my_query->have_posts() ) {
 
-		// Query posts
-		$wpex_query = new wp_query( $args );
+				while( $my_query->have_posts() ) {
+				$my_query->the_post(); ?>
 
-		// Loop through posts
-		foreach( $wpex_query->posts as $post ) : setup_postdata( $post );  ?>
+					<div class="recent-post">
+						<div class="row py-4">
+							<div class="col-md-4">
+								<div class="recent-post-featured-img">
+									<a href="<?php the_permalink(); ?>">
+										<?php
+										// $post_thumbnail_url = get_the_post_thumbnail_url($attachment_id,'post-thumb');
+										$post_title = get_the_title();
 
-			<div class="recent-post">
-				<div class="row py-4">
-					<div class="col-md-4">
-						<div class="recent-post-featured-img">
-							<a href="<?php the_permalink(); ?>">
-								<?php
-								// $post_thumbnail_url = get_the_post_thumbnail_url($attachment_id,'post-thumb');
-								$post_title = get_the_title();
-
-								?>
-								<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
-							</a>
+										?>
+										<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
+									</a>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<span>
+									<span class="category">
+									<?php the_category(' , '); ?>
+									</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="last-read">2 MINS READ</span>
+									</span>
+								<div class="recent-post-header">
+									<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-8">
-						<span>
-							<span class="category">
-							<?php the_category(' , '); ?>
-							</span>
-							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-							<span class="last-read">2 MINS READ</span>
-							</span>
-						<div class="recent-post-header">
-							<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						</div>
-					</div>
-				</div>
-			</div>
-	<?php endforeach; ?>
-</div>
+				<?php } ?>
+			<?php } ?>
+		<?php } ?>	
+	</div>
 <?php });
+
+
 
 add_shortcode( 'form', function(){?>
 	<div class="form-wrapper">

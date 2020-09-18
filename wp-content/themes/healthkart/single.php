@@ -42,13 +42,6 @@ get_header();
 						while ( have_posts() ) :
 						  the_post();
 						?>
-							<div class="blog_featured_img">
-								<?php
-								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'medium-large' );
-								endif;
-								?>
-							</div>
 							<header class="entry-header">
 								<span>
 									<span class="category">
@@ -59,6 +52,13 @@ get_header();
 								</span>
 								<h2 class="entry-title"><?php the_title(); ?></h2>
 							</header>
+							<div class="blog_featured_img my-4">
+								<?php
+								if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'medium-large' );
+								endif;
+								?>
+							</div>
 							<div class="entry-content"><?php the_content(); ?></div>  
 							  <?php 
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
@@ -111,11 +111,10 @@ get_header();
 														<div class="recent-post-featured-img">
 															<a href="<?php the_permalink(); ?>">
 																<?php
-																	$post_thumbnail_url = get_the_post_thumbnail_url($attachment_id,'post-thumb');
+																	$image = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID()), 'thumbnail' );
 																	$post_title = get_the_title();
-															       
 																?>
-																<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
+																<img src="<?php echo $image[0] ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
 															</a>
 														</div>
 													</div>
