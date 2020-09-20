@@ -11,7 +11,7 @@ add_shortcode( 'related-articles', function(){?>
 		<?php 
 			global $post;
 			$tags = wp_get_post_tags($post->ID);
-			if ($tags) :
+			if ($tags) {
 
 			$tag_ids = array();
 			foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
@@ -30,24 +30,21 @@ add_shortcode( 'related-articles', function(){?>
 
 					<div class="recent-post">
 						<div class="row py-4">
-							<div class="col-md-5">
+							<div class="col-md-3">
 								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>">
-										<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail();
-										} else { ?>
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+		
+										<img src="<?php echo $post_thumbnail_url ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
 									</a>
 								</div>
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-9">
 								<span>
 									<span class="category">
 									<?php the_category(' , '); ?>
 									</span>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-									<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
+									<span class="last-read">2 MINS READ</span>
 									</span>
 								<div class="recent-post-header">
 									<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -57,9 +54,7 @@ add_shortcode( 'related-articles', function(){?>
 					</div>
 				<?php } ?>
 			<?php } ?>
-			<?php else : ?>
-			<p class="no-post"><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-			<?php endif; ?>
+		<?php } ?>	
 	</div>
 <?php });
 

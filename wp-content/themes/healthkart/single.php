@@ -45,22 +45,25 @@ get_header();
 	<div class="single_post_page">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
-					<?php if ( have_posts() ) : ?>
-						<?php			
-						while ( have_posts() ) :
-						  the_post();
-						?>
-							<header class="entry-header">
-								<span>
-									<span class="category">
-										<?php the_category(' , '); ?>
-									</span>
-									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-									<span class="last-read">2 MINS READ</span>
+				<?php if ( have_posts() ) : ?>
+					<?php			
+					while ( have_posts() ) :
+					  the_post();
+					?>
+						<header class="entry-header">
+							<span>
+								<span class="category">
+									<?php the_category(' , '); ?>
 								</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
+							</span>
+							<div class="post-title">
 								<h2 class="entry-title"><?php the_title(); ?></h2>
-							</header>
+								<span class="date f-12 text-black"><?php the_author(); ?></span>
+							</div>
+						</header>
+						<div class="col-md-8">
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
@@ -119,11 +122,11 @@ get_header();
 													<div class="col-md-3">
 														<div class="recent-post-featured-img">
 															<a href="<?php the_permalink(); ?>">
-																<?php
-																	$image = wp_get_attachment_image_src(get_post_thumbnail_id( get_the_ID()), 'thumbnail' );
-																	$post_title = get_the_title();
-																?>
-																<img src="<?php echo $image[0] ?>" alt="<?php echo $post_title;?>" title="<?php echo $post_title;?>">
+																<?php if ( has_post_thumbnail() ) {
+																the_post_thumbnail();
+																} else { ?>
+																<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
+																<?php } ?>
 															</a>
 														</div>
 													</div>
@@ -133,7 +136,7 @@ get_header();
 																<?php the_category(' , '); ?>
 															</span>
 															<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-															<span class="last-read">2 MINS READ</span>
+															<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
 														</span>
 														<div class="recent-post-header">
 															<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -145,9 +148,9 @@ get_header();
 											</div>
 									<?php endforeach; ?>
 							</div>
-						<?php endwhile; ?>
-					<?php endif; ?>
-				</div>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
 				<div class="col-md-4">
 					<?php
 	                    get_sidebar();

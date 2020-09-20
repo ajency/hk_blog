@@ -240,3 +240,23 @@ function register_menus() {
 
 add_action('init', 'register_menus');
 
+/**
+ * Function calculate the estimates reading time of the post content.
+ * @param string $content Post content.
+ * @return string estimated reading time.
+ */
+function get_estimated_reading_time( $content = '') {
+    $wpm = 265;
+    $text_content = strip_shortcodes( $content );   // Remove shortcodes
+    $str_content = strip_tags( $text_content );     // remove tags
+    $word_count = str_word_count( $str_content );
+    $readtime = ceil( $word_count / $wpm );
+
+    if ($readtime == 1) {
+        $postfix = " MIN READ";
+    } else {
+        $postfix = " MINS READ";
+    }
+    $readingtime = $readtime . $postfix;
+    return $readingtime;
+}
