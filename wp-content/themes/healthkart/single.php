@@ -17,7 +17,7 @@
 get_header(); 
 
 ?>
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
  if (d.getElementById(id)) return;
@@ -26,7 +26,7 @@ get_header();
  fjs.parentNode.insertBefore(js, fjs); }
 (document, 'script', 'facebook-jssdk'));
 </script>
-
+ -->
 <div class="single-post pt-25">
 	<div class="header_image position-relative">
 		<div class="header">
@@ -50,7 +50,7 @@ get_header();
 					while ( have_posts() ) :
 					  the_post();
 					?>
-						<header class="entry-header">
+						<header class="entry-header col-12">
 							<span>
 								<span class="category">
 									<?php the_category(' , '); ?>
@@ -60,10 +60,18 @@ get_header();
 							</span>
 							<div class="post-title">
 								<h2 class="entry-title"><?php the_title(); ?></h2>
-								<span class="date f-12 text-black"><?php the_author(); ?></span>
+								<div class="d-flex flex-row align-items-center author">
+									<div class="author-image">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg">
+									</div>
+									<div class="">
+										<div class="date f-12 text-black font-weight-bold">Written By <?php the_author(); ?></div>
+										<div class="role f-12">Fitness Expert</div>
+									</div>
+								</div>
 							</div>
 						</header>
-						<div class="col-md-8">
+						<div class="col-md-8 col-12">
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
@@ -76,82 +84,40 @@ get_header();
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
                                 $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
                             ?>
-							<div class="share">
+							<div class="share share-desktop">
 								<div class="share-title section-title"> Share </div>
 								<div class="share-icons">
+									<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a>
 									<a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
 									<i class="fa fa-envelope" aria-hidden="true"></i>
 									</a>
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 									<a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-									<i class="fa fa-reddit" aria-hidden="true"></i>
+									<a href=""><i class="fa fa-reddit" aria-hidden="true"></i></a>
 									<span class="ml-2">FEEDBACK:</span>
 									<i class="fa fa-smile-o mr-1" aria-hidden="true"></i>
 									<i class="fa fa-frown-o" aria-hidden="true"></i>
 								</div>
 							</div>
+							<div class="share share-mob">
+								<div class="share-title section-title"> Share Article </div>
+								<div class="share-icons">
+									<a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+									<i class="fa fa-envelope" aria-hidden="true"></i>
+									</a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+								</div>
+							</div>
 							<div class="latest-reads">
-								<div class="section-title pb-3">Read these next</div>
-								<?php
-
-									$args = array(
-										'posts_per_page' => 3,
-										'post__not_in'   => array( get_the_ID() ),
-										'no_found_rows'  => true, 
-									);
-
-									// Check for current post category and add tax_query to the query arguments
-									$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
-									$cats_ids = array();  
-									foreach( $cats as $wpex_related_cat ) {
-										$cats_ids[] = $wpex_related_cat->term_id; 
-									}
-									if ( ! empty( $cats_ids ) ) {
-										$args['category__in'] = $cats_ids;
-									}
-
-									// Query posts
-									$wpex_query = new wp_query( $args );
-
-									// Loop through posts
-									foreach( $wpex_query->posts as $post ) : setup_postdata( $post );  ?>
-									
-											<div class="col-12 recent-post p-0">
-												<div class="row py-4">
-													<div class="col-md-3">
-														<div class="recent-post-featured-img">
-															<a href="<?php the_permalink(); ?>">
-																<?php if ( has_post_thumbnail() ) {
-																the_post_thumbnail();
-																} else { ?>
-																<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
-																<?php } ?>
-															</a>
-														</div>
-													</div>
-													<div class="col-md-9">
-														<span>
-															<span class="category">
-																<?php the_category(' , '); ?>
-															</span>
-															<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-															<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
-														</span>
-														<div class="recent-post-header">
-															<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-														</div>
-														<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
-														</div>
-													</div>
-												</div>
-											</div>
-									<?php endforeach; ?>
+								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<div class="col-md-4">
+				<div class="col-md-4 col-12">
 					<?php
 	                    get_sidebar();
 	                ?>

@@ -23,6 +23,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 .f-12{
 	font-size: 12px;
 }
+.f-14{
+	font-size: 14px;
+}
 .f-18{
 	font-size: 18px;
 	@media (max-width: 767px){
@@ -63,4 +66,12 @@ strong{
 }
 .content-sidebar-wrap{
     padding: 60px 0;
+}
+a{
+	&:hover{
+		text-decoration: none;
+	}
+	&:focus{
+		outline: 0;
+	}
 }

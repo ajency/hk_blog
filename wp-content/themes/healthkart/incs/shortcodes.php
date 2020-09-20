@@ -5,6 +5,79 @@ add_shortcode( 'banner', function(){?>
 	</div>
 <?php });
 
+
+add_shortcode( 'read-these-next', function(){?>
+	<div class="read-these-next">
+		<div class="section-title pb-3">Read these next</div>
+		<?php
+
+			
+			$args = array(
+				'posts_per_page' => 5,
+				'post__not_in'   => array( get_the_ID() ),
+				'no_found_rows'  => true, 
+			);
+
+			// Check for current post category and add tax_query to the query arguments
+			$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
+			$cats_ids = array();  
+			foreach( $cats as $wpex_related_cat ) {
+				$cats_ids[] = $wpex_related_cat->term_id; 
+			}
+			if ( ! empty( $cats_ids ) ) {
+				$args['category__in'] = $cats_ids;
+			}
+
+			// Query posts
+			$wpex_query = new wp_query( $args );?>
+
+			<?php  // Loop through posts
+			if( $wpex_query->have_posts() ) :
+
+			while( $wpex_query->have_posts() ) :
+			$wpex_query->the_post(); ?>
+
+
+				<div class="col-12 recent-post p-0">
+					<div class="row py-4">
+						<div class="col-md-4 col-12">
+							<div class="recent-post-featured-img">
+								<a href="<?php the_permalink(); ?>">
+									<?php if ( has_post_thumbnail() ) {
+									the_post_thumbnail('thumbnail');
+									} else { ?>
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
+									<?php } ?>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-8 col-12 next-articles">
+							<span>
+								<span class="category">
+									<?php the_category(' , '); ?>
+								</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
+							</span>
+							<div class="recent-post-header">
+								<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							</div>
+							<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
+							</div>
+							<div class="recent-post-icons">
+								<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
+								<span class="mr-3 f-14 comment"><i class="fa fa-comments" aria-hidden="true"></i> 3</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php endwhile; ?>
+			<?php endif; ?>
+
+	</div>
+<?php });
+
+
 add_shortcode( 'related-articles', function(){?>
 <div class="related-articles">
 	<div class="section-title pb-3">Related Articles</div>
@@ -30,25 +103,25 @@ add_shortcode( 'related-articles', function(){?>
 
 					<div class="recent-post">
 						<div class="row py-4">
-							<div class="col-md-5">
+							<div class="col-4">
 								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>">
 										<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail();
+										the_post_thumbnail('thumbnail');
 										} else { ?>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
 										<?php } ?>
 									</a>
 								</div>
 							</div>
-							<div class="col-md-7">
+							<div class="col-8 pl-0">
 								<span>
 									<span class="category">
 									<?php the_category(' , '); ?>
 									</span>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 									<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
-									</span>
+								</span>
 								<div class="recent-post-header">
 									<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
@@ -58,15 +131,15 @@ add_shortcode( 'related-articles', function(){?>
 				<?php } ?>
 			<?php } ?>
 			<?php else : ?>
-			<p class="no-post"><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
 			<?php endif; ?>
 	</div>
 <?php });
 
 
 
-add_shortcode( 'form', function(){?>
-	<div class="form-wrapper">
+add_shortcode( 'Question_form', function(){?>
+	<div class="form-wrapper qna">
 		<div class="wrap">
 			<h2 class="form-title">Ask A Question</h2>
 			<div class="form-group">
@@ -84,7 +157,12 @@ add_shortcode( 'form', function(){?>
 			</div>
 			<button type="submit" class="hk-btn">Submit Question</button>
 		</div>
-		<hr>
+	</div>
+<?php });
+
+
+add_shortcode( 'Subscribe-form', function(){?>
+	<div class="form-wrapper subscribe">
 		<div class="wrap">
 			<h2 class="form-title">Subscribe to Healthkart Blog</h2>
 			<p>We’ll email you the latest developments about the Fitness & nutrition and Muscleblaze’s top health news stories, daily.</p>
