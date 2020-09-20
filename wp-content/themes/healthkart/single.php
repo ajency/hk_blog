@@ -17,7 +17,7 @@
 get_header(); 
 
 ?>
-<!-- <div id="fb-root"></div>
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
  if (d.getElementById(id)) return;
@@ -26,7 +26,7 @@ get_header();
  fjs.parentNode.insertBefore(js, fjs); }
 (document, 'script', 'facebook-jssdk'));
 </script>
- -->
+
 <div class="single-post pt-25">
 	<div class="header_image position-relative">
 		<div class="header">

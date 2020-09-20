@@ -35,7 +35,7 @@ do_action( 'genesis_title' );
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 height=device-height">
 	<!-- facebook -->
-	<!-- <meta property="fb:app_id" content="<?php echo FB_APP_ID; ?>"/> -->
+	<meta property="fb:app_id" content="<?php echo FB_APP_ID; ?>"/>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content= "<?php echo get_the_title() ?>" />
 	<meta property="og:url" content= "<?php echo get_the_permalink() ?> "/>
