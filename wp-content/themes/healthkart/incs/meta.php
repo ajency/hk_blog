@@ -19,12 +19,12 @@ function tmc_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Description',
-        'id'      =>  'hk_description',
+        'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Views',
-        'id'      => 'hk_views',
+        'id'      => $prefix . 'views',
         'type'    => 'text',
         'save_field' => false,
    		'attributes' => array(
@@ -49,32 +49,32 @@ function tmc_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name'             => 'How did you overcome',
-        'id'               => 'hk_how_did_you_overcome',
+        'id'               => $prefix . 'how_did_you_overcome',
         'type'    => 'textarea',
     ) );
     $cmb_term->add_field( array(
         'name'             => 'Accomplish Goal',
-        'id'               => 'hk_accomplish_goal',
+        'id'               => $prefix . 'accomplish_goal',
         'type'    => 'textarea',
     ) );
     $cmb_term->add_field( array(
         'name'             => 'Transform Reason',
-        'id'               => 'hk_transform_reason',
+        'id'               => $prefix . 'transform_reason',
         'type'    => 'textarea',
     ) );
     $cmb_term->add_field( array(
         'name'             => 'Training Routine',
-        'id'               => 'hk_training_routine',
+        'id'               => $prefix . 'training_routine',
         'type'    => 'wysiwyg',
     ) );
         $cmb_term->add_field( array(
         'name'             => 'Future Suggestion',
-        'id'               => 'hk_future_suggestion',
+        'id'               => $prefix . 'future_suggestion',
         'type'    => 'textarea',
     ) );
     $cmb_term->add_field( array(
         'name'             => 'Supplements',
-        'id'               => 'hk_supplements_that_helped',
+        'id'               => $prefix . 'supplements_that_helped',
         'type'    => 'textarea',
     ) );
     $cmb_term = new_cmb2_box( array(
@@ -92,7 +92,7 @@ function tmc_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
-        'id'   => 'hk_age_before_diet',
+        'id'   => $prefix . 'age_before_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -100,7 +100,7 @@ function tmc_post_cpt__metabox() {
     )));
     $cmb_term->add_field( array(
         'name' => 'After',
-        'id'   => 'hk_age_after_diet',
+        'id'   => $prefix . 'age_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -121,7 +121,7 @@ function tmc_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
-        'id'   => 'hk_body_fat_before_diet',
+        'id'   => $prefix . 'body_fat_before_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -129,7 +129,7 @@ function tmc_post_cpt__metabox() {
     )));
     $cmb_term->add_field( array(
         'name' => 'After',
-        'id'   => 'hk_body_fat_after_diet',
+        'id'   => $prefix . 'body_fat_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -150,7 +150,7 @@ function tmc_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
-        'id'   => 'hk_weight_before_diet',
+        'id'   => $prefix . 'weight_before_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -158,10 +158,35 @@ function tmc_post_cpt__metabox() {
     )));
     $cmb_term->add_field( array(
         'name' => 'After',
-        'id'   => 'hk_weight_after_diet',
+        'id'   => $prefix . 'weight_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
             'pattern' => '\d*',
     )));
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'image_metabox',
+        'title'             => 'Image',
+        'object_types'      => array( 'post' ),
+        'show_on_cb' => function($cmb){
+            $response = false;
+            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
+            if($terms) {
+                $response = ($terms[0]->slug == 'transformation');
+            }
+            return $response;
+        },
+    ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Before', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'image_before_diet',
+        'type' => 'file',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'After', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'image_after_diet',
+        'type' => 'file',
+    ) );
 }

@@ -15,7 +15,7 @@ $user_roles = [
 	'content writer' => 'author'
 ];
 $post_types = [
-	'ama' => 'ama',
+	'ama' => 'post',
 	'articles' => 'post',
 	'blog' => 'post',
 	'infographics' => 'post',
@@ -27,6 +27,7 @@ $post_types = [
 $hk_types = [
 	'articles' => 'Articles',
 	'blog' => 'Articles',
+	'ama' => 'Ask me anything',
 	'infographics' => 'Infographics',
 	'video' => 'Videos',
 	'transformation_stories' => 'Transformation',
@@ -149,6 +150,13 @@ $field_mapping = [
 				return str_replace('%', '', $field);
 			}
 		],
+		'hk_ama_video' => [
+			'field' => 'field_data_field_live_ama_video.field_live_ama_video_value',
+			'change' => function($field){
+				preg_match('/src=\"(.*?)\"/', $field, $matches);
+				return isset($matches[1]) ? $matches[1] : '';
+			}
+		],
 		'hk_how_did_you_overcome' => [
 			'field' => 'field_data_field_how_did_you_overcome_these.field_how_did_you_overcome_these_value'
 		],
@@ -157,7 +165,7 @@ $field_mapping = [
 		],
 		'hk_node_id' => [
 			'field' => 	'node.nid'
-		]
+		],
 	],
 	'user' => [
 		'user_email' => [

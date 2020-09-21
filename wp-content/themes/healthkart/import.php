@@ -85,6 +85,42 @@ foreach ($nodes as $node) {
 			}
 		}
 	}
+	$field_data_field_avatar = $mydb->get_row("select * from field_data_field_avatar where entity_id='".$node->nid."'");
+	if($field_data_field_avatar){
+		$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_avatar->field_avatar_fid."'");
+		if($file_managed){
+			$media_id = fetch_image($file_managed->fid, $field_data_field_avatar->field_avatar_alt, $field_data_field_avatar->field_avatar_title);
+			if($media_id){
+				add_post_meta($post_id, '_thumbnail_id', $media_id);
+			}
+		}
+	}
+	$field_data_field_before_img = $mydb->get_row("select * from field_data_field_before_img where entity_id='".$node->nid."'");
+	if($field_data_field_before_img){
+		$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_before_img->field_before_img_fid."'");
+		if($file_managed){
+			$media_id = fetch_image($file_managed->fid, $field_data_field_before_img->field_before_img_alt, $field_data_field_before_img->field_before_img_title);
+			if($media_id){
+				$image_url = wp_get_attachment_image_src( $media_id, 'full' )[0];
+  				$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
+				add_post_meta($post_id, 'hk_image_before_diet', $image_url);
+				add_post_meta($post_id, 'hk_image_before_diet_id', $media_id);
+			}
+		}
+	}
+	$field_data_field_after_img = $mydb->get_row("select * from field_data_field_after_img where entity_id='".$node->nid."'");
+	if($field_data_field_after_img){
+		$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_after_img->field_after_img_fid."'");
+		if($file_managed){
+			$media_id = fetch_image($file_managed->fid, $field_data_field_after_img->field_after_img_alt, $field_data_field_after_img->field_after_img_title);
+			if($media_id){
+				$image_url = wp_get_attachment_image_src( $media_id, 'full' )[0];
+  				$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
+				add_post_meta($post_id, 'hk_image_after_diet', $image_url);
+				add_post_meta($post_id, 'hk_image_after_diet_id', $media_id);
+			}
+		}
+	}
 	
 	$field_data_field_description = $mydb->get_row("select * from field_data_field_description where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_accomplish_goal = $mydb->get_row("select * from field_data_field_accomplish_goal where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
@@ -99,6 +135,7 @@ foreach ($nodes as $node) {
 	$field_data_field_weight_after_diet = $mydb->get_row("select * from field_data_field_weight_after_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_weight_before_diet = $mydb->get_row("select * from field_data_field_weight_before_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_how_did_you_overcome_these = $mydb->get_row("select * from field_data_field_how_did_you_overcome_these where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_live_ama_video = $mydb->get_row("select * from field_data_field_live_ama_video where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$node_counter = $mydb->get_row("select * from node_counter where nid='".$node->nid."'");
 	foreach ($field_mapping['meta'] as $field => $field_data) {
 		$params = explode(".", $field_data['field']);
