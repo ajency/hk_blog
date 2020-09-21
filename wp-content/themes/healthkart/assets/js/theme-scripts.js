@@ -47,8 +47,10 @@ $( document ).ready(function() {
 	}
 	$(window).on("scroll", function() {
 	    if($(window).scrollTop() > 50) {
+	    	$("#site-header").addClass("headerScroll");
 	        $("#site-navigation").addClass("headerScroll");
 	    } else {
+	        $("#site-header").removeClass("headerScroll");
 	        $("#site-navigation").removeClass("headerScroll");
 	    }
 	});
