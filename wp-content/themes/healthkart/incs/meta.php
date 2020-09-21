@@ -65,7 +65,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term->add_field( array(
         'name'             => 'Training Routine',
         'id'               => 'hk_training_routine',
-        'type'    => 'textarea',
+        'type'    => 'wysiwyg',
     ) );
         $cmb_term->add_field( array(
         'name'             => 'Future Suggestion',

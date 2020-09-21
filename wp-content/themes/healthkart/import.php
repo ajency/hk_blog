@@ -31,8 +31,8 @@ foreach ($nodes as $node) {
 					if($file_managed){
 						$media_id = fetch_image($file_managed->fid, $field_data_field_upload_image->field_upload_image_alt, $field_data_field_upload_image->field_upload_image_title);
 						if($media_id){
-							$image_url = wp_get_attachment_image_src( $media_id, 'full' )[0];
-  							$image_url = str_replace( get_site_url(), '', $image_url );
+							$image_url = wp_get_attachment_image_src( $media_id, 'large' )[0];
+  							$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
 							$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".$image_url."'></div></div></div>";
 							$body .= $image_markup;
 						}
