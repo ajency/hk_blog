@@ -8,6 +8,7 @@ $( document ).ready(function() {
 		$(".menu").on("mouseenter", "li:not(li li)", function(e) {
 			$(this).find(".sub-menu > li").first().addClass("active");
 		});
+		$("#u_0_0").css("width", "100%");
 	});
 
 	$(".sub-menu > li").on("mouseover", function() {

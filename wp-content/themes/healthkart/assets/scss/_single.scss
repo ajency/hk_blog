@@ -65,6 +65,13 @@
 				line-height: 24px;
 			}
 	    }
+	    .blog_featured_img{
+	    	img{
+			    width: 100%;
+			    max-width: 100%;
+			    object-fit: cover;
+	    	}
+	    }
 	    .entry-header{
 	    	.post-title{
 				display: flex;
