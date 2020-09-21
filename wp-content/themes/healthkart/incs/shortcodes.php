@@ -46,7 +46,7 @@ add_shortcode( 'read-these-next', function(){?>
 									<?php if ( has_post_thumbnail() ) {
 									the_post_thumbnail('medium');
 									} else { ?>
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
+									<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" />
 									<?php } ?>
 								</a>
 							</div>
@@ -109,7 +109,7 @@ add_shortcode( 'related-articles', function(){?>
 										<?php if ( has_post_thumbnail() ) {
 										the_post_thumbnail('thumbnail');
 										} else { ?>
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
+										<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" />
 										<?php } ?>
 									</a>
 								</div>
