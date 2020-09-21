@@ -116,6 +116,15 @@ $field_mapping = [
 		'hk_transform_reason' =>[
 			'field' => 'field_data_field_reason_to_transform.field_reason_to_transform_value'
 		],
+		'hk_training_routine' =>[
+			'field' => 'field_data_field_routien_training.field_data_field_routien_training'
+		],
+		'hk_future_suggestion' =>[
+			'field' => 'field_data_field_suggestion_for_future.field_suggestion_for_future_value'
+		],
+		'hk_supplements_that_helped' =>[
+			'field' => 'field_data_field_supplements_that_helped_yo.field_supplements_that_helped_yo_value'
+		],
 		'hk_age_after_diet' => [
 			'field' => 'field_data_field_age_after_diet.field_age_after_diet_value'
 		],

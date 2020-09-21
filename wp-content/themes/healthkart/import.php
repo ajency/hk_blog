@@ -11,7 +11,7 @@ require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
+$nodes = $mydb->get_results("select * from node where nid = 9439 and type in ('".implode("','", array_keys($post_types))."')");
 $x=1;
 foreach ($nodes as $node) {
 	$field_data_body = $mydb->get_row("select * from field_data_body where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
@@ -31,7 +31,9 @@ foreach ($nodes as $node) {
 					if($file_managed){
 						$media_id = fetch_image($file_managed->fid, $field_data_field_upload_image->field_upload_image_alt, $field_data_field_upload_image->field_upload_image_title);
 						if($media_id){
-							$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".wp_get_attachment_image_src( $media_id, 'full' )[0]."'></div></div></div>";
+							$image_url = wp_get_attachment_image_src( $media_id, 'full' )[0];
+  							$image_url = str_replace( get_site_url(), '', $image_url );
+							$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".$image_url."'></div></div></div>";
 							$body .= $image_markup;
 						}
 					}
@@ -90,6 +92,12 @@ foreach ($nodes as $node) {
 	$field_data_field_age_before_diet = $mydb->get_row("select * from field_data_field_age_before_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_body_fat_before_diet = $mydb->get_row("select * from field_data_field_body_fat_before_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_body_fat_after_diet = $mydb->get_row("select * from field_data_field_body_fat_after_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_reason_to_transform = $mydb->get_row("select * from field_data_field_reason_to_transform where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_routien_training = $mydb->get_row("select * from field_data_field_routien_training where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_suggestion_for_future = $mydb->get_row("select * from field_data_field_suggestion_for_future where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_supplements_that_helped_yo = $mydb->get_row("select * from field_data_field_supplements_that_helped_yo where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_weight_after_diet = $mydb->get_row("select * from field_data_field_weight_after_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
+	$field_data_field_weight_before_diet = $mydb->get_row("select * from field_data_field_weight_before_diet where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$field_data_field_how_did_you_overcome_these = $mydb->get_row("select * from field_data_field_how_did_you_overcome_these where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
 	$node_counter = $mydb->get_row("select * from node_counter where nid='".$node->nid."'");
 	foreach ($field_mapping['meta'] as $field => $field_data) {

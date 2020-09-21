@@ -9,7 +9,7 @@ require_once( '../../../wp-admin/includes/image.php' );
 require_once(__DIR__."/config/field_mapping.php");
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$images = $mydb->get_results("SELECT *  FROM file_managed WHERE uri LIKE 'public%' ORDER BY fid ASC");
+$images = $mydb->get_results("SELECT *  FROM file_managed ORDER BY fid ASC");
 $x=0;
 set_time_limit(0);
 foreach ($images as $image) {

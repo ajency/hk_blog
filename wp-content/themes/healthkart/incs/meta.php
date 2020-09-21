@@ -57,6 +57,26 @@ function tmc_post_cpt__metabox() {
         'id'               => 'hk_accomplish_goal',
         'type'    => 'textarea',
     ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Transform Reason',
+        'id'               => 'hk_transform_reason',
+        'type'    => 'textarea',
+    ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Training Routine',
+        'id'               => 'hk_training_routine',
+        'type'    => 'textarea',
+    ) );
+        $cmb_term->add_field( array(
+        'name'             => 'Future Suggestion',
+        'id'               => 'hk_future_suggestion',
+        'type'    => 'textarea',
+    ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Supplements',
+        'id'               => 'hk_supplements_that_helped',
+        'type'    => 'textarea',
+    ) );
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'age_metabox',
         'title'             => 'Age',
@@ -110,6 +130,35 @@ function tmc_post_cpt__metabox() {
     $cmb_term->add_field( array(
         'name' => 'After',
         'id'   => 'hk_body_fat_after_diet',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+    )));
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'weight_metabox',
+        'title'             => 'Weight',
+        'object_types'      => array( 'post' ),
+        'show_on_cb' => function($cmb){
+            $response = false;
+            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
+            if($terms) {
+                $response = ($terms[0]->slug == 'transformation');
+            }
+            return $response;
+        },
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Before',
+        'id'   => 'hk_weight_before_diet',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+    )));
+    $cmb_term->add_field( array(
+        'name' => 'After',
+        'id'   => 'hk_weight_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
