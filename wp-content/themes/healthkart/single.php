@@ -75,7 +75,7 @@ get_header();
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'medium-large' );
+								the_post_thumbnail( 'medium' );
 								endif;
 								?>
 							</div>
@@ -88,11 +88,11 @@ get_header();
 								<div class="share-title section-title"> Share </div>
 								<div class="share-icons">
 									<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a>
-									<a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
+									<a href="mailto:?Subject=<?php echo $title; ?>&amp;Body=<?php echo $postUrl; ?>">
 									<i class="fa fa-envelope" aria-hidden="true"></i>
 									</a>
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 									<a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
 									<a href=""><i class="fa fa-reddit" aria-hidden="true"></i></a>
 									<span class="ml-2">FEEDBACK:</span>
