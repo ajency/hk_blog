@@ -1,7 +1,7 @@
 <?php
 
-add_action( 'cmb2_init', 'tmc_post_cpt__metabox' );
-function tmc_post_cpt__metabox() {
+add_action( 'cmb2_init', 'hk_post_cpt__metabox' );
+function hk_post_cpt__metabox() {
     $prefix = 'hk_';
     //post meta
     $cmb_term = new_cmb2_box( array(
@@ -83,4 +83,28 @@ function tmc_post_cpt__metabox() {
             'type' => 'number',
             'pattern' => '\d*',
     )));
+}
+
+add_action( 'show_user_profile', 'extra_user_profile_fields' );
+add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+function extra_user_profile_fields( $user ) { 
+    ?>
+    <h3><?php _e("Extra profile information", "blank"); ?></h3>
+    <table class="form-table">
+    <tr>
+        <th><label for="hk_designation"><?php _e("Designation"); ?></label></th>
+        <td>
+            <input type="text" name="hk_designation" id="hk_designation" value="<?php echo esc_attr( get_the_author_meta( 'hk_designation', $user->ID) ); ?>" class="regular-text" /><br />
+        </td>
+    </tr>
+    </table>
+<?php }
+
+add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
+add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
+function save_extra_user_profile_fields( $user_id ) {
+    if ( !current_user_can( 'edit_user', $user_id ) ) { 
+        return false; 
+    }
+    update_user_meta( $user_id, 'hk_designation', $_POST['hk_designation'] );
 }

@@ -66,11 +66,11 @@ get_header();
 									</div>
 									<div class="">
 										<div class="date f-12 text-black font-weight-bold">Written By 
-											<?php $user_info = get_userdata(1);
+											<?php $user_info = get_userdata($post->post_author);
 												echo $user_info->display_name
 											?>
 										</div>
-										<div class="role f-12">Fitness Expert</div>
+										<div class="role f-12"><?php echo get_the_author_meta( 'hk_designation', $user_info->ID); ?></div>
 									</div>
 								</div>
 							</div>
@@ -133,7 +133,6 @@ get_header();
 </div>
 
 <?php
-//get_sidebar();
 get_footer();
 
 ?>
