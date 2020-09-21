@@ -86,6 +86,12 @@ get_header();
 								endif;
 								?>
 							</div>
+							<?php
+								$description = get_post_meta($post->ID, 'hk_description', true);
+								if ($description) :
+								?><div class="entry-description"><?php echo $description; ?></div><?php 
+								endif;
+							?>
 							<div class="entry-content"><?php the_content(); ?></div>  
 							  <?php 
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
