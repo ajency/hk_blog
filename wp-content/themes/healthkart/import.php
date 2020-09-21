@@ -11,7 +11,7 @@ require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$nodes = $mydb->get_results("select * from node where nid=9439 and type in ('".implode("','", array_keys($post_types))."')");
+$nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
 $x=1;
 foreach ($nodes as $node) {
 	$field_data_body = $mydb->get_row("select * from field_data_body where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
@@ -29,7 +29,7 @@ foreach ($nodes as $node) {
 				if($field_data_field_upload_image){
 					$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_upload_image->field_upload_image_fid."'");
 					if($file_managed){
-						$media_id = add_image($file_managed->uri, $field_data_field_upload_image->field_upload_image_alt, $field_data_field_upload_image->field_upload_image_title);
+						$media_id = fetch_image($file_managed->fid, $field_data_field_upload_image->field_upload_image_alt, $field_data_field_upload_image->field_upload_image_title);
 						if($media_id){
 							$image_markup = "<div class='row'><div class='col-12'><div class='hk-content-image'><img src='".wp_get_attachment_image_src( $media_id, 'full' )[0]."'></div></div></div>";
 							$body .= $image_markup;
@@ -77,7 +77,7 @@ foreach ($nodes as $node) {
 	if($field_data_field_image){
 		$file_managed = $mydb->get_row("select * from file_managed where fid='".$field_data_field_image->field_image_fid."'");
 		if($file_managed){
-			$media_id = add_image($file_managed->uri, $field_data_field_image->field_image_alt, $field_data_field_image->field_image_title);
+			$media_id = fetch_image($file_managed->fid, $field_data_field_image->field_image_alt, $field_data_field_image->field_image_title);
 			if($media_id){
 				add_post_meta($post_id, '_thumbnail_id', $media_id);
 			}
@@ -114,13 +114,17 @@ foreach ($nodes as $node) {
 	echo ", Tax: ";
 	foreach ($taxonomies as $tax) {
 		if(isset($taxonomy[$tax->tax_slug])){
+			$current_tax = $taxonomy[$tax->tax_slug];
 			$term_names = explode('#', $tax->term_name);
 			foreach ($term_names as $term_name) {
 				$term_name = trim($term_name);
+				if(isset($field_mapping['taxonomy'][$current_tax][$term_name])){
+					$term_name = $field_mapping['taxonomy'][$current_tax][$term_name];
+				}
 				if($term_name){
-					$term = term_exists($term_name, $taxonomy[$tax->tax_slug]);
+					$term = term_exists($term_name, $current_tax);
 					if(!$term){
-						$term = wp_insert_term($term_name, $taxonomy[$tax->tax_slug] );
+						$term = wp_insert_term($term_name, $current_tax );
 						echo $term_name.", ";
 						if($tax->sticky){
 							update_term_meta($term['term_id'], 'is_sticky', 'true');
@@ -129,7 +133,7 @@ foreach ($nodes as $node) {
 					if(is_wp_error($term)){
 						echo json_encode($term);
 					}else{
-						$term_ids[$taxonomy[$tax->tax_slug]][] = (int)$term['term_id'];
+						$term_ids[$current_tax][] = (int)$term['term_id'];
 					}
 				}
 			}

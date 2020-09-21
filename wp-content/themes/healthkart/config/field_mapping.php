@@ -21,7 +21,7 @@ $post_types = [
 	'infographics' => 'post',
 	'page' => 'page',
 	'recipes' => 'post',
-	'transformation_stories' => 'transformation',
+	'transformation_stories' => 'post',
 	'video' => 'post'
 ];
 $hk_types = [
@@ -29,14 +29,21 @@ $hk_types = [
 	'blog' => 'Articles',
 	'infographics' => 'Infographics',
 	'video' => 'Videos',
+	'transformation_stories' => 'Transformation',
 ];
 $taxonomy = [
 	'primary_tags' => 'category',
 	'secondary_tags' => 'secondary_tag',
 	'tags' => 'post_tag',
-	'transformation_stories_category' => 'transformation_category',
+	'transformation_stories_category' => 'category',
 ];
 $field_mapping = [
+	'taxonomy' => [
+		'category' => [
+			'Muscle Building' => 'Bodybuilding',
+			'Weight Loss' => 'Weightloss',
+		]
+	],
 	'post' => [
 		'post_date' => [
 			'field' => 'node.created',
@@ -106,11 +113,20 @@ $field_mapping = [
 		'hk_accomplish_goal' =>[
 			'field' => 'field_data_field_accomplish_goal.field_accomplish_goal_value'
 		],
+		'hk_transform_reason' =>[
+			'field' => 'field_data_field_reason_to_transform.field_reason_to_transform_value'
+		],
 		'hk_age_after_diet' => [
 			'field' => 'field_data_field_age_after_diet.field_age_after_diet_value'
 		],
 		'hk_age_before_diet' => [
 			'field' => 'field_data_field_age_before_diet.field_age_before_diet_value'
+		],
+		'hk_weight_after_diet' => [
+			'field' => 'field_data_field_weight_after_diet.field_weight_after_diet_value'
+		],
+		'hk_weight_before_diet' => [
+			'field' => 'field_data_field_weight_before_diet.field_weight_before_diet_value'
 		],
 		'hk_body_fat_before_diet' => [
 			'field' => 'field_data_field_body_fat_before_diet.field_body_fat_before_diet_value',
@@ -129,6 +145,9 @@ $field_mapping = [
 		],
 		'custom_permalink' => [
 			'field' => 	'url_alias.alias'
+		],
+		'hk_node_id' => [
+			'field' => 	'node.nid'
 		]
 	],
 	'user' => [
@@ -214,48 +233,22 @@ function fetch_user($email){
 }
 
 
-function add_image($image_name, $alt, $title){
-	if(strstr($image_name, "public://")){
-		$image_name = str_replace("public://", "", $image_name);
-		//$image_name = rawurlencode($image_name);
-		$image_url = "https://www.healthkart.com/connect/sites/default/files/". $image_name ;
-	}
-	if(strstr($image_name, "s3://")){
-		$image_name = str_replace("s3://", "", $image_name);
-		//$image_name = rawurlencode($image_name);
-		$image_url = "https://img1.hkrtcdn.com/ff/". $image_name ;
-	}
-
-	$image_data = get_data( $image_url );
-	if(!$image_data){
+function fetch_image($fid, $alt, $title){
+	global $wpdb;
+	$post_meta = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_file_id' and meta_value = '".$fid."'");
+	if(!$post_meta){
 		return false;
 	}
-	$upload_dir = wp_upload_dir();
-	$filename = basename( $image_url );
-
-	if ( wp_mkdir_p( $upload_dir['path'] ) ) {
-	  $file = $upload_dir['path'] . '/' . $filename;
-	}
-	else {
-	  $file = $upload_dir['basedir'] . '/' . $filename;
-	}
-
-	file_put_contents( $file, $image_data );
-
-	$wp_filetype = wp_check_filetype( $filename, null );
-
-	$attachment = array(
-	  'post_mime_type' => $wp_filetype['type'],
-	  'post_title' => ($title) ? $title : sanitize_file_name( $filename ),
-	  'post_content' => '',
-	  'post_status' => 'inherit'
-	);
-
-	$attach_id = wp_insert_attachment( $attachment, $file );
-	$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-	wp_update_attachment_metadata( $attach_id, $attach_data );
+	$attach_id = $post_meta->post_id;
 	if($alt){
 		update_post_meta($attach_id, '_wp_attachment_image_alt', $alt);
+	}
+	if($title){
+		$image_post = array(
+			'ID'		 => $attach_id,			
+			'post_title' => $title,		
+		);
+		wp_update_post( $image_post );
 	}
 	return $attach_id;
 }
@@ -268,6 +261,7 @@ function get_data($url) {
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_FAILONERROR, true);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_TIMEOUT,0);
 	curl_setopt($ch, CURLOPT_AUTOREFERER, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 10);
