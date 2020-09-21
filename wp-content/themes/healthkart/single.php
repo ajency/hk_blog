@@ -49,7 +49,7 @@ get_header();
 					<?php			
 					while ( have_posts() ) :
 					  the_post();
-					  update_post_meta($post_id, 'hk_views', get_post_meta($post_id, 'hk_views', true) + 1);
+					  update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1);
 					?>
 						<header class="entry-header col-12">
 							<span>
