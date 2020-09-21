@@ -62,7 +62,7 @@ get_header();
 								<h2 class="entry-title"><?php the_title(); ?></h2>
 								<div class="d-flex flex-row align-items-center author">
 									<div class="author-image">
-										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg">
+										<?php get_avatar(); ?>
 									</div>
 									<div class="">
 										<div class="date f-12 text-black font-weight-bold">Written By 
