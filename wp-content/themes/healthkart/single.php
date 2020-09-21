@@ -62,12 +62,14 @@ get_header();
 								<h2 class="entry-title"><?php the_title(); ?></h2>
 								<div class="d-flex flex-row align-items-center author">
 									<div class="author-image">
-										<?php get_avatar(); ?>
+										<?php 
+										$user_info = get_userdata($post->post_author);
+										get_avatar($user_info->ID);
+										?>
 									</div>
 									<div class="">
 										<div class="date f-12 text-black font-weight-bold">Written By 
 											<?php 
-												$user_info = get_userdata($post->post_author);
 												echo $user_info->display_name;
 											?>
 										</div>
