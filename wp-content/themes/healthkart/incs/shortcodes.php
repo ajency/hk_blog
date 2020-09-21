@@ -107,7 +107,7 @@ add_shortcode( 'related-articles', function(){?>
 								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>">
 										<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail('medium');
+										the_post_thumbnail('thumbnail');
 										} else { ?>
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg" alt="<?php the_title(); ?>" />
 										<?php } ?>
