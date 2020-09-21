@@ -65,7 +65,11 @@ get_header();
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/default.jpg">
 									</div>
 									<div class="">
-										<div class="date f-12 text-black font-weight-bold">Written By <?php the_author(); ?></div>
+										<div class="date f-12 text-black font-weight-bold">Written By 
+											<?php $user_info = get_userdata(1);
+												echo $user_info->display_name
+											?>
+										</div>
 										<div class="role f-12">Fitness Expert</div>
 									</div>
 								</div>
@@ -75,7 +79,7 @@ get_header();
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'medium' );
+								the_post_thumbnail( 'large' );
 								endif;
 								?>
 							</div>
