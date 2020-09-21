@@ -117,7 +117,7 @@ $field_mapping = [
 			'field' => 'field_data_field_reason_to_transform.field_reason_to_transform_value'
 		],
 		'hk_training_routine' =>[
-			'field' => 'field_data_field_routien_training.field_data_field_routien_training'
+			'field' => 'field_data_field_routien_training.field_routien_training_value'
 		],
 		'hk_future_suggestion' =>[
 			'field' => 'field_data_field_suggestion_for_future.field_suggestion_for_future_value'

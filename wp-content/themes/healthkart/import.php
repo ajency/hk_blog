@@ -11,7 +11,7 @@ require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$nodes = $mydb->get_results("select * from node where nid = 9439 and type in ('".implode("','", array_keys($post_types))."')");
+$nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
 $x=1;
 foreach ($nodes as $node) {
 	$field_data_body = $mydb->get_row("select * from field_data_body where entity_type='node' and bundle='".$node->type."' and entity_id='".$node->nid."'");
