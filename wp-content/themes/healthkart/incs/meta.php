@@ -3,7 +3,7 @@
 add_action( 'cmb2_init', 'tmc_post_cpt__metabox' );
 function tmc_post_cpt__metabox() {
     $prefix = 'hk_';
-    //post meta
+    //post meta 
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'metabox',
         'title'             => 'Meta Fields',
@@ -12,7 +12,7 @@ function tmc_post_cpt__metabox() {
             $response = false;
             $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
             if($terms) {
-                $response = ($terms[0]->slug != 'transformation');
+                $response = ($terms[0]->slug == 'articles');
             }
             return $response;
         },
@@ -21,6 +21,30 @@ function tmc_post_cpt__metabox() {
         'name'    => 'Description',
         'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',
+    ) );
+
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'ama_video',
+        'title'             => 'Live AMA',
+        'object_types'      => array( 'post' ),
+        'show_on_cb' => function($cmb){
+            $response = false;
+            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
+            if($terms) {
+                $response = ($terms[0]->slug == 'ask-me-anything');
+            }
+            return $response;
+        },
+    ) );
+    $cmb_term->add_field( array(
+        'name'    => 'Video',
+        'id'      =>  $prefix . 'ama_video',
+        'type'    => 'text',
+    ) );
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'statistics',
+        'title'             => 'Statistics',
+        'object_types'      => array( 'post' ),
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Views',
