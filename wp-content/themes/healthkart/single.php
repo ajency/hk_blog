@@ -64,7 +64,7 @@ get_header();
 									<div class="author-image">
 										<?php 
 										$user_info = get_userdata($post->post_author);
-										get_avatar($user_info->ID);
+										echo get_avatar($user_info->ID);
 										?>
 									</div>
 									<div class="">
