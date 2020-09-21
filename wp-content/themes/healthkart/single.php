@@ -66,8 +66,8 @@ get_header();
 									</div>
 									<div class="">
 										<div class="date f-12 text-black font-weight-bold">Written By 
-											<?php $user_info = get_userdata($post->post_author);
-											echo json_encode($user_info);
+											<?php 
+												$user_info = get_userdata($post->post_author);
 												echo $user_info->display_name;
 											?>
 										</div>
