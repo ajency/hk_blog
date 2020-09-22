@@ -35,7 +35,7 @@ get_header();
 		?>
 		</p>
 		<div class="latest-reads category-list-view">
-			<?php get_template_part( 'template-parts/content', 'category' );	?>
+			<?php get_template_part( 'loop', 'category' );	?>
 		</div>
 	</div>
 <?php
