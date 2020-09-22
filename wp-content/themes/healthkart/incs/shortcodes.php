@@ -36,7 +36,7 @@ add_shortcode( 'read-these-next', function(){?>
 							<div class="recent-post-featured-img">
 								<a href="<?php the_permalink(); ?>">
 									<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail('medium');
+									the_post_thumbnail('large');
 									} else { ?>
 									<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" />
 									<?php } ?>
