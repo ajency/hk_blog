@@ -4,14 +4,16 @@ get_header();
 
 ?>	
 
-
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
   						<a href="<?php echo get_site_url(); ?>/"><i class="fa fa-home" aria-hidden="true"></i></a>
-  						<?php the_category(' , '); ?>
+  						<a href=""><?php $categories = get_the_category();
+							if ( ! empty( $categories ) ) {
+							    echo esc_html( $categories[0]->name );   
+						} ?></a>
   					</div>
   				</div>
 			</div>
@@ -19,15 +21,27 @@ get_header();
 	</div>
 
 	<div class="container p-0">
-		<h2 class="category-name"><?php the_category(' , '); ?></h2>
-		<p class="text-black pl-15 f-14 article-count">45 articles</p>
+		<h2 class="category-name pl-15">
+		<?php $categories = get_the_category();
+			if ( ! empty( $categories ) ) {
+			    echo esc_html( $categories[0]->name );   
+		} ?>
+		</h2>
+		<p class="text-black pl-15 f-14 article-count">
+		<?php
+			$categories = get_the_category();
+			if ( ! empty( $categories ) ) {
+				echo esc_html( $categories[0]->count ) . ' Articles ';
+			}
+		?>
+		</p>
 		<div class="latest-reads category-list-view">
 			<div class="row m-0">
 				<?php
 				$args = array(
-					'posts_per_page' => 5,
 					'post__not_in'   => array( get_the_ID() ),
 					'no_found_rows'  => true, 
+					'posts_per_page'=>-1, 
 				);
 				// Check for current post category and add tax_query to the query arguments
 				$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
