@@ -162,7 +162,7 @@ do_action( 'genesis_after_header' );
 						</div>
 					</div>
 					<div class="list-view">
-						<?php wp_nav_menu( array( 'theme_location' => 'secondary-menu' ) ); ?>
+						<?php wp_nav_menu( ); ?>
 					</div>
 				</div>
 			</div>
