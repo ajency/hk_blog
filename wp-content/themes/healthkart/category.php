@@ -19,7 +19,6 @@ get_header();
 			</div>
 		</div>
 	</div>
-
 	<div class="container p-0">
 		<h2 class="category-name pl-15">
 		<?php $categories = get_the_category();
@@ -43,16 +42,12 @@ get_header();
 					'no_found_rows'  => true, 
 					'posts_per_page'=>-1, 
 				);
-				// Check for current post category and add tax_query to the query arguments
 				$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
 				$cats_ids = array();  
-				foreach( $cats as $wpex_related_cat ) {
-					$cats_ids[] = $wpex_related_cat->term_id; 
-				}
+				$cats_ids[] = $categories[0]->term_id; 
 				if ( ! empty( $cats_ids ) ) {
 					$args['category__in'] = $cats_ids;
 				}
-				// Query posts
 				$wpex_query = new wp_query( $args );?>
 
 				<?php  // Loop through posts

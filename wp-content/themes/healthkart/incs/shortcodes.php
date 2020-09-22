@@ -10,14 +10,11 @@ add_shortcode( 'read-these-next', function(){?>
 	<div class="read-these-next">
 		<div class="section-title pb-3">Read these next</div>
 		<?php
-
-			
 			$args = array(
 				'posts_per_page' => 5,
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
 			);
-
 			// Check for current post category and add tax_query to the query arguments
 			$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
 			$cats_ids = array();  
@@ -27,17 +24,12 @@ add_shortcode( 'read-these-next', function(){?>
 			if ( ! empty( $cats_ids ) ) {
 				$args['category__in'] = $cats_ids;
 			}
-
 			// Query posts
 			$wpex_query = new wp_query( $args );?>
-
 			<?php  // Loop through posts
 			if( $wpex_query->have_posts() ) :
-
 			while( $wpex_query->have_posts() ) :
 			$wpex_query->the_post(); ?>
-
-
 				<div class="col-12 recent-post p-0">
 					<div class="row py-4">
 						<div class="col-md-4 col-12">
@@ -71,9 +63,8 @@ add_shortcode( 'read-these-next', function(){?>
 						</div>
 					</div>
 				</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
-
+			<?php endwhile; ?>
+		<?php endif; ?>
 	</div>
 <?php });
 
@@ -85,7 +76,6 @@ add_shortcode( 'related-articles', function(){?>
 			global $post;
 			$tags = wp_get_post_tags($post->ID);
 			if ($tags) :
-
 			$tag_ids = array();
 			foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
 			$args=array(
@@ -94,10 +84,8 @@ add_shortcode( 'related-articles', function(){?>
 			'posts_per_page'=>4, // Number of related posts that will be shown.
 			'ignore_sticky_posts'=>1
 			);
-
 			$my_query = new wp_query( $args );
 			if( $my_query->have_posts() ) {
-
 				while( $my_query->have_posts() ) {
 				$my_query->the_post(); ?>
 
@@ -130,9 +118,9 @@ add_shortcode( 'related-articles', function(){?>
 					</div>
 				<?php } ?>
 			<?php } ?>
-			<?php else : ?>
-			<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
-			<?php endif; ?>
+		<?php else : ?>
+		<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
+		<?php endif; ?>
 	</div>
 <?php });
 
