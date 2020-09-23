@@ -85,7 +85,7 @@ get_header();
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'medium', ['title' => get_the_title()] );
+								the_post_thumbnail( 'large', ['title' => get_the_title()] );
 								endif;
 								?>
 							</div>
