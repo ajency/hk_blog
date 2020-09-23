@@ -8,14 +8,6 @@ function tmc_post_cpt__metabox() {
         'id'                => $prefix . 'metabox',
         'title'             => 'Meta Fields',
         'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'articles');
-            }
-            return $response;
-        },
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Description',
@@ -26,15 +18,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'ama_video',
         'title'             => 'Live AMA',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'ask-me-anything');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'ama' ),
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Video',
@@ -61,15 +45,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'transformation_metabox',
         'title'             => 'Meta Fields',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'transformation');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(
         'name'             => 'How did you overcome',
@@ -104,15 +80,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'age_metabox',
         'title'             => 'Age',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'transformation');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
@@ -133,15 +101,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'bodyfat_metabox',
         'title'             => 'Body Fat',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'transformation');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
@@ -162,15 +122,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'weight_metabox',
         'title'             => 'Weight',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'transformation');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
@@ -191,15 +143,7 @@ function tmc_post_cpt__metabox() {
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'image_metabox',
         'title'             => 'Image',
-        'object_types'      => array( 'post' ),
-        'show_on_cb' => function($cmb){
-            $response = false;
-            $terms = wp_get_post_terms( $cmb->object_id, 'hk_type' );
-            if($terms) {
-                $response = ($terms[0]->slug == 'transformation');
-            }
-            return $response;
-        },
+        'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(
         'name' => esc_html__( 'Before', 'cmb2' ),

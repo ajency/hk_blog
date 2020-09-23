@@ -2,35 +2,63 @@
 
 add_action( 'init', 'hk_taxonomy', 0 );
 function hk_taxonomy()  {
-
-    $labels = array(
-        'name'                       => 'Type',
-        'singular_name'              => 'Type',
-        'menu_name'                  => 'Types',
-        'all_items'                  => 'All Types',
-        'parent_item'                => 'Parent Type',
-        'parent_item_colon'          => 'Parent Type:',
-        'new_item_name'              => 'New Type',
-        'add_new_item'               => 'Add Type',
-        'edit_item'                  => 'Edit Type',
-        'update_item'                => 'Update Type',
-        'separate_items_with_commas' => 'Separate Types with commas',
-        'search_items'               => 'Search Types',
-        'add_or_remove_items'        => 'Add or remove Types',
-        'choose_from_most_used'      => 'Choose from the most used Types',
-    );
-    $args = array(
-        'labels'                     => $labels,
-        'hierarchical'               => true,
-        'rewrite'                    => array( 'slug' => 'secondary_tag' ),
-        'public'                     => true,
-        'show_ui'                    => true,
-        'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-        'show_tagcloud'              => true,
-        'show_in_rest'               => true,
-    );
-    register_taxonomy( 'hk_type', 'post', $args );
+    $post_types = [
+        'ama' => ['singular' => 'Ask Me Anything','plural' => 'Ask Me Anything'], 
+        'infographic' => ['singular' => 'Infographic','plural' => 'Infographics'], 
+        'transformation' => ['singular' => 'Tansformation','plural' => 'Tansformations'], 
+        'video' => ['singular' => 'Video','plural' => 'Videos'], 
+    ];
+    $taxonomies = [
+        'category' => ['singular' => 'Category','plural' => 'Categories'], 
+        'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+    ];
+    foreach ($post_types as $post_type => $name) {
+        register_post_type( $post_type,
+            array(
+                'labels' => array(
+                    'name' => $name['plural'],
+                    'singular_name' => $name['singular']
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => $post_type),
+                'show_in_rest' => true,
+                'menu_position' => 5
+            )
+        );
+    }
+    foreach ($post_types as $post_type => $post_name) {
+        foreach ($taxonomies as $taxonomy => $name) {
+            $labels = array(
+                'name'                       => $name['plural'],
+                'singular_name'              => $name['singular'],
+                'menu_name'                  => $name['plural'],
+                'all_items'                  => 'All '.$name['plural'],
+                'parent_item'                => 'Parent '. $name['singular'],
+                'parent_item_colon'          => 'Parent '. $name['singular'].':',
+                'new_item_name'              => 'New '. $name['singular'],
+                'add_new_item'               => 'Add '.$name['singular'],
+                'edit_item'                  => 'Edit '.$name['singular'],
+                'update_item'                => 'Update '.$name['singular'],
+                'separate_items_with_commas' => 'Separate '.$name['plural'].' with commas',
+                'search_items'               => 'Search '.$name['plural'],
+                'add_or_remove_items'        => 'Add or remove '.$name['plural'],
+                'choose_from_most_used'      => 'Choose from the most used '.$name['plural'],
+            );
+            $args = array(
+                'labels'                     => $labels,
+                'hierarchical'               => true,
+                'rewrite'                    => array( 'slug' => $post_type.'_'.$taxonomy ),
+                'public'                     => true,
+                'show_ui'                    => true,
+                'show_admin_column'          => true,
+                'show_in_nav_menus'          => true,
+                'show_tagcloud'              => true,
+                'show_in_rest'               => true,
+            );
+            register_taxonomy( $post_type.'_'.$taxonomy, $post_type, $args );
+        }
+    }
 
     $labels = array(
         'name'                       => 'Secondary Tag',
@@ -60,5 +88,4 @@ function hk_taxonomy()  {
         'show_in_rest'               => true,
     );
     register_taxonomy( 'secondary_tag', 'post', $args );
-
 }

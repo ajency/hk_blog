@@ -8,8 +8,21 @@ require_once("../../../wp-load.php");
 require_once( '../../../wp-admin/includes/image.php' );
 require_once(__DIR__."/config/field_mapping.php");
 
+/*$files = scandir('../../uploads/2020/09/');
+$files = array_values(array_filter($files, function($var){
+	return !in_array($var, ['..','.']);
+}));
+echo count($files).'<hr>';
+$path = "/Applications/MAMP/htdocs/hk-blog/wp-content/uploads/2020/09/";
+foreach ($files as $index => $file) {
+	$lower = strtolower($file);
+	rename($path.$file, $path.$lower);
+	echo $index.'<br>'.$path.$file. '<br>'.$path.$lower.'<hr>';
+}
+exit;*/
+
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$images = $mydb->get_results("SELECT *  FROM file_managed ORDER BY fid ASC");
+$images = $mydb->get_results("SELECT *  FROM file_managed where fid=12269 ORDER BY fid ASC");
 $x=0;
 set_time_limit(0);
 foreach ($images as $image) {
@@ -28,7 +41,7 @@ foreach ($images as $image) {
 		$image_data = get_data( $image_url );
 		if($image_data){
 			$upload_dir = wp_upload_dir();
-			$filename = basename( $image_url );
+			$filename = strtolower(basename( $image_url ));
 
 			if ( wp_mkdir_p( $upload_dir['path'] ) ) {
 			  $file = $upload_dir['path'] . '/' . $filename;

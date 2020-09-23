@@ -15,22 +15,14 @@ $user_roles = [
 	'content writer' => 'author'
 ];
 $post_types = [
-	'ama' => 'post',
+	'ama' => 'ama',
 	'articles' => 'post',
 	'blog' => 'post',
-	'infographics' => 'post',
+	'infographics' => 'infographic',
 	'page' => 'page',
 	'recipes' => 'post',
-	'transformation_stories' => 'post',
-	'video' => 'post'
-];
-$hk_types = [
-	'articles' => 'Articles',
-	'blog' => 'Articles',
-	'ama' => 'Ask me anything',
-	'infographics' => 'Infographics',
-	'video' => 'Videos',
-	'transformation_stories' => 'Transformation',
+	'transformation_stories' => 'transformation',
+	'video' => 'video'
 ];
 $taxonomy = [
 	'primary_tags' => 'category',
@@ -39,12 +31,6 @@ $taxonomy = [
 	'transformation_stories_category' => 'category',
 ];
 $field_mapping = [
-	'taxonomy' => [
-		'category' => [
-			'Muscle Building' => 'Bodybuilding',
-			'Weight Loss' => 'Weightloss',
-		]
-	],
 	'post' => [
 		'post_date' => [
 			'field' => 'node.created',

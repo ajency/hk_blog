@@ -11,6 +11,12 @@ require_once( '../../../wp-admin/includes/post.php' );
 require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
 
+// $post_types = ['ama', 'infographic', 'transformation', 'video'];
+// foreach ($post_types as $post_type) {
+// 	echo json_encode(get_object_taxonomies($post_type));
+// 	echo '<hr>';
+// }
+// exit;
 $mydb = new wpdb('root','root','fitness_freak','localhost');
 $nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
 $x=1;
@@ -164,17 +170,21 @@ foreach ($nodes as $node) {
 		foreach ($taxonomies as $tax) {
 			if(isset($taxonomy[$tax->tax_slug])){
 				$current_tax = $taxonomy[$tax->tax_slug];
+				if($post_types[$node->type] != 'post'){
+					if($current_tax == 'post_tag'){
+						$current_tax = 'tag';
+					}
+					$current_tax = $post_types[$node->type].'_'.$current_tax;
+				}
 				$term_names = explode('#', $tax->term_name);
 				foreach ($term_names as $term_name) {
 					$term_name = trim($term_name);
-					if(isset($field_mapping['taxonomy'][$current_tax][$term_name])){
-						$term_name = $field_mapping['taxonomy'][$current_tax][$term_name];
-					}
 					if($term_name){
 						$term = term_exists($term_name, $current_tax);
 						if(!$term){
+							echo $current_tax.'(';
 							$term = wp_insert_term($term_name, $current_tax );
-							echo $term_name.", ";
+							echo $term_name."), ";
 							if($tax->sticky){
 								update_term_meta($term['term_id'], 'is_sticky', 'true');
 							}
@@ -186,20 +196,6 @@ foreach ($nodes as $node) {
 						}
 					}
 				}
-			}
-		}
-		
-		if(isset($hk_types[$node->type])){
-			$term_name = $hk_types[$node->type];
-			$term = term_exists($term_name, 'hk_type');
-			if(!$term){
-				$term = wp_insert_term($term_name, 'hk_type' );
-				echo $term_name.", ";
-			}
-			if(is_wp_error($term)){
-				echo json_encode($term);
-			}else{
-				$term_ids['hk_type'][] = (int)$term['term_id'];
 			}
 		}
 
