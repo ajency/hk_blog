@@ -76,21 +76,26 @@ add_shortcode( 'related-articles', function(){?>
 		<?php 
 			global $post;
 			$tags = wp_get_post_tags($post->ID);
-			if ($tags) :
-			$tag_ids = array();
-			foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-			$args=array(
-			'tag__in' => $tag_ids,
-			'post__not_in' => array($post->ID),
-			'posts_per_page'=>4, // Number of related posts that will be shown.
-			'ignore_sticky_posts'=>1
-			);
-			$tag_query = new wp_query( $args );
-			if($tag_query->found_posts < 4){
+			$post_ids = [];
+			if($tags){
+				$tag_ids = array();
+				foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+				$args=array(
+				'fields'         => 'ids',
+				'tag__in' => $tag_ids,
+				'post__not_in' => array($post->ID),
+				'posts_per_page'=>4, // Number of related posts that will be shown.
+				'post_status'    => 'publish',
+				);
+				$post_ids = get_posts( $args );
+			}
+			if(count($post_ids) < 4){
+				$count = 4 ;
 				$args = array(
-					'posts_per_page' => 4 - $tag_query->found_posts,
-					'post__not_in'   => array( get_the_ID() ),
-					'no_found_rows'  => true, 
+					'fields'         => 'ids',
+					'posts_per_page' => 4 - count($post_ids),
+					'post__not_in'   => array_merge(array($post->ID),$post_ids),
+					'post_status'    => 'publish',
 				);
 				// Check for current post category and add tax_query to the query arguments
 				$cats = wp_get_post_terms( $post->ID, 'category' ); 
@@ -102,13 +107,15 @@ add_shortcode( 'related-articles', function(){?>
 					$args['category__in'] = $cats_ids;
 				}
 				// Query posts
-				$cat_query = new wp_query( $args );		
-				$my_query = new WP_Query();
-				$my_query->posts = array_merge( $tag_query->posts, $cat_query->posts );
-
-				//populate post_count count for the loop to work correctly
-				$my_query->post_count = $tag_query->post_count + $cat_query->post_count;
+				$cat_post_ids = get_posts( $args );		
+				$post_ids = array_merge($post_ids, $cat_post_ids);
 			}
+			$my_query = new WP_Query(array(
+			    'post_type' => 'any',
+			    'post__in'  => $post_ids, 
+			    'orderby'   => 'date', 
+			    'order'     => 'DESC'
+			));
 			if( $my_query->have_posts() ) {
 				while( $my_query->have_posts() ) {
 				$my_query->the_post(); ?>
@@ -141,10 +148,9 @@ add_shortcode( 'related-articles', function(){?>
 						</div>
 					</div>
 				<?php } ?>
-			<?php } ?>
-		<?php else : ?>
-		<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
-		<?php endif; ?>
+			<?php }else{ ?>
+			<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
+		<?php } ?>
 	</div>
 <?php });
 
