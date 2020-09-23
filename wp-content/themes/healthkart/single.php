@@ -69,10 +69,12 @@ get_header();
 										?>
 									</div>
 									<div class="">
-										<div class="date f-12 text-black font-weight-bold">Written By 
+										<div class="date f-12 text-black font-weight-bold">Written By
+										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
 											<?php 
 												echo $user_info->display_name;
 											?>
+										</a>
 										</div>
 										<div class="role f-12"><?php echo get_the_author_meta( 'hk_designation', $user_info->ID); ?></div>
 									</div>
@@ -83,7 +85,7 @@ get_header();
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'large' );
+								the_post_thumbnail( 'medium', ['title' => get_the_title()] );
 								endif;
 								?>
 							</div>

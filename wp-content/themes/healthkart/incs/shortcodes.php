@@ -85,7 +85,30 @@ add_shortcode( 'related-articles', function(){?>
 			'posts_per_page'=>4, // Number of related posts that will be shown.
 			'ignore_sticky_posts'=>1
 			);
-			$my_query = new wp_query( $args );
+			$tag_query = new wp_query( $args );
+			if($tag_query->found_posts < 4){
+				$args = array(
+					'posts_per_page' => 4 - $tag_query->found_posts,
+					'post__not_in'   => array( get_the_ID() ),
+					'no_found_rows'  => true, 
+				);
+				// Check for current post category and add tax_query to the query arguments
+				$cats = wp_get_post_terms( $post->ID, 'category' ); 
+				$cats_ids = array();  
+				foreach( $cats as $wpex_related_cat ) {
+					$cats_ids[] = $wpex_related_cat->term_id; 
+				}
+				if ( ! empty( $cats_ids ) ) {
+					$args['category__in'] = $cats_ids;
+				}
+				// Query posts
+				$cat_query = new wp_query( $args );		
+				$my_query = new WP_Query();
+				$my_query->posts = array_merge( $tag_query->posts, $cat_query->posts );
+
+				//populate post_count count for the loop to work correctly
+				$my_query->post_count = $tag_query->post_count + $cat_query->post_count;
+			}
 			if( $my_query->have_posts() ) {
 				while( $my_query->have_posts() ) {
 				$my_query->the_post(); ?>
