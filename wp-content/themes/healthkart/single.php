@@ -60,7 +60,7 @@ get_header();
 								<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
 							</span>
 							<div class="post-title">
-								<h2 class="entry-title"><?php the_title(); ?></h2>
+								<h1 class="entry-title"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
 									<div class="author-image">
 										<?php 
@@ -101,28 +101,15 @@ get_header();
 							<div class="share share-desktop">
 								<div class="share-title section-title"> Share </div>
 								<div class="share-icons">
-									<a href="#"><i class="fa fa-print" aria-hidden="true"></i></a>
-									<a href="mailto:?Subject=<?php echo $title; ?>&amp;Body=<?php echo $postUrl; ?>">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									</a>
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-									<a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-									<a href=""><i class="fa fa-reddit" aria-hidden="true"></i></a>
-									<span class="ml-2">FEEDBACK:</span>
-									<i class="fa fa-smile-o mr-1" aria-hidden="true"></i>
-									<i class="fa fa-frown-o" aria-hidden="true"></i>
 								</div>
 							</div>
 							<div class="share share-mob">
 								<div class="share-title section-title"> Share Article </div>
 								<div class="share-icons">
-									<a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://simplesharebuttons.com">
-									<i class="fa fa-envelope" aria-hidden="true"></i>
-									</a>
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-									<i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 								</div>
 							</div>
 							<div class="latest-reads">

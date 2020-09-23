@@ -34,11 +34,12 @@ add_shortcode( 'read-these-next', function(){?>
 					<div class="row py-4">
 						<div class="col-md-4 col-12">
 							<div class="recent-post-featured-img">
-								<a href="<?php the_permalink(); ?>">
+								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 									<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail('large');
+									the_post_thumbnail('large'); ?>
+									<?php
 									} else { ?>
-									<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" />
+									<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 									<?php } ?>
 								</a>
 							</div>
@@ -52,7 +53,7 @@ add_shortcode( 'read-these-next', function(){?>
 								<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
 							</span>
 							<div class="recent-post-header">
-								<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 							</div>
 							<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
 							</div>
@@ -93,11 +94,11 @@ add_shortcode( 'related-articles', function(){?>
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
-									<a href="<?php the_permalink(); ?>">
+									<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 										<?php if ( has_post_thumbnail() ) {
 										the_post_thumbnail('thumbnail');
 										} else { ?>
-										<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" />
+										<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 										<?php } ?>
 									</a>
 								</div>
@@ -111,7 +112,7 @@ add_shortcode( 'related-articles', function(){?>
 									<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
 								</span>
 								<div class="recent-post-header">
-									<h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 							</div>
 						</div>
