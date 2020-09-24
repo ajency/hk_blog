@@ -1,1 +1,186 @@
 .seperator{border-top:1px solid #333B73;margin:30px -10px}.ml-05{margin-left:5px !important}.mr-05{margin-right:5px !important}.mt-05{margin-top:5px !important}.mb-05{margin-bottom:5px !important}.ml-15{margin-left:15px !important}.mr-15{margin-right:15px !important}.mt-15{margin-top:15px !important}.mb-15{margin-bottom:15px !important}.mt-25{margin-top:25px}.pl-05{padding-left:5px !important}.pr-05{padding-right:5px !important}.pt-05{padding-top:5px !important}.pb-05{padding-bottom:5px !important}.pl-15{padding-left:15px !important}.pr-15{padding-right:15px !important}.pt-15{padding-top:15px !important}.pb-15{padding-bottom:15px !important}.pt-25{padding-top:25px}.pb-25{padding-bottom:25px}.text-white{color:#ffffff}.text-white--5{color:rgba(255,255,255,0.5)}.text-white--7{color:rgba(255,255,255,0.7)}.text-white--8{color:rgba(255,255,255,0.8)}.text-decoration-none{text-decoration:none}.f-0{font-size:0}.f-7{font-size:7px;line-height:10px}.f-8{font-size:8px;line-height:10px}.f-9{font-size:9px;line-height:11px}.f-10{font-size:10px;line-height:14px}.f-12{font-size:12px;line-height:16px}.f-18{font-size:18px;line-height:20px}.f-40{font-size:40px;line-height:48px}.fw-300{font-weight:300}.fw-900{font-weight:900}.p-t-130{padding-top:130px}@media (max-width: 767px){.p-t-130{padding-top:40px}}.p-t-140{padding-top:140px}@media (max-width: 767px){.p-t-140{padding-top:40px}}.p-t-150{padding-top:150px}@media (max-width: 767px){.p-t-150{padding-top:40px}}.max-935{max-width:935px;margin:0 auto}.max-145{max-width:145px}.max-470{max-width:470px}@media (min-width: 768px){.max-275{max-width:275px}}.min-25{min-width:25px}.min-70{min-width:70px}.section-title{font-size:18px;color:#090909;font-weight:800;text-transform:uppercase}
+// Vars
+@slick-dot-width: 20px;
+@slick-dot-height: 20px;
+@slick-dot-color: white;
+@slick-dot-color-active: @slick-dot-color;
+@slick-opacity-default: 0.75;
+@slick-opacity-on-hover: 1;
+@slick-opacity-not-active: 0.25;
+
+// Base
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+// Design Slider
+.slider, .slide {
+  @media (min-width: 992px) {
+    height: 80vh;
+  }
+}
+
+.slide {
+  position: relative;
+  .slide__img {
+    @media (min-width: 992px) {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      height: auto;
+      opacity: 1 !important;
+      animation-duration: 3s;
+      transition: all 1s ease;
+    }
+  }
+  .slide__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &--headings {
+      text-align: center;
+      color: #FFF;
+      h2 {
+        font-size: 4.5rem;
+        margin: 10px 0;
+      }
+      .animated {
+        transition: all .5s ease;
+      }
+    }
+  }
+}
+
+// Change animation presets
+.slider [data-animation-in] {
+    opacity: 0;
+    animation-duration: 1.5s;
+    transition: opacity 0.5s ease 0.3s;
+}
+
+// Dots
+.slick-dotted .slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 25px;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    li {
+        position: relative;
+        display: inline-block;
+        margin: 0 5px;
+        padding: 0;
+        cursor: pointer;
+        button {
+            border: 0;
+            display: block;
+            outline: none;
+            line-height: 0px;
+            font-size: 0px;
+            color: transparent;
+            padding: 5px;
+            cursor: pointer;
+            transition: all .3s ease;
+            &:hover, &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.simple-dots {
+  .slick-dots {
+    li {
+      width: @slick-dot-width;
+      height: @slick-dot-height;
+      button {
+        border-radius: 50%;
+        background-color: @slick-dot-color;
+        opacity: @slick-opacity-not-active;
+        width: @slick-dot-width;
+        height: @slick-dot-height;
+        &:hover, &:focus {
+          opacity: @slick-opacity-on-hover;
+        }
+      }
+      &.slick-active button {
+        color: @slick-dot-color-active;
+        opacity: @slick-opacity-default;
+      }
+    }
+  }
+}
+
+.stick-dots {
+  .slick-dots {
+    li {
+      height: 3px;
+      width: 50px;
+      button {
+        position: relative;
+        background-color: @slick-dot-color;
+        opacity: @slick-opacity-not-active;
+        width: 50px;
+        height: 3px;
+        padding: 0;
+        &:hover, &:focus {
+          opacity: @slick-opacity-on-hover;
+        }
+      }
+      &.slick-active button {
+        color: @slick-dot-color-active;
+        opacity: @slick-opacity-default;
+        &:hover, &:focus {
+          opacity: @slick-opacity-on-hover;
+        }
+      }
+    }
+  }
+}
+
+/* /////////// IMAGE ZOOM /////////// */
+@keyframes zoomInImage {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+}
+
+.zoomInImage {
+  animation-name: zoomInImage;
+}
+
+@keyframes zoomOutImage {
+  from {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.zoomOutImage {
+  animation-name: zoomOutImage;
+}

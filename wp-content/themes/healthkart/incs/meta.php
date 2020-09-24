@@ -14,7 +14,19 @@ function hk_post_cpt__metabox() {
         'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',
     ) );
-
+    $cmb_term->add_field( array(
+        'name' => 'Featured Banner Post',
+        'id'   => $prefix . 'featured_banner_post',
+        'type' => 'checkbox',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Minutes Read',
+        'id'   => $prefix . 'mins_read',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+    )));
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'ama_video',
         'title'             => 'Live AMA',
@@ -30,6 +42,7 @@ function hk_post_cpt__metabox() {
         'title'             => 'Statistics',
         'object_types'      => array( 'post' ),
     ) );
+   
     $cmb_term->add_field( array(
         'name'    => 'Views',
         'id'      => $prefix . 'views',
@@ -155,6 +168,25 @@ function hk_post_cpt__metabox() {
         'name' => esc_html__( 'After', 'cmb2' ),
         'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
         'id'   => $prefix . 'image_after_diet',
+        'type' => 'file',
+    ) );
+    $cmb_term = new_cmb2_box( array(
+        'id'               => $prefix . 'edit',
+        'title'            => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
+        'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+        'taxonomies'       => array( 'category' ), // Tells CMB2 which taxonomies should have these fields
+        // 'new_term_section' => true, // Will display in the "Add New Category" section
+    ) );
+    $cmb_term->add_field( array(
+        'name'     => esc_html__( 'Featured Category', 'cmb2' ),
+        'id'       => $prefix . 'featured_category',
+        'type'     => 'checkbox',
+        'on_front' => false,
+    ) );
+
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Featured Image', 'cmb2' ),
+        'id'   => $prefix . 'featured_image',
         'type' => 'file',
     ) );
 }

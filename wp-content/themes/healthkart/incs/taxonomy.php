@@ -5,7 +5,7 @@ function hk_taxonomy()  {
     $post_types = [
         'ama' => ['singular' => 'Ask Me Anything','plural' => 'Ask Me Anything'], 
         'infographic' => ['singular' => 'Infographic','plural' => 'Infographics'], 
-        'transformation' => ['singular' => 'Tansformation','plural' => 'Tansformations'], 
+        'transformation' => ['singular' => 'Transformation','plural' => 'Transformations'], 
         'video' => ['singular' => 'Video','plural' => 'Videos'], 
     ];
     $taxonomies = [
