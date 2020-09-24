@@ -20,7 +20,7 @@
 				while( $banner_posts->have_posts() ) :
 					$banner_posts->the_post(); 
 					$post_ids[] = get_the_ID(); ?>
-					<div class="slide">
+					<div class="slide"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<div class="slide__img">
 							<img src="" alt="" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
 						</div>
@@ -28,14 +28,14 @@
 							<div class="slide__content--headings">
 								<div class="animated" data-animation-in="fadeInUp" data-delay-in="0.3">
 									<?php $category = hk_get_category(get_the_ID()); ?>
-									<a href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
+									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
 									<p class="mins-read"><?php echo get_post_meta( get_the_ID(), 'hk_mins_read', true );  ?> MIN READ</p>
 									<p class="post-date"><?php echo get_the_date('M d, Y')  ?></p>
 								</div>
 								<h2 class="animated" data-animation-in="fadeInUp"><?php the_title(); ?></h2>
 							</div>
 						</div>
-					</div>
+					</a></div>
 				<?php endwhile;
 		endif; ?>
 		</div>
