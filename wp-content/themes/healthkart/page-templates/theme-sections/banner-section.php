@@ -26,13 +26,20 @@
 						</div>
 						<div class="slide__content">
 							<div class="slide__content--headings">
-								<div class="animated" data-animation-in="fadeInUp" data-delay-in="0.3">
-									<?php $category = hk_get_category(get_the_ID()); ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
-									<p class="mins-read"><?php echo get_post_meta( get_the_ID(), 'hk_mins_read', true );  ?> MIN READ</p>
-									<p class="post-date"><?php echo get_the_date('M d, Y')  ?></p>
+								<div class="content-title">
+									<?php $category = hk_get_category(get_the_ID());  ?>
+									<span>
+										<span class="category">
+											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+										</span>
+										<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
+										if($mins_read): ?>
+											<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+											<span class="last-read"><?php echo $mins_read; ?> MIN READ</span>
+										<?php endif; ?>
+									</span>
+									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
-								<h2 class="animated" data-animation-in="fadeInUp"><?php the_title(); ?></h2>
 							</div>
 						</div>
 					</a></div>

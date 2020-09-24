@@ -8943,26 +8943,30 @@ a:focus {
   height: 150px;
   width: 100%;
   object-fit: cover; }
-.latest-articles-single-content .content-title .category a {
+.latest-articles-single-content .title {
+  line-height: 26px; }
+  .latest-articles-single-content .title a {
+    font-size: 18px; }
+.latest-articles-single-content .content-description {
+  font-size: 15px; }
+
+.content-title .category a {
   color: #00bfbf;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px; }
-.latest-articles-single-content .content-title .dot {
+.content-title .dot {
   padding: 0 8px; }
-  .latest-articles-single-content .content-title .dot i {
+  .content-title .dot i {
     font-size: 5px;
     vertical-align: middle; }
-.latest-articles-single-content .content-title .last-read {
+.content-title .last-read {
   color: rgba(0, 0, 0, 0.49);
   font-size: 14px;
   line-height: 26px; }
-.latest-articles-single-content .content-title .title a {
-  font-size: 18px;
+.content-title .title a {
   line-height: 26px;
   font-weight: 900;
   color: black; }
-.latest-articles-single-content .content-description {
-  font-size: 15px; }
 
 /*# sourceMappingURL=theme-styles.css.map */
