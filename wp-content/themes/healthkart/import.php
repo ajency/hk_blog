@@ -17,6 +17,18 @@ header("Content-Type: text/plain");
 // 	echo '<hr>';
 // }
 // exit;
+// $posts = $wpdb->get_results("SELECT *  FROM wp_posts order by id asc");
+// foreach ($posts as $post) {
+// 	$post_content = str_replace( "http://healthkart.wpengine.com", "https://healthkart.wpengine.com", $post->post_content );
+// 	$post_arr = array(
+// 			'ID'		 => $post->ID,			
+// 			'post_content' => $post_content,		
+// 		);
+// 	wp_update_post( $post_arr );
+// 	echo $post->ID."<hr>";
+// }
+
+
 $mydb = new wpdb('root','root','fitness_freak','localhost');
 $nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
 $x=1;

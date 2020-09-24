@@ -22,7 +22,7 @@ foreach ($files as $index => $file) {
 exit;*/
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
-$images = $mydb->get_results("SELECT *  FROM file_managed where fid=12269 ORDER BY fid ASC");
+$images = $mydb->get_results("SELECT *  FROM file_managed ORDER BY fid ASC");
 $x=0;
 set_time_limit(0);
 foreach ($images as $image) {
