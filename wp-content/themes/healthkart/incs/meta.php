@@ -3,7 +3,7 @@
 add_action( 'cmb2_init', 'hk_post_cpt__metabox' );
 function hk_post_cpt__metabox() {
     $prefix = 'hk_';
-    //post meta
+    //post meta 
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'metabox',
         'title'             => 'Meta Fields',
@@ -11,12 +11,28 @@ function hk_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Description',
-        'id'      =>  'hk_description',
+        'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',
+    ) );
+
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'ama_video',
+        'title'             => 'Live AMA',
+        'object_types'      => array( 'ama' ),
+    ) );
+    $cmb_term->add_field( array(
+        'name'    => 'Video',
+        'id'      =>  $prefix . 'ama_video',
+        'type'    => 'text',
+    ) );
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'statistics',
+        'title'             => 'Statistics',
+        'object_types'      => array( 'post' ),
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Views',
-        'id'      => 'hk_views',
+        'id'      => $prefix . 'views',
         'type'    => 'text',
         'save_field' => false,
    		'attributes' => array(
@@ -33,12 +49,32 @@ function hk_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name'             => 'How did you overcome',
-        'id'               => 'hk_how_did_you_overcome',
+        'id'               => $prefix . 'how_did_you_overcome',
         'type'    => 'textarea',
     ) );
     $cmb_term->add_field( array(
         'name'             => 'Accomplish Goal',
-        'id'               => 'hk_accomplish_goal',
+        'id'               => $prefix . 'accomplish_goal',
+        'type'    => 'textarea',
+    ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Transform Reason',
+        'id'               => $prefix . 'transform_reason',
+        'type'    => 'textarea',
+    ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Training Routine',
+        'id'               => $prefix . 'training_routine',
+        'type'    => 'wysiwyg',
+    ) );
+        $cmb_term->add_field( array(
+        'name'             => 'Future Suggestion',
+        'id'               => $prefix . 'future_suggestion',
+        'type'    => 'textarea',
+    ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Supplements',
+        'id'               => $prefix . 'supplements_that_helped',
         'type'    => 'textarea',
     ) );
     $cmb_term = new_cmb2_box( array(
@@ -48,7 +84,7 @@ function hk_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
-        'id'   => 'hk_age_before_diet',
+        'id'   => $prefix . 'age_before_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -56,7 +92,7 @@ function hk_post_cpt__metabox() {
     )));
     $cmb_term->add_field( array(
         'name' => 'After',
-        'id'   => 'hk_age_after_diet',
+        'id'   => $prefix . 'age_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -69,7 +105,7 @@ function hk_post_cpt__metabox() {
     ) );
     $cmb_term->add_field( array(
         'name' => 'Before',
-        'id'   => 'hk_body_fat_before_diet',
+        'id'   => $prefix . 'body_fat_before_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
@@ -77,34 +113,48 @@ function hk_post_cpt__metabox() {
     )));
     $cmb_term->add_field( array(
         'name' => 'After',
-        'id'   => 'hk_body_fat_after_diet',
+        'id'   => $prefix . 'body_fat_after_diet',
         'type' => 'text',
         'attributes' => array(
             'type' => 'number',
             'pattern' => '\d*',
     )));
-}
-
-add_action( 'show_user_profile', 'extra_user_profile_fields' );
-add_action( 'edit_user_profile', 'extra_user_profile_fields' );
-function extra_user_profile_fields( $user ) { 
-    ?>
-    <h3><?php _e("Extra profile information", "blank"); ?></h3>
-    <table class="form-table">
-    <tr>
-        <th><label for="hk_designation"><?php _e("Designation"); ?></label></th>
-        <td>
-            <input type="text" name="hk_designation" id="hk_designation" value="<?php echo esc_attr( get_the_author_meta( 'hk_designation', $user->ID) ); ?>" class="regular-text" /><br />
-        </td>
-    </tr>
-    </table>
-<?php }
-
-add_action( 'personal_options_update', 'save_extra_user_profile_fields' );
-add_action( 'edit_user_profile_update', 'save_extra_user_profile_fields' );
-function save_extra_user_profile_fields( $user_id ) {
-    if ( !current_user_can( 'edit_user', $user_id ) ) { 
-        return false; 
-    }
-    update_user_meta( $user_id, 'hk_designation', $_POST['hk_designation'] );
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'weight_metabox',
+        'title'             => 'Weight',
+        'object_types'      => array( 'transformation' ),
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Before',
+        'id'   => $prefix . 'weight_before_diet',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+    )));
+    $cmb_term->add_field( array(
+        'name' => 'After',
+        'id'   => $prefix . 'weight_after_diet',
+        'type' => 'text',
+        'attributes' => array(
+            'type' => 'number',
+            'pattern' => '\d*',
+    )));
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'image_metabox',
+        'title'             => 'Image',
+        'object_types'      => array( 'transformation' ),
+    ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Before', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'image_before_diet',
+        'type' => 'file',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'After', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'image_after_diet',
+        'type' => 'file',
+    ) );
 }
