@@ -1,4 +1,4 @@
-<div class="banner row">
+<div class="banner row mt-4">
 	<div class="banner-slider col-8">
 		<div class="slider stick-dots">
 		<?php 

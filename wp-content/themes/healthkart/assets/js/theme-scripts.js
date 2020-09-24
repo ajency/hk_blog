@@ -59,8 +59,8 @@ $( document ).ready(function() {
 	$('.slider').slick({
 		autoplay: true,
 		speed: 800,
-		lazyLoad: 'progressive',
+		//lazyLoad: 'progressive',
 		arrows: false,
-		dots: true,
-	}).slickAnimation();
+		dots: false,
+	});
 }); 
