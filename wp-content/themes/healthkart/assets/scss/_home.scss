@@ -1,0 +1,58 @@
+.latest-articles{
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&-single{
+		&-main{
+			padding-right: 4rem;
+			.latest-articles-single-content .content-title{
+				.title a{
+					font-size: 25px;
+				}
+			}
+			.latest-articles-single-image{
+				img{
+					height: auto;
+				}
+			}
+		}
+		&-image{
+			img{
+				height: 150px;
+				width: 100%;
+    			object-fit: cover;
+			}
+		}
+		&-content{
+			.content-title{
+				.category a{
+					color: #00bfbf;
+				    font-weight: 500;
+				    font-size: 14px;
+				    line-height: 18px;
+				}
+				.dot{
+					padding: 0 8px;
+					i{
+						font-size: 5px;
+    					vertical-align: middle;
+					}
+				}
+				.last-read{
+					color: rgba(0, 0, 0, 0.49);
+				    font-size: 14px;
+				    line-height: 26px;
+				}
+				.title a{
+					font-size: 18px;
+				    line-height: 26px;
+				    font-weight: 900;
+				    color: black;
+				}
+			}
+		}
+	}
+}

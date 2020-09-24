@@ -13,10 +13,11 @@
  */
 get_header(); 
 ?>
+<div class="container">
 <?php 
 	set_query_var( 'post_ids', array() );
 	get_template_part( 'page-templates/theme-sections/banner', 'section' );
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' ); 
 ?>
-
+</div>
 <?php get_footer(); ?>
