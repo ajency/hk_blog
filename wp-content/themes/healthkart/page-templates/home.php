@@ -13,6 +13,10 @@
  */
 get_header(); 
 ?>
-<?php get_template_part( 'page-templates/theme-sections/banner', 'section' ); ?>
+<?php 
+	set_query_var( 'post_ids', array() );
+	get_template_part( 'page-templates/theme-sections/banner', 'section' );
+	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' ); 
+?>
 
 <?php get_footer(); ?>
