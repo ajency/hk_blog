@@ -27,11 +27,8 @@
 						<div class="slide__content">
 							<div class="slide__content--headings">
 								<div class="animated" data-animation-in="fadeInUp" data-delay-in="0.3">
-									<span class="category-name">
-										<?php 
-										echo hk_get_category(get_the_id());
-										?>
-									</span>
+									<?php $category = hk_get_category(get_the_ID()); ?>
+									<a href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
 									<p class="mins-read"><?php echo get_post_meta( get_the_ID(), 'hk_mins_read', true );  ?> MIN READ</p>
 									<p class="post-date"><?php echo get_the_date('M d, Y')  ?></p>
 								</div>
@@ -48,7 +45,7 @@
 		foreach ($categories as $category):
 			$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
 			if($is_featured == 'on'): ?>
-				<div class="banner-category-single">
+				<div class="banner-category-single"><a href="<?php echo get_category_link($category->term_id); ?>" >
 					<div class="banner-category-single-image">
 						<?php
 						$image_id = get_term_meta( $category->term_id, 'hk_featured_image_id', true );
@@ -57,7 +54,7 @@
 						<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>"/>
 					</div>
 					<div class="banner-category-single-title"><?php echo $category->name; ?></div>
-				</div>
+				</a></div>
 			<?php endif; ?>
 		<?php endforeach; ?>
 	</div>

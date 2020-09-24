@@ -204,10 +204,11 @@ add_action( 'wp_enqueue_scripts', 'my_child_theme_scripts' );
 function my_child_theme_scripts() {
     wp_enqueue_style( 'parent-theme-css', get_stylesheet_directory_uri() . '/style.css' );
  	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '', false);
- 	wp_enqueue_style('slick', get_stylesheet_directory_uri() . '/assets/css/slick.css', array(), '', false);
- 	wp_enqueue_style('animate', get_stylesheet_directory_uri() . '/assets/css/animate.min.css', array(), '', false);
  	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=5.4.2', array(), '', false);
     wp_enqueue_style('font-family', 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">', array(), '', false);
+    wp_enqueue_style('slick', get_stylesheet_directory_uri() . '/assets/css/slick.css', array(), '', false);
+ 	wp_enqueue_style('animate', get_stylesheet_directory_uri() . '/assets/css/animate.min.css', array(), '', false);
+ 	wp_enqueue_style('normalize', get_stylesheet_directory_uri() . '/assets/css/normalize.min.css', array(), '', false);
 }
 //* this will bring in the Genesis Parent files needed:
 include_once( get_template_directory() . '/lib/init.php' );

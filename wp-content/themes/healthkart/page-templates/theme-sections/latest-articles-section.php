@@ -25,7 +25,8 @@
 				</div>
 				<div class="latest-articles-single-content">
 					<div class="content-title">
-						<span class="category-name"><?php echo hk_get_category(get_the_ID()); ?></span>
+						<?php $category = hk_get_category(get_the_ID());  ?>
+						<a href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
 						<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
 						if($mins_read): ?>
 							<span class="mins-read"><?php echo $mins_read; ?> MIN READ</span>
@@ -64,7 +65,8 @@
 				</div>
 				<div class="latest-articles-single-content">
 					<div class="content-title">
-						<span class="category-name"><?php echo hk_get_category(get_the_ID()); ?></span>
+						<?php $category = hk_get_category(get_the_ID()); ?>
+						<a href="<?php echo get_category_link($category); ?>" ><?php echo $category->name; ?></a>
 						<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
 						if($mins_read): ?>
 							<span class="mins-read"><?php echo $mins_read; ?> MIN READ</span>
