@@ -8928,6 +8928,17 @@ a:focus {
         font-weight: bold;
         text-align: center; } }
 
+.banner-slider .slick-slide .slide__img img {
+  border-radius: 20px;
+  height: 500px;
+  width: 100%;
+  object-fit: cover; }
+.banner-category-single-image img {
+  border-radius: 20px;
+  height: 240px;
+  width: 100%;
+  object-fit: cover; }
+
 .latest-articles-heading {
   border-bottom: 1px solid #ececec;
   font-weight: bold;
