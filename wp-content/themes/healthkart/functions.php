@@ -214,13 +214,17 @@ function my_child_theme_scripts() {
 include_once( get_template_directory() . '/lib/init.php' );
 
 function enqueue_theme_scripts() { 
+	global $wp_query;
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', get_stylesheet_directory_uri().'/assets/js/jquery.js' , '', '', true );
     wp_register_script( 'bootstrap', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js' , '', '', true );
     wp_register_script( 'themescripts', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', '', true );
     wp_register_script( 'slick', get_stylesheet_directory_uri().'/assets/js/slick.min.js' , '', '', true );
     wp_register_script( 'slickanimation', get_stylesheet_directory_uri().'/assets/js/slick-animation.min.js' , '', '', true );
-   	
+
+    wp_localize_script( 'themescripts', 'ajax_params', array(
+		'url' => site_url() . '/wp-admin/admin-ajax.php', 
+	) );
    	wp_enqueue_script('jquerys');
     wp_enqueue_script('bootstrap');
     wp_enqueue_script('themescripts');     
@@ -249,23 +253,4 @@ function register_menus() {
 
 add_action('init', 'register_menus');
 
-/**
- * Function calculate the estimates reading time of the post content.
- * @param string $content Post content.
- * @return string estimated reading time.
- */
-function get_estimated_reading_time( $content = '') {
-    $wpm = 265;
-    $text_content = strip_shortcodes( $content );   // Remove shortcodes
-    $str_content = strip_tags( $text_content );     // remove tags
-    $word_count = str_word_count( $str_content );
-    $readtime = ceil( $word_count / $wpm );
 
-    if ($readtime == 1) {
-        $postfix = " MIN READ";
-    } else {
-        $postfix = " MINS READ";
-    }
-    $readingtime = $readtime . $postfix;
-    return $readingtime;
-}

@@ -21,9 +21,6 @@
 					object-fit: cover;
 				}
 			}
-			&-title{
-
-			}
 		}
 	}
 }
@@ -45,7 +42,7 @@
 			}
 			.latest-articles-single-image{
 				img{
-					height: auto;
+					height: 300px;
 				}
 			}
 		}
@@ -88,9 +85,129 @@
 	    font-size: 14px;
 	    line-height: 26px;
 	}
-	.title a{
-	    line-height: 26px;
-	    font-weight: 900;
-	    color: black;
+	.title{
+		line-height: 1.1;
+		a{
+		    line-height: 26px;
+		    font-weight: 900;
+		    color: black;
+		}
+	}
+}
+
+.trending-articles{
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&-single{
+		&-image{
+			img{
+				height: 100px;
+				width: 100%;
+    			object-fit: cover;
+			}
+		}
+		&-main{
+			img{
+				height: 200px;
+			}
+		}
+		&-content{
+			.content-title{
+				.title a{
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+.explore-articles{
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&-single{
+		&-image{
+			img{
+				height: 150px;
+				width: 100%;
+    			object-fit: cover;
+			}
+		}
+		&-content{
+			.content-title{
+				.title a{
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+.category-buttons{
+	.category-buttons-single{
+		border-radius: 10px;
+		background-color: transparent;
+		color: #4d4d4d;
+		border-color: #bfbfbf;
+		&:focus {
+			outline: none;
+			box-shadow: none;
+			background-color: #bfbfbf !important;
+		}
+		&:hover{
+			background-color: #bfbfbf;
+		}
+		&-active{
+			color: #fff;
+			background-color: #00bfbf !important;
+			border-color: #00bfbf !important;
+			&:hover{
+				background-color: #009999 !important;
+			}
+			&:focus {
+				outline: none;
+				box-shadow: none;
+				background-color: #00bfbf !important;
+			}
+		}
+	}
+}
+
+
+.slideshow {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+	max-width: 700px;
+
+
+	.slider {
+	//box-shadow: 0 20px 50px -25px rgba(0, 0, 0, 1);
+	}
+
+	.slider-track {
+		transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+	}
+
+	.item {
+		height: 100%;
+		position: relative;
+		z-index: 1;
+
+		img {
+			width: 100%;
+			transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+			transform: scale(1.2);
+		}
+
+		&.slick-active img {
+			transform: scale(1);
+		}
 	}
 }

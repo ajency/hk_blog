@@ -18,6 +18,8 @@ get_header();
 	set_query_var( 'post_ids', array() );
 	get_template_part( 'page-templates/theme-sections/banner', 'section' );
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' ); 
+	get_template_part( 'page-templates/theme-sections/trending-articles', 'section' ); 
+	get_template_part( 'page-templates/theme-sections/explore-articles', 'section' ); 
 ?>
 </div>
 <?php get_footer(); ?>

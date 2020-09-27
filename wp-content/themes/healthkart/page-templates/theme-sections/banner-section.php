@@ -1,5 +1,5 @@
 <div class="banner row mt-4">
-	<div class="banner-slider col-8">
+	<div class="banner-slider slideshow col-8">
 		<div class="slider stick-dots">
 		<?php 
 		$args = array(
@@ -20,23 +20,24 @@
 				while( $banner_posts->have_posts() ) :
 					$banner_posts->the_post(); 
 					$post_ids[] = get_the_ID(); ?>
-					<div class="slide"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<div class="slide item"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<div class="slide__img">
 							<img src="" alt="" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
 						</div>
 						<div class="slide__content">
 							<div class="slide__content--headings">
 								<div class="content-title">
-									<?php $category = hk_get_category(get_the_ID());  ?>
+									<?php $categories = hk_get_category(get_the_ID());  ?>
 									<span>
 										<span class="category">
+											<?php foreach($categories as $index => $category): ?>
 											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+											<?php if($index+1 != count($categories)): ?>
+												,
+											<?php endif; endforeach; ?>
 										</span>
-										<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
-										if($mins_read): ?>
-											<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-											<span class="last-read"><?php echo $mins_read; ?> MIN READ</span>
-										<?php endif; ?>
+										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 									</span>
 									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>

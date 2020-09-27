@@ -14,7 +14,7 @@
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); 
 			$post_ids[] = get_the_id();?>
-			<div class="latest-articles-single latest-articles-single-main col-6">
+			<div class="latest-articles-single latest-articles-single-main col-md-6 col-12">
 				<div class="latest-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php if ( has_post_thumbnail() ) {
 					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
@@ -25,20 +25,21 @@
 				</a></div>
 				<div class="latest-articles-single-content">
 					<div class="content-title">
-						<?php $category = hk_get_category(get_the_ID());  ?>
+						<?php $categories = hk_get_category(get_the_ID());  ?>
 						<span>
 							<span class="category">
+								<?php foreach($categories as $index => $category): ?>
 								<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+								<?php if($index+1 != count($categories)): ?>
+									,
+								<?php endif; endforeach; ?>
 							</span>
-							<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
-							if($mins_read): ?>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo $mins_read; ?> MIN READ</span>
-							<?php endif; ?>
+							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+							<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 						</span>
 						<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					</div>
-					<div class="content-description"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?></div>
+					<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
 				</div>
 			</div>
 		<?php endwhile;
@@ -58,8 +59,8 @@
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); 
 			$post_ids[] = get_the_id();?>
-			<div class="latest-articles-single row mb-3">
-				<div class="latest-articles-single-image mb-5 col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+			<div class="latest-articles-single row mb-4">
+				<div class="latest-articles-single-image col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php if ( has_post_thumbnail() ) {
 					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 					<?php
@@ -70,18 +71,21 @@
 				</a></div>
 				<div class="latest-articles-single-content col-md-8 col-12">
 					<div class="content-title">
-						<?php $category = hk_get_category(get_the_ID()); ?>
+						<?php $categories = hk_get_category(get_the_ID()); ?>
 						<span>
-							<span class="category"><a href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a></span>
+							<span class="category">
+								<?php foreach($categories as $index => $category): ?>
+								<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+								<?php if($index+1 != count($categories)): ?>
+									,
+								<?php endif; endforeach; ?>
+							</span>
 							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-							<?php $mins_read = get_post_meta( get_the_ID(), 'hk_mins_read', true ); 
-							if($mins_read): ?>
-								<span class="last-read"><?php echo $mins_read; ?> MIN READ</span>
-							<?php endif; ?>
+							<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 						</span>
 						<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					</div>
-					<div class="content-description"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?></div>
+					<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
 				</div>
 			</div>
 		<?php endwhile;

@@ -58,9 +58,73 @@ $( document ).ready(function() {
 
 	$('.slider').slick({
 		autoplay: true,
+		draggable: true,
+		arrows: false,
+		fade: true,
+		speed: 900,
+		infinite: true,
+		cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+		touchThreshold: 100
+/*		autoplay: true,
+		fade: true,
 		speed: 800,
 		//lazyLoad: 'progressive',
 		arrows: false,
-		dots: false,
+		dots: false,*/
+	});
+	$(".category-buttons-single:not(.category-buttons-single-active)").click(function(){
+		var button = $(this);
+		$.ajax({ 
+			url : ajax_params.url, 
+			data: {
+				'action' : 'fetch_category_articles',
+				'category_id' : $(this).attr('data-val')
+			},
+			type : 'POST',
+			beforeSend : function ( xhr ) {
+				$(".category_articles_container").html('');
+				$(".category-loader").addClass("d-flex").removeClass("d-none");
+			},
+			success : function( data ){
+				$(".category-loader").addClass("d-none").removeClass("d-flex");
+				if( data ) { 
+					$(".category_articles_container").html(data);
+					$(".category-buttons-single").removeClass("category-buttons-single-active");
+					button.addClass("category-buttons-single-active");
+				} else {
+					//button.remove(); // if no data, remove the button as well
+				}
+			}
+		});
+	})
+	var canBeLoaded = true;
+ 	var category_page = 3;
+	$(window).scroll(function(){
+		if($(".category-list-view").length){
+			var data = {
+				'action': 'fetch_category_page_articles',
+				'page' : category_page,
+				'category' : $(".category-list-view").data('category'),
+			};
+			if( ($(window).scrollTop() + $(window).height() + 70 > $(document).height()) && canBeLoaded == true ){
+				$.ajax({
+					url : ajax_params.url,
+					data:data,
+					type:'POST',
+					beforeSend: function( xhr ){
+						$('.category-list-view .category-loader').addClass("d-flex").removeClass("d-none");
+						canBeLoaded = false; 
+					},
+					success:function(data){
+						if( data ) {
+							$('.category-list-view .category-loader').remove();
+							$('.category-list-view .category-post-row:last').after( data ); 
+							canBeLoaded = true; 
+							category_page++;
+						}
+					}
+				});
+			}
+		}
 	});
 }); 

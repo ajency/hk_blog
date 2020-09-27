@@ -1,19 +1,23 @@
 <?php
 
 get_header(); 
+$category = get_queried_object();
+$args = array(
+	'posts_per_page' => 6,
+	'post_type' => array('post'),
+	'post_status' => 'publish',
+	'cat' => $category->term_id,
 
+);
+query_posts( $args );
 ?>	
-
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
   						<a href="<?php echo get_site_url(); ?>/"><i class="fa fa-home" aria-hidden="true"></i></a>
-  						<a href=""><?php $categories = get_the_category();
-							if ( ! empty( $categories ) ) {
-							    echo esc_html( $categories[0]->name );   
-						} ?></a>
+  						<a href=""><?php echo $category->name ?></a>
   					</div>
   				</div>
 			</div>
@@ -21,21 +25,24 @@ get_header();
 	</div>
 	<div class="container p-0">
 		<h2 class="category-name pl-15">
-		<?php $categories = get_the_category();
-			if ( ! empty( $categories ) ) {
-			    echo esc_html( $categories[0]->name );   
-		} ?>
+			<?php echo $category->name;  ?>
 		</h2>
 		<p class="text-black pl-15 f-14 article-count">
-		<?php
-			$categories = get_the_category();
-			if ( ! empty( $categories ) ) {
-				echo esc_html( $categories[0]->count ) . ' Articles ';
-			}
-		?>
+			<?php echo $category->count . ' Articles '; ?>
 		</p>
-		<div class="latest-reads category-list-view">
-			<?php get_template_part( 'loop', 'category' );	?>
+		<div class="latest-reads category-list-view" data-category="<?php echo $category->term_id; ?>">
+			<div class="category-post-row row m-0">
+			<?php
+				if( have_posts() ) :
+					while( have_posts() ): the_post();
+						get_template_part( 'page-templates/theme-sections/category', 'section' ); 
+					endwhile;
+				endif;
+			?>
+			</div>
+			<div class="my-5 loader category-loader d-none justify-content-center">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
+			</div> 
 		</div>
 	</div>
 <?php
