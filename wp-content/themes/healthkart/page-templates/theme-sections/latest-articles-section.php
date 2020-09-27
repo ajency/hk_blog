@@ -61,13 +61,16 @@
 			$post_ids[] = get_the_id();?>
 			<div class="latest-articles-single row mb-4">
 				<div class="latest-articles-single-image col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-					<?php if ( has_post_thumbnail() ) {
+					<?php 
+					$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+					if ( $thumbnail ) { ?>
+						<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+					<?php } else if ( has_post_thumbnail() ) {
 					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 					<?php
 					} else { ?>
 					<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 					<?php } ?>
-					
 				</a></div>
 				<div class="latest-articles-single-content col-md-8 col-12">
 					<div class="content-title">

@@ -27,7 +27,19 @@ header("Content-Type: text/plain");
 // 	wp_update_post( $post_arr );
 // 	echo $post->ID."<hr>";
 // }
-
+/*$mydb = new wpdb('root','root','fitness_freak','localhost');
+$imgs = $mydb->get_results("select * from field_data_field_img_d where bundle='articles'");
+foreach ($imgs as $img) {
+	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
+	$image = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_file_id' and meta_value = '".$img->field_img_d_fid."'");
+	if($node && $image){
+		$image_url = wp_get_attachment_image_src( $image->post_id, 'full' )[0];
+		$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
+		add_post_meta($node->post_id, 'hk_thumbnail_image', $image_url);
+		add_post_meta($node->post_id, 'hk_thumbnail_image_id', $image->post_id);
+	}
+}*/
+exit;
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
 $nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
