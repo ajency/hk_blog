@@ -35,8 +35,12 @@ add_shortcode( 'read-these-next', function(){?>
 						<div class="col-md-4 col-12">
 							<div class="recent-post-featured-img">
 								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-									<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail('large'); ?>
+									<?php 
+									$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+									if ( $thumbnail ) { ?>
+										<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+									<?php } else if ( has_post_thumbnail() ) {
+									the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 									<?php
 									} else { ?>
 									<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
@@ -125,8 +129,13 @@ add_shortcode( 'related-articles', function(){?>
 							<div class="col-4">
 								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-										<?php if ( has_post_thumbnail() ) {
-										the_post_thumbnail('thumbnail');
+										<?php 
+										$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+										if ( $thumbnail ) { ?>
+											<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+										<?php } else if ( has_post_thumbnail() ) {
+										the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
+										<?php
 										} else { ?>
 										<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 										<?php } ?>
