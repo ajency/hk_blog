@@ -8600,6 +8600,8 @@ strong {
   width: 100%; }
   .sidebar .widget {
     margin-bottom: 0; }
+  .sidebar .widget_media_image {
+    margin: 20px 0; }
   .sidebar .banner-image {
     background: #E8F3F5;
     width: 100%;
