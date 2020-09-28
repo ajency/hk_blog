@@ -50,7 +50,7 @@ add_shortcode( 'read-these-next', function(){?>
 									<?php the_category(' , '); ?>
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
+								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 							</span>
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
@@ -139,7 +139,7 @@ add_shortcode( 'related-articles', function(){?>
 									<?php the_category(' , '); ?>
 									</span>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-									<span class="last-read"><?php echo get_estimated_reading_time( get_the_content() ); ?></span>
+									<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 								</span>
 								<div class="recent-post-header">
 									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
