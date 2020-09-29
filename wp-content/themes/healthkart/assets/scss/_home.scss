@@ -66,31 +66,57 @@
 		}
 	}
 }
-.content-title{
-	.category a{
-		color: #00bfbf;
-	    font-weight: 500;
-	    font-size: 14px;
-	    line-height: 18px;
-	}
-	.dot{
-		padding: 0 8px;
-		i{
-			font-size: 5px;
-			vertical-align: middle;
+.content{
+	&-title{
+		.category a{
+			color: #00bfbf;
+		    font-weight: 500;
+		    font-size: 14px;
+		    line-height: 18px;
+		}
+		.dot{
+			padding: 0 8px;
+			i{
+				font-size: 5px;
+				vertical-align: middle;
+			}
+		}
+		.last-read{
+			color: rgba(0, 0, 0, 0.49);
+		    font-size: 14px;
+		    line-height: 26px;
+		}
+		.title{
+			line-height: 1.1;
+			a{
+			    line-height: 26px;
+			    font-weight: 900;
+			    color: black;
+			}
 		}
 	}
-	.last-read{
-		color: rgba(0, 0, 0, 0.49);
-	    font-size: 14px;
-	    line-height: 26px;
-	}
-	.title{
-		line-height: 1.1;
-		a{
-		    line-height: 26px;
-		    font-weight: 900;
-		    color: black;
+	&-fields{
+		background-color: #212121;
+		color: #fff;
+		border-radius: 10px;
+		font-size: 13px;
+		.transformation{
+			&-after{
+				color: #3DD598;
+				border-right: 1px solid #707070;
+			}
+			&-before{
+				color: #FC5A5A;
+			}
+			&-seperator{
+				color: #707070;
+				font-size: 20px;
+				margin-top: -5px;
+			}
+			&-border-right{
+				border-right: 1px solid #707070;
+				margin: 0;
+			}
 		}
 	}
 }
@@ -149,6 +175,19 @@
 		}
 	}
 }
+.hk-button{
+	color: #fff!important;
+	background-color: #00bfbf !important;
+	border-color: #00bfbf !important;
+	&:hover{
+		background-color: #009999 !important;
+	}
+	&:focus {
+		outline: none;
+		box-shadow: none;
+		background-color: #00bfbf !important;
+	}
+}
 .category-buttons{
 	.category-buttons-single{
 		border-radius: 10px;
@@ -178,7 +217,63 @@
 		}
 	}
 }
+.videos{
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+	&-single{
+		&-image{
+			position: relative;
+			padding-bottom: 56.25%; 
+			height: 0;
+			&-overlay{
+			    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    left: 0;
+			    right: 0;
+			    z-index: 99;
+			    background-color: transparent;
+			}
+			&-iframe{
+				border-radius: 10px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
 
+.transformation-section{
+	&-single{
+		&-image{
+			img{
+				height: 250px;
+				width: 48%;
+				object-fit: cover;
+			}
+		}
+		&-content{
+			.content-title{
+				.title a{
+					font-size: 20px;
+				}
+			}
+		}
+	}
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+}
 
 .slideshow {
 	position: relative;

@@ -5,18 +5,13 @@ function hk_post_cpt__metabox() {
     $prefix = 'hk_';
     //post meta 
     $cmb_term = new_cmb2_box( array(
-        'id'                => $prefix . 'metabox',
-        'title'             => 'Meta Fields',
-        'object_types'      => array( 'post' ),
+        'id'                => $prefix . 'common_metabox',
+        'title'             => 'Common Fields',
+        'object_types'      => array( 'post', 'video', 'transformation', 'ama', 'infographic' ),
     ) );
     $cmb_term->add_field( array(
-        'name'    => 'Description',
-        'id'      =>  $prefix . 'description',
-        'type'    => 'textarea_small',
-    ) );
-    $cmb_term->add_field( array(
-        'name' => 'Featured Banner Post',
-        'id'   => $prefix . 'featured_banner_post',
+        'name' => 'Featured Post',
+        'id'   => $prefix . 'featured_post',
         'type' => 'checkbox',
     ) );
     $cmb_term->add_field( array(
@@ -27,6 +22,21 @@ function hk_post_cpt__metabox() {
             'type' => 'number',
             'pattern' => '\d*',
     )));
+    $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'metabox',
+        'title'             => 'Article Fields',
+        'object_types'      => array( 'post' ),
+    ) );
+    $cmb_term->add_field( array(
+        'name'    => 'Description',
+        'id'      =>  $prefix . 'description',
+        'type'    => 'textarea_small',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Banner Post',
+        'id'   => $prefix . 'featured_banner_post',
+        'type' => 'checkbox',
+    ) );
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'ama_video',
         'title'             => 'Live AMA',
@@ -57,7 +67,7 @@ function hk_post_cpt__metabox() {
     //transformation meta
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'transformation_metabox',
-        'title'             => 'Meta Fields',
+        'title'             => 'Transformation Fields',
         'object_types'      => array( 'transformation' ),
     ) );
     $cmb_term->add_field( array(

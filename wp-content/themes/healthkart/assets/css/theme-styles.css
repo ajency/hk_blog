@@ -8996,6 +8996,23 @@ strong {
     line-height: 26px;
     font-weight: 900;
     color: black; }
+.content-fields {
+  background-color: #212121;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 13px; }
+  .content-fields .transformation-after {
+    color: #3DD598;
+    border-right: 1px solid #707070; }
+  .content-fields .transformation-before {
+    color: #FC5A5A; }
+  .content-fields .transformation-seperator {
+    color: #707070;
+    font-size: 20px;
+    margin-top: -5px; }
+  .content-fields .transformation-border-right {
+    border-right: 1px solid #707070;
+    margin: 0; }
 
 .trending-articles-heading {
   border-bottom: 1px solid #ececec;
@@ -9023,6 +9040,17 @@ strong {
 .explore-articles-single-content .content-title .title a {
   font-size: 20px; }
 
+.hk-button {
+  color: #fff !important;
+  background-color: #00bfbf !important;
+  border-color: #00bfbf !important; }
+  .hk-button:hover {
+    background-color: #009999 !important; }
+  .hk-button:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #00bfbf !important; }
+
 .category-buttons .category-buttons-single {
   border-radius: 10px;
   background-color: transparent;
@@ -9044,6 +9072,43 @@ strong {
       outline: none;
       box-shadow: none;
       background-color: #00bfbf !important; }
+
+.videos-heading {
+  border-bottom: 1px solid #ececec;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold; }
+.videos-single-image {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0; }
+  .videos-single-image-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: transparent; }
+  .videos-single-image-iframe {
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.transformation-section-single-image img {
+  height: 250px;
+  width: 48%;
+  object-fit: cover; }
+.transformation-section-single-content .content-title .title a {
+  font-size: 20px; }
+.transformation-section-heading {
+  border-bottom: 1px solid #ececec;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold; }
 
 .slideshow {
   position: relative;

@@ -13,7 +13,8 @@ $categories = get_categories($args); ?>
 <?php endforeach; ?>
 </div>
 <div class = "category_articles_container">
-<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
-<div class="my-5 loader category-loader d-none justify-content-center">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg"></div>
-</div>  
+	<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
+	<div class="my-5 loader category-loader d-none justify-content-center">
+			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
+	</div>
+</div>
