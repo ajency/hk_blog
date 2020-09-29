@@ -22,7 +22,7 @@
 			$main_post->the_post(); ?>
 			<div class="transformation-section-single col-md-4 col-12">
 				<div class="transformation-section-single-image mb-4">
-					<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php
 						$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
 						$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
@@ -36,8 +36,14 @@
 						$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
 						$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
 					?>
-					<img src="<?php echo $before_image_url; ?>"/>
-					<img class="ml-2" src="<?php echo $after_image_url; ?>"/>
+					<div class="position-relative col-md-6 pl-3 pr-1">
+						<img src="<?php echo $before_image_url; ?>"/>
+						<div class="img-tag px-3 py-1">Before</div>
+					</div>
+					<div class="position-relative col-md-6 pl-1 pr-3">
+						<img src="<?php echo $after_image_url; ?>"/>
+						<div class="img-tag px-3 py-1">After</div>
+					</div>
 					</a>
 				</div>
 				<div class="transformation-section-single-content">

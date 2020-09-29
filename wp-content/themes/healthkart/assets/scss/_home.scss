@@ -255,8 +255,19 @@
 		&-image{
 			img{
 				height: 250px;
-				width: 48%;
+				width: 100%;
 				object-fit: cover;
+			}
+			.img-tag{
+				position: absolute;
+				color: #fff;
+				background-color: #212121;
+				border-radius: 10px;
+				border: 1px solid #707070;
+				bottom: 10px;
+				left: 20px;
+				font-size: 18px;
+				font-weight: bold;
 			}
 		}
 		&-content{
