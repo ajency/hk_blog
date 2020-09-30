@@ -239,6 +239,11 @@
 }
 
 .explore-articles{
+	&-loader{
+		position: absolute;
+	    top: 0;
+	    left: 50%;
+	}
 	&-heading{
 		border-bottom: 1px solid #ececec;
 		font-weight: bold;

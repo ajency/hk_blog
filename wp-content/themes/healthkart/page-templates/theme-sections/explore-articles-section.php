@@ -13,10 +13,7 @@
 			echo 'category-buttons-single-active'; $_POST['category_id'] = $category->term_id; }?>" data-val="<?php echo $category->term_id; ?>"><?php echo $category->name; ?></button>
 	<?php endforeach; ?>
 	</div>
-	<div class = "category_articles_container">
+	<div class = "category_articles_container position-relative">
 		<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
-		<div class="my-5 loader category-loader d-none justify-content-center">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
-		</div>
 	</div>
 </div>

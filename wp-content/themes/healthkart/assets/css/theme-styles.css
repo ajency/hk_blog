@@ -9125,6 +9125,10 @@ strong {
   .trending-articles-single {
     padding-bottom: 2rem !important; } }
 
+.explore-articles-loader {
+  position: absolute;
+  top: 0;
+  left: 50%; }
 .explore-articles-heading {
   border-bottom: 1px solid #ececec;
   font-weight: bold;

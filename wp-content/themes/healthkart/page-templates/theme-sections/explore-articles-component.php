@@ -57,3 +57,6 @@
 ?>
 </div>
 <div class="m-auto text-center"><button type="button" class="btn mr-3 py-2 px-5 view-all">View All</button></div>
+<div class="my-5 loader explore-articles-loader d-none">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
+</div>
