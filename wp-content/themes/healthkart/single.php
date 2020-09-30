@@ -33,9 +33,7 @@ get_header();
 			<div class="container">
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
-  						<a href="<?php echo get_site_url(); ?>/"><i class="fa fa-home" aria-hidden="true"></i></a>
-  						<?php the_category(' , '); ?>
-  						<span class="breadcrumb-title"><?php the_title(); ?></span>
+      					<?php echo yoast_breadcrumb(); ?>
   					</div>
   				</div>
 			</div>

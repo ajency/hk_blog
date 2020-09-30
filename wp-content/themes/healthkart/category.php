@@ -18,8 +18,7 @@ query_posts( $args );
 			<div class="container">
 				<div class="breadcrumbs-wrapper position-relative">
       				<div class="breadcrumbs-inside">
-  						<a href="<?php echo get_site_url(); ?>/"><i class="fa fa-home" aria-hidden="true"></i></a>
-  						<a href=""><?php echo $category->name ?></a>
+  						<?php echo yoast_breadcrumb(); ?>
   					</div>
   				</div>
 			</div>
