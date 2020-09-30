@@ -1,4 +1,4 @@
-<div class="explore-articles-section mt-3">
+<div class="explore-articles-section">
 	<h1 class="explore-articles-heading pt-3 pb-3">EXPLORE ARTICLES</h1>
 	<?php 
 	$uncategorized_id = get_cat_ID( 'Uncategorized' );
