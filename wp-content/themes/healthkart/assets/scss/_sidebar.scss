@@ -86,12 +86,12 @@
 		}
 		&.subscribe{
 			.wrap{
-				border-top: 1px solid rgba(112, 112, 112, 0.45);
+				//border-top: 1px solid rgba(112, 112, 112, 0.45);
 				padding-bottom: 20px;
 				.form-title{
 					font-size: 26px;
 					line-height: 33px;
-					padding-top: 34px;
+					padding-top: 5px;
 					@media (max-width: 767px){
 						padding-top: 0;
 					}

@@ -16,7 +16,7 @@
 				$main_post->the_post(); 
 				$post_ids[] = get_the_id();?>
 				<div class="latest-articles-single latest-articles-single-main col-md-6 col-12">
-					<div class="latest-articles-single-image mb-2"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<div class="latest-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php if ( has_post_thumbnail() ) {
 						the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 						<?php
@@ -61,7 +61,7 @@
 				$main_post->the_post(); 
 				$post_ids[] = get_the_id();?>
 				<div class="latest-articles-single row mb-4">
-					<div class="latest-articles-single-image col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<div class="latest-articles-single-image col-md-5 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 						if ( $thumbnail ) { ?>
@@ -73,7 +73,7 @@
 						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 						<?php } ?>
 					</a></div>
-					<div class="latest-articles-single-content col-md-8 col-12">
+					<div class="latest-articles-single-content col-md-7 col-12">
 						<div class="content-title">
 							<?php $categories = hk_get_category(get_the_ID()); ?>
 							<span>
@@ -89,7 +89,7 @@
 							</span>
 							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						</div>
-						<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
+						<div class="content-description"><?php echo hk_get_excerpt(90); echo '...'; ?></div>
 					</div>
 				</div>
 			<?php endwhile;

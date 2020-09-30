@@ -44,7 +44,7 @@
 									</span>
 									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
-								<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
+								<div class="content-description"><?php echo hk_get_excerpt(90); echo '...'; ?></div>
 							</div>
 						</div>
 					<?php endwhile;
@@ -56,8 +56,8 @@
 	            ?>
 			</div>
 		</div>
-		<h1 class="trending-articles-heading pt-3 pb-3 mt-5">MORE SIMILIAR</h1>
-		<div class="row">
+		<h1 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">MORE SIMILIAR</h1>
+		<div class="row similar-articles">
 		<?php
 		$args = array(
 			'posts_per_page' => 6,
@@ -73,8 +73,8 @@
 			while( $main_post->have_posts() ) :
 				$main_post->the_post(); 
 				$post_ids[] = get_the_id();?>
-				<div class="trending-articles-single row mb-3 col-md-6 col-12 m-0">
-					<div class="trending-articles-single-image mb-5 col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				<div class="trending-articles-single row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
+					<div class="trending-articles-single-image mb-3 col-md-5 col-lg-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 						if ( $thumbnail ) { ?>
@@ -87,7 +87,7 @@
 						<?php } ?>
 						
 					</a></div>
-					<div class="trending-articles-single-content mt-2 col-md-8 col-12 p-0">
+					<div class="trending-articles-single-content mt-2 col-md-7 col-lg-8 col-12 p-0">
 						<div class="content-title">
 							<?php $categories = hk_get_category(get_the_ID()); ?>
 							<span>
