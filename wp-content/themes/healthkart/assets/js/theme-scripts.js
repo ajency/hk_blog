@@ -77,11 +77,12 @@ $( document ).ready(function() {
 			},
 			type : 'POST',
 			beforeSend : function ( xhr ) {
-				$(".category_articles_container").css('visibility', 'hidden');
+				$(".explore-articles").css('visibility', 'hidden');
 				$(".explore-articles-loader").addClass("d-block").removeClass("d-none");
 			},
 			success : function( data ){
-				$(".category_articles_container").html('').css('visibility', 'visible');
+				$(".category_articles_container").html('');
+				$(".explore-articles").css('visibility', 'hidden');
 				$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
 				if( data ) { 
 					$(".category_articles_container").html(data);
