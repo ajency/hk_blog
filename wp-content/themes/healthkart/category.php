@@ -7,8 +7,10 @@ $args = array(
 	'post_type' => array('post'),
 	'post_status' => 'publish',
 	'cat' => $category->term_id,
-
 );
+if(isset($_GET['page'])){
+	$args['paged'] = $_GET['page'];
+}
 query_posts( $args );
 ?>	
 	<div class="header_image position-relative">

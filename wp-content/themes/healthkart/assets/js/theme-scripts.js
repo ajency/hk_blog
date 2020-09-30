@@ -95,15 +95,20 @@ $( document ).ready(function() {
 		});
 	})
 	var canBeLoaded = true;
- 	var category_page = 3;
+ 	var category_page = 2;
 	$(window).scroll(function(){
 		if($(".category-list-view").length){
+			var url = new URL(window.location.href);
+			var page = url.searchParams.get("page");
+			if(page){
+				category_page = parseInt(page) + 1;
+			}
 			var data = {
 				'action': 'fetch_category_page_articles',
 				'page' : category_page,
 				'category' : $(".category-list-view").data('category'),
 			};
-			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top) && canBeLoaded == true ){
+			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top + 150) && canBeLoaded == true ){
 				$.ajax({
 					url : ajax_params.url,
 					data:data,
@@ -113,11 +118,13 @@ $( document ).ready(function() {
 						canBeLoaded = false; 
 					},
 					success:function(data){
+						$('.category-list-view .category-loader').remove();
 						if( data ) {
-							$('.category-list-view .category-loader').remove();
+							setParam('page', category_page);
 							$('.category-list-view .category-post-row:last').after( data ); 
 							canBeLoaded = true; 
 							category_page++;
+							$("html, body").animate({ scrollTop: $('.category-list-view .category-post-row:last').position().top });
 						}
 					}
 				});
@@ -129,3 +136,34 @@ $( document ).ready(function() {
 		window.open($(this).attr('href'), '_blank');
 	})
 }); 
+
+function setParam(param, mode = ''){
+	var url = new URL(location.href);
+	if(mode){
+		url.searchParams.set(param, mode);
+	}
+	else{
+		url.searchParams.delete(param);
+	}
+	url.search = url.searchParams.toString();
+	var new_url = url.toString(); 
+	window.history.pushState('page2', 'Title', new_url);
+}
+/*function setPage(param, mode = ''){
+	const url = new URL(location.href);
+	var pathnameArray = url.pathname.split('/');
+	pathnameArray = pathnameArray.filter(function (el) {
+		return el != '';
+	});
+	var index = pathnameArray.indexOf('page') + 1;
+	if(!index){
+		pathnameArray.push('page');
+		pathnameArray.push(2);
+	}
+	else{
+		pathnameArray[index] = parseInt(pathnameArray[index])+1;
+	}
+	var new_url = pathnameArray.join('/');
+	console.log(new_url);
+	url.pathname = new_url;
+}*/
