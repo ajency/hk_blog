@@ -122,4 +122,8 @@ $( document ).ready(function() {
 			}
 		}
 	});
+	$(".widget_media_image a").click(function(e){
+		e.preventDefault();
+		window.open($(this).attr('href'), '_blank');
+	})
 }); 

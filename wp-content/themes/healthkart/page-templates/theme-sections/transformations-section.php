@@ -1,4 +1,4 @@
-<div class="transformation-section">
+<div class="transformation-section my-4">
 	<h1 class="transformation-section-heading pt-3 pb-3">TRANSFORMATION STORIES</h1>
 	<div class="transformation-section-articles mt-4 row">
 	<?php 

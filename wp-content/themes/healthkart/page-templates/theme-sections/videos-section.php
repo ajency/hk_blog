@@ -1,4 +1,4 @@
-<div class="videos-section">
+<div class="videos-section mb-3">
 	<h1 class="videos-heading pt-3 pb-3">VIDEOS</h1>
 	<div class="videos-articles mt-4 row">
 	<?php 

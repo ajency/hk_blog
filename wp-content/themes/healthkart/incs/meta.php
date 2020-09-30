@@ -10,7 +10,7 @@ function hk_post_cpt__metabox() {
         'object_types'      => array( 'post', 'video', 'transformation', 'ama', 'infographic' ),
     ) );
     $cmb_term->add_field( array(
-        'name' => 'Featured Post',
+        'name' => 'Featured Article',
         'id'   => $prefix . 'featured_post',
         'type' => 'checkbox',
     ) );
@@ -33,8 +33,13 @@ function hk_post_cpt__metabox() {
         'type'    => 'textarea_small',
     ) );
     $cmb_term->add_field( array(
-        'name' => 'Banner Post',
+        'name' => 'Banner Article',
         'id'   => $prefix . 'featured_banner_post',
+        'type' => 'checkbox',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'More Article Section',
+        'id'   => $prefix . 'more_post',
         'type' => 'checkbox',
     ) );
     $cmb_term = new_cmb2_box( array(

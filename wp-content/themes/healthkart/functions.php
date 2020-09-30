@@ -253,4 +253,14 @@ function register_menus() {
 
 add_action('init', 'register_menus');
 
+function register_home_banner_space_sidebar() {
+    register_sidebar( array(
+        'name'          => 'Home Banner Space',
+        'id'            => 'sidebar-home-banner-space',
+        'description'   => 'Widgets in this section will be shown as banner space on the home page in More articles section.',
+        'before_widget' => '<div class="home-banner-space widget_media_image">',
+        'after_widget'  => '</div>',
+    ) );
+}
+add_action( 'widgets_init', 'register_home_banner_space_sidebar' );
 
