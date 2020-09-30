@@ -1,7 +1,7 @@
 <h1 class="trending-articles-heading pt-3 pb-3">TRENDING</h1>
 <div class="trending-articles mt-4">
 	<div class="row">
-		<div class="col-md-8 col-12 row">
+		<div class="col-md-8 col-12 row m-0 p-0">
 		<?php 
 			$post_ids = get_query_var('post_ids');
 			$args = array(
@@ -72,8 +72,8 @@
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); 
 			$post_ids[] = get_the_id();?>
-			<div class="trending-articles-single row mb-3 col-md-4 col-12">
-				<div class="trending-articles-single-image mb-5 col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+			<div class="trending-articles-single row  col-md-6 col-12 m-0">
+				<div class="trending-articles-single-image  col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php 
 					$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 					if ( $thumbnail ) { ?>
@@ -86,7 +86,7 @@
 					<?php } ?>
 					
 				</a></div>
-				<div class="trending-articles-single-content col-md-8 col-12">
+				<div class="trending-articles-single-content mt-2 col-md-8 col-12 p-0">
 					<div class="content-title">
 						<?php $categories = hk_get_category(get_the_ID()); ?>
 						<span>

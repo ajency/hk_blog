@@ -59,18 +59,13 @@ $( document ).ready(function() {
 	$('.slider').slick({
 		autoplay: true,
 		draggable: true,
-		arrows: false,
+		arrows: true,
+		dots: true,
 		fade: true,
 		speed: 900,
 		infinite: true,
 		cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
 		touchThreshold: 100
-/*		autoplay: true,
-		fade: true,
-		speed: 800,
-		//lazyLoad: 'progressive',
-		arrows: false,
-		dots: false,*/
 	});
 	$(".category-buttons-single:not(.category-buttons-single-active)").click(function(){
 		var button = $(this);

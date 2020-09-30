@@ -1,5 +1,5 @@
 <div class="banner row mt-4">
-	<div class="banner-slider slideshow col-8">
+	<div class="banner-slider slideshow col-12 col-md-8">
 		<div class="slider stick-dots">
 		<?php 
 		$args = array(
@@ -24,6 +24,7 @@
 						<div class="slide__img">
 							<img src="" alt="" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
 						</div>
+						<div class="overlay"></div>
 						<div class="slide__content">
 							<div class="slide__content--headings">
 								<div class="content-title">
@@ -31,7 +32,7 @@
 									<span>
 										<span class="category">
 											<?php foreach($categories as $index => $category): ?>
-											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+											<a class="category" title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
 											<?php if($index+1 != count($categories)): ?>
 												,
 											<?php endif; endforeach; ?>
@@ -48,7 +49,8 @@
 		endif; ?>
 		</div>
 	</div>
-	<div class="banner-category col-4">
+	<div class="banner-category col-12 col-md-4">
+		<div class="banner-category-title">Top Topics</div>
 		<?php $categories = get_terms(['taxonomy' => 'category' ]); 
 		foreach ($categories as $category):
 			$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
@@ -60,6 +62,7 @@
 						$image_url = wp_get_attachment_image_src($image_id, 'large')[0];
 						?>
 						<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>"/>
+						<div class="overlay"></div>
 					</div>
 					<div class="banner-category-single-title"><?php echo $category->name; ?></div>
 				</a></div>

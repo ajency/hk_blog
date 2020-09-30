@@ -15,7 +15,7 @@
 			$main_post->the_post(); 
 			$post_ids[] = get_the_id();?>
 			<div class="latest-articles-single latest-articles-single-main col-md-6 col-12">
-				<div class="latest-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				<div class="latest-articles-single-image mb-2"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php if ( has_post_thumbnail() ) {
 					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 					<?php
@@ -45,7 +45,7 @@
 		<?php endwhile;
 	endif; ?>
 
-	<div class="col-6">
+	<div class="col-12 col-md-6">
 	<?php
 	$args = array(
 		'posts_per_page' => 3,

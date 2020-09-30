@@ -18,8 +18,8 @@
 				$post_ids[] = get_the_id();
 			}
 			?>
-			<div class="explore-articles-single row mb-3 col-md-6 col-12">
-				<div class="explore-articles-single-image mb-5 col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+			<div class="explore-articles-single row mb-4 col-6 m-0">
+				<div class="explore-articles-single-image mb-2 col-md-5 col-12 pl-0"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php 
 					$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 					if ( $thumbnail ) { ?>
@@ -32,7 +32,7 @@
 					<?php } ?>
 					
 				</a></div>
-				<div class="explore-articles-single-content col-md-8 col-12">
+				<div class="explore-articles-single-content col-md-7 col-12 p-0">
 					<div class="content-title">
 						<?php $categories = hk_get_category(get_the_ID()); ?>
 						<span>
@@ -55,4 +55,6 @@
 	endif; 
 	set_query_var( 'post_ids', $post_ids );
 ?>
+	</div>
+	<div class="m-auto text-center"><button type="button" class="btn mr-3 py-2 px-5 view-all">View All</button></div>
 </div>
