@@ -37,6 +37,8 @@
 		endwhile;
 	endif; ?>
 	</div>
-	<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button">MORE VIDEOS</a>
+	<div class="w-100 action-btn">
+		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button  mr-3 py-2 px-5">More Videos</a>
+	</div>
 </div>
 

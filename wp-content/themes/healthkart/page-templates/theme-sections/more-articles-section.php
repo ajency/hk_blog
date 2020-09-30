@@ -1,7 +1,7 @@
 <div class="more-articles-section my-4">
 	<h1 class="more-articles-heading pt-3 pb-3">MORE ARTICLES</h1>
 	<div class="more-articles row mt-4">
-		<div class="col-md-6 col-12 mr-4">
+		<div class="col-md-6 col-12">
 		<?php
 		$post_ids = get_query_var('post_ids');
 		$args = array(
@@ -23,7 +23,7 @@
 				$main_post->the_post(); 
 				$post_ids[] = get_the_id();?>
 				<div class="more-articles-single row mb-4">
-					<div class="more-articles-single-image col-md-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<div class="more-articles-single-image col-md-5 col-lg-4 col-12 pr-0"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 						if ( $thumbnail ) { ?>
@@ -35,7 +35,7 @@
 						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 						<?php } ?>
 					</a></div>
-					<div class="more-articles-single-content col-md-8 col-12">
+					<div class="more-articles-single-content col-md-7 col-lg-8 col-12">
 						<div class="content-title">
 							<?php $categories = hk_get_category(get_the_ID()); ?>
 							<span>
@@ -51,13 +51,13 @@
 							</span>
 							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						</div>
-						<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
+						<div class="content-description"><?php echo hk_get_excerpt(90); echo "...."; ?></div>
 					</div>
 				</div>
 			<?php endwhile;
 		endif; ?>
 		</div>
-		<div class="col-md-5 col-12">
+		<div class="col-md-6 col-12">
 			<?php
                 dynamic_sidebar('sidebar-home-banner-space');
             ?>

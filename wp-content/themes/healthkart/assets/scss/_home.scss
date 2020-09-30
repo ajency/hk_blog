@@ -164,7 +164,7 @@
 		.transformation{
 			&-after{
 				color: #3DD598;
-				border-right: 1px solid #707070;
+				/*border-right: 1px solid #707070;*/
 			}
 			&-before{
 				color: #FC5A5A;
@@ -338,6 +338,7 @@
 	color: #fff!important;
 	background-color: #00bfbf !important;
 	border-color: #00bfbf !important;
+	font-weight: 500;
 	&:hover{
 		background-color: #009999 !important;
 	}
@@ -430,6 +431,13 @@
 			}
 		}
 	}
+	&-section{
+		.action-btn{
+			@media (max-width: 767px){
+				text-align: center;
+			}
+		}
+	}
 }
 
 .transformation-section{
@@ -454,10 +462,14 @@
 		}
 		&-content{
 			.content-title{
-				.title a{
-					font-size: 20px;
-					font-weight: 900;
-					color: #000;
+				.title {
+					line-height: 24px;
+				    height: 55px;
+					a{
+						font-size: 20px;
+						font-weight: 900;
+						color: #000;
+					}
 				}
 			}
 		}
@@ -471,17 +483,27 @@
 }
 
 .more-articles{
+	&-section{
+		@media (max-width: 767px){
+			display: none;
+		}
+	}
 	&-single{
+		padding-right: 20px;
 		&-image{
 			img{
 				height: 150px;
 				width: 100%;
     			object-fit: cover;
+    			@media (max-width: 767px){
+    				height: auto;
+    			}
 			}
 		}
 		&-content{
 			.title{
 				line-height: 26px;
+			    padding-top: 20px;
 				a{
 					font-size: 18px;
 					font-weight: 900;
@@ -490,6 +512,9 @@
 			}
 			.content-description{
 				font-size: 15px;
+			}
+			@media(max-width: 767px){
+				margin-bottom: 20px;
 			}
 		}
 	}
