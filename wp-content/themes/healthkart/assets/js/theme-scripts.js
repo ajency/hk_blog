@@ -101,7 +101,7 @@ $( document ).ready(function() {
 				'page' : category_page,
 				'category' : $(".category-list-view").data('category'),
 			};
-			if( ($(window).scrollTop() + $(window).height() + 70 > $(document).height()) && canBeLoaded == true ){
+			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top) && canBeLoaded == true ){
 				$.ajax({
 					url : ajax_params.url,
 					data:data,
