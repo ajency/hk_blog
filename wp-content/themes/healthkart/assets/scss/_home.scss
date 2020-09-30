@@ -4,9 +4,12 @@
 			.slide__img{
 				img{
 					border-radius:20px;
-					height: 500px;
+					height: 420px;
 					width: 100%;
 					object-fit: cover;
+					@media (max-width: 767px){
+						height: 300px;
+					}
 				}
 			}
 		}
@@ -16,10 +19,10 @@
 			position: relative;
 			&-image{
 				position: relative;
-			    margin-bottom: 15px;
+			    margin-bottom: 20px;
 				img{
 					border-radius:20px;
-					height: 240px;
+					height: 200px;
 					width: 100%;
 					object-fit: cover;
 				}
@@ -45,7 +48,7 @@
 				color: #090909;
 				font-size: 18px;
 				font-weight: bold;
-				margin: 20px 0;
+				margin: 15px 0;
 			}
 		}
 	}
@@ -525,7 +528,7 @@
 			@media (max-width: 767px){
 				position: relative;
 				justify-content: center;
-				margin: 20px 0;
+				margin: 15px 0 0;
 			}
 		}
 		&-active{
@@ -581,20 +584,27 @@
 	    a.category{
 	    	color: #18BFBF;
 	    	font-size: 14px;
+	    	@media (max-width: 767px){
+	    		display: none;
+	    	}
 	    }
 	    .dot, .last-read {
 	    	color: white;
 	    	font-size: 14px;
+	    	@media (max-width: 767px){
+	    		display: none;
+	    	}
 	    }
 	    h2.title {
 	    	margin-top: 10px;
 	    	a{
 	    		color: white;
 	    		line-height: 36px;
+    		    font-size: 26px;
     		}
 	    }
 	    @media (max-width: 767px){
-			top: 40%;
+			top: 30%;
 			left: 0;
 			right: 0;
 			margin: auto;
