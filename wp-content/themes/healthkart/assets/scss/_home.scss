@@ -161,6 +161,16 @@
 		color: #fff;
 		border-radius: 10px;
 		font-size: 13px;
+		&-titles, &-values{
+			@media (max-width: 767px){
+				flex-wrap: nowrap;
+				label, span{
+					&:first-child{
+						display: none;
+					}
+				}
+			}
+		}
 		.transformation{
 			&-after{
 				color: #3DD598;
@@ -178,6 +188,9 @@
 				border-right: 1px solid #707070;
 				margin: 0;
 			}
+		}
+		@media (max-width: 767px){
+		    margin-top: 15px;
 		}
 	}
 }
@@ -443,10 +456,22 @@
 .transformation-section{
 	&-single{
 		&-image{
+			@media (max-width: 767px){
+				a{
+					flex-wrap: nowrap;
+				    justify-content: center;
+					.transform{
+						width: 100%;
+					}
+				}
+			}
 			img{
 				height: 250px;
 				width: 100%;
 				object-fit: cover;
+				@media (max-width: 767px){
+				    height: auto;
+				}
 			}
 			.img-tag{
 				position: absolute;
@@ -464,14 +489,19 @@
 			.content-title{
 				.title {
 					line-height: 24px;
-				    height: 55px;
 					a{
 						font-size: 20px;
 						font-weight: 900;
 						color: #000;
 					}
+					@media (min-width: 768px){
+					    height: 55px;
+					}
 				}
 			}
+		}
+		@media (max-width: 767px){
+			margin-bottom: 30px;
 		}
 	}
 	&-heading{

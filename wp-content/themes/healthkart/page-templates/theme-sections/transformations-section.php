@@ -21,7 +21,7 @@
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); ?>
 			<div class="transformation-section-single col-md-4 col-12">
-				<div class="transformation-section-single-image mb-4">
+				<div class="transformation-section-single-image mb-2">
 					<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 					<?php
 						$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
@@ -36,11 +36,11 @@
 						$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
 						$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
 					?>
-					<div class="position-relative col-md-6 pl-3 pr-1">
+					<div class="position-relative col-md-6 pl-3 pr-1 transform">
 						<img src="<?php echo $before_image_url; ?>"/>
 						<div class="img-tag px-3 py-1">Before</div>
 					</div>
-					<div class="position-relative col-md-6 pl-1 pr-3">
+					<div class="position-relative col-md-6 pl-1 pr-3 transform">
 						<img src="<?php echo $after_image_url; ?>"/>
 						<div class="img-tag px-3 py-1">After</div>
 					</div>
