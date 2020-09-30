@@ -9027,7 +9027,7 @@ strong {
   .latest-articles-single-content .title a {
     font-size: 18px;
     font-weight: 900;
-    color: black; }
+    color: #000; }
 .latest-articles-single-content .content-description {
   font-size: 15px; }
   @media (max-width: 991px) {
@@ -9253,7 +9253,9 @@ strong {
   font-size: 18px;
   font-weight: bold; }
 .transformation-section-single-content .content-title .title a {
-  font-size: 20px; }
+  font-size: 20px;
+  font-weight: 900;
+  color: #000; }
 .transformation-section-heading {
   border-bottom: 1px solid #ececec;
   font-weight: bold;
@@ -9267,7 +9269,9 @@ strong {
 .more-articles-single-content .title {
   line-height: 26px; }
   .more-articles-single-content .title a {
-    font-size: 18px; }
+    font-size: 18px;
+    font-weight: 900;
+    color: #000; }
 .more-articles-single-content .content-description {
   font-size: 15px; }
 .more-articles-heading {
