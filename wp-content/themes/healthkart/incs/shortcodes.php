@@ -194,9 +194,8 @@ add_shortcode( 'Subscribe-form', function(){?>
 			<h2 class="form-title">Subscribe to Healthkart Blog</h2>
 			<p>We’ll email you the latest developments about the Fitness & nutrition and Muscleblaze’s top health news stories, daily.</p>
 			<div class="form-group">
-		      	<input type="email" class="form-control" id="email" placeholder="Enter your email">
+		      	[formidable id=1]
 			</div>
-			<button type="submit" class="hk-btn">Subscribe Now</button>
 		</div>
 	</div>
 <?php });
