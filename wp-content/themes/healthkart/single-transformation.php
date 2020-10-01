@@ -137,6 +137,10 @@ get_header();
 								endif;
 							?>
 							<div class="entry-content"><?php the_content(); ?></div>  
+							<div class="transformation-story">
+								<h4 class="transformation-story_heading">Submit your transformation story and motivate other people to change their life.</h4>
+								<a type="submit" class="btn hk-btn">Submit Now</a>
+							</div>
 							  <?php 
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
                                 $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
