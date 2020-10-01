@@ -80,6 +80,31 @@ get_header();
 							</div>
 						</header>
 						<div class="col-md-8 col-12">
+							<div class="transformation-section-single-image mb-2">
+								<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<?php
+									$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
+									$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+									$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+									$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+
+									$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
+									$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
+									$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
+									$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
+									$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
+									$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
+								?>
+								<div class="position-relative col-md-6 pl-3 pr-1 transform">
+									<img src="<?php echo $before_image_url; ?>"/>
+									<div class="img-tag px-3 py-1">Before</div>
+								</div>
+								<div class="position-relative col-md-6 pl-1 pr-3 transform">
+									<img src="<?php echo $after_image_url; ?>"/>
+									<div class="img-tag px-3 py-1">After</div>
+								</div>
+								</a>
+							</div>
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
