@@ -2,6 +2,8 @@
 
 get_header(); 
 $post_ids = get_query_var('post_ids');
+$category = get_queried_object();
+
 $args = array(
 	'posts_per_page' => 6,
 	'post_type' => array('transformation'),
