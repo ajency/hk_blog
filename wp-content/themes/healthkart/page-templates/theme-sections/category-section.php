@@ -1,3 +1,4 @@
+<?php $category = get_query_var('category'); ?>
 <div class="col-md-4 col-12 recent-post p-0">
 	<div class="row py-4 m-0">
 		<div class="col-12">
@@ -17,9 +18,14 @@
 			</div>
 		</div>
 		<div class="col-12 next-articles">
+			<?php $categories = hk_get_category(get_the_ID(), $category->taxonomy); ?>
 			<span>
 				<span class="category">
-					<?php the_category(' , '); ?>
+					<?php foreach($categories as $index => $category): ?>
+					<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+					<?php if($index+1 != count($categories)): ?>
+						,
+					<?php endif; endforeach; ?>
 				</span>
 				<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 				<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>

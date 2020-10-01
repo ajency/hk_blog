@@ -1,19 +1,17 @@
 <?php
 
 get_header(); 
-$post_ids = get_query_var('post_ids');
 $category = get_queried_object();
-
 $args = array(
 	'posts_per_page' => 6,
 	'post_type' => array('transformation'),
 	'post_status' => 'publish',
-	'post__not_in' => $post_ids
+	'cat' => $category->term_id,
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
 }
-query_posts( $args );
+$query = new WP_Query( $args );
 ?>	
 	<div class="header_image position-relative">
 		<div class="header">
@@ -37,6 +35,7 @@ query_posts( $args );
 			<div class="category-post-row row m-0">
 			<?php
 				if( have_posts() ) :
+					set_query_var( 'category', $category );
 					while( have_posts() ): the_post();
 						get_template_part( 'page-templates/theme-sections/category', 'section' ); 
 					endwhile;

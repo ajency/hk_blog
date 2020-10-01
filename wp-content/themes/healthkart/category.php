@@ -35,6 +35,7 @@ query_posts( $args );
 			<div class="category-post-row row m-0">
 			<?php
 				if( have_posts() ) :
+					set_query_var( 'category', $category );
 					while( have_posts() ): the_post();
 						get_template_part( 'page-templates/theme-sections/category', 'section' ); 
 					endwhile;
