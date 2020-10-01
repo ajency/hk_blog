@@ -6,14 +6,7 @@ $args = array(
 	'posts_per_page' => 6,
 	'post_type' => array('transformation'),
 	'post_status' => 'publish',
-	'post__not_in' => $post_ids,
-	'meta_key' => 'hk_featured_post',
-	'meta_query'     => [
-        [
-            'key'      => 'hk_featured_post',
-            'value'    => 'on',
-        ]
-    ],
+	'post__not_in' => $post_ids
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
@@ -43,7 +36,7 @@ query_posts( $args );
 			<?php
 				if( have_posts() ) :
 					while( have_posts() ): the_post();
-						get_template_part( 'page-templates/theme-sections/category-transformation', 'section' ); 
+						get_template_part( 'page-templates/theme-sections/category', 'section' ); 
 					endwhile;
 				endif;
 			?>
