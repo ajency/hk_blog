@@ -120,11 +120,11 @@ get_header();
 								<div class="blog_featured_img my-4">
 									<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 									<div class="position-relative col-md-6 pl-3 pr-1 transform">
-										<img src="<?php echo $before_image_url; ?>"/>
+										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
 										<div class="img-tag px-3 py-1">Before</div>
 									</div>
 									<div class="position-relative col-md-6 pl-1 pr-3 transform">
-										<img src="<?php echo $after_image_url; ?>"/>
+										<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
 										<div class="img-tag px-3 py-1">After</div>
 									</div>
 									</a>
