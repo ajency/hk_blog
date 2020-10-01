@@ -51,14 +51,19 @@ get_header();
 					?>
 						<header class="entry-header col-12">
 							<span>
+								<?php $categories = hk_get_category(get_the_ID(), 'transformation_category');  ?>
 								<span class="category">
-									<?php the_category(' , '); ?>
+									<?php foreach($categories as $index => $category): ?>
+									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+									<?php if($index+1 != count($categories)): ?>
+									,
+									<?php endif; endforeach; ?>
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 							</span>
 							<div class="post-title">
-								<h1 class="entry-title"><?php the_title(); ?></h1>
+								<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
 									<div class="author-image">
 										<?php 
@@ -79,7 +84,7 @@ get_header();
 								</div>
 							</div>
 						</header>
-						<div class="col-md-8 col-12">
+						<div class="col-md-8 col-12 transformation-template-section">
 							<div class="transformation-section-single-image mb-2">
 								<div class="content-fields p-3">
 									<?php
