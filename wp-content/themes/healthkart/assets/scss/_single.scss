@@ -23,9 +23,6 @@
 			font-size: 13px;
 		}
 	}
-	@media (max-width: 767px){
-		display: none;
-	}
 }
 .single-post{
 	.single_post_page{
@@ -214,6 +211,11 @@
 			@media (max-width: 767px){ 
 				text-align: left;
 			}
+		}
+	}
+	@media (max-width: 767px){
+		.breadcrumbs-wrapper{
+			display: none;
 		}
 	}
 }
