@@ -64,7 +64,7 @@
 						$image_id = get_term_meta( $category->term_id, 'hk_featured_image_id', true );
 						$image_url = wp_get_attachment_image_src($image_id, 'large')[0];
 						?>
-						<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>"/>
+						<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>" alt="<?php echo $category->name; ?>"/>
 						<div class="overlay"></div>
 					</div>
 					<div class="banner-category-single-title"><?php echo $category->name; ?></div>

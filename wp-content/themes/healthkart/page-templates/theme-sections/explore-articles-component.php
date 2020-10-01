@@ -25,7 +25,7 @@
 					if ( $thumbnail ) { ?>
 						<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 					<?php } else if ( has_post_thumbnail() ) {
-					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
+					the_post_thumbnail('medium', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
 					<?php
 					} else { ?>
 					<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>

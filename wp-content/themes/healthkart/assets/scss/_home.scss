@@ -33,7 +33,7 @@
 			    left: 50%;
 			    transform: translate(-50%, -50%);
 			    color: white;
-			    z-index: 9;
+			    z-index: 2;
 			    font-size: 26px;
 			    text-transform: uppercase;
 			    font-weight: 900;
@@ -304,10 +304,10 @@
 				width: 100%;
     			object-fit: cover;
     			@media (max-width: 991px){
-    				height: 120px;
+    				height: 140px;
     			}
-    			@media (max-width: 767px){
-    				height: auto;
+    			@media (max-width: 575px){
+    				height: 130;
     			}
 			}
 			@media (max-width: 767px){
