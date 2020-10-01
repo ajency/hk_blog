@@ -124,7 +124,7 @@ $( document ).ready(function() {
 							$('.category-list-view .category-post-row:last').after( data ); 
 							canBeLoaded = true; 
 							category_page++;
-							$("html, body").animate({ scrollTop: $('.category-list-view .category-post-row:last').position().top });
+							//$("html, body").animate({ scrollTop: $('.category-list-view .category-post-row:last').position().top });
 						}
 					}
 				});
