@@ -45,13 +45,14 @@
 		    textarea{
 		    	border-radius: 8px;
 		    }
-			.form-control{
+			.form-control, input[type="email"]{
 				border: 1px solid #BCCCDB;
 				padding: 10px;
 				box-shadow: 0px 0px 30px 0px #1D252D0A;
 			    color: #506D85;
+		        height: 50px;
 			}
-			.hk-btn{
+			.hk-btn, .frm_button_submit{
 				background: #18C7C7;
 				height: 48px;
 				border-radius: 4px;
@@ -60,6 +61,12 @@
 			    font-size: 15px;
 			    line-height: 20px;
 			    letter-spacing: 0.6px;
+			    border: 0;
+		        font-weight: bold;
+	            margin: 0;
+			    &:hover{
+			    	background: #ccc;
+			    }
 				@media (max-width: 767px){
 					height: 43px;
 				    line-height: 15px;
@@ -87,7 +94,10 @@
 		&.subscribe{
 			.wrap{
 				//border-top: 1px solid rgba(112, 112, 112, 0.45);
-				padding-bottom: 20px;
+				//padding-bottom: 20px;
+				.form-group{
+					margin-bottom: 0;
+				}
 				.form-title{
 					font-size: 26px;
 					line-height: 33px;
