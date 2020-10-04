@@ -79,7 +79,7 @@ get_header();
 								</div>
 							</div>
 						</header>
-						<div class="col-md-8 col-12 pr-5">
+						<div class="col-md-8 col-12 single-post-content">
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :

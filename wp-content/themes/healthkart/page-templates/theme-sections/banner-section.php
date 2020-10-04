@@ -22,7 +22,7 @@
 					$post_ids[] = get_the_ID(); ?>
 					<div class="slide item"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<div class="slide__img">
-							<img src="" alt="" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
+							<img src="" alt="<?php echo get_the_title();?>" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
 						</div>
 						<div class="overlay"></div>
 						<div class="slide__content">

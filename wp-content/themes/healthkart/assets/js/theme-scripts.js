@@ -57,6 +57,7 @@ $( document ).ready(function() {
 	});
 
 	$('.slider').slick({
+		lazyLoad: 'ondemand',
 		autoplay: true,
 		draggable: true,
 		arrows: true,
