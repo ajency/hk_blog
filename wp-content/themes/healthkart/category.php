@@ -31,7 +31,7 @@ query_posts( $args );
 		<p class="text-black pl-15 f-14 article-count">
 			<?php echo $category->count . ' Articles '; ?>
 		</p>
-		<div class="latest-reads category-list-view" data-category="<?php echo $category->term_id; ?>">
+		<div class="latest-reads category-list-view" data-category="<?php echo $category->term_id; ?>" data-type="post">
 			<div class="category-post-row row m-0">
 			<?php
 				if( have_posts() ) :

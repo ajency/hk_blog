@@ -1,17 +1,15 @@
 <?php
 
 get_header(); 
-$category = get_queried_object();
 $args = array(
 	'posts_per_page' => 6,
 	'post_type' => array('transformation'),
 	'post_status' => 'publish',
-	'cat' => $category->term_id,
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
 }
-$query = new WP_Query( $args );
+query_posts( $args );
 ?>	
 	<div class="header_image position-relative">
 		<div class="header">
@@ -25,19 +23,16 @@ $query = new WP_Query( $args );
 		</div>
 	</div>
 	<div class="container p-0">
-		<h2 class="category-name pl-15">
-			<?php echo $category->name;  ?>
-		</h2>
+		<h2 class="category-name pl-15">Transformation</h2>
 		<p class="text-black pl-15 f-14 article-count">
-			<?php echo $category->count . ' Articles '; ?>
+			<?php echo wp_count_posts( 'transformation' )->publish . ' Articles '; ?>
 		</p>
-		<div class="latest-reads category-list-view" data-category="<?php echo $category->term_id; ?>">
+		<div class="category-list-view transformation-list-view" data-type="transformation">
 			<div class="category-post-row row m-0">
 			<?php
 				if( have_posts() ) :
-					set_query_var( 'category', $category );
 					while( have_posts() ): the_post();
-						get_template_part( 'page-templates/theme-sections/category', 'section' ); 
+						get_template_part( 'page-templates/theme-sections/transformations-single', 'component' ); 
 					endwhile;
 				endif;
 			?>

@@ -105,6 +105,11 @@ function hk_post_cpt__metabox() {
         'id'               => $prefix . 'supplements_that_helped',
         'type'    => 'textarea',
     ) );
+    $cmb_term->add_field( array(
+        'name'             => 'Challenges faced',
+        'id'               => $prefix . 'challenges',
+        'type'    => 'textarea',
+    ) );
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'age_metabox',
         'title'             => 'Age',

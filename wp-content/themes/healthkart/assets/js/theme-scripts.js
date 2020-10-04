@@ -107,6 +107,7 @@ $( document ).ready(function() {
 				'action': 'fetch_category_page_articles',
 				'page' : category_page,
 				'category' : $(".category-list-view").data('category'),
+				'type' : $(".category-list-view").data('type'),
 			};
 			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top + 150) && canBeLoaded == true ){
 				$.ajax({
@@ -116,11 +117,11 @@ $( document ).ready(function() {
 					beforeSend: function( xhr ){
 						$('.category-list-view .category-loader').addClass("d-flex").removeClass("d-none");
 						canBeLoaded = false; 
+						setParam('page', category_page);
 					},
 					success:function(data){
 						$('.category-list-view .category-loader').remove();
 						if( data ) {
-							setParam('page', category_page);
 							$('.category-list-view .category-post-row:last').after( data ); 
 							canBeLoaded = true; 
 							category_page++;

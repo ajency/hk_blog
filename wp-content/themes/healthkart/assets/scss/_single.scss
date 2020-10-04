@@ -26,6 +26,9 @@
 }
 .single-post{
 	.single_post_page{
+		.transformation-section-single-image img{
+			height: auto;
+		}
 		.category{
 			margin: 10px 0;
 			a{

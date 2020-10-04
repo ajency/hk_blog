@@ -9,8 +9,21 @@ function hk_taxonomy()  {
         'video' => ['singular' => 'Video','plural' => 'Videos'], 
     ];
     $taxonomies = [
-        'category' => ['singular' => 'Category','plural' => 'Categories'], 
-        'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+        'ama' => [
+            'category' => ['singular' => 'Category','plural' => 'Categories'], 
+            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+        ],
+        'infographic' => [
+            'category' => ['singular' => 'Category','plural' => 'Categories'], 
+            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+        ],
+        'transformation' => [
+            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+        ],
+        'video' => [
+            'category' => ['singular' => 'Category','plural' => 'Categories'], 
+            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+        ],
     ];
     foreach ($post_types as $post_type => $name) {
         register_post_type( $post_type,
@@ -28,35 +41,37 @@ function hk_taxonomy()  {
         );
     }
     foreach ($post_types as $post_type => $post_name) {
-        foreach ($taxonomies as $taxonomy => $name) {
-            $labels = array(
-                'name'                       => $name['plural'],
-                'singular_name'              => $name['singular'],
-                'menu_name'                  => $name['plural'],
-                'all_items'                  => 'All '.$name['plural'],
-                'parent_item'                => 'Parent '. $name['singular'],
-                'parent_item_colon'          => 'Parent '. $name['singular'].':',
-                'new_item_name'              => 'New '. $name['singular'],
-                'add_new_item'               => 'Add '.$name['singular'],
-                'edit_item'                  => 'Edit '.$name['singular'],
-                'update_item'                => 'Update '.$name['singular'],
-                'separate_items_with_commas' => 'Separate '.$name['plural'].' with commas',
-                'search_items'               => 'Search '.$name['plural'],
-                'add_or_remove_items'        => 'Add or remove '.$name['plural'],
-                'choose_from_most_used'      => 'Choose from the most used '.$name['plural'],
-            );
-            $args = array(
-                'labels'                     => $labels,
-                'hierarchical'               => true,
-                'rewrite'                    => array( 'slug' => $post_type.'_'.$taxonomy ),
-                'public'                     => true,
-                'show_ui'                    => true,
-                'show_admin_column'          => true,
-                'show_in_nav_menus'          => true,
-                'show_tagcloud'              => true,
-                'show_in_rest'               => true,
-            );
-            register_taxonomy( $post_type.'_'.$taxonomy, $post_type, $args );
+        foreach ($taxonomies as $post_type => $taxonomy_data) {
+            foreach ($taxonomy_data as $taxonomy => $name) {
+                $labels = array(
+                    'name'                       => $name['plural'],
+                    'singular_name'              => $name['singular'],
+                    'menu_name'                  => $name['plural'],
+                    'all_items'                  => 'All '.$name['plural'],
+                    'parent_item'                => 'Parent '. $name['singular'],
+                    'parent_item_colon'          => 'Parent '. $name['singular'].':',
+                    'new_item_name'              => 'New '. $name['singular'],
+                    'add_new_item'               => 'Add '.$name['singular'],
+                    'edit_item'                  => 'Edit '.$name['singular'],
+                    'update_item'                => 'Update '.$name['singular'],
+                    'separate_items_with_commas' => 'Separate '.$name['plural'].' with commas',
+                    'search_items'               => 'Search '.$name['plural'],
+                    'add_or_remove_items'        => 'Add or remove '.$name['plural'],
+                    'choose_from_most_used'      => 'Choose from the most used '.$name['plural'],
+                );
+                $args = array(
+                    'labels'                     => $labels,
+                    'hierarchical'               => true,
+                    'rewrite'                    => array( 'slug' => $post_type.'_'.$taxonomy ),
+                    'public'                     => true,
+                    'show_ui'                    => true,
+                    'show_admin_column'          => true,
+                    'show_in_nav_menus'          => true,
+                    'show_tagcloud'              => true,
+                    'show_in_rest'               => true,
+                );
+                register_taxonomy( $post_type.'_'.$taxonomy, $post_type, $args );
+            }
         }
     }
 

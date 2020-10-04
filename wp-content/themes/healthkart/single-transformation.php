@@ -51,13 +51,8 @@ get_header();
 					?>
 						<header class="entry-header col-12">
 							<span>
-								<?php $categories = hk_get_category(get_the_ID(), 'transformation_category');  ?>
 								<span class="category">
-									<?php foreach($categories as $index => $category): ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-									<?php if($index+1 != count($categories)): ?>
-									,
-									<?php endif; endforeach; ?>
+									<a target="_blank" title="Transformation" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag">Transformation</a>
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
@@ -136,7 +131,60 @@ get_header();
 								?><div class="entry-description"><?php echo $description; ?></div><?php 
 								endif;
 							?>
-							<div class="entry-content"><?php the_content(); ?></div>  
+							<div class="entry-content">
+								<div class="my-2">
+									<?php the_content(); ?>
+								</div>
+								<?php $transform_reason = get_post_meta($post->ID, 'hk_transform_reason', true); 
+									if($transform_reason): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">WHY YOU DECIDED TO TRANSFORM ?</h2>
+											<div class="entry-content-single"><?php echo $transform_reason; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $accomplish_goal = get_post_meta($post->ID, 'hk_accomplish_goal', true); 
+									if($accomplish_goal): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">HOW DID YOU ACCOMPLISH YOUR GOAL:</h2>
+											<div class="entry-content-single"><?php echo $accomplish_goal; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $training_routine = get_post_meta($post->ID, 'hk_training_routine', true); 
+									if($training_routine): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">TRAINING ROUTINE THAT HELPED YOU ACHIEVE YOUR GOALS</h2>
+											<div class="entry-content-single"><?php echo $training_routine; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $supplements_that_helped = get_post_meta($post->ID, 'hk_supplements_that_helped', true); 
+									if($supplements_that_helped): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">Supplements:</h2>
+											<div class="entry-content-single"><?php echo $supplements_that_helped; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $challenges = get_post_meta($post->ID, 'hk_challenges', true); 
+									if($challenges): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">WHAT CHALLENGES DID YOU FACE ?</h2>
+											<div class="entry-content-single"><?php echo $challenges; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $how_did_you_overcome = get_post_meta($post->ID, 'hk_how_did_you_overcome', true); 
+									if($how_did_you_overcome): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">HOW DID YOU OVERCOME THESE CHALLENGES ?</h2>
+											<div class="entry-content-single"><?php echo $how_did_you_overcome; ?></div>
+									</div>
+								<?php endif; ?>
+								<?php $future_suggestion = get_post_meta($post->ID, 'hk_future_suggestion', true); 
+									if($future_suggestion): ?>
+									<div class="my-2">
+											<h2 class="entry-content-heading">SUGGESTION FOR FUTURE TRANSFORMERS</h2>
+											<div class="entry-content-single"><?php echo $future_suggestion; ?></div>
+									</div>
+								<?php endif; ?>
+							</div>  
 							<div class="transformation-story">
 								<h4 class="transformation-story_heading">Submit your transformation story and motivate other people to change their life.</h4>
 								<a type="submit" class="btn hk-btn">Submit Now</a>
@@ -160,7 +208,7 @@ get_header();
 								</div>
 							</div>
 							<div class="latest-reads">
-								<?php echo do_shortcode('[read-these-next]'); ?>
+								<?php echo do_shortcode('[read-these-next-transformations]'); ?>
 							</div>
 						</div>
 					<?php endwhile; ?>

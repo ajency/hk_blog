@@ -199,3 +199,65 @@ add_shortcode( 'Subscribe-form', function(){?>
 		</div>
 	</div>
 <?php });
+
+
+add_shortcode( 'read-these-next-transformations', function(){?>
+	<div class="read-these-next">
+		<div class="section-title pb-3">Read these next</div>
+		<?php
+			$args = array(
+				'posts_per_page' => 5,
+				'post__not_in'   => array( get_the_ID() ),
+				'no_found_rows'  => true, 
+				'post_type' => array('transformation'),
+			);
+			// Query posts
+			$wpex_query = new wp_query( $args );?>
+			<?php  // Loop through posts
+			if( $wpex_query->have_posts() ) :
+			while( $wpex_query->have_posts() ) :
+			$wpex_query->the_post(); ?>
+				<div class="col-12 recent-post p-0">
+					<div class="row py-4">
+						<div class="col-md-4 col-12">
+							<div class="transformation-section-single-image mb-2">
+								<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<?php
+									$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
+									$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+									$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+									$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+								?>
+								<div class="position-relative col-md-6 pl-3 pr-1 transform">
+									<img src="<?php echo $before_image_url; ?>"/>
+									<div class="img-tag px-3 py-1">Before</div>
+								</div>
+								<div class="position-relative col-md-6 pl-1 pr-3 transform">
+									<img src="<?php echo $after_image_url; ?>"/>
+									<div class="img-tag px-3 py-1">After</div>
+								</div>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-8 col-12 next-articles">
+							<span>
+								<a target="_blank" title="Transformation" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag">Transformation</a>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+							</span>
+							<div class="recent-post-header">
+								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+							</div>
+							<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
+							</div>
+							<div class="recent-post-icons">
+								<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
+								<span class="mr-3 f-14 comment"><i class="fa fa-comments" aria-hidden="true"></i> 3</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endwhile; ?>
+		<?php endif; ?>
+	</div>
+<?php });

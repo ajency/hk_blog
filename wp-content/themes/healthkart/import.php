@@ -39,6 +39,32 @@ foreach ($imgs as $img) {
 		add_post_meta($node->post_id, 'hk_thumbnail_image_id', $image->post_id);
 	}
 }*/
+//Remove duplicate posts
+/*$posts = $wpdb->get_results("SELECT *  FROM wp_posts order by id asc");
+$node_ids = [];
+foreach ($posts as $post) {
+	$node_id = get_post_meta($post->ID, 'hk_node_id', true);
+	if($node_id){
+		if(!in_array($node_id, $node_ids)){
+			$node_ids[] = $node_id;
+		}
+		else{
+			echo "Node: ".$node_id.", Post: ".$post->ID.", Type: ".$post->post_type.", Title: ".$post->post_title;
+			$deleted = wp_delete_post( $post->ID, true );
+			echo "Deleted: ".json_encode($deleted)."\n\n";
+		}
+	}
+}*/
+/*$mydb = new wpdb('root','root','fitness_freak','localhost');
+$imgs = $mydb->get_results("select * from field_data_field_what_challenges_did_you_fa");
+foreach ($imgs as $img) {
+	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
+	if($node){
+		echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Value: ".$img->field_what_challenges_did_you_fa_value."\n";
+		add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
+	}
+}*/
+
 exit;
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
