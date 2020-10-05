@@ -110,7 +110,7 @@ $( document ).ready(function() {
 				'category' : $(".category-list-view").data('category'),
 				'type' : $(".category-list-view").data('type'),
 			};
-			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top + 150) && canBeLoaded == true ){
+			if( ($(window).scrollTop() > $(".category-list-view .category-post-row:last").position().top) && canBeLoaded == true ){
 				$.ajax({
 					url : ajax_params.url,
 					data:data,
