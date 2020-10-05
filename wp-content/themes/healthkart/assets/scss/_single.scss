@@ -383,13 +383,28 @@
 			}
 		}
 	}
+	.next-articles{
+		a{
+			color: #00bfbf;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+	.img-tag{
+		@media(min-width: 768px){
+			font-size: 8px;
+			padding: 4px 8px !important;
+			border-radius: 10px;
+		}
+	}
 }
 .transformation-template-section{
 	padding-right: 3rem;
 	.transformation-section{
 		&-single-image{
 			width: 80%;
-			@media (max-width: 767px){
+			@media (max-width: 991px){
 				width: 100%;
 			}
 		}
@@ -400,6 +415,7 @@
 		    font-size: 25px !important;
 		    line-height: 1.5;
 		    text-transform: capitalize;
+	        color: black;
 		    @media (max-width: 767px){
 				font-size: 20px !important;
 				line-height: 24px;
