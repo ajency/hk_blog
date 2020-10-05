@@ -138,21 +138,21 @@ get_header();
 								<?php $transform_reason = get_post_meta($post->ID, 'hk_transform_reason', true); 
 									if($transform_reason): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">WHY YOU DECIDED TO TRANSFORM ?</h2>
+											<h2 class="entry-content-heading">Why you decided to Transform?</h2>
 											<div class="entry-content-single"><?php echo $transform_reason; ?></div>
 									</div>
 								<?php endif; ?>
 								<?php $accomplish_goal = get_post_meta($post->ID, 'hk_accomplish_goal', true); 
 									if($accomplish_goal): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">HOW DID YOU ACCOMPLISH YOUR GOAL:</h2>
+											<h2 class="entry-content-heading">How did you accomplish your Goal:</h2>
 											<div class="entry-content-single"><?php echo $accomplish_goal; ?></div>
 									</div>
 								<?php endif; ?>
 								<?php $training_routine = get_post_meta($post->ID, 'hk_training_routine', true); 
 									if($training_routine): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">TRAINING ROUTINE THAT HELPED YOU ACHIEVE YOUR GOALS</h2>
+											<h2 class="entry-content-heading">Training routine that helped you achieve your Goals</h2>
 											<div class="entry-content-single"><?php echo $training_routine; ?></div>
 									</div>
 								<?php endif; ?>
@@ -166,21 +166,21 @@ get_header();
 								<?php $challenges = get_post_meta($post->ID, 'hk_challenges', true); 
 									if($challenges): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">WHAT CHALLENGES DID YOU FACE ?</h2>
+											<h2 class="entry-content-heading">What challenges did you face?</h2>
 											<div class="entry-content-single"><?php echo $challenges; ?></div>
 									</div>
 								<?php endif; ?>
 								<?php $how_did_you_overcome = get_post_meta($post->ID, 'hk_how_did_you_overcome', true); 
 									if($how_did_you_overcome): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">HOW DID YOU OVERCOME THESE CHALLENGES ?</h2>
+											<h2 class="entry-content-heading">How did you overcome these challenges?</h2>
 											<div class="entry-content-single"><?php echo $how_did_you_overcome; ?></div>
 									</div>
 								<?php endif; ?>
 								<?php $future_suggestion = get_post_meta($post->ID, 'hk_future_suggestion', true); 
 									if($future_suggestion): ?>
 									<div class="my-2">
-											<h2 class="entry-content-heading">SUGGESTION FOR FUTURE TRANSFORMERS</h2>
+											<h2 class="entry-content-heading">Suggestion for future transformers</h2>
 											<div class="entry-content-single"><?php echo $future_suggestion; ?></div>
 									</div>
 								<?php endif; ?>
