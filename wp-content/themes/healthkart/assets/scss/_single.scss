@@ -427,7 +427,7 @@
 			color: #333 !important;
 			margin: 10px 0 !important;
 			text-align: justify;
-		    white-space: break-spaces;
+	        white-space: pre-wrap;
 			@media (max-width: 767px){
 				font-size: 15px;
 			}
