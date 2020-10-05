@@ -86,8 +86,11 @@
 				.title a{
 					font-size: 25px;
 				    line-height: 32px;
-				    font-weight: 900;
+				    font-weight: 600;
 		   	 		color: black;
+		   	 		@media (max-width: 767px){
+		   	 			font-size: 18px;
+		   	 		}
 				}
 			}
 			.latest-articles-single-image{
@@ -121,7 +124,7 @@
 			    line-height: 22px !important;
 				a{
 					font-size: 18px;
-				    font-weight: 900;
+				    font-weight: 600;
 		    		color: #000;
 				}
 			}
@@ -162,7 +165,7 @@
 		line-height: 26px;
 		a{
 		    line-height: 26px;
-		    font-weight: 900;
+		    font-weight: 600;
 		    color: black;
 		}
 	}
@@ -251,7 +254,7 @@
 				 	line-height: 22px !important;
 					a{
 						font-size: 18px;
-					    font-weight: 900;
+					    font-weight: 600;
 		    			color: black;
 					}
 				}
@@ -330,7 +333,7 @@
 					line-height: 22px !important;
 					 a{
 						font-size: 18px;
-					    font-weight: 900;
+					    font-weight: 600;
 		    			color: black;
 					}
 				}
@@ -501,8 +504,8 @@
 				.title {
 					line-height: 24px;
 					a{
-						font-size: 20px;
-						font-weight: 900;
+						font-size: 18px;
+						font-weight: 600;
 						color: #000;
 					}
 					@media (min-width: 768px){
@@ -546,7 +549,7 @@
 				line-height: 26px;
 				a{
 					font-size: 18px;
-					font-weight: 900;
+					font-weight: 600;
 					color: #000;
 				}
 			}
