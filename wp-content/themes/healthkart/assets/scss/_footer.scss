@@ -280,3 +280,9 @@
 		}
 	}
 }
+.widget-wrap {
+	img {
+	    width: auto;
+	    object-fit: contain;
+    }
+}
