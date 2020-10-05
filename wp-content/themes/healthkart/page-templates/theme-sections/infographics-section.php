@@ -1,11 +1,11 @@
-<div class="videos-section mb-3">
-	<h1 class="videos-heading pt-3 pb-3">VIDEOS</h1>
-	<div class="videos-articles mt-4 row">
+<div class="infographics-section mb-3">
+	<div class="infographics-heading pt-3 pb-3">INFOGRAPHICS</div>
+	<div class="infographics-articles mt-4 row">
 	<?php 
 	$post_ids = get_query_var('post_ids');
 	$args = array(
 		'posts_per_page' => 3,
-		'post_type' => array('video'),
+		'post_type' => array('infographic'),
 		'post_status' => 'publish',
 		'post__not_in' => $post_ids,
 		'meta_key' => 'hk_featured_post',
@@ -19,26 +19,28 @@
 	$main_post = new wp_query( $args );
 	if( $main_post->have_posts() ) :
 		while( $main_post->have_posts() ) :
-			$main_post->the_post(); 
-			preg_match("/<!-- wp:core-embed\/youtube(.*?)-->/", get_the_content(), $matches);
-			if(isset($matches[1])):
-				$embed_video = json_decode($matches[1], true);
-				if(isset($embed_video['url'])): ?>
-					<div class="videos-single col-md-4 col-12">
-						<div class="videos-single-image mb-4">
-							<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-								<div class="videos-single-image-overlay"></div>
-									<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $embed_video['url'];?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-							</a>
-						</div>
-					</div>
-				<?php endif;
-			endif;
+			$main_post->the_post();  ?>
+			<div class="infographics-single col-md-4 col-12">
+				<div class="infographics-single-image mb-4">
+					<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<?php 
+					$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+					if ( $thumbnail ) { ?>
+						<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+					<?php } else if ( has_post_thumbnail() ) {
+					the_post_thumbnail('medium', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
+					<?php
+					} else { ?>
+					<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+					<?php } ?>
+					</a>
+				</div>
+			</div><?php
 		endwhile;
 	endif; ?>
 	</div>
 	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button  mr-3 py-2 px-5">More Videos</a>
+		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button  mr-3 py-2 px-5">More infographics</a>
 	</div>
 </div>
 

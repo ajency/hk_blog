@@ -55,7 +55,34 @@ foreach ($posts as $post) {
 		}
 	}
 }*/
+exit;
 $mydb = new wpdb('root','root','fitness_freak','localhost');
+$posts = $wpdb->get_results("SELECT *  FROM wp_posts where post_type='infographic' order by id asc");
+$node_ids = [];
+foreach ($posts as $post) {
+	$node_id = get_post_meta($post->ID, 'hk_node_id', true);
+	if($node_id){
+		$body = $mydb->get_row("select * from field_data_field_text where entity_id='".$node_id."'");
+		$post_content = $body->field_text_value;
+		$post_arr = array(
+				'ID'		 => $post->ID,			
+				'post_content' => $post_content,		
+			);
+		echo json_encode($post_arr);
+		wp_update_post( $post_arr );
+		$image = $mydb->get_row("select * from field_data_field_infographics_image where entity_id='".$node_id."'");
+		if($image){
+			$media_id = fetch_image($image->field_infographics_image_fid, $image->field_infographics_image_alt, $image->field_infographics_image_title);
+			if($media_id){
+				echo "\n".$media_id;
+				add_post_meta($post->ID, '_thumbnail_id', $media_id);
+			}
+		}
+	}
+	echo "\n\n";
+}
+exit;
+/*$mydb = new wpdb('root','root','fitness_freak','localhost');
 $imgs = $mydb->get_results("select * from field_data_field_goal");
 foreach ($imgs as $img) {
 	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
@@ -71,7 +98,7 @@ foreach ($imgs as $img) {
 		echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Title: ".$node->post_name."\n\n";
 		//add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
 	}
-}
+}*/
 
 exit;
 

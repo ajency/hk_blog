@@ -10,11 +10,9 @@ function hk_taxonomy()  {
     ];
     $taxonomies = [
         'ama' => [
-            'category' => ['singular' => 'Category','plural' => 'Categories'], 
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'infographic' => [
-            'category' => ['singular' => 'Category','plural' => 'Categories'], 
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'transformation' => [
@@ -25,6 +23,8 @@ function hk_taxonomy()  {
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
     ];
+    add_theme_support('post-thumbnails');
+    add_post_type_support( 'infographic', 'thumbnail' );  
     foreach ($post_types as $post_type => $name) {
         register_post_type( $post_type,
             array(

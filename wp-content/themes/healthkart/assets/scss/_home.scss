@@ -466,7 +466,14 @@
 		}
 	}
 }
-
+.infographics{
+	&-heading{
+		border-bottom: 1px solid #ececec;
+		font-weight: bold;
+		font-size: 20px;
+		font-weight: bold;
+	}
+}
 .transformation-section{
 	&-single{
 		&-image{
