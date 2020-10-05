@@ -1,5 +1,5 @@
 <div class="trending-articles-section mt-3">
-	<h1 class="trending-articles-heading pt-3 pb-3">TRENDING</h1>
+	<h2 class="trending-articles-heading pt-3 pb-3">TRENDING</h2>
 	<div class="trending-articles mt-4">
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
@@ -56,7 +56,7 @@
 	            ?>
 			</div>
 		</div>
-		<h1 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">MORE SIMILIAR</h1>
+		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">MORE SIMILIAR</h2>
 		<div class="row similar-articles">
 		<?php
 		$args = array(
