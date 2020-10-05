@@ -9418,6 +9418,53 @@ strong {
   font-weight: bold;
   font-size: 20px;
   font-weight: bold; }
+.infographics-articles-single {
+  position: relative; }
+  .infographics-articles-single-image img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; }
+    @media (max-width: 991px) {
+      .infographics-articles-single-image img {
+        height: 120px; } }
+    @media (max-width: 767px) {
+      .infographics-articles-single-image img {
+        height: auto; } }
+  @media (min-width: 768px) {
+    .infographics-articles-single-image {
+      margin-bottom: 20px; } }
+  @media (max-width: 767px) {
+    .infographics-articles-single-image {
+      margin-bottom: 0.5rem !important; } }
+  .infographics-articles-single-content .content-title .title {
+    line-height: 22px !important; }
+    .infographics-articles-single-content .content-title .title a {
+      font-size: 18px;
+      font-weight: 600;
+      color: black; }
+  @media (max-width: 991px) {
+    .infographics-articles-single-content .content-description {
+      font-size: 13px;
+      line-height: 18px;
+      margin: 12px 0; } }
+  @media (max-width: 767px) {
+    .infographics-articles-single-content {
+      margin-top: 1rem; } }
+  @media (min-width: 768px) {
+    .infographics-articles-single:first-child:after, .infographics-articles-single:nth-child(2):after {
+      display: none; }
+    .infographics-articles-single:after {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: 14px;
+      right: 0;
+      background: #ececec;
+      width: 95%;
+      height: 1px; } }
+  @media (max-width: 767px) {
+    .infographics-articles-single {
+      padding-bottom: 1.5rem !important; } }
 
 @media (max-width: 767px) {
   .transformation-section-single-image a {

@@ -20,27 +20,35 @@
 	if( $main_post->have_posts() ) :
 		while( $main_post->have_posts() ) :
 			$main_post->the_post();  ?>
-			<div class="infographics-single col-md-4 col-12">
-				<div class="infographics-single-image mb-4">
-					<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-					<?php 
-					$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
-					if ( $thumbnail ) { ?>
-						<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-					<?php } else if ( has_post_thumbnail() ) {
-					the_post_thumbnail('medium', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
+			<div class="infographics-articles-single col-md-4 col-12">
+				<div class="infographics-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+					<?php if ( has_post_thumbnail() ) {
+					the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
 					<?php
 					} else { ?>
 					<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 					<?php } ?>
-					</a>
+				</a></div>
+				<div class="infographics-articles-single-content">
+					<div class="content-title">
+						<?php $categories = hk_get_category(get_the_ID());  ?>
+						<span>
+							<span class="category">
+								<a target="_blank" title="Infographics" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag">Infographics</a>
+							</span>
+							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+							<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+						</span>
+						<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					</div>
+					<div class="content-description"><?php echo hk_get_excerpt(90); ?></div>
 				</div>
 			</div><?php
 		endwhile;
 	endif; ?>
 	</div>
 	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button  mr-3 py-2 px-5">More infographics</a>
+		<a href="<?php echo get_post_type_archive_link( 'infographic' ); ?>" class="btn hk-button  mr-3 py-2 px-5">More infographics</a>
 	</div>
 </div>
 

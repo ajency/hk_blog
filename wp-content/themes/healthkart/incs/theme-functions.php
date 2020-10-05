@@ -49,6 +49,12 @@ function get_mins_read(){
 
 function hk_get_excerpt($limit) {
 	$content = get_the_excerpt();
-	$limit_pos = strpos($content, " ", $limit);
-	return substr($content, 0, $limit_pos);
+	if(strlen($content) > $limit){
+		$limit_pos = strpos($content, " ", $limit);
+		$excerpt = substr($content, 0, $limit_pos)."...";
+	}
+	else{
+		$excerpt = $content;
+	}
+	return $excerpt;
 }
