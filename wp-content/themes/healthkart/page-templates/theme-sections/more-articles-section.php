@@ -1,5 +1,5 @@
 <div class="more-articles-section my-4">
-	<h2 class="more-articles-heading pt-3 pb-3">MORE ARTICLES</h2>
+	<div class="more-articles-heading pt-3 pb-3">MORE ARTICLES</div>
 	<div class="more-articles row mt-4">
 		<div class="col-md-6 col-12">
 		<?php

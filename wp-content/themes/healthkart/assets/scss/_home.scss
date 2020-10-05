@@ -538,7 +538,7 @@
 			img{
 				height: 150px;
 				width: 100%;
-    			object-fit: cover;
+    			object-fit: contain;
     			@media (max-width: 767px){
     				height: auto;
     			}

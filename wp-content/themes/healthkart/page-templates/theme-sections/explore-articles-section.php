@@ -1,5 +1,5 @@
 <div class="explore-articles-section">
-	<h2 class="explore-articles-heading pt-3 pb-3">EXPLORE ARTICLES</h2>
+	<div class="explore-articles-heading pt-3 pb-3">EXPLORE ARTICLES</div>
 	<?php 
 	$uncategorized_id = get_cat_ID( 'Uncategorized' );
 	$args = array(
