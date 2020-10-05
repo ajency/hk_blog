@@ -21,6 +21,7 @@ get_header();
 	get_template_part( 'page-templates/theme-sections/trending-articles', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/explore-articles', 'section' );
 	get_template_part( 'page-templates/theme-sections/videos', 'section' ); 
+	get_template_part( 'page-templates/theme-sections/infographics', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/transformations', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/more-articles', 'section' ); 
 ?>

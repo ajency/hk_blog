@@ -1,5 +1,6 @@
 <div class="explore-articles row">
 <?php 
+
 	$post_ids = get_query_var('post_ids');
 	$args = array(
 		'posts_per_page' => 6,
@@ -56,7 +57,9 @@
 	set_query_var( 'post_ids', $post_ids );
 ?>
 </div>
-<div class="m-auto text-center"><button type="button" class="btn mr-3 py-2 px-5 view-all mb-4">View All</button></div>
+<div class="w-100 action-btn text-center">
+	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button mr-3 py-2 px-5">View All</a>
+</div>
 <div class="my-5 loader explore-articles-loader d-none">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
 </div>

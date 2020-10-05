@@ -74,10 +74,11 @@ $( document ).ready(function() {
 			url : ajax_params.url, 
 			data: {
 				'action' : 'fetch_category_articles',
-				'category_id' : $(this).attr('data-val')
+				'category_id' : $(this).data('val')
 			},
 			type : 'POST',
 			beforeSend : function ( xhr ) {
+				
 				$(".explore-articles").css('visibility', 'hidden');
 				$(".explore-articles-loader").addClass("d-block").removeClass("d-none");
 			},
@@ -89,8 +90,6 @@ $( document ).ready(function() {
 					$(".category_articles_container").html(data);
 					$(".category-buttons-single").removeClass("category-buttons-single-active");
 					button.addClass("category-buttons-single-active");
-				} else {
-					//button.remove(); // if no data, remove the button as well
 				}
 			}
 		});
@@ -126,7 +125,6 @@ $( document ).ready(function() {
 							$('.category-list-view .category-post-row:last').after( data ); 
 							canBeLoaded = true; 
 							category_page++;
-							//$("html, body").animate({ scrollTop: $('.category-list-view .category-post-row:last').position().top });
 						}
 					}
 				});

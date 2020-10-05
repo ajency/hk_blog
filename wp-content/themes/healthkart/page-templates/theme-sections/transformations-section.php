@@ -24,5 +24,8 @@
 		endwhile;
 	endif; ?>
 	</div>
+	<div class="w-100 action-btn text-center">
+		<a href="<?php echo get_post_type_archive_link(get_post_type()); ?>" class="btn hk-button mr-3 py-2 px-5">More Transformations</a>
+	</div>
 </div>
 
