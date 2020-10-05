@@ -104,7 +104,7 @@ get_header();
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 									<!-- Whatsapp sharing onn desktop -->
-									<a href="https://web.whatsapp.com/send?text=<?php echo $title; ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $title; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+									<a href="https://web.whatsapp.com/send?text=<?php echo $postUrl; ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
 							<div class="share share-mob">
@@ -113,7 +113,7 @@ get_header();
 									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 									<!-- Whatsapp sharing onn mobile -->
-									<a href="whatsapp://send?text=<?php echo $title; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $title; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+									<a href="whatsapp://send?text=<?php echo $postUrl; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
 							<div class="latest-reads">
