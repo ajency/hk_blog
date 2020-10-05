@@ -129,7 +129,7 @@
 			line-height: 1.5;
 		    span{
 				font-weight: 600 !important;
-				font-size: 25px!important;
+				font-size: 24px! important;
 				line-height: 1.5;
 		    }
 		    @media (max-width: 767px){
@@ -172,7 +172,7 @@
 				margin: 10px 0 !important;
 				text-align: justify;
 				@media (max-width: 767px){
-					font-size: 14px;
+					font-size: 15px;
 				}
    			}
    			ul, ol{
@@ -181,7 +181,7 @@
 					line-height: 2 !important;
 		   			color: #212326;
 					@media (max-width: 767px){
-						font-size: 14px;
+						font-size: 15px;
 					}
    				}
    			}
@@ -263,7 +263,7 @@
 		padding: 0 15px;
 		font-size: 30px;
 		line-height: 34px;
-		font-weight: 900;
+		font-weight: 600;
 		@media (max-width: 767px){
 			font-size: 20px;
 		}
@@ -292,12 +292,13 @@
 	    	}
 	    }
 		&-header{
-			.title{
+			h2.title{
 				padding: 0;
+				line-height: 26px;
 				a{
 					font-size: 18px;
 					line-height: 26px;
-					font-weight: 900;
+					font-weight: 600;
 					color: black;
 					@media (max-width: 767px){
 						font-size: 14px;
@@ -310,9 +311,9 @@
 			}
 		}
 		&-excerpt{
-			font-size: 14px;
-			line-height: 22px;
-			color: black;
+		    font-size: 15px;
+		    line-height: 1.5 !important;
+		    color: #212326;
 		}
 		&-icons{
 			display: none;
@@ -367,7 +368,7 @@
 				}
 			}
 			&-icons{
-				display: flex;
+				display: none;
 				margin: 15px 0 10px;
 					span.heart{
 						i{
@@ -388,6 +389,31 @@
 	.transformation-section{
 		&-single-image{
 			width: 80%;
+			@media (max-width: 767px){
+				width: 100%;
+			}
+		}
+	}
+	.entry-content{
+		h2.&-heading{
+		    padding: 30px 0 0;
+		    font-size: 25px !important;
+		    line-height: 1.5;
+		    text-transform: capitalize;
+		    @media (max-width: 767px){
+				font-size: 20px !important;
+				line-height: 24px;
+		    }
+		}
+		&-single{
+			font-size: 17px;
+			line-height: 2 !important;
+			color: #333 !important;
+			margin: 10px 0 !important;
+			text-align: justify;
+			@media (max-width: 767px){
+				font-size: 15px;
+			}
 		}
 	}
 	@media (max-width: 767px){
