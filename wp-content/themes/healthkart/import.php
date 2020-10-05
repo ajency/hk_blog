@@ -55,15 +55,23 @@ foreach ($posts as $post) {
 		}
 	}
 }*/
-/*$mydb = new wpdb('root','root','fitness_freak','localhost');
-$imgs = $mydb->get_results("select * from field_data_field_what_challenges_did_you_fa");
+$mydb = new wpdb('root','root','fitness_freak','localhost');
+$imgs = $mydb->get_results("select * from field_data_field_goal");
 foreach ($imgs as $img) {
 	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
 	if($node){
-		echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Value: ".$img->field_what_challenges_did_you_fa_value."\n";
-		add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
+		$goals = $mydb->get_results("select * from field_data_field_diet_plan where entity_id='".$img->field_goal_value."' order by delta");
+		foreach ($goals as $index => $goal) {
+			$foods = $mydb->get_results("select * from field_data_field_food where entity_id='".$goal->field_diet_plan_value."'");
+			$time = $mydb->get_results("select * from field_data_field_timing where entity_id='".$goal->field_diet_plan_value."'");
+			foreach ($foods as $food) {
+				echo "Time: ".$time->field_timing_value.", Food: ".$food->field_food_value."\n";
+			}
+		}
+		echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Title: ".$node->post_name."\n\n";
+		//add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
 	}
-}*/
+}
 
 exit;
 

@@ -8347,6 +8347,14 @@ strong {
       line-height: 24px; } }
 .single-post .single_post_page .entry-content {
   margin: 0; }
+  .single-post .single_post_page .entry-content table {
+    border: 0; }
+  .single-post .single_post_page .entry-content table td.rtecenter {
+    text-align: center; }
+  .single-post .single_post_page .entry-content table tr:nth-child(2n+1) {
+    background: #e0e0e0; }
+  .single-post .single_post_page .entry-content table tr:nth-child(2n+2) {
+    background: #f5f5f5; }
   .single-post .single_post_page .entry-content a {
     color: #00bfbf; }
     .single-post .single_post_page .entry-content a span {
