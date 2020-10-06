@@ -292,7 +292,16 @@
 		}
 	}
 }
-
+.category-loader{
+	@media (min-width: 767px){
+		position: absolute;
+	    top: 0;
+	    left: 42%;
+	}
+}
+.category-filler{
+	height: 300px;
+}
 .explore-articles{
 	&-section{
 		@media (max-width: 767px){

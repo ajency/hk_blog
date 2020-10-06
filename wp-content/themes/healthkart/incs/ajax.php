@@ -20,7 +20,7 @@ function fetch_category_page_articles(){
 	switch($_POST['type']){
 		case 'post':
 			$template['primary'] = 'page-templates/theme-sections/category';
-			$template['secondary'] = 'section';
+			$template['secondary'] = 'component';
 		break;
 		case 'transformation':
 			$template['primary'] = 'page-templates/theme-sections/transformations-single';

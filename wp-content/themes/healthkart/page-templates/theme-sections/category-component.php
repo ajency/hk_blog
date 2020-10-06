@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="col-12 next-articles">
-			<?php $categories = hk_get_category(get_the_ID(), $category->taxonomy); ?>
+			<?php $categories = hk_get_category(get_the_ID()); ?>
 			<span>
 				<span class="category">
 					<?php foreach($categories as $index => $category): ?>
