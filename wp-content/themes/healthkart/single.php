@@ -51,8 +51,13 @@ get_header();
 					?>
 						<header class="entry-header col-12">
 							<span>
+								<?php $categories = hk_get_category(get_the_ID()); ?>
 								<span class="category">
-									<?php the_category(' , '); ?>
+									<?php foreach($categories as $index => $category): ?>
+									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+									<?php if($index+1 != count($categories)): ?>
+										,
+									<?php endif; endforeach; ?>
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
