@@ -35,18 +35,18 @@ do_action( 'genesis_title' );
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 height=device-height">
 	<!-- facebook -->
-	<meta property="fb:app_id" content="<?php echo FB_APP_ID; ?>"/>
+<!-- 	<meta property="fb:app_id" content="<?php echo FB_APP_ID; ?>"/>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content= "<?php echo get_the_title() ?>" />
 	<meta property="og:url" content= "<?php echo get_the_permalink() ?> "/>
 	<meta property="og:description" content= "<?php echo get_the_excerpt() ?>" />
-	<meta property="og:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" />
+	<meta property="og:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" /> -->
 	<!-- /facebook -->
 	<!-- Twitter -->
-	<meta name="twitter:card" content="summary">
+<!-- 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content= "<?php echo get_the_title() ?>" >
 	<meta name="twitter:description" content= "<?php echo get_the_excerpt() ?>" >
-	<meta name="twitter:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" >
+	<meta name="twitter:image" content= "<?php echo  get_the_post_thumbnail_url('', 'image-large' ) ?>" > -->
 	<!-- /Twitter -->
 	<!-- / end of meta tags -->
 <?php
