@@ -4,12 +4,12 @@ $categories = get_categories(
     array( 'parent' => $nested_category->term_id )
 ); ?>
 
-<div class="nested-section my-3">
+<div class="nested-section mb-3">
 	<div class="nested-section-subcategory">
 		<?php foreach ($categories as $category): ?>
-		<div class="nested-section-subcategory-heading p-3"> <?php echo $category->name; ?></div>
+		<div class="nested-section-subcategory-heading py-3  container"> <?php echo $category->name; ?></div>
 		<div class="nested-section-subcategory-wrapper">
-			<div class="nested-section-subcategory-content py-4">
+			<div class="nested-section-subcategory-content py-4 container">
 				<?php 
 					$args = array(
 						'posts_per_page' => 10,
