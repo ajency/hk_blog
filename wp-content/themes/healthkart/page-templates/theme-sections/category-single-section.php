@@ -54,7 +54,7 @@ global $wp_query;
 			  	'type'  => 'array',
 			) );
 			foreach ($pages as $index => $page) {
-				echo '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') 
+				echo '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '').
 				($index < count($pages)-1 ? ' current-page' : '') . '"'.
 				(!$index ? ' id="previous-page"' : '') .
 				($index == count($pages)-1 ? ' id="next-page"' : '') .
