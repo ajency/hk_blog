@@ -9,10 +9,10 @@ $categories = get_categories(
 		<?php foreach ($categories as $category): ?>
 		<div class="nested-section-subcategory-heading p-3"> <?php echo $category->name; ?></div>
 		<div class="nested-section-subcategory-wrapper">
-			<div class="nested-section-subcategory-content py-2">
+			<div class="nested-section-subcategory-content py-4">
 				<?php 
 					$args = array(
-						'posts_per_page' => 8,
+						'posts_per_page' => 10,
 						'post_type' => array('post'),
 						'post_status' => 'publish',
 						'cat' => $category->term_id,
@@ -20,8 +20,8 @@ $categories = get_categories(
 					query_posts( $args ); ?>
 					<?php if( have_posts() ) :
 						while( have_posts() ): the_post(); ?>
-							<div class="recent-post p-0">
-								<div class="recent-post-featured-img my-3">
+							<div class="recent-post mx-4">
+								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 										<?php 
 										$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
@@ -35,7 +35,7 @@ $categories = get_categories(
 										<?php } ?>
 									</a>
 								</div>
-								<div class="recent-post-content">
+								<div class="recent-post-content p-3">
 									<?php $categories = hk_get_category(get_the_ID()); ?>
 									<span>
 										<span class="category">

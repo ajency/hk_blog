@@ -9692,11 +9692,33 @@ strong {
     max-width: 1280px;
     margin: 0 auto;
     width: 94%;
-    margin: 60px 0 30px;
-    display: block !important;
-    margin-top: 0; }
+    display: block !important; }
+    .nested-section-subcategory-content .slick-prev {
+      display: none; }
+    .nested-section-subcategory-content .slick-next {
+      background-image: url("/assets/images/slider-next.svg"); }
+    .nested-section-subcategory-content .slick-prev {
+      background-image: url("/assets/images/slider-prev.svg"); }
+    .nested-section-subcategory-content .slick-arrow {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+      background-repeat: no-repeat;
+      background-size: cover; }
     .nested-section-subcategory-content .recent-post {
-      border-top: 0; }
+      border-top: 0;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 8px; }
+      .nested-section-subcategory-content .recent-post:hover {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3); }
       .nested-section-subcategory-content .recent-post .category {
         margin: 10px 0; }
         .nested-section-subcategory-content .recent-post .category a {

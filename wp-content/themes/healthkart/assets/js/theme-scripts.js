@@ -124,12 +124,28 @@ $( document ).ready(function() {
 		draggable: true,
 		arrows: true,
 		dots: false,
-		fade: true,
 		speed: 900,
 		infinite: false,
  		slidesToShow: 4,
   		slidesToScroll: 4
 	});
+	$('.nested-section-subcategory-content').on('afterChange', function (event, slick, currentSlide) {
+		var total = $(".nested-section-subcategory-content recent-post").length;
+        if(total - currentSlide < 4) {
+            $('.slick-next').hide();
+        }
+        else {
+            $('.slick-next').show();
+        }
+
+        if(currentSlide < 0) {
+            $('.slick-prev').hide();
+        }
+        else {
+            $('.slick-prev').show();
+        }  
+    });
+    $('.slick-prev').hide();
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
