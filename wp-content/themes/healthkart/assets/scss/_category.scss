@@ -47,8 +47,8 @@
 					position: absolute;
 					top: 50%;
 					display: block;
-					width: 60px;
-					height: 60px;
+					width: 50px;
+					height: 50px;
 					padding: 0;
 					-webkit-transform: translate(0,-50%);
 					-ms-transform: translate(0,-50%);
@@ -106,11 +106,10 @@
 				}
 				&-featured-img{
 					width: auto;
-					height: 250px;
 					margin: auto;
 					object-fit: cover;
-    				@media (min-width: 768px){				    
-    					height: 200px;
+    				@media (max-width: 767px){				    
+    					height: 250px;
 					}
 					img{
 						@media (min-width: 1024px){
