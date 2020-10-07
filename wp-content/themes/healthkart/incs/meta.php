@@ -209,4 +209,12 @@ function hk_post_cpt__metabox() {
         'id'   => $prefix . 'featured_image',
         'type' => 'file',
     ) );
+
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Nested Category', 'cmb2' ),
+        'id'   => $prefix . 'nested_category',
+        'type' => 'checkbox',
+        'on_front' => false,
+    ) );
+    
 }

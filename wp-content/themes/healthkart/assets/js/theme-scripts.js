@@ -119,7 +119,17 @@ $( document ).ready(function() {
 	$(".widget_media_image a").click(function(e){
 		e.preventDefault();
 		window.open($(this).attr('href'), '_blank');
-	})
+	});
+	$(".nested-section-subcategory-content").slick({
+		draggable: true,
+		arrows: true,
+		dots: false,
+		fade: true,
+		speed: 900,
+		infinite: false,
+ 		slidesToShow: 4,
+  		slidesToScroll: 4
+	});
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
