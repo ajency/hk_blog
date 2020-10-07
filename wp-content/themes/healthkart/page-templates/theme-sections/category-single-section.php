@@ -49,18 +49,14 @@ global $wp_query;
 			$pages = paginate_links( array(
 				'format' => '?page=%#%',
 		    	'mid_size'=>1,
-			 	'prev_text' => _( 'Prev'),
-			  	'next_text' => _( 'Next'),
+		    	'prev_next' => FALSE,
 			  	'type'  => 'array',
-			) );
-			foreach ($pages as $index => $page) {
-				echo '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '').
-				($index < count($pages)-1 ? ' current-page' : '') . '"'.
-				(!$index ? ' id="previous-page"' : '') .
-				($index == count($pages)-1 ? ' id="next-page"' : '') .
-				'> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
-			}
-		?>
+			) ); ?>
+			<li class="page-item" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
+			<?php foreach ($pages as $index => $page) {
+				echo '<li class="current-page page-item' . (strpos($page, 'current') !== false ? ' active' : '').'"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
+			} ?>
+			<li class="page-item" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
 	
