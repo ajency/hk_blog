@@ -9285,9 +9285,7 @@ strong {
   .category-loader {
     position: absolute;
     left: 42%;
-    height: 100px;
-    width: 200px;
-    bottom: 150px; } }
+    bottom: 10px; } }
 
 .category-filler {
   height: 300px; }
