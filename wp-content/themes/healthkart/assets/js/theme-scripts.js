@@ -155,15 +155,14 @@ $( document ).ready(function() {
         ]
 	});
 	$('.nested-section-subcategory-content').on('afterChange', function (event, slick, currentSlide) {
-		var total = $(".nested-section-subcategory-content recent-post").length;
+		var total = $(this).find(".recent-post").length;
         if(total - currentSlide < 4) {
             $('.slick-next').hide();
         }
         else {
             $('.slick-next').show();
         }
-
-        if(currentSlide < 0) {
+        if(currentSlide < 4) {
             $('.slick-prev').hide();
         }
         else {
@@ -309,34 +308,22 @@ $(function() {
 		return true;
 	}
 	if($(".category-list-view").length && $(window).width() > 767){
-		$(".pagination").append(
-			$("<li>").addClass("page-item").attr({ id: "previous-page" }).append(
-				$("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text("Prev")
-			),
-			$("<li>").addClass("page-item").attr({ id: "next-page" }).append(
-				$("<a>").addClass("page-link").attr({href: "javascript:void(0)"}).text("Next")
-			)
-		);
-		var url = new URL(window.location.href);
-		var page = url.searchParams.get("page");
-		if(page){
-			showPage(page);
-		}
-		else{
-			showPage(1);
-		}
+
 		if(!$(".pagination li[data-page='"+page+"']").hasClass('active')){
 			$(".pagination li[data-page='"+page+"']").addClass('active');
 		}
   	}
 	// Use event delegation, as these items are recreated later
-	$(document).on("click", ".pagination li.current-page:not(.active)", function() {
+	$(document).on("click", ".pagination li.current-page:not(.active)", function(e) {
+		e.preventDefault();
 		return showPage(+$(this).text());
 	});
-	$(document).on("click", ".pagination #next-page:not(.disabled)", function() {
+	$(document).on("click", ".pagination #next-page:not(.disabled)", function(e) {
+		e.preventDefault();
 		return showPage(currentPage + 1);
 	});
-	$(document).on("click", ".pagination #previous-page:not(.disabled)", function() {
+	$(document).on("click", ".pagination #previous-page:not(.disabled)", function(e) {
+		e.preventDefault();
 		return showPage(currentPage - 1);
 	});
 });

@@ -33,25 +33,31 @@
 					padding-left: 0 !important;
 				}
 				&-next{
-					background-image: url("/assets/images/slider-next.svg");
+					background-image: url(../images/slider-next.svg)!important;
+				    right: -25px;
 				}
 				&-prev{
-					background-image: url("/assets/images/slider-prev.svg");
+					background-image: url(../images/slider-prev.svg)!important;
+				    left: -25px;
 				}
 				&-arrow{
+					z-index: 2;
 					font-size: 0;
 					line-height: 0;
+					position: absolute;
+					top: 50%;
 					display: block;
-					width: 20px;
-					height: 20px;
-					padding: 5px;
+					width: 60px;
+					height: 60px;
+					padding: 0;
+					-webkit-transform: translate(0,-50%);
+					-ms-transform: translate(0,-50%);
+					transform: translate(0,-50%);
 					cursor: pointer;
 					color: transparent;
-					border: 0;
-					outline: none;
-					background: transparent;
-					background-repeat: no-repeat;
-					background-size: cover;
+					border: none;
+					outline: 0;
+					background: 0 0;
 				}
 			}
 			.recent-post {

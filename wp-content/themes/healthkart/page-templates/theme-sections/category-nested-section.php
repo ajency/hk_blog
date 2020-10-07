@@ -51,7 +51,7 @@ $categories = get_categories(
 									<div class="recent-post-header">
 										<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 									</div>
-									<div class="recent-post-excerpt"><?php echo hk_get_excerpt(90); echo "..."; ?>
+									<div class="recent-post-excerpt"><?php echo hk_get_excerpt(50); ?>
 									</div>
 								</div>
 							</div>
