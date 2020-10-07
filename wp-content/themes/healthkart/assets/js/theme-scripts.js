@@ -286,7 +286,7 @@ $(function() {
 
 		var url = new URL(window.location.href);
 		var page = url.searchParams.get("page");
-		currentPage = page;
+		currentPage = parseInt(page);
 		if(!$(".pagination li[data-page='"+page+"']").hasClass('active')){
 			$(".pagination li[data-page='"+page+"']").addClass('active');
 		}
