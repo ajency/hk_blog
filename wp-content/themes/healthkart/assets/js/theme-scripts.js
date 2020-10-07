@@ -252,7 +252,7 @@ $(function() {
 		$(".category-loader").addClass("d-block").removeClass("d-none");
 		if (whichPage < 1 || whichPage > totalPages) return false;
 		currentPage = whichPage;
-		$(".category-list-view .category-post-row").html('<div class="category-filler"></div>');
+		$(".category-list-view .category-post-row").css('visibility', 'hidden');
 		// Replace the navigation items (not prev/next):
 		$(".pagination li").slice(1, -1).remove();
 		if(whichPage == 1){

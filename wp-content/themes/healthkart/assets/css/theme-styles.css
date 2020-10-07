@@ -9284,8 +9284,10 @@ strong {
 @media (min-width: 767px) {
   .category-loader {
     position: absolute;
-    top: 0;
-    left: 42%; } }
+    left: 42%;
+    height: 100px;
+    width: 200px;
+    bottom: 150px; } }
 
 .category-filler {
   height: 300px; }
