@@ -96,6 +96,10 @@ $( document ).ready(function() {
 	$(window).scroll(function(){
 		if($(".category-list-view").length && $(window).width() < 767 && ($(window).scrollTop() > $(".category-list-view .category-post-row .recent-post:last").position().top) && canBeLoaded == true){
 			canBeLoaded = false;
+			$('html, body').animate({
+		        scrollTop: $(".container").offset().top
+		    }, 500);
+			
 			var url = new URL(window.location.href);
 			var page = url.searchParams.get("page");
 			page = parseInt(page) + 1;
