@@ -2,24 +2,27 @@
 $nested_category = get_queried_object();
 $categories = get_categories(
     array( 'parent' => $nested_category->term_id )
-); ?>
+); 
+$post_ids = array();
+?>
 
 <div class="nested-section mb-3">
 	<div class="nested-section-subcategory mb-4">
 		<?php foreach ($categories as $category): ?>
 		<div class="nested-section-subcategory-heading py-3  container"> <?php echo $category->name; ?></div>
 		<div class="nested-section-subcategory-wrapper">
-			<div class="nested-section-subcategory-content py-4 container">
+			<div class="nested-section-subcategory-content pb-4 pt-2 container">
 				<?php 
 					$args = array(
 						'posts_per_page' => 10,
 						'post_type' => array('post'),
 						'post_status' => 'publish',
 						'cat' => $category->term_id,
+						'post__not_in' => $post_ids
 					);
 					query_posts( $args ); 
 					if( have_posts() ) :
-						while( have_posts() ): the_post(); ?>
+						while( have_posts() ): the_post(); $post_ids[] = get_the_id();?>
 							<div class="recent-post mx-4">
 								<div class="recent-post-featured-img">
 									<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
