@@ -187,16 +187,16 @@ $( document ).ready(function() {
 	$('.nested-section-subcategory-content').on('afterChange', function (event, slick, currentSlide) {
 		var total = $(this).find(".recent-post").length;
         if(total - currentSlide <= 4) {
-            $('.slick-next').hide();
+            $(this).find('.slick-next').hide();
         }
         else {
-            $('.slick-next').show();
+            $(this).find('.slick-next').show();
         }
         if(currentSlide < 4) {
-            $('.slick-prev').hide();
+            $(this).find('.slick-prev').hide();
         }
         else {
-            $('.slick-prev').show();
+            $(this).find('.slick-prev').show();
         }  
     });
     $('.slick-prev').hide();
