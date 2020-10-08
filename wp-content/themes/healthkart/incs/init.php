@@ -5,3 +5,4 @@ include "meta.php";
 include "shortcodes.php";
 include "ajax.php";
 include "theme-functions.php";
+include "filters.php";
