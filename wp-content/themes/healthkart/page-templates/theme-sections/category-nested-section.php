@@ -41,7 +41,7 @@ $categories = get_categories(
 										<span class="category">
 											<?php foreach(array_slice($categories, 0, 2) as $index => $category): ?>
 											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-											<?php if($index+1 != count($categories)): ?>
+											<?php if($index+1 != count(array_slice($categories, 0, 2))): ?>
 												,
 											<?php endif; endforeach; ?>
 										</span>
