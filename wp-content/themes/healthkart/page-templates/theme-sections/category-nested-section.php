@@ -36,18 +36,6 @@ $categories = get_categories(
 									</a>
 								</div>
 								<div class="recent-post-content p-3">
-									<?php $categories = hk_get_category(get_the_ID()); ?>
-									<span>
-										<span class="category">
-											<?php foreach(array_slice($categories, 0, 2) as $index => $category): ?>
-											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-											<?php if($index+1 != count(array_slice($categories, 0, 2))): ?>
-												,
-											<?php endif; endforeach; ?>
-										</span>
-										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-									</span>
 									<div class="recent-post-header">
 										<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 									</div>
