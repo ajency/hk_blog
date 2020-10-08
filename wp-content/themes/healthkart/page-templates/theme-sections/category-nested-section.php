@@ -18,7 +18,14 @@ $post_ids = array();
 						'post_type' => array('post'),
 						'post_status' => 'publish',
 						'cat' => $category->term_id,
-						'post__not_in' => $post_ids
+						'post__not_in' => $post_ids,
+						'meta_key' => 'hk_featured_post',
+						'meta_query'     => [
+					        [
+					            'key'      => 'hk_featured_post',
+					            'value'    => 'on',
+					        ]
+					    ],
 					);
 					query_posts( $args ); 
 					if( have_posts() ) :
