@@ -81,7 +81,7 @@ global $wp_query;
 
 			<li class="page-item <?php echo $_GET['page'] == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
 			<?php foreach ($pages as $page) : ?>
-				<li class="current-page page-item <?php echo ($_GET['page'] == $page ? 'active' : ''); ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
+				<li class="page-item <?php echo ($_GET['page'] == $page ? 'active' : ''); echo is_numeric($page) ? 'current-page' : ''; ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
 					<a class="page-link" href="javascript:void(0)"><?php echo $page; ?></a>
 				</li>
 			<?php endforeach; ?>
