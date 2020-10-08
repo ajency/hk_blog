@@ -38,20 +38,20 @@ $categories = get_categories(
 								<div class="recent-post-content p-3">
 									<?php $categories = hk_get_category(get_the_ID()); ?>
 									<span>
-										<span class="category">
+										<div class="category">
 											<?php foreach($categories as $index => $category): ?>
 											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
 											<?php if($index+1 != count($categories)): ?>
 												,
 											<?php endif; endforeach; ?>
-										</span>
-										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+										</div>
+										<!-- <span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span> -->
 										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 									</span>
 									<div class="recent-post-header">
 										<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 									</div>
-									<div class="recent-post-excerpt"><?php echo hk_get_excerpt(50); ?>
+									<div class="recent-post-excerpt"><?php echo hk_get_excerpt(40); ?>
 									</div>
 								</div>
 							</div>

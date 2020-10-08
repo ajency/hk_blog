@@ -70,7 +70,11 @@
 			    	box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
 			    }
 	    		.category{
-					margin: 10px 0;
+				    height: 50px;
+				    display: flex;
+				    align-items: flex-end;
+				    flex-wrap: wrap;
+				    margin-bottom: 10px;
 					a{
 						color: #00bfbf;
 						font-weight: 500;
@@ -162,6 +166,9 @@
 					h2.title{
 						padding: 0;
 						line-height: 10px;
+					    height: 55px;
+    					overflow: hidden;
+    					margin-top: 10px;
 						a{
 							font-size: 18px;
 							line-height: 26px;
@@ -175,12 +182,16 @@
 								text-decoration: none;
 							}
 						}
+						@media (max-width: 767px){
+							height: 40px;
+						}
 					}
 				}
 				&-excerpt{
 				    font-size: 15px;
 				    line-height: 1.5 !important;
 				    color: #212326;
+				    height: 40px;
 				    @media (max-width: 767px){
 				    	font-size: 12px;
 				    }
