@@ -186,7 +186,7 @@ $( document ).ready(function() {
 	});
 	$('.nested-section-subcategory-content').on('afterChange', function (event, slick, currentSlide) {
 		var total = $(this).find(".recent-post").length;
-        if(total - currentSlide < 4) {
+        if(total - currentSlide <= 4) {
             $('.slick-next').hide();
         }
         else {
