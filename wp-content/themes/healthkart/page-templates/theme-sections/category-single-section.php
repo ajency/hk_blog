@@ -46,21 +46,46 @@ global $wp_query;
 	<nav class="my-4">
 		<ul class="pagination justify-content-center pagination-sm">
 		<?php 
-			$pages = paginate_links( array(
-				'format' => '?page=%#%',
-		    	'mid_size'=>1,
-		    	'prev_next' => FALSE,
-			  	'type'  => 'array',
-			) ); 
-			preg_match_all('/\d+/', end($pages), $matches);
-    		$end = $matches[0][0];
+			$limitPerPage = 6;
+			// Total pages rounded upwards
+			$totalPages = ceil($wp_query->found_posts / $limitPerPage);
+			// Number of buttons at the top, not counting prev/next,
+			// but including the dotted buttons.
+			// Must be at least 5:
+			$paginationSize = 7;
+			$numberSize = $paginationSize - 3;
+			$index = 1;
+			$pages = [$index];
+
+			if(!$_GET['page']){
+				$_GET['page'] == 1;
+			}
+			if($_GET['page'] <= $numberSize){
+				for ($i=$numberSize; $i > 0 ; $i--) { 
+					$pages[] = ++$index;
+				}
+				$pages[] = "...";
+			}
+			if($_GET['page'] > $numberSize && $_GET['page'] <= $totalPages - $numberSize){
+				$pages = array_merge($pages, ["...", $_GET['page']-1, $_GET['page'], $_GET['page']+1,"..."]);
+			}
+			if($_GET['page'] > $totalPages - $numberSize){
+				$index = $totalPages - $numberSize;
+				$pages[] = "...";
+				for ($i=$numberSize; $i > 0 ; $i--) { 
+					$pages[] = $index++;
+				}
+			}
+			$pages[] = $totalPages;
 			?>
 
-			<li class="page-item <?php echo !$_GET['page'] || $_GET['page'] == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
-			<?php foreach ($pages as $index => $page) {
-				echo '<li class="current-page page-item' . (strpos($page, 'current') !== false ? ' active' : '').'"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
-			} ?>
-			<li class="page-item <?php echo $_GET['page'] == $end ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
+			<li class="page-item <?php echo $_GET['page'] == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
+			<?php foreach ($pages as $page) : ?>
+				<li class="current-page page-item <?php echo ($_GET['page'] == $page ? 'active' : ''); ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
+					<a class="page-link" href="javascript:void(0)"><?php echo $page; ?></a>
+				</li>
+			<?php endforeach; ?>
+			<li class="page-item <?php echo $_GET['page'] == $totalPages ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
 	
