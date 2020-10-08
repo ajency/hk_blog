@@ -42,3 +42,10 @@ function fetch_category_page_articles(){
 }
 add_action('wp_ajax_fetch_category_page_articles', 'fetch_category_page_articles'); 
 add_action('wp_ajax_nopriv_fetch_category_page_articles', 'fetch_category_page_articles');
+
+function fetch_category_alphaposts(){
+	get_template_part( 'page-templates/theme-sections/category-alphaposts', 'section' );
+	die;
+}
+add_action('wp_ajax_fetch_category_alphaposts', 'fetch_category_alphaposts'); 
+add_action('wp_ajax_nopriv_fetch_category_alphaposts', 'fetch_category_alphaposts');

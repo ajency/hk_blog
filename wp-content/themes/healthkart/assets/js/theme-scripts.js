@@ -92,7 +92,37 @@ $( document ).ready(function() {
 			}
 		});
 	})
-	
+	$(".nested-section-chips .single-chip").click(function(){
+		var button = $(this);
+		$.ajax({ 
+			url : ajax_params.url, 
+			data: {
+				'action' : 'fetch_category_alphaposts',
+				'posts_letter' : $(this).data('value'),
+				'cat' : $(".nested-section-posts").data('cat'),
+			},
+			type : 'POST',
+			beforeSend : function ( xhr ) {
+				 $(".nested-section-posts-wrapper").fadeTo(200, 0, function(){
+			        $(this).css("visibility", "hidden");
+			        $(".nested-section-posts-loader").addClass("d-block").removeClass("d-none");
+			    });
+				
+			},
+			success : function( data ){
+				$(".nested-section-posts-wrapper").html('');
+				if( data ) { 
+					$(".nested-section-posts-loader").addClass("d-none").removeClass("d-block");
+					$(".nested-section-posts-wrapper").fadeTo(200, 1, function(){
+				        $(this).css("visibility", "visible");
+				    });
+					$(".nested-section-posts-wrapper").html(data);
+					$(".nested-section-chips .single-chip").removeClass("active");
+					button.addClass("active");
+				}
+			}
+		});
+	})
 	$(window).scroll(function(){
 		if($(".category-list-view").length && $(window).width() < 767 && ($(window).scrollTop() > $(".category-list-view .category-post-row .recent-post:last").position().top) && canBeLoaded == true){
 			canBeLoaded = false;

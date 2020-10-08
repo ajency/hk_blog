@@ -9857,6 +9857,10 @@ strong {
       .nested-section-chips .single-chip.active {
         background-color: #ff6f61;
         color: #fff; }
+  .nested-section-posts-loader {
+    position: absolute;
+    top: 0;
+    left: 50%; }
   .nested-section-posts-wrapper {
     max-width: 1280px;
     margin: auto;
