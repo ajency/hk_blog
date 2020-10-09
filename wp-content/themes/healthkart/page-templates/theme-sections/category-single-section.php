@@ -45,11 +45,13 @@ global $wp_query;
 	
 	<nav class="my-4">
 		<ul class="pagination justify-content-center pagination-sm">
-		<?php $pages = hk_get_pagination($wp_query->found_posts);	?>
+			<?php 
+			$currentPage = $_GET['page'] ?? 1;
+			$pages = hk_get_pagination($wp_query->found_posts, $currentPage); ?>
 
-			<li class="page-item <?php echo $_GET['page'] == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
-			<?php foreach ($pages as $page) : ?>
-				<li class="page-item <?php echo ($_GET['page'] == $page ? 'active' : ''); echo is_numeric($page) ? 'current-page' : ''; ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
+			<li class="page-item <?php echo $currentPage == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
+			<?php  foreach ($pages as $page) : ?>
+				<li class="page-item <?php echo ($currentPage == $page ? 'active' : ''); echo is_numeric($page) ? ' current-page' : ''; ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
 					<a class="page-link" href="javascript:void(0)"><?php echo $page; ?></a>
 				</li>
 			<?php endforeach; ?>

@@ -58,7 +58,7 @@ function hk_get_excerpt($limit) {
 	}
 	return $excerpt;
 }
-function hk_get_pagination($totalposts){
+function hk_get_pagination($totalposts, $currentPage){
 	$limitPerPage = 6;
 	// Total pages rounded upwards
 	$totalPages = ceil($totalposts / $limitPerPage);
@@ -70,10 +70,7 @@ function hk_get_pagination($totalposts){
 	$index = 1;
 	$pages = [$index];
 
-	if(!isset($_GET['page'])){
-		$_GET['page'] == 1;
-	}
-	if($_GET['page'] <= $numberSize){
+	if($currentPage <= $numberSize){
 		for ($i=$numberSize; $i > 0 && $index < $totalPages; $i--) { 
 			$pages[] = ++$index;
 		}
@@ -81,10 +78,10 @@ function hk_get_pagination($totalposts){
 			$pages[] = "...";
 		}
 	}
-	if($_GET['page'] > $numberSize && $_GET['page'] <= $totalPages - $numberSize){
-		$pages = array_merge($pages, ["...", $_GET['page']-1, $_GET['page'], $_GET['page']+1,"..."]);
+	if($currentPage > $numberSize && $currentPage <= $totalPages - $numberSize){
+		$pages = array_merge($pages, ["...", $currentPage-1, $currentPage, $currentPage+1,"..."]);
 	}
-	if($_GET['page'] > $totalPages - $numberSize && $index < $totalPages){
+	if($currentPage > $totalPages - $numberSize && $index < $totalPages){
 		$index = $totalPages - $numberSize;
 		$pages[] = "...";
 		for ($i=$numberSize; $i > 0 ; $i--) { 
