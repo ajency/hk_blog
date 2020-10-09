@@ -1,10 +1,17 @@
 <?php
+get_header(); 
 $category = get_queried_object();
 $args = array(
 	'posts_per_page' => 6,
-	'post_type' => array('post'),
+	'post_type' => array('video'),
 	'post_status' => 'publish',
-	'cat' => $category->term_id,
+	'tax_query' => array(
+        array (
+            'taxonomy' => 'video_category',
+            'field' => 'term_id',
+            'terms' => $category->term_id,
+        )
+    ),
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
@@ -30,11 +37,11 @@ global $wp_query;
 	<p class="text-black pl-15 f-14 article-count">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
-	<div class="latest-reads category-list-view position-relative" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
+	<div class="latest-reads category-list-view position-relative my-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
 		<div class="category-post-row row m-0">
 			<?php if( have_posts() ) :
 				while( have_posts() ): the_post();
-					get_template_part( 'page-templates/theme-sections/category', 'component' );
+					get_template_part( 'page-templates/theme-sections/video', 'component' );
 				endwhile;
 			endif; ?>
 		</div>
@@ -58,3 +65,4 @@ global $wp_query;
 	</nav> 
 	
 </div>
+<?php get_footer(); ?>	

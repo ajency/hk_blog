@@ -435,42 +435,44 @@
 		overflow: auto;
 	}
 }
-.videos{
-	&-heading{
-		border-bottom: 1px solid #ececec;
-		font-weight: bold;
-		font-size: 20px;
-		font-weight: bold;
-	}
-	&-single{
-		&-image{
-			position: relative;
-			padding-bottom: 56.25%; 
-			height: 0;
-			&-overlay{
-			    position: absolute;
-			    top: 0;
-			    bottom: 0;
-			    left: 0;
-			    right: 0;
-			    z-index: 99;
-			    background-color: transparent;
-			}
-			&-iframe{
-				border-radius: 10px;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
+.videos-section{
+	.videos{
+		&-heading{
+			border-bottom: 1px solid #ececec;
+			font-weight: bold;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		&-single{
+			&-image{
+				position: relative;
+				padding-bottom: 56.25%; 
+				height: 0;
+				&-overlay{
+				    position: absolute;
+				    top: 0;
+				    bottom: 0;
+				    left: 0;
+				    right: 0;
+				    z-index: 99;
+				    background-color: transparent;
+				}
+				&-iframe{
+					border-radius: 10px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+				}
 			}
 		}
-	}
-	&-section{
-		.action-btn{
-		    margin-bottom: 40px;
-			@media (max-width: 767px){
-				text-align: center;
+		&-section{
+			.action-btn{
+			    margin-bottom: 40px;
+				@media (max-width: 767px){
+					text-align: center;
+				}
 			}
 		}
 	}

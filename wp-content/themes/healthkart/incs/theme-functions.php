@@ -58,3 +58,39 @@ function hk_get_excerpt($limit) {
 	}
 	return $excerpt;
 }
+function hk_get_pagination($totalposts){
+	$limitPerPage = 6;
+	// Total pages rounded upwards
+	$totalPages = ceil($totalposts / $limitPerPage);
+	// Number of buttons at the top, not counting prev/next,
+	// but including the dotted buttons.
+	// Must be at least 5:
+	$paginationSize = 7;
+	$numberSize = $paginationSize - 3;
+	$index = 1;
+	$pages = [$index];
+
+	if(!isset($_GET['page'])){
+		$_GET['page'] == 1;
+	}
+	if($_GET['page'] <= $numberSize){
+		for ($i=$numberSize; $i > 0 && $index < $totalPages; $i--) { 
+			$pages[] = ++$index;
+		}
+		if(!$i){
+			$pages[] = "...";
+		}
+	}
+	if($_GET['page'] > $numberSize && $_GET['page'] <= $totalPages - $numberSize){
+		$pages = array_merge($pages, ["...", $_GET['page']-1, $_GET['page'], $_GET['page']+1,"..."]);
+	}
+	if($_GET['page'] > $totalPages - $numberSize && $index < $totalPages){
+		$index = $totalPages - $numberSize;
+		$pages[] = "...";
+		for ($i=$numberSize; $i > 0 ; $i--) { 
+			$pages[] = $index++;
+		}
+		$pages[] = $totalPages;
+	}
+	return $pages;
+}
