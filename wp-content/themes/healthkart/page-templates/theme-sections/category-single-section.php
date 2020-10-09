@@ -55,7 +55,7 @@ global $wp_query;
 					<a class="page-link" href="javascript:void(0)"><?php echo $page; ?></a>
 				</li>
 			<?php endforeach; ?>
-			<li class="page-item <?php echo $_GET['page'] == $totalPages ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
+			<li class="page-item <?php echo $currentPage == end($pages) ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
 	
