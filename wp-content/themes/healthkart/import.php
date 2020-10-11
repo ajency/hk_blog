@@ -55,8 +55,7 @@ foreach ($posts as $post) {
 		}
 	}
 }*/
-exit;
-$mydb = new wpdb('root','root','fitness_freak','localhost');
+/*$mydb = new wpdb('root','root','fitness_freak','localhost');
 $posts = $wpdb->get_results("SELECT *  FROM wp_posts where post_type='infographic' order by id asc");
 $node_ids = [];
 foreach ($posts as $post) {
@@ -80,8 +79,7 @@ foreach ($posts as $post) {
 		}
 	}
 	echo "\n\n";
-}
-exit;
+}*/
 /*$mydb = new wpdb('root','root','fitness_freak','localhost');
 $imgs = $mydb->get_results("select * from field_data_field_goal");
 foreach ($imgs as $img) {
@@ -100,6 +98,49 @@ foreach ($imgs as $img) {
 	}
 }*/
 
+
+
+//migrate hk user ids
+/*$mydb = new wpdb('root','root','fitness_freak','localhost');
+$users = $wpdb->get_results("SELECT *  FROM wp_users WHERE id > 1");
+foreach ($users as $user) {
+	$name = "";
+	$hk_user = $mydb->get_row("select * from users where mail LIKE '".$user->user_login."%'");
+	//add_user_meta($user->ID, 'hk_user_id', $hk_user->uid);
+	$comment = $mydb->get_row("select * from comment where uid = '".$hk_user->uid."' order by cid desc");
+	if($comment && $comment->name){
+		$name = $comment->name;
+		//echo "1: ".$comment->name.' = '.$user->ID."\n";
+	}
+	else{
+		$questions = $mydb->get_results("select * from node where type='question' and uid = '".$hk_user->uid."'");
+		foreach ($questions as $question) {
+			$email = $mydb->get_row("select * from field_data_field_email where entity_id = '".$question->nid."'");
+			if($email){
+				//echo "2: ".$email->field_email_value.' = '.$user->ID."\n";
+				$name = $email->field_email_value;
+				break;
+			}
+		}
+	}
+	if($name){
+		$nice_name = explode("@", $name)[0];
+		$nice_name_parts = explode(".", $nice_name);
+		$display_name = "";
+		foreach ($nice_name_parts as $nice_name_part) {
+			$display_name .= ucfirst($nice_name_part)." ";
+		}
+		$display_name = trim($display_name, " ");
+		echo $user->ID.": ".$name.": ".str_replace(".", "-", $nice_name).": ".$display_name."\n";
+		wp_update_user( array(
+	        'ID' => $user->ID,
+	        'user_email' => $name,
+	        'user_nicename' => str_replace(".", "-", strtolower($nice_name)),
+	        'display_name' => $display_name,
+	   ) );
+	}
+	
+}*/
 exit;
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
