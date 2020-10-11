@@ -37,7 +37,7 @@ global $wp_query;
 	<p class="text-black pl-15 f-14 article-count">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
-	<div class="latest-reads category-list-view position-relative my-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
+	<div class="latest-reads category-list-view position-relative my-4"  data-taxtype='video_category' data-taxonomy="<?php echo $category->term_id; ?>" data-type="video" data-count="<?php echo $wp_query->found_posts; ?>">
 		<div class="category-post-row row m-0">
 			<?php if( have_posts() ) :
 				while( have_posts() ): the_post();

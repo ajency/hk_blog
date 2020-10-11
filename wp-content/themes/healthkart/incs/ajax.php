@@ -16,6 +16,15 @@ function fetch_category_page_articles(){
 	if($_POST['type'] == 'post'){
 		$args['cat'] = $_POST['category'];
 	}
+	if($_POST['taxonomy']){
+		$args['tax_query'] = array(
+	        array (
+	            'taxonomy' => $_POST['taxtype'],
+	            'field' => 'term_id',
+	            'terms' => $_POST['taxonomy'],
+	        )
+	    );
+	}
 	query_posts( $args ); 
 	switch($_POST['type']){
 		case 'post':
@@ -24,6 +33,10 @@ function fetch_category_page_articles(){
 		break;
 		case 'transformation':
 			$template['primary'] = 'page-templates/theme-sections/transformations-single';
+			$template['secondary'] = 'component';
+		break;
+		case 'video':
+			$template['primary'] = 'page-templates/theme-sections/video';
 			$template['secondary'] = 'component';
 		break;
 	}
