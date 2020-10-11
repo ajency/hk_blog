@@ -27,7 +27,7 @@ query_posts( $args );
 		<p class="text-black pl-15 f-14 article-count">
 			<?php echo wp_count_posts( 'transformation' )->publish . ' Articles '; ?>
 		</p>
-		<div class="category-list-view transformation-list-view" data-type="transformation">
+		<div class="category-list-view transformation-list-view position-relative" data-type="transformation" data-count="<?php echo $wp_query->found_posts; ?>">
 			<div class="category-post-row row m-0">
 			<?php
 				if( have_posts() ) :
@@ -41,6 +41,21 @@ query_posts( $args );
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
 			</div> 
 		</div>
+		<nav class="my-4">
+			<ul class="pagination justify-content-center pagination-sm">
+				<?php 
+				$currentPage = $_GET['page'] ?? 1;
+				$pages = hk_get_pagination($wp_query->found_posts, $currentPage); ?>
+
+				<li class="page-item <?php echo $currentPage == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
+				<?php  foreach ($pages as $page) : ?>
+					<li class="page-item <?php echo ($currentPage == $page ? 'active' : ''); echo is_numeric($page) ? ' current-page' : ''; ?>" data-page="<?php echo is_numeric($page) ? $page : 0; ?>">
+						<a class="page-link" href="javascript:void(0)"><?php echo $page; ?></a>
+					</li>
+				<?php endforeach; ?>
+				<li class="page-item <?php echo $currentPage == end($pages) ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
+			</ul>
+		</nav> 
 	</div>
 <?php
 

@@ -87,7 +87,7 @@ function hk_get_pagination($totalposts, $currentPage){
 		for ($i=$numberSize; $i > 0 ; $i--) { 
 			$pages[] = $index++;
 		}
-		$pages[] = $totalPages;
 	}
+	$pages[] = $totalPages;
 	return $pages;
 }
