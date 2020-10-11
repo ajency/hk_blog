@@ -93,12 +93,13 @@ add_shortcode( 'related-articles', function(){?>
 				);
 				$post_ids = get_posts( $args );
 			}
+			$page_post_ids = get_query_var('post_ids');
 			if(count($post_ids) < 4){
 				$count = 4 ;
 				$args = array(
 					'fields'         => 'ids',
 					'posts_per_page' => 4 - count($post_ids),
-					'post__not_in'   => array_merge(array($post->ID),$post_ids),
+					'post__not_in'   => array_merge(array($post->ID),$post_ids. $page_post_ids),
 					'post_status'    => 'publish',
 				);
 				// Check for current post category and add tax_query to the query arguments

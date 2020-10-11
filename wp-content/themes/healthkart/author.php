@@ -51,6 +51,7 @@ get_header();
 						<div class="read-these-next">
 							<div class="section-title pb-3">Articles <?php ?></div>
 							<?php
+								$post_ids = [];
 							 	$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
 								$args = array(
 									'posts_per_page' => 5,
@@ -63,7 +64,8 @@ get_header();
 								<?php  // Loop through posts
 								if( $wpex_query->have_posts() ) :
 								while( $wpex_query->have_posts() ) :
-								$wpex_query->the_post(); ?>
+								$wpex_query->the_post(); 
+								$post_ids[] = get_the_id(); ?>
 									<div class="col-12 recent-post p-0">
 										<div class="row py-4">
 											<div class="col-md-4 col-12">
@@ -109,6 +111,7 @@ get_header();
 				</div>
 				<div class="col-md-4 col-12">
 					<?php
+						set_query_var( 'post_ids', $post_ids );
 	                    get_sidebar();
 	                ?>
 				</div>
