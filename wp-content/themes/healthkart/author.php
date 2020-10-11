@@ -49,7 +49,7 @@ get_header();
 					</div>  
 					<div class="latest-reads">
 						<div class="read-these-next">
-							<div class="section-title pb-3">Articles <?php ?></div>
+							<div class="section-title pb-3">Latest Articles</div>
 							<?php
 								$post_ids = [];
 							 	$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
