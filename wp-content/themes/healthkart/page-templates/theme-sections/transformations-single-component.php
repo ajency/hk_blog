@@ -48,9 +48,9 @@
 				<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
 				<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
 				<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
-				<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo $before_fat; ?>%</span>
+				<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
 				<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
-				<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo $after_fat; ?>%</span>
+				<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
 			</div>
 		</div>
 	</div>
