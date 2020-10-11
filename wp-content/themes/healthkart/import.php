@@ -141,6 +141,22 @@ foreach ($users as $user) {
 	}
 	
 }*/
+$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '9415'");
+$post = $wpdb->get_row("SELECT *  FROM wp_posts WHERE id = '".$node->post_id."'");
+preg_match_all( "/img(.*?)jpg/", $post->post_content , $matches);
+foreach ($matches[0] as $match) {
+	preg_match("/alt=\"(.*?)\"/", $match, $alt_match);
+	//echo $alt_match[1]."\n";
+	preg_match("/src=\"(.*)\/(.*?).jpg/", $match, $src_match);
+	print_r($src_match);
+}
+print_r($matches);
+/*$post_arr = array(
+		'ID'		 => $post->ID,			
+		'post_content' => $post_content,		
+	);
+wp_update_post( $post_arr );
+echo $post->ID."<hr>";*/
 exit;
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');

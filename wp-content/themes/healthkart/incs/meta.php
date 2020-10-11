@@ -28,6 +28,12 @@ function hk_post_cpt__metabox() {
         'object_types'      => array( 'post' ),
     ) );
     $cmb_term->add_field( array(
+        'name' => esc_html__( 'Thumbnail', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'thumbnail_image',
+        'type' => 'file',
+    ) );
+    $cmb_term->add_field( array(
         'name'    => 'Description',
         'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',
