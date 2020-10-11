@@ -36,7 +36,7 @@ get_header();
 			<div class="row">
 				<div class="col-md-8 col-12 single-post-content">
 					<div class="entry-content row mt-4">
-						<div class="col-4">
+						<div class="col-4 d-flex justify-content-center">
 							<?php 
 							$user_info = get_userdata($post->post_author);
 							echo get_avatar($user_info->ID);
