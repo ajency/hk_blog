@@ -48,6 +48,11 @@ function hk_post_cpt__metabox() {
         'id'   => $prefix . 'more_post',
         'type' => 'checkbox',
     ) );
+    $cmb_term->add_field( array(
+        'name' => 'Read next Section',
+        'id'   => $prefix . 'next_post',
+        'type' => 'checkbox',
+    ) );
     $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'ama_video',
         'title'             => 'Live AMA',

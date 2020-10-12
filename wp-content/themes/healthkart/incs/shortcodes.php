@@ -14,16 +14,14 @@ add_shortcode( 'read-these-next', function(){?>
 				'posts_per_page' => 5,
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
+				'meta_key' => 'hk_next_post',
+				'meta_query'     => [
+			        [
+			            'key'      => 'hk_next_post',
+			            'value'    => 'on',
+			        ]
+			    ],
 			);
-			// Check for current post category and add tax_query to the query arguments
-			$cats = wp_get_post_terms( get_the_ID(), 'category' ); 
-			$cats_ids = array();  
-			foreach( $cats as $wpex_related_cat ) {
-				$cats_ids[] = $wpex_related_cat->term_id; 
-			}
-			if ( ! empty( $cats_ids ) ) {
-				$args['category__in'] = $cats_ids;
-			}
 			// Query posts
 			$wpex_query = new wp_query( $args );?>
 			<?php  // Loop through posts
