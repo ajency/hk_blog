@@ -23,7 +23,7 @@ global $wp_query;
 		</div>
 	</div>
 </div>
-<div class="container p-0">
+<div class="container p-0 category-container">
 	<h2 class="category-name pl-15">
 		<?php echo $category->name;  ?>
 	</h2>
@@ -58,5 +58,7 @@ global $wp_query;
 			<li class="page-item <?php echo $currentPage == end($pages) ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
-	
+	<div class="latest-reads">
+		<?php echo do_shortcode('[read-these-next]'); ?>
+	</div>
 </div>
