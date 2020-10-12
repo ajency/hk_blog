@@ -58,7 +58,7 @@ global $wp_query;
 			<li class="page-item <?php echo $currentPage == end($pages) ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
-	<div class="latest-reads">
+	<div class="latest-reads category-reads">
 		<?php echo do_shortcode('[read-these-next]'); ?>
 	</div>
 </div>
