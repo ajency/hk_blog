@@ -199,7 +199,7 @@ $( document ).ready(function() {
             $(this).find('.slick-prev').show();
         }  
     });
-    $('.slick-prev').hide();
+    $('.nested-section-subcategory-content .slick-prev').hide();
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
