@@ -81,7 +81,7 @@ get_header();
 						</header>
 						<div class="col-md-8 col-12 transformation-template-section">
 							<div class="transformation-section-single-image mb-2">
-								<div class="content-fields p-3">
+								<div class="content-fields content-desktop p-3">
 									<?php
 										$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
 										$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
@@ -123,6 +123,37 @@ get_header();
 										<div class="img-tag px-3 py-1">After</div>
 									</div>
 									</a>
+								</div>
+								<div class="content-fields content-mobile p-3">
+									<?php
+										$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
+										$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+										$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+										$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+
+										$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
+										$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
+										$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
+										$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
+										$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
+										$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
+									?>
+									<div class="content-fields-titles row">
+										<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
+										<label class="content-fields-titles-single col-md-3 px-2">Than</label>
+										<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
+										<label class="content-fields-titles-single col-md-3 px-2">Bodyfat than</label>
+										<label class="content-fields-titles-single col-md-2 px-2">Now</label>
+									</div>
+									<div class="content-fields-values row">
+										<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
+										<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
+										<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
+										<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
+										<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
+										<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
+										<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
+									</div>
 								</div>
 							</div>
 							<?php

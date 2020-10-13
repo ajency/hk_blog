@@ -323,12 +323,12 @@
 				color: #212121;
 				max-height: 50px;
 				overflow: hidden;
-				&.excerpt-desktop{
+				&.content-desktop{
 					@media (max-width: 767px){
 						display: none;
 					}
 				}
-				&.excerpt-mobile{
+				&.content-mobile{
 					@media (min-width: 768px){
 						display: none;
 					}
@@ -416,6 +416,19 @@
 		.page-link{
 			background-color: #00bfbf;
 			border-color: #00bfbf;
+		}
+	}
+}
+
+.content{
+	&-desktop{
+		@media (max-width: 767px){
+			display: none;
+		}
+	}
+	&-mobile{
+		@media (min-width: 768px){
+			display: none;
 		}
 	}
 }

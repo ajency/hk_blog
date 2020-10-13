@@ -9196,7 +9196,8 @@ strong {
   background-color: #212121;
   color: #fff;
   border-radius: 10px;
-  font-size: 13px; }
+  font-size: 13px;
+  font-weight: bolder; }
   @media (max-width: 767px) {
     .content-fields-titles, .content-fields-values {
       flex-wrap: nowrap; }
@@ -9930,10 +9931,10 @@ strong {
       max-height: 50px;
       overflow: hidden; }
       @media (max-width: 767px) {
-        .nested-section-posts-single-excerpt.excerpt-desktop {
+        .nested-section-posts-single-excerpt.content-desktop {
           display: none; } }
       @media (min-width: 768px) {
-        .nested-section-posts-single-excerpt.excerpt-mobile {
+        .nested-section-posts-single-excerpt.content-mobile {
           display: none; } }
     .nested-section-posts-single-readmore {
       font-size: 12px;
@@ -9995,5 +9996,12 @@ strong {
 .pagination .page-item.active .page-link {
   background-color: #00bfbf;
   border-color: #00bfbf; }
+
+@media (max-width: 767px) {
+  .content-desktop {
+    display: none; } }
+@media (min-width: 768px) {
+  .content-mobile {
+    display: none; } }
 
 /*# sourceMappingURL=theme-styles.css.map */
