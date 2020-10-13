@@ -1,5 +1,5 @@
 <div class="videos-section mb-3">
-	<div class="videos-heading pt-3 pb-3">VIDEOS</div>
+	<div class="videos-heading pt-3 pb-3">TRENDING VIDEOS</div>
 	<div class="videos-articles mt-4 row">
 	<?php 
 	$post_ids = get_query_var('post_ids');
