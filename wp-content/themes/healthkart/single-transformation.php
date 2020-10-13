@@ -69,25 +69,28 @@ get_header();
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 							</span>
 						</header>
-						<div class="blog_featured_img my-4 content-mobile">
-							<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-							<div class="position-relative col-md-6 pl-3 pr-1 transform">
-								<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-								<div class="img-tag px-3 py-1">Before</div>
-							</div>
-							<div class="position-relative col-md-6 pl-1 pr-3 transform">
-								<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-								<div class="img-tag px-3 py-1">After</div>
-							</div>
-							</a>
-						</div>
-						<div class="post-title col-12">
+
+						<div class="post-title col-12 content-desktop">
 							<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
 						</div>
 						<div class="col-md-8 col-12 transformation-template-section">
 							<div class="transformation-section-single-image mb-2">
-								<div class="content-fields content-desktop p-3">
-
+								<div class="blog_featured_img my-4 content-mobile">
+									<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+									<div class="position-relative col-md-6 pl-3 pr-1 transform">
+										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+										<div class="img-tag px-3 py-1">Before</div>
+									</div>
+									<div class="position-relative col-md-6 pl-1 pr-3 transform">
+										<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+										<div class="img-tag px-3 py-1">After</div>
+									</div>
+									</a>
+								</div>
+								<div class="post-title content-mobile">
+									<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
+								</div>
+								<div class="content-fields p-3">
 									<div class="content-fields-titles row">
 										<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
 										<label class="content-fields-titles-single col-md-3 px-2">Than</label>
