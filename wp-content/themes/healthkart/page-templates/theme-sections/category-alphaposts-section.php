@@ -30,11 +30,12 @@
 					<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 					<?php } ?>
 				</div>
-				<div class="nested-section-posts-single-content col-7">
+				<div class="nested-section-posts-single-content">
 					<div class="nested-section-posts-single-header" title="<?php the_title(); ?>">
 						<?php the_title(); ?>
 					</div>
-					<div class="nested-section-posts-single-excerpt"><?php echo hk_get_excerpt(40); ?></div>
+					<div class="nested-section-posts-single-excerpt excerpt-desktop"><?php echo hk_get_excerpt(40); ?></div>
+					<div class="nested-section-posts-single-excerpt excerpt-mobile"><?php echo hk_get_excerpt(100); ?></div>
 					<div class="nested-section-posts-single-readmore">read more</div>
 				</div>
 			</a>

@@ -278,6 +278,14 @@
 			cursor: pointer;
 			text-decoration: none;
 			color: #ff6f61;
+			@media (max-width: 1028px) and (min-width: 768px){
+			    flex-basis: 45%;
+			    margin: 15px 18px;
+			}
+			@media (max-width: 767px){
+			    flex-basis: 100%;
+			    margin: 10px;
+			}
 			&-img{
 				width: 160px;
 			    padding: .5rem;
@@ -305,6 +313,16 @@
 				color: #212121;
 				max-height: 50px;
 				overflow: hidden;
+				&.excerpt-desktop{
+					@media (max-width: 767px){
+						display: none;
+					}
+				}
+				&.excerpt-mobile{
+					@media (min-width: 768px){
+						display: none;
+					}
+				}
 			}
 			&-readmore{
 				font-size: 12px;
