@@ -46,8 +46,19 @@ get_header();
 				<?php if ( have_posts() ) : ?>
 					<?php			
 					while ( have_posts() ) :
-					  the_post();
-					  update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1);
+					  	the_post();
+					 	update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1);
+						$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
+						$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+						$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+						$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+
+						$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
+						$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
+						$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
+						$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
+						$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
+						$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
 					?>
 						<header class="entry-header col-12">
 							<span>
@@ -57,44 +68,26 @@ get_header();
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 							</span>
-							<div class="post-title">
-								<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
-								<div class="d-flex flex-row align-items-center author">
-									<div class="author-image">
-										<?php 
-										$user_info = get_userdata($post->post_author);
-										echo get_avatar($user_info->ID);
-										?>
-									</div>
-									<div class="">
-										<div class="date f-12 text-black font-weight-bold">Written By
-										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
-											<?php 
-												echo $user_info->display_name;
-											?>
-										</a>
-										</div>
-										<div class="role f-12"><?php echo get_the_author_meta( 'hk_designation', $user_info->ID); ?></div>
-									</div>
-								</div>
-							</div>
 						</header>
+						<div class="blog_featured_img my-4 content-mobile">
+							<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+							<div class="position-relative col-md-6 pl-3 pr-1 transform">
+								<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+								<div class="img-tag px-3 py-1">Before</div>
+							</div>
+							<div class="position-relative col-md-6 pl-1 pr-3 transform">
+								<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+								<div class="img-tag px-3 py-1">After</div>
+							</div>
+							</a>
+						</div>
+						<div class="post-title col-12">
+							<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
+						</div>
 						<div class="col-md-8 col-12 transformation-template-section">
 							<div class="transformation-section-single-image mb-2">
 								<div class="content-fields content-desktop p-3">
-									<?php
-										$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
-										$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
-										$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
-										$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
 
-										$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
-										$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
-										$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
-										$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
-										$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
-										$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
-									?>
 									<div class="content-fields-titles row">
 										<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
 										<label class="content-fields-titles-single col-md-3 px-2">Than</label>
@@ -112,7 +105,7 @@ get_header();
 										<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
 									</div>
 								</div>
-								<div class="blog_featured_img my-4">
+								<div class="blog_featured_img my-4 content-desktop">
 									<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 									<div class="position-relative col-md-6 pl-3 pr-1 transform">
 										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
@@ -123,37 +116,6 @@ get_header();
 										<div class="img-tag px-3 py-1">After</div>
 									</div>
 									</a>
-								</div>
-								<div class="content-fields content-mobile p-3">
-									<?php
-										$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
-										$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
-										$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
-										$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
-
-										$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
-										$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
-										$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
-										$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
-										$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
-										$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
-									?>
-									<div class="content-fields-titles row">
-										<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
-										<label class="content-fields-titles-single col-md-3 px-2">Than</label>
-										<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
-										<label class="content-fields-titles-single col-md-3 px-2">Bodyfat than</label>
-										<label class="content-fields-titles-single col-md-2 px-2">Now</label>
-									</div>
-									<div class="content-fields-values row">
-										<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
-										<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
-										<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
-										<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
-										<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
-										<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
-										<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
-									</div>
 								</div>
 							</div>
 							<?php
