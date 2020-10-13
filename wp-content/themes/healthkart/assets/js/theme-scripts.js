@@ -303,11 +303,12 @@ function getPageList(totalPages, page, maxLength) {
 }
 function isScrolledIntoView(elem)
 {
-    var scroll = $(window).scrollTop();
-    var elemTop = $(elem).offset().top - 500;
+    var scrollTop = $(window).scrollTop();
+    var scrollBottom = $(window).scrollTop() + $(window).height();
+    var elemTop = $(elem).offset().top;
     var elemBottom = elemTop + $(elem).height();
-console.log(elemBottom+" > "+scroll+" && "+elemTop+" < "+scroll);
-    return ((elemBottom > scroll) && (elemTop < scroll));
+console.log(elemTop-$(window).height()+" < "+scrollTop+" && "+elemBottom+ $(window).height()+" > "+scrollBottom);
+    return ((elemTop - $(window).height() < scrollTop) && (elemBottom + $(window).height() > scrollBottom));
 }
 $(function() {
 	// Number of items and limits the number of items per page
