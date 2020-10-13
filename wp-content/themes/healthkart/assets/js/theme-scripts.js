@@ -124,6 +124,15 @@ $( document ).ready(function() {
 		});
 	})
 	$(window).scroll(function(){
+		if($(".nested-section-chips").length){
+			if(isScrolledIntoView(".nested-section-posts")){
+				$(".nested-section-chips").css("display", "flex");
+			}
+			else{
+				$(".nested-section-chips").css("display", "none");
+			}
+		}
+
 		if($(".category-list-view").length && $(window).width() < 767 && ($(window).scrollTop() > $(".category-list-view .category-post-row .recent-post:last").position().top) && canBeLoaded == true){
 			canBeLoaded = false;
 			$('html, body').animate({
@@ -292,7 +301,14 @@ function getPageList(totalPages, page, maxLength) {
 	.concat([0])
 	.concat(range(totalPages - sideWidth + 1, totalPages));
 }
-
+function isScrolledIntoView(elem)
+{
+    var scroll = $(window).scrollTop();
+    var elemTop = $(elem).offset().top - 100;
+    var elemBottom = elemTop + $(elem).height();
+console.log(elemBottom+" > "+scroll+" && "+elemTop+" < "+scroll);
+    return ((elemBottom > scroll) && (elemTop < scroll));
+}
 $(function() {
 	// Number of items and limits the number of items per page
 	var numberOfItems = $(".category-list-view").data('count');

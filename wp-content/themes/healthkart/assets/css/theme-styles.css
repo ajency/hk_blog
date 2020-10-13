@@ -9845,7 +9845,13 @@ strong {
     text-align: center;
     max-width: 100%;
     overflow: auto;
-    display: flex; }
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    display: none; }
     .nested-section-chips .single-chip {
       display: inline-block;
       font-size: 16px;
