@@ -9341,7 +9341,8 @@ strong {
   color: #fff !important;
   background-color: #00bfbf !important;
   border-color: #00bfbf !important;
-  font-weight: 500; }
+  font-weight: 500;
+  padding: 10px 60px; }
   .hk-button:hover {
     background-color: #009999 !important; }
   .hk-button:focus {

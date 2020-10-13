@@ -124,7 +124,7 @@ $( document ).ready(function() {
 		});
 	})
 	$(window).scroll(function(){
-		if($(".nested-section-chips").length){
+		if($(".nested-section-chips").length && $(window).width() < 1024){
 			if(isScrolledIntoView(".nested-section-posts")){
 				$(".nested-section-chips").css("display", "flex");
 			}
