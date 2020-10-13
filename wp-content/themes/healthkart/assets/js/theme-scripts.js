@@ -307,8 +307,7 @@ function isScrolledIntoView(elem)
     var scrollBottom = $(window).scrollTop() + $(window).height();
     var elemTop = $(elem).offset().top;
     var elemBottom = elemTop + $(elem).height();
-console.log(elemTop-$(window).height()+" < "+scrollTop+" && "+elemBottom+ $(window).height()+" > "+scrollBottom);
-    return ((elemTop - $(window).height() < scrollTop) && (elemBottom + $(window).height() > scrollBottom));
+    return ((elemTop - $(window).height() + 100 < scrollTop) && (elemBottom + $(window).height() > scrollBottom));
 }
 $(function() {
 	// Number of items and limits the number of items per page

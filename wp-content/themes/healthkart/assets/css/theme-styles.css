@@ -9851,8 +9851,10 @@ strong {
     z-index: 9;
     left: 0;
     right: 0;
-    display: none;
-    justify-content: center; }
+    display: none; }
+    @media (min-width: 1200px) {
+      .nested-section-chips {
+        justify-content: center; } }
     .nested-section-chips .single-chip {
       display: inline-block;
       font-size: 16px;
