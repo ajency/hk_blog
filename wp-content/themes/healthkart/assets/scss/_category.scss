@@ -407,3 +407,15 @@
 		}
 	}
 }
+
+.pagination {
+	.page-link{
+		color: #00bfbf;
+	}
+	.page-item.active{
+		.page-link{
+			background-color: #00bfbf;
+			border-color: #00bfbf;
+		}
+	}
+}

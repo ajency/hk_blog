@@ -9990,4 +9990,10 @@ strong {
       font-size: 26px;
       line-height: 34px; } }
 
+.pagination .page-link {
+  color: #00bfbf; }
+.pagination .page-item.active .page-link {
+  background-color: #00bfbf;
+  border-color: #00bfbf; }
+
 /*# sourceMappingURL=theme-styles.css.map */
