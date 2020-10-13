@@ -304,7 +304,7 @@ function getPageList(totalPages, page, maxLength) {
 function isScrolledIntoView(elem)
 {
     var scroll = $(window).scrollTop();
-    var elemTop = $(elem).offset().top - 100;
+    var elemTop = $(elem).offset().top - 500;
     var elemBottom = elemTop + $(elem).height();
 console.log(elemBottom+" > "+scroll+" && "+elemTop+" < "+scroll);
     return ((elemBottom > scroll) && (elemTop < scroll));

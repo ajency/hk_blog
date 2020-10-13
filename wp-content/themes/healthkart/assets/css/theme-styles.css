@@ -9851,7 +9851,8 @@ strong {
     z-index: 9;
     left: 0;
     right: 0;
-    display: none; }
+    display: none;
+    justify-content: center; }
     .nested-section-chips .single-chip {
       display: inline-block;
       font-size: 16px;
