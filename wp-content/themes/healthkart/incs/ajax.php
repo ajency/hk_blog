@@ -32,7 +32,7 @@ function fetch_category_page_articles(){
 	}
 	query_posts( $args ); 
 	switch($_POST['type']){
-		case 'post':
+		case 'post' || 'infographic':
 			$template['primary'] = 'page-templates/theme-sections/category';
 			$template['secondary'] = 'component';
 		break;
