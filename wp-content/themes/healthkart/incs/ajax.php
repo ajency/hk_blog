@@ -1,6 +1,11 @@
 <?php
 function fetch_category_articles(){
-	get_template_part( 'page-templates/theme-sections/explore-articles', 'component' );
+	if($_POST['type'] == 'video'){
+		get_template_part( 'page-templates/theme-sections/video/explore-articles', 'component' );
+	}
+	else{
+		get_template_part( 'page-templates/theme-sections/explore-articles', 'component' );
+	}
 	die;
 }
 add_action('wp_ajax_fetch_category_articles', 'fetch_category_articles'); 

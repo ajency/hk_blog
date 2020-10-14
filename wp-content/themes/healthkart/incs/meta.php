@@ -23,6 +23,21 @@ function hk_post_cpt__metabox() {
             'pattern' => '\d*',
     )));
     $cmb_term = new_cmb2_box( array(
+        'id'                => $prefix . 'video_metabox',
+        'title'             => 'Video Fields',
+        'object_types'      => array( 'video' ),
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Banner Video',
+        'id'   => $prefix . 'featured_banner_post',
+        'type' => 'checkbox',
+    ) );
+     $cmb_term->add_field( array(
+        'name' => 'More Videos Section',
+        'id'   => $prefix . 'more_post',
+        'type' => 'checkbox',
+    ) );
+    $cmb_term = new_cmb2_box( array(
         'id'                => $prefix . 'metabox',
         'title'             => 'Article Fields',
         'object_types'      => array( 'post' ),
@@ -205,7 +220,7 @@ function hk_post_cpt__metabox() {
         'id'               => $prefix . 'edit',
         'title'            => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
         'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
-        'taxonomies'       => array( 'category' ), // Tells CMB2 which taxonomies should have these fields
+        'taxonomies'       => array( 'category', 'video_category' ), // Tells CMB2 which taxonomies should have these fields
         // 'new_term_section' => true, // Will display in the "Add New Category" section
     ) );
     $cmb_term->add_field( array(

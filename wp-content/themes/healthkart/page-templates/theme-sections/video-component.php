@@ -1,4 +1,4 @@
-<?php $category = get_query_var('category'); 
+<?php
 preg_match("/<!-- wp:core-embed\/youtube(.*?)-->/", get_the_content(), $matches);
 if(isset($matches[1])):
 	$embed_video = json_decode($matches[1], true);

@@ -9140,6 +9140,8 @@ strong {
         font-size: 18px; } }
   .latest-articles-single-main .latest-articles-single-image img {
     height: 300px; }
+  .latest-articles-single-main .latest-articles-single-image iframe {
+    height: 300px; }
   @media (max-width: 991px) {
     .latest-articles-single-main {
       padding-right: 2rem; } }
@@ -9147,6 +9149,15 @@ strong {
     .latest-articles-single-main {
       padding-right: 15px;
       padding-bottom: 2rem !important; } }
+.latest-articles-single-image iframe {
+  height: 140px;
+  width: 100%; }
+  @media (max-width: 991px) {
+    .latest-articles-single-image iframe {
+      height: 120px; } }
+  @media (max-width: 767px) {
+    .latest-articles-single-image iframe {
+      height: auto; } }
 .latest-articles-single-image img {
   height: 140px;
   width: 100%;
@@ -9285,7 +9296,7 @@ strong {
 @media (min-width: 767px) {
   .category-loader {
     position: absolute;
-    left: 42%;
+    left: 41%;
     bottom: 10px; } }
 
 .category-filler {
@@ -9297,7 +9308,7 @@ strong {
 .explore-articles-loader {
   position: absolute;
   top: 0;
-  left: 50%; }
+  left: 41%; }
 .explore-articles-heading {
   border-bottom: 1px solid #ececec;
   font-weight: bold;
@@ -9403,14 +9414,6 @@ strong {
   position: relative;
   padding-bottom: 56.25%;
   height: 0; }
-  .videos-section .videos-single-image-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    background-color: transparent; }
   .videos-section .videos-single-image-iframe {
     border-radius: 10px;
     position: absolute;
@@ -9423,6 +9426,15 @@ strong {
   @media (max-width: 767px) {
     .videos-section .videos-section .action-btn {
       text-align: center; } }
+
+.videos-single-image-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: transparent; }
 
 .infographics-heading {
   border-bottom: 1px solid #ececec;
@@ -10003,5 +10015,13 @@ strong {
 @media (min-width: 768px) {
   .content-mobile {
     display: none; } }
+
+.videos-banner-iframe {
+  border-radius: 24px;
+  height: 420px;
+  width: 100%; }
+  @media (max-width: 767px) {
+    .videos-banner-iframe {
+      height: 300px; } }
 
 /*# sourceMappingURL=theme-styles.css.map */
