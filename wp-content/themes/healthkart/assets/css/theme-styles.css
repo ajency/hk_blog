@@ -9157,7 +9157,7 @@ strong {
       height: 120px; } }
   @media (max-width: 767px) {
     .latest-articles-single-image iframe {
-      height: auto; } }
+      height: 250px; } }
 .latest-articles-single-image img {
   height: 140px;
   width: 100%;
@@ -9252,6 +9252,8 @@ strong {
     @media (max-width: 767px) {
       .trending-articles-single-image img {
         height: auto; } }
+  .trending-articles-single-image iframe {
+    height: 250px; }
   @media (min-width: 768px) {
     .trending-articles-single-image {
       margin-bottom: 20px; } }
