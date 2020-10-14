@@ -247,9 +247,6 @@
     				height: auto;
     			}
 			}
-			iframe{
-    			height: 250px;
-			}
 			@media (min-width: 768px){
 				margin-bottom: 20px;
 			}
@@ -263,6 +260,9 @@
 				@media (max-width: 767px){
 					height: auto;
 				}
+			}
+			iframe{
+    			height: 250px;
 			}
 		}
 		&-content{
