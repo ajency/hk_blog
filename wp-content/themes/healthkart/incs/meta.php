@@ -218,7 +218,7 @@ function hk_post_cpt__metabox() {
     ) );
     $cmb_term = new_cmb2_box( array(
         'id'               => $prefix . 'edit',
-        'title'            => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
+        'title'            => esc_html__( 'Featured Metabox', 'cmb2' ), // Doesn't output for term boxes
         'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
         'taxonomies'       => array( 'category', 'video_category' ), // Tells CMB2 which taxonomies should have these fields
         // 'new_term_section' => true, // Will display in the "Add New Category" section
@@ -235,7 +235,13 @@ function hk_post_cpt__metabox() {
         'id'   => $prefix . 'featured_image',
         'type' => 'file',
     ) );
-
+    $cmb_term = new_cmb2_box( array(
+        'id'               => $prefix . 'edit_cat',
+        'title'            => esc_html__( 'Category Metabox', 'cmb2' ), // Doesn't output for term boxes
+        'object_types'     => array( 'term' ), // Tells CMB2 to use term_meta vs post_meta
+        'taxonomies'       => array( 'category'), // Tells CMB2 which taxonomies should have these fields
+        // 'new_term_section' => true, // Will display in the "Add New Category" section
+    ) );
     $cmb_term->add_field( array(
         'name' => esc_html__( 'Nested Category', 'cmb2' ),
         'id'   => $prefix . 'nested_category',
