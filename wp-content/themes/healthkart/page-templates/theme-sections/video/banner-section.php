@@ -31,7 +31,7 @@
 	</div>
 	<div class="banner-category col-12 col-md-4">
 		<div class="banner-category-title">Top Topics</div>
-		<?php $categories = get_terms('video_category');
+		<?php $categories = get_terms('video_category', ['hide_empty' => false]);
 		foreach ($categories as $category):
 			$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
 			if($is_featured == 'on'): ?>
