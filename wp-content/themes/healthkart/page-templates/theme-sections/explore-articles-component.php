@@ -58,7 +58,7 @@
 ?>
 </div>
 <div class="w-100 action-btn text-center">
-	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button mr-3 py-2 px-5">VIEW ALL</a>
+	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">VIEW ALL</a>
 </div>
 <div class="my-5 loader explore-articles-loader d-none">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
