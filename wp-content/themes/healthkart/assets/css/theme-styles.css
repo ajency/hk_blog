@@ -10012,6 +10012,9 @@ strong {
 .pagination .page-item.active .page-link {
   background-color: #00bfbf;
   border-color: #00bfbf; }
+@media (max-width: 767px) {
+  .pagination {
+    display: none; } }
 
 @media (max-width: 767px) {
   .content-desktop {
