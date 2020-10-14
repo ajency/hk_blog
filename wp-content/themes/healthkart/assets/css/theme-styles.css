@@ -9739,6 +9739,9 @@ strong {
       background-repeat: no-repeat;
       background-color: transparent;
       background-size: contain; }
+      @media (max-width: 767px) {
+        .nested-section-subcategory-content .slick-arrow {
+          display: none; } }
     .nested-section-subcategory-content .recent-post {
       border-top: 0;
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);

@@ -36,7 +36,6 @@
 					</div>
 					<div class="nested-section-posts-single-excerpt content-desktop"><?php echo hk_get_excerpt(40); ?></div>
 					<div class="nested-section-posts-single-excerpt content-mobile"><?php echo hk_get_excerpt(100); ?></div>
-					<div class="nested-section-posts-single-readmore">read more</div>
 				</div>
 			</a>
 		<?php endwhile;

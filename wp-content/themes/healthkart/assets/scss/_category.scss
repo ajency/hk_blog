@@ -62,7 +62,10 @@
 					outline: 0;
 				    background-repeat: no-repeat;
 				    background-color: transparent;
-				    background-size: contain;				
+				    background-size: contain;		
+				   	@media (max-width: 767px){
+						display: none;
+					}	
 				}
 			}
 			.recent-post {
