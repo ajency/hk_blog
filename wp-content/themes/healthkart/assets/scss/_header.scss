@@ -189,7 +189,9 @@
 					}
 					&:nth-child(-n+2){
 						@media (min-width: 992px){
-							min-height: 440px;
+							.sub-menu{
+								min-height: 440px;
+							}
 						}
 					}
 					@media (min-width: 992px){
