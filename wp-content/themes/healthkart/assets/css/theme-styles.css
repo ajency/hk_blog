@@ -7745,6 +7745,9 @@ a.text-dark:hover, a.text-dark:focus {
           .site-header .site-navigation .header-menu ul.menu li a:focus {
             outline: 0; }
         @media (min-width: 992px) {
+          .site-header .site-navigation .header-menu ul.menu li:nth-child(-n+2) {
+            min-height: 440px; } }
+        @media (min-width: 992px) {
           .site-header .site-navigation .header-menu ul.menu li .sub-menu {
             display: none;
             background: white;
@@ -7753,7 +7756,6 @@ a.text-dark:hover, a.text-dark:focus {
             top: 36px;
             left: 0;
             right: 0;
-            min-height: 440px;
             width: 250px;
             box-shadow: 0px 0px 5px 0px #f3f3f3;
             z-index: 4; }
