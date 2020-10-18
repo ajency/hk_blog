@@ -107,15 +107,7 @@ do_action( 'genesis_after_header' );
 							<a href="<?php echo get_site_url(); ?>/" class="d-flex align-items-center"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
 							<span class="pr-4 f-24 font-weight-500">Blog</span></a>
 						</div>
-						<div class="input-group">
-							<input type="text" class="form-control search-bar" placeholder="Search Healthkart Blog">
-							<div class="input-group-append button-icon">
-								<button class="btn" type="button">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/search-icon.png" alt="search" class="search-icon-white">
-									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/search-icon-grey.png" alt="search" class="search-icon-grey">
-								</button>
-							</div>
-						</div>
+						<?php get_search_form(); ?>
 					</div>
 					<div class="action-block">
 						<a href=""> Shop at Healthkart <i class="fa fa-arrow-right pl-2" aria-hidden="true"></i></a>
