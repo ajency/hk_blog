@@ -208,6 +208,9 @@ $( document ).ready(function() {
         }  
     });
     $('.nested-section-subcategory-content .slick-prev').hide();
+    $("#searchBtn").click(function(){
+    	$("#searchform").submit();
+    })
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
