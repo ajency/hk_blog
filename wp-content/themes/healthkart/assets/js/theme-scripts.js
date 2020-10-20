@@ -209,7 +209,7 @@ $( document ).ready(function() {
     });
     $('.nested-section-subcategory-content .slick-prev').hide();
     $("#searchBtn").click(function(){
-    	$("#searchform").submit();
+    	window.location.href = $("#searchform").attr('action') +'/'+ $("#searchform #search").val();
     })
 }); 
 let canBeLoaded = true;
