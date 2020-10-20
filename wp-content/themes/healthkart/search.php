@@ -57,7 +57,7 @@ $search = new WP_Query( $search_query );
 												,
 											<?php endif; endforeach; ?>
 										<?php else: ?>
-											<a title="<?php echo get_post_type(); ?>" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag"><?php echo get_post_type(); ?></a>
+											<a title="<?php echo ucwords(get_post_type()); ?>" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag"><?php echo get_post_type(); ?></a>
 										<?php endif; ?>
 									</span>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>

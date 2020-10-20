@@ -7705,7 +7705,8 @@ a.text-dark:hover, a.text-dark:focus {
           background: #00bfbf;
           color: black;
           padding: 0 8px;
-          position: relative; }
+          position: relative;
+          border-width: 2px; }
           @media (max-width: 991px) {
             .site-header .site-navigation .main-header .button-icon .btn img.search-icon-white {
               display: none; } }
