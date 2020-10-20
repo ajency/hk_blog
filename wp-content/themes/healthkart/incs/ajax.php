@@ -21,6 +21,9 @@ function fetch_category_page_articles(){
 	if($_POST['type'] == 'post'){
 		$args['cat'] = $_POST['category'];
 	}
+	if($_POST['search']){
+		$args['s'] = $_POST['search'];
+	}
 	if($_POST['taxonomy']){
 		$args['tax_query'] = array(
 	        array (

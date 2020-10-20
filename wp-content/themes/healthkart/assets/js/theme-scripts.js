@@ -226,6 +226,7 @@ function get_category_posts(category_page, remove_posts = false){
 		'type' : $(".category-list-view").data('type'),
 		'taxonomy' : $(".category-list-view").data('taxonomy'),
 		'taxtype' : $(".category-list-view").data('taxtype'),
+		'search' : $("#search").val(),
 	};
 	$.ajax({
 		url : ajax_params.url,
