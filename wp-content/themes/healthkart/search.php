@@ -6,8 +6,8 @@ get_header();
 global $query_string;
 
 wp_parse_str( $query_string, $search_query );
+$search_query['paged'] = $search_query['page'];
 $search = new WP_Query( $search_query );
-
 ?>	
 <div class="header_image position-relative">
 	<div class="header">
@@ -22,7 +22,7 @@ $search = new WP_Query( $search_query );
 </div>
 <div class="container p-0 category-container">
 	<p class="text-black pl-15 f-14 article-count">
-		<?php echo $search->found_posts . ' Articles '; ?>
+		<?php echo $search->found_posts . ' Articles Found'; ?>
 	</p>
 	<div class="latest-reads category-list-view position-relative" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
 		<div class="category-post-row row m-0">
@@ -87,7 +87,7 @@ $search = new WP_Query( $search_query );
 		<ul class="pagination justify-content-center pagination-sm">
 			<?php 
 			$currentPage = $_GET['page'] ?? 1;
-			$pages = hk_get_pagination($wp_query->found_posts, $currentPage); ?>
+			$pages = hk_get_pagination($search->found_posts, $currentPage); ?>
 
 			<li class="page-item <?php echo $currentPage == 1 ? 'disabled' : ''; ?>" id="previous-page"> <a class="prev page-link" href="#">Prev</a></li>
 			<?php  foreach ($pages as $page) : ?>

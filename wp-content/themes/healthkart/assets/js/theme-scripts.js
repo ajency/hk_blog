@@ -209,8 +209,12 @@ $( document ).ready(function() {
     });
     $('.nested-section-subcategory-content .slick-prev').hide();
     $("#searchBtn").click(function(){
-    	window.location.href = $("#searchform").attr('action') +'/'+ $("#searchform #search").val();
-    })
+    	$("#searchform").submit();
+    });
+    $("#searchform").on('submit', function(e) {
+	    e.preventDefault();
+	    window.location = $("#searchform").attr('action') +'/'+ $("#searchform #search").val();
+	});
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
