@@ -24,6 +24,7 @@ $search = new WP_Query( $search_query );
 	<p class="text-black pl-15 f-14 article-count">
 		<?php echo $search->found_posts . ' Articles Found'; ?>
 	</p>
+	<?php if ($search->found_posts) : ?>
 	<div class="latest-reads category-list-view position-relative" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
 		<div class="category-post-row row m-0">
 			<?php if( $search->have_posts() ) :
@@ -98,6 +99,9 @@ $search = new WP_Query( $search_query );
 			<li class="page-item <?php echo $currentPage == end($pages) ? 'disabled' : ''; ?>" id="next-page"> <a class="next page-link" href="#">Next</a></li>
 		</ul>
 	</nav> 
+	<?php else: ?>
+		<div class="my-5 text-center"><h3>No results have been found.</h3></div>
+	<?php endif; ?>
 	<div class="latest-reads category-reads">
 		<div class="read-these-next">
 			<div class="section-title pb-3">Read these next</div>
