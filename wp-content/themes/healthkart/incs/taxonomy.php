@@ -3,15 +3,15 @@
 add_action( 'init', 'hk_taxonomy', 0 );
 function hk_taxonomy()  {
     $post_types = [
-        'ama' => ['singular' => 'Ask Me Anything','plural' => 'Ask Me Anything'], 
+        //'ama' => ['singular' => 'Ask Me Anything','plural' => 'Ask Me Anything'], 
         'infographic' => ['singular' => 'Infographic','plural' => 'Infographics'], 
         'transformation' => ['singular' => 'Transformation','plural' => 'Transformations'], 
         'video' => ['singular' => 'Video','plural' => 'Videos'], 
     ];
     $taxonomies = [
-        'ama' => [
+        /*'ama' => [
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
-        ],
+        ],*/
         'infographic' => [
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
