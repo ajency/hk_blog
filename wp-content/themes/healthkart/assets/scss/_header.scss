@@ -212,10 +212,8 @@
 					    	    margin-right: 0px;
 							    width: auto;
 							    padding: 0 20px;
-							    &:hover{
-							   		a{
-							   			color: #00bfbf;
-							   		}
+							    &:hover > a{
+							   		color: #00bfbf;
 						    	}
 						    	a{
 						    		color: black;
