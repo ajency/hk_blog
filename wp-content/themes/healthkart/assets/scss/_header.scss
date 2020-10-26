@@ -212,10 +212,9 @@
 					    	    margin-right: 0px;
 							    width: auto;
 							    padding: 0 20px;
-							    &:hover{
-							   		background: #00bfbf;
+							    &.active{
 							   		a{
-							   			color: #fff;
+							   			color: #00bfbf;
 							   		}
 						    	}
 						    	a{

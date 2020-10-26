@@ -7764,10 +7764,8 @@ a.text-dark:hover, a.text-dark:focus {
               margin-right: 0px;
               width: auto;
               padding: 0 20px; }
-              .site-header .site-navigation .header-menu ul.menu li .sub-menu li:hover {
-                background: #00bfbf; }
-                .site-header .site-navigation .header-menu ul.menu li .sub-menu li:hover a {
-                  color: #fff; }
+              .site-header .site-navigation .header-menu ul.menu li .sub-menu li.active a {
+                color: #00bfbf; }
               .site-header .site-navigation .header-menu ul.menu li .sub-menu li a {
                 color: black;
                 padding: 10px 0;
