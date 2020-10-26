@@ -7763,8 +7763,11 @@ a.text-dark:hover, a.text-dark:focus {
             .site-header .site-navigation .header-menu ul.menu li .sub-menu li {
               margin-right: 0px;
               width: auto;
-              background: #f3f3f3;
               padding: 0 20px; }
+              .site-header .site-navigation .header-menu ul.menu li .sub-menu li:hover {
+                background: #00bfbf; }
+                .site-header .site-navigation .header-menu ul.menu li .sub-menu li:hover a {
+                  color: #fff; }
               .site-header .site-navigation .header-menu ul.menu li .sub-menu li a {
                 color: black;
                 padding: 10px 0;
@@ -7808,8 +7811,6 @@ a.text-dark:hover, a.text-dark:focus {
                         font-size: 12px; }
                         .site-header .site-navigation .header-menu ul.menu li .sub-menu li .sub-menu li .sub-menu li a:hover {
                           color: #00bfbf; }
-              .site-header .site-navigation .header-menu ul.menu li .sub-menu li.active {
-                background: #fff; }
               .site-header .site-navigation .header-menu ul.menu li .sub-menu li:hover .sub-menu {
                 display: flex;
                 flex-wrap: wrap;
@@ -7820,8 +7821,6 @@ a.text-dark:hover, a.text-dark:focus {
                     display: block; } }
         .site-header .site-navigation .header-menu ul.menu li.hassub {
           position: relative; }
-          .site-header .site-navigation .header-menu ul.menu li.hassub .sub-menu {
-            background: #f3f3f3; }
           .site-header .site-navigation .header-menu ul.menu li.hassub:before {
             content: '';
             position: absolute;

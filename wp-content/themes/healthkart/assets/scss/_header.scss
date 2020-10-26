@@ -211,9 +211,13 @@
 						    li{
 					    	    margin-right: 0px;
 							    width: auto;
-							    background: #f3f3f3;
 							    padding: 0 20px;
-							    
+							    &:hover{
+							   		background: #00bfbf;
+							   		a{
+							   			color: #fff;
+							   		}
+						    	}
 						    	a{
 						    		color: black;
 						    		padding: 10px 0;
@@ -266,9 +270,6 @@
 						    			}
 						    		}
 						    	}
-						    	&.active{
-						    		background: #fff;
-						    	}
 						    	&:hover{
 						    		.sub-menu{
 										display: flex;
@@ -287,9 +288,6 @@
 					}
 					&.hassub{
 						position: relative;
-						.sub-menu{
-							background: #f3f3f3;
-						}
 						&:before{
 							content: '';
 							position: absolute;
