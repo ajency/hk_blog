@@ -275,10 +275,13 @@
 .article-count{
 	margin-bottom: 0;
 }
+
+.single-post .latest-reads .recent-post{
+	border-top: 1px solid #bfbfbf;
+}
 .latest-reads{
 	 margin: 60px 0 30px;
 	.recent-post{
-	    border-top: 1px solid #bfbfbf;
 	    &-featured-img{
 	    	img{
 	    		width: 100%;

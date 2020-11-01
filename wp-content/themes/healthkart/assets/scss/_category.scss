@@ -440,3 +440,53 @@
 		}
 	}
 }
+.read-these-next{
+	.section-title{
+		border-bottom: 1px solid #bfbfbf;
+	}
+	&-content{
+		.recent-post .category a{
+			color: #00bfbf;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 18px;
+		}
+		.slick{
+			&-list{
+				padding-left: 0 !important;
+			}
+			&-next{
+				background-image: url(../images/slider-next.svg)!important;
+			    right: -15px;
+			}
+			&-prev{
+				background-image: url(../images/slider-prev.svg)!important;
+			    left: -15px;
+			}
+			&-arrow{
+				z-index: 2;
+				font-size: 0;
+				line-height: 0;
+				position: absolute;
+				top: 50%;
+				display: block;
+				width: 50px;
+				height: 60px;
+				padding: 0;
+				-webkit-transform: translate(0,-50%);
+				-ms-transform: translate(0,-50%);
+				transform: translate(0,-50%);
+				cursor: pointer;
+				color: transparent;
+				border: none;
+				outline: 0;
+			    background-repeat: no-repeat;
+			    background-color: transparent;
+			    background-size: contain;		
+			   	@media (max-width: 767px){
+					display: none!important;
+				}	
+			}
+		}
+	}
+}

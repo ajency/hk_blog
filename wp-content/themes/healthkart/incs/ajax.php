@@ -13,7 +13,7 @@ add_action('wp_ajax_nopriv_fetch_category_articles', 'fetch_category_articles');
 
 function fetch_category_page_articles(){
 	$args = array(
-		'posts_per_page' => 6,
+		'posts_per_page' => 24,
 		'post_type' => array($_POST['type']),
 		'post_status' => 'publish',
 		'paged' => $_POST['page'],

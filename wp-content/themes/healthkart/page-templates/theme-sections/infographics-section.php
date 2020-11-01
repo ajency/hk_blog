@@ -48,7 +48,7 @@
 	endif; ?>
 	</div>
 	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link( 'infographic' ); ?>" class="btn hk-button mr-3">MORE INFOGRAPHICS</a>
+		<a href="<?php echo get_post_type_archive_link( 'infographic' ); ?>" class="btn hk-button mr-3">MORE FROM INFOGRAPHICS</a>
 	</div>
 </div>
 

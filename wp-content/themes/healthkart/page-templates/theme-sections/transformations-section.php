@@ -25,7 +25,7 @@
 	endif; ?>
 	</div>
 	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link(get_post_type()); ?>" class="btn hk-button mr-3">MORE TRANSFORMATIONS</a>
+		<a href="<?php echo get_post_type_archive_link(get_post_type()); ?>" class="btn hk-button mr-3">MORE FROM TRANSFORMATIONS</a>
 	</div>
 </div>
 

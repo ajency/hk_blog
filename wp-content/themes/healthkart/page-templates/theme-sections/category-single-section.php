@@ -1,7 +1,7 @@
 <?php
 $category = get_queried_object();
 $args = array(
-	'posts_per_page' => 6,
+	'posts_per_page' => 24,
 	'post_type' => array('post'),
 	'post_status' => 'publish',
 	'cat' => $category->term_id,
@@ -24,9 +24,9 @@ global $wp_query;
 	</div>
 </div>
 <div class="container p-0 category-container">
-	<h2 class="category-name pl-15">
+	<h1 class="category-name pl-15">
 		<?php echo $category->name;  ?>
-	</h2>
+	</h1>
 	<p class="text-black pl-15 f-14 article-count">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
@@ -61,10 +61,10 @@ global $wp_query;
 	<div class="latest-reads category-reads">
 		<div class="read-these-next">
 			<div class="section-title pb-3">Read these next</div>
-			<div class="row">
+			<div class="read-these-next-content mt-3">
 			<?php
 				$args = array(
-					'posts_per_page' => 4,
+					'posts_per_page' => 10,
 					'post__not_in'   => array( get_the_ID() ),
 					'no_found_rows'  => true, 
 					'post__not_in' => $post_ids,
@@ -76,16 +76,11 @@ global $wp_query;
 				        ]
 				    ],
 				);
-				// Query posts
-				$wpex_query = new wp_query( $args );?>
-				<?php  // Loop through posts
-				if( $wpex_query->have_posts() ) :
-				while( $wpex_query->have_posts() ) :
-				$wpex_query->the_post(); ?>
-				<div class="col-md-3 col-12 recent-post p-0">
-					<div class="row py-4 m-0">
-						<div class="col-12">
-							<div class="recent-post-featured-img my-3">
+				query_posts( $args ); 
+				if( have_posts() ) :
+					while( have_posts() ): the_post(); $post_ids[] = get_the_id();?>
+						<div class="recent-post mx-4">
+							<div class="recent-post-featured-img">
 								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 									<?php 
 									$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
@@ -99,34 +94,28 @@ global $wp_query;
 									<?php } ?>
 								</a>
 							</div>
-						</div>
-						<div class="col-12 next-articles">
-							<?php $categories = hk_get_category(get_the_ID()); ?>
-							<span>
-								<span class="category">
-									<?php foreach($categories as $index => $category): ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-									<?php if($index+1 != count($categories)): ?>
-										,
-									<?php endif; endforeach; ?>
+							<div class="recent-post-content pt-3">
+								<?php $categories = hk_get_category(get_the_ID()); ?>
+								<span>
+									<span class="category">
+										<?php foreach($categories as $index => $category): ?>
+										<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+										<?php if($index+1 != count($categories)): ?>
+											,
+										<?php endif; endforeach; ?>
+									</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-							</span>
-							<div class="recent-post-header">
-								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								<div class="recent-post-header">
+									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								</div>
+								<div class="recent-post-excerpt"><?php echo hk_get_excerpt(40); ?>
+								</div>
 							</div>
-							<div class="recent-post-excerpt"><?php echo hk_get_excerpt(90); ?>
-							</div>
-							<!-- <div class="recent-post-icons">
-								<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
-								<span class="mr-3 f-14 comment"><i class="fa fa-comments" aria-hidden="true"></i> 3</span>
-							</div> -->
 						</div>
-					</div>
-				</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
+					<?php endwhile;
+				endif; ?>
 			</div>
 		</div>
 	</div>

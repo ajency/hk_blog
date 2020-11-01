@@ -70,7 +70,7 @@ get_header();
 							</span>
 						</header>
 
-						<div class="post-title col-12 content-desktop">
+						<div class="post-title col-12">
 							<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
 						</div>
 						<div class="col-md-8 col-12 transformation-template-section">
@@ -86,9 +86,6 @@ get_header();
 										<div class="img-tag px-3 py-1">After</div>
 									</div>
 									</a>
-								</div>
-								<div class="post-title content-mobile">
-									<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
 								</div>
 								<div class="content-fields p-3">
 									<div class="content-fields-titles row">

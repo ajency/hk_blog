@@ -63,7 +63,7 @@ get_header();
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 							</span>
 							<div class="post-title">
-								<h1 class="entry-title"><?php the_title(); ?></h1>
+								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
 									<div class="author-image">
 										<?php 

@@ -27,7 +27,7 @@
 						<div class="overlay"></div>
 						<div class="slide__content">
 							<div class="slide__content--headings">
-								<div class="content-title">
+								<div class="content-title ml-2">
 									<?php $categories = hk_get_category(get_the_ID());  ?>
 									<span>
 										<span class="category">
@@ -43,7 +43,7 @@
 										<?php $post_date = get_the_date( 'M j, Y' ); ?>
 										<span class="text-white"><?php echo $post_date; ?></span>
 									</span>
-									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="m-0 title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 							</div>
 						</div>

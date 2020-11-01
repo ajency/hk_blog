@@ -248,6 +248,12 @@ function hk_post_cpt__metabox() {
         'type' => 'checkbox',
         'on_front' => false,
     ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Show on Explore Article Section', 'cmb2' ),
+        'id'   => $prefix . 'explore_category',
+        'type' => 'checkbox',
+        'on_front' => false,
+    ) );
 }
 add_action( 'show_user_profile', 'extra_user_profile_fields' );
 add_action( 'edit_user_profile', 'extra_user_profile_fields' );

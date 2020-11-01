@@ -12,15 +12,13 @@ add_shortcode( 'read-these-next', function(){?>
 		<?php
 			$args = array(
 				'posts_per_page' => 5,
+				'post_type' => 'post',
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
-				'meta_key' => 'hk_next_post',
-				'meta_query'     => [
-			        [
-			            'key'      => 'hk_next_post',
-			            'value'    => 'on',
-			        ]
-			    ],
+				'date_query'    => array(
+			        'column'  => 'post_date',
+			        'before'   => get_the_date('Y-m-d')
+			    ),
 			);
 			// Query posts
 			$wpex_query = new wp_query( $args );?>

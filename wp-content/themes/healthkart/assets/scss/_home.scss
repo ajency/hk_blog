@@ -321,6 +321,9 @@
 }
 .explore-articles{
 	&-section{
+		.category-buttons{
+			margin-bottom: 40px;
+		}
 		@media (max-width: 767px){
 			margin-top: 40px !important;
 		}
@@ -336,6 +339,7 @@
 		font-size: 20px;
 		font-weight: bold;
 	}
+
 	&-single{
 		&-image{
 			img{
@@ -604,7 +608,7 @@
 				.title {
 					line-height: 24px;
 					a{
-						font-size: 18px;
+						font-size: 21px;
 						font-weight: 600;
 						color: #000;
 					}
@@ -717,6 +721,7 @@
 			justify-content: flex-end;
 			width: 100%;
 		    padding-right: 20px;
+		    margin-bottom: 40px;
 			li{
 				position: relative;
 				&:before{
@@ -748,9 +753,65 @@
 		}
 		&-arrow{
 			position: absolute;
+			width: 50px;
+			height: 50px;
+			margin-top: -20px;
+			z-index: 1;
+			top: 50%;
+			border: 0;
+			background: rgba(255, 255, 255, 0.4);
+			text-indent: -9999px;
+			border-radius: 50%;
+			&:after{
+				content: '';
+				position: absolute;
+				top: 20px;
+				left: 21px;
+				width: 10px;
+				height: 10px;
+				border: 2px solid #fff;
+				border-bottom: 0;
+				border-right: 0;
+			}
+			&:hover{
+				outline: 0;
+				opacity: 1;
+				background: rgba(255, 255, 255, 0.5);
+			}
+			&:disabled{
+				opacity: 0.5;
+				cursor: not-allowed;
+				background: rgba(255, 255, 255, 0.4);
+			}
+			&.slick-disabled{
+				opacity: 0.5;
+				cursor: not-allowed;
+				background: rgba(255, 255, 255, 0.4);
+			}
+			&.slick-prev {
+				left: 20px;
+				transform: rotate(-45deg);
+			}
+			&.slick-next {
+				right: 20px;
+				transform: rotate(135deg);
+			}
+		}
+		&-arrow1{
+			position: absolute;
 			top: 50%;
 			margin-top: -15px;
-		    display: inline-block;
+		    &.slick-prev-btn{
+				left: 10px;
+	            transform: rotate(-136deg);
+			}
+			&.slick-next-btn{
+				right: 10px;
+		        transform: rotate(45deg);
+			}
+		}
+		&-sign{
+			display: inline-block;
 		    width: 12px;
 		    height: 12px;
 		    border: 0.125rem solid;
@@ -759,14 +820,7 @@
 		    border-radius: 1px;
 		    color: white;
 		    z-index: 9;
-			&.slick-prev{
-				left: 10px;
-	            transform: rotate(-136deg);
-			}
-			&.slick-next{
-				right: 10px;
-		        transform: rotate(45deg);
-			}
+			
 			@media (max-width: 767px){
 				display: none !important;
 			}

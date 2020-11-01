@@ -215,6 +215,56 @@ $( document ).ready(function() {
 	    e.preventDefault();
 	    window.location = $("#searchform").attr('action') +'/'+ $("#searchform #search").val();
 	});
+	$(".read-these-next-content").slick({
+		draggable: true,
+		arrows: true,
+		dots: false,
+		speed: 900,
+		infinite: false,
+ 		slidesToShow: 4,
+  		slidesToScroll: 4,
+  		responsive: [
+	        {
+	            breakpoint: 1024,
+	            settings: {
+	                slidesToShow: 3,
+	                slidesToScroll: 3,
+	            }
+	        },
+	        {
+	            breakpoint: 767,
+	            settings: {
+	                slidesToShow: 2,
+	                slidesToScroll: 2
+	            }
+	        },
+	        {
+	            breakpoint: 600,
+	            settings: {
+	                slidesToShow: 1,
+	                slidesToScroll: 1,
+              		centerMode: true,
+  					centerPadding: '30px'
+	            }
+	        }
+        ]
+	});
+	$('.read-these-next-content').on('afterChange', function (event, slick, currentSlide) {
+		var total = $(this).find(".recent-post").length;
+        if(total - currentSlide <= 4) {
+            $(this).find('.slick-next').hide();
+        }
+        else {
+            $(this).find('.slick-next').show();
+        }
+        if(currentSlide < 4) {
+            $(this).find('.slick-prev').hide();
+        }
+        else {
+            $(this).find('.slick-prev').show();
+        }  
+    });
+    $('.read-these-next-content .slick-prev').hide();
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){
@@ -238,6 +288,7 @@ function get_category_posts(category_page, remove_posts = false){
 		},
 		success:function(data){
 			if(remove_posts){
+				$(".recent-post:first")
 				$(".category-list-view").html('');
 				$(".category-loader").addClass("d-none").removeClass("d-block");
 			}else{
@@ -249,6 +300,11 @@ function get_category_posts(category_page, remove_posts = false){
 				$('.category-list-view').append( data ); 
 				canBeLoaded = true; 
 				category_page++;
+				if(remove_posts){
+					$([document.documentElement, document.body]).animate({
+				        scrollTop: $(".category-list-view").offset().top
+				    }, 1000);
+				}
 			}
 		}
 	});

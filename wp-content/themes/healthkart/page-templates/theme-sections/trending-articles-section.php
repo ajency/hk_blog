@@ -56,7 +56,7 @@
 	            ?>
 			</div>
 		</div>
-		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">MORE SIMILIAR</h2>
+		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">SIMILIAR TRENDING ARTICLES</h2>
 		<div class="row similar-articles">
 		<?php
 		$args = array(
