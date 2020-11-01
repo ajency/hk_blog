@@ -278,3 +278,10 @@ function save_extra_user_profile_fields( $user_id ) {
     }
     update_user_meta( $user_id, 'hk_designation', $_POST['hk_designation'] );
 }
+
+class hkGlobals {
+
+   static $breadcrumb_links;
+   static $breadcrumb_str;
+
+}

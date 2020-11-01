@@ -263,4 +263,3 @@ function register_home_banner_space_sidebar() {
     ) );
 }
 add_action( 'widgets_init', 'register_home_banner_space_sidebar' );
-

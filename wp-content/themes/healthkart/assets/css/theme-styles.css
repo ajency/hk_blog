@@ -8345,7 +8345,8 @@ strong {
   @media (max-width: 767px) {
     .single-post .single_post_page h2 {
       font-size: 20px !important;
-      line-height: 24px; } }
+      line-height: 24px;
+      padding-top: 5px; } }
 .single-post .single_post_page .entry-content {
   margin: 0; }
   .single-post .single_post_page .entry-content table {

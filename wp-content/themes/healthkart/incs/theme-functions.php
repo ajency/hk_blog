@@ -51,7 +51,7 @@ function hk_get_excerpt($limit) {
 	$content = get_the_excerpt();
 	if(strlen($content) > $limit){
 		$limit_pos = strpos($content, " ", $limit);
-		$excerpt = substr($content, 0, $limit_pos)."...";
+		$excerpt = substr($content, 0, $limit_pos);
 	}
 	else{
 		$excerpt = $content;

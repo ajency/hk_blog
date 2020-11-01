@@ -7,7 +7,7 @@ add_shortcode( 'banner', function(){?>
 
 
 add_shortcode( 'read-these-next', function(){?>
-	<div class="read-these-next">
+	<div class="read-these-next mt-4">
 		<div class="section-title pb-3">Read these next</div>
 		<?php
 			$args = array(
@@ -55,8 +55,9 @@ add_shortcode( 'read-these-next', function(){?>
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 							</div>
-							<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
+							<div class="recent-post-excerpt content-desktop"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
 							</div>
+							<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 							<div class="recent-post-icons">
 								<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
 								<span class="mr-3 f-14 comment"><i class="fa fa-comments" aria-hidden="true"></i> 3</span>
@@ -71,7 +72,7 @@ add_shortcode( 'read-these-next', function(){?>
 
 
 add_shortcode( 'related-articles', function(){?>
-<div class="related-articles">
+<div class="related-articles mt-4">
 	<div class="section-title pb-3">Related Articles</div>
 		<?php 
 			global $post;
@@ -95,7 +96,7 @@ add_shortcode( 'related-articles', function(){?>
 				$args = array(
 					'fields'         => 'ids',
 					'posts_per_page' => 4 - count($post_ids),
-					'post__not_in'   => array_merge(array($post->ID),$post_ids,$page_post_ids),
+					'post__not_in'   => array_merge(array($post->ID),$post_ids,(array)$page_post_ids),
 					'post_status'    => 'publish',
 				);
 				// Check for current post category and add tax_query to the query arguments

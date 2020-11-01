@@ -36,62 +36,6 @@ do_action( 'genesis_title' );
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 height=device-height">
 <?php
 wp_head(); // We need this for plugins.
-if (is_single()){
-   	$custom_logo_id = get_theme_mod( 'custom_logo' );
-   	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-	echo '<script type="application/ld+json">{
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	"headline": "'.get_the_title().'",
-	"description": "'.get_the_excerpt().'",
-	"datePublished": "'.get_the_date('F j, Y').'",
-	"datemodified": "'.get_the_modified_date('F j, Y').'",
-	"mainEntityOfPage": "True",
-	"image": {
-		"@type": "imageObject",
-		"url": "'.get_the_post_thumbnail_url( null, 'full' ).'",
-		"height": "600",
-		"width": "800"
-	},
-	"publisher": {
-	"@type": "Organization",
-	"name": "Publisher name",
-	"sameAs": ["https://www.facebook.com/healthkart","https://twitter.com/healthkart","https://in.pinterest.com/healthkart/","https://www.instagram.com/healthkart/","https://www.youtube.com/user/healthkart"],
-	"logo": {
-		"@type": "imageObject",
-		"url": "'.$image[0].'"
-	}
-	},
-	"author": {
-		"@type": "Person",
-		"name": "Author Name"
-	}
-	}</script>';
-	$breadcrumb_links = apply_filters('wpseo_breadcrumb_links', []);
-	echo json_encode($breadcrumb_links);
-
-/*	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [{
-			"@type": "ListItem",
-			"position": 1,
-			"name": "Home",
-			"item": "https://https://healthkart.wpengine.com/"
-		},{
-			"@type": "ListItem",
-			"position": 2,
-			"name": "Category name",
-			"item": "https://healthkart.wpengine.com/category/category-name/"
-		},{
-			"@type": "ListItem",
-			"position": 3,
-			"name": "Blog Topic"
-		}]
-	}
-	</script>';*/
-}
 ?>
 </head>
 <?php
