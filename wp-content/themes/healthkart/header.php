@@ -104,8 +104,7 @@ do_action( 'genesis_after_header' );
 							   	$custom_logo_id = get_theme_mod( 'custom_logo' );
 							   	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 					      	?>
-							<a href="<?php echo get_site_url(); ?>/" class="d-flex align-items-center"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2">
-							<span class="pr-4 f-24 font-weight-500">Blog</span></a>
+							<a href="<?php echo get_site_url(); ?>/" class="d-flex align-items-center"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2"></a>
 						</div>
 						<?php get_search_form(); ?>
 					</div>
