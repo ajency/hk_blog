@@ -19,7 +19,7 @@ function hk_taxonomy()  {
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'video' => [
-            'category' => ['singular' => 'Category','plural' => 'Categories'], 
+            'category' => ['singular' => 'Category','plural' => 'Categories', 'slug' => 'video'], 
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
     ];
@@ -62,7 +62,7 @@ function hk_taxonomy()  {
                 $args = array(
                     'labels'                     => $labels,
                     'hierarchical'               => true,
-                    'rewrite'                    => array( 'slug' => $post_type.'-'.$taxonomy ),
+                    'rewrite'                    => array( 'slug' => isset($name['slug']) ? $name['slug'] : $post_type.'-'.$taxonomy ),
                     'public'                     => true,
                     'show_ui'                    => true,
                     'show_admin_column'          => true,
