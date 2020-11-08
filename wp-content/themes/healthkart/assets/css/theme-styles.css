@@ -9734,6 +9734,26 @@ strong {
   .similar-articles {
     display: none; } }
 
+#social-follow-sidebar {
+  position: fixed;
+  left: 0;
+  top: 500px;
+  z-index: 9; }
+  #social-follow-sidebar .contact-button-link {
+    display: block;
+    margin-bottom: 1px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 22px;
+    width: 40px; }
+    #social-follow-sidebar .contact-button-link.facebook {
+      background: #3A5AB2; }
+    #social-follow-sidebar .contact-button-link.twitter {
+      background: #42ADEA; }
+    #social-follow-sidebar .contact-button-link.pinterest {
+      background: #CE000B; }
+
 .nested-section {
   background-color: #f7f7f7; }
   .nested-section-subcategory-heading {

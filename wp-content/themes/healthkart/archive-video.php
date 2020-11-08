@@ -12,6 +12,7 @@
  * @link    https://www.studiopress.com/
  */
 get_header(); 
+get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
 <div class="container">
 <?php 

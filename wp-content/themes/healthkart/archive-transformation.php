@@ -1,6 +1,7 @@
 <?php
 
 get_header(); 
+get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 $args = array(
 	'posts_per_page' => 24,
 	'post_type' => array('transformation'),

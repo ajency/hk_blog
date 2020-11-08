@@ -15,7 +15,7 @@
 // genesis();
 
 get_header(); 
-
+get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {

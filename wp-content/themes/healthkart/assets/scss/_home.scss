@@ -883,3 +883,28 @@
 		display: none;
 	}
 }
+
+#social-follow-sidebar{
+	position: fixed;
+	left: 0;
+	top: 500px;
+	z-index: 9;
+	.contact-button-link{
+		display: block;
+		margin-bottom: 1px;
+		text-align: center;
+		line-height: 50px;
+		color: #fff;
+		font-size: 22px;
+		width: 40px;
+		&.facebook{
+			background: #3A5AB2;
+		}
+		&.twitter{
+			background: #42ADEA;
+		}
+		&.pinterest{
+			background: #CE000B;
+		}
+	}
+}

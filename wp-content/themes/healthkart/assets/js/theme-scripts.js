@@ -1,5 +1,4 @@
 var $ = jQuery.noConflict();
-
 $( document ).ready(function() {
 	$(function(){
 		$(".close-icon").hide();

@@ -1,5 +1,6 @@
 <?php
 get_header(); 
+get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 $category = get_queried_object();
 $args = array(
 	'posts_per_page' => 24,
