@@ -19,7 +19,7 @@ function hk_taxonomy()  {
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'video' => [
-            'category' => ['singular' => 'Category','plural' => 'Categories', 'slug' => 'video'], 
+            'category' => ['singular' => 'Category','plural' => 'Categories', 'slug' => 'videos'], 
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
     ];
@@ -59,10 +59,11 @@ function hk_taxonomy()  {
                     'add_or_remove_items'        => 'Add or remove '.$name['plural'],
                     'choose_from_most_used'      => 'Choose from the most used '.$name['plural'],
                 );
+                $slug = isset($name['slug']) ? $name['slug'] : $post_type.'-'.$taxonomy;
                 $args = array(
                     'labels'                     => $labels,
                     'hierarchical'               => true,
-                    'rewrite'                    => array( 'slug' => isset($name['slug']) ? $name['slug'] : $post_type.'-'.$taxonomy ),
+                    'rewrite'                    => array( 'slug' => $slug ),
                     'public'                     => true,
                     'show_ui'                    => true,
                     'show_admin_column'          => true,
