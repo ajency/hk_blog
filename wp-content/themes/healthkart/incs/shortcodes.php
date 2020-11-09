@@ -261,5 +261,8 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 <?php });
 
 add_shortcode( 'latest-articles', function(){
+	ob_start();
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );
+	$content = ob_get_clean();
+	return $content;
 });
