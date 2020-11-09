@@ -262,10 +262,31 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 
 add_shortcode( 'latest-articles', function(){
 	ob_start(); 
-	?> <div class="container"> <?php
-	get_template_part( 'page-templates/theme-sections/banner', 'section' );
-	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );
-	?> </div> <?php
-	$content = ob_get_clean();
+	?> <div class="container">
+		<div class="banner row mt-4">
+			<div class="banner-category col-12 col-md-4">
+				<div class="banner-category-title">Top Topics</div>
+				<?php $categories = get_terms(['taxonomy' => 'category' ]); 
+				foreach ($categories as $category):
+					$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
+					if($is_featured == 'on'): ?>
+						<div class="banner-category-single"><a href="<?php echo get_category_link($category->term_id); ?>" >
+							<div class="banner-category-single-image">
+								<?php
+								$image_id = get_term_meta( $category->term_id, 'hk_featured_image_id', true );
+								$image_url = wp_get_attachment_image_src($image_id, 'large')[0];
+								?>
+								<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>" alt="<?php echo $category->name; ?>"/>
+								<div class="overlay"></div>
+							</div>
+							<div class="banner-category-single-title"><?php echo $category->name; ?></div>
+						</a></div>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</div>
+		</div>
+		<?php get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );?>
+	</div> 
+	<?php $content = ob_get_clean();
 	return $content;
 });
