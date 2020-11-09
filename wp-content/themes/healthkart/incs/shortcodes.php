@@ -261,8 +261,11 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 <?php });
 
 add_shortcode( 'latest-articles', function(){
-	ob_start();
+	ob_start(); 
+	?> <div class="container"> <?php
+	get_template_part( 'page-templates/theme-sections/banner', 'section' );
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );
+	?> </div> <?php
 	$content = ob_get_clean();
 	return $content;
 });
