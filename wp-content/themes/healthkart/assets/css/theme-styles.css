@@ -9740,7 +9740,7 @@ strong {
 #social-follow-sidebar {
   position: fixed;
   left: 0;
-  top: 500px;
+  top: 200px;
   z-index: 9; }
   #social-follow-sidebar .contact-button-link {
     display: block;
