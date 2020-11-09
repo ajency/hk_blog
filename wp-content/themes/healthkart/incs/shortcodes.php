@@ -259,3 +259,7 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 		<?php endif; ?>
 	</div>
 <?php });
+
+add_shortcode( 'latest-articles', function(){
+	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );
+});

@@ -762,6 +762,9 @@
 			background: rgba(255, 255, 255, 0.4);
 			text-indent: -9999px;
 			border-radius: 50%;
+			@media (max-width: 767px){
+				display: none !important;
+			}
 			&:after{
 				content: '';
 				position: absolute;

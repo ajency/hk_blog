@@ -9633,6 +9633,9 @@ strong {
     background: rgba(255, 255, 255, 0.4);
     text-indent: -9999px;
     border-radius: 50%; }
+    @media (max-width: 767px) {
+      .slideshow .slick-arrow {
+        display: none !important; } }
     .slideshow .slick-arrow:after {
       content: '';
       position: absolute;
