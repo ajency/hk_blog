@@ -2,7 +2,7 @@
 	<div class="latest-articles-heading pt-3 pb-3">LATEST ARTICLES</div>
 	<div class="latest-articles row mt-4">
 	<?php 
-		$post_ids = get_query_var('post_ids');
+		$post_ids = (array) get_query_var('post_ids');
 		$args = array(
 			'posts_per_page' => 1,
 			'post_type' => array('post'),
