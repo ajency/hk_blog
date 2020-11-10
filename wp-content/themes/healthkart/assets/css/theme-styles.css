@@ -9756,6 +9756,10 @@ strong {
       background: #42ADEA; }
     #social-follow-sidebar .contact-button-link.pinterest {
       background: #CE000B; }
+    #social-follow-sidebar .contact-button-link.youtube {
+      background: #CC1A1D; }
+    #social-follow-sidebar .contact-button-link.instagram {
+      background: #D12798; }
 
 .nested-section {
   background-color: #f7f7f7; }
