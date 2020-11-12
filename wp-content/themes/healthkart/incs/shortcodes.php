@@ -285,8 +285,11 @@ add_shortcode( 'amp-section', function(){
 				<?php endforeach; ?>
 			</div>
 		</div>
-		<?php get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );?>
-		<?php get_template_part( 'page-templates/theme-sections/trending-articles', 'section' );?>
+		<?php 
+			get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );
+		 	get_template_part( 'page-templates/theme-sections/trending-articles', 'section' );
+		 	get_template_part( 'page-templates/theme-sections/transformations', 'section' ); 
+		 ?>
 	</div> 
 	<?php $content = ob_get_clean();
 	return $content;
