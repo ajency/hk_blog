@@ -260,7 +260,7 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 	</div>
 <?php });
 
-add_shortcode( 'latest-articles', function(){
+add_shortcode( 'amp-section', function(){
 	ob_start(); 
 	?> <div class="container">
 		<div class="banner row mt-4">
@@ -286,6 +286,7 @@ add_shortcode( 'latest-articles', function(){
 			</div>
 		</div>
 		<?php get_template_part( 'page-templates/theme-sections/latest-articles', 'section' );?>
+		<?php get_template_part( 'page-templates/theme-sections/trending-articles', 'section' );?>
 	</div> 
 	<?php $content = ob_get_clean();
 	return $content;
