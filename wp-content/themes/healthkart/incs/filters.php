@@ -86,6 +86,8 @@ function hkPrintBreadcrumbs(){
 function hk_remove_meta_box( $callback )
 {
     remove_meta_box( 'genesis_inpost_scripts_box' , 'post' , 'normal' );
+    remove_meta_box( 'pagebilder_content' , 'post' , 'normal' );
+    remove_meta_box( 'ampforwp_title_meta' , 'post' , 'normal' );
 }
 add_action( 'add_meta_boxes_post', 'hk_remove_meta_box', 999 );
 
