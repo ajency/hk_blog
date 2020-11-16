@@ -9750,11 +9750,11 @@ strong {
     color: #fff;
     font-size: 22px;
     width: 40px;
-    -moz-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-    transition: width 500ms ease;
-    -webkit-transition: all 500ms ease; }
+    -moz-transition: width 200ms ease;
+    -ms-transition: width 200ms ease;
+    -o-transition: width 200ms ease;
+    transition: width 200ms ease;
+    -webkit-transition: width 200ms ease; }
     #social-follow-sidebar .contact-button-link:hover {
       width: 4pc; }
     #social-follow-sidebar .contact-button-link.facebook {
