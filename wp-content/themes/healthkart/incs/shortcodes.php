@@ -71,13 +71,13 @@ add_shortcode( 'read-these-next', function(){?>
 <?php });
 
 
-add_shortcode( 'related-articles', function(){
+add_shortcode( 'related-articles', function($atts){
 global $post, $wpdb;
 ?>
 <div class="related-articles mt-4">
 	<div class="section-title pb-3">Related Articles</div>
 		<?php 
-			$number_of_posts = 8;
+			$number_of_posts = $atts['count'];
 			$tags = wp_get_post_tags($post->ID);
 			$post_ids = [];
 			if($tags){
@@ -114,15 +114,8 @@ global $post, $wpdb;
 				$required_posts = array_merge($post_ids, $cat_post_ids);
 			}
 			$myposts = $wpdb->get_results("SELECT * FROM ".$wpdb->posts." WHERE ID in ('".implode("','", $required_posts)."')");
-			/*$args = array(
-			    'post_type' => 'any',
-			    'post__in'  => $required_posts, 
-			    'orderby'   => 'date', 
-			    'order'     => 'DESC'
-			);*/
-			//$myposts = get_posts( $args );
 			foreach( $myposts as $post ) :  setup_postdata($post); ?>
-					<div class="recent-post" data-args="<?php echo json_encode($args); ?>" data-sql="<?php echo $wpdb->last_query; ?>">
+					<div class="recent-post">
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
