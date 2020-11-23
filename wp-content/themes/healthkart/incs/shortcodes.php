@@ -75,7 +75,7 @@ add_shortcode( 'related-articles', function(){
 global $post, $wpdb;
 ?>
 <div class="related-articles mt-4">
-	<div class="section-title pb-3" data-id="<?php echo $post->ID; ?>">Related Articles</div>
+	<div class="section-title pb-3">Related Articles</div>
 		<?php 
 			$number_of_posts = 8;
 			$tags = wp_get_post_tags($post->ID);
@@ -96,7 +96,7 @@ global $post, $wpdb;
 			if(count($post_ids) < $number_of_posts){
 				$args = array(
 					'fields'         => 'ids',
-					'posts_per_page' => 4 - count($post_ids),
+					'posts_per_page' => $number_of_posts - count($post_ids),
 					'post__not_in'   => array_merge(array($post->ID),$post_ids,(array)$page_post_ids),
 					'post_status'    => 'publish',
 				);
@@ -113,15 +113,16 @@ global $post, $wpdb;
 				$cat_post_ids = get_posts( $args );		
 				$required_posts = array_merge($post_ids, $cat_post_ids);
 			}
-			$args = array(
+			$myposts = $wpdb->get_results("SELECT * FROM ".$wpdb->posts." WHERE ID in ('".implode("','", $required_posts)."')");
+			/*$args = array(
 			    'post_type' => 'any',
 			    'post__in'  => $required_posts, 
 			    'orderby'   => 'date', 
 			    'order'     => 'DESC'
-			);
-			$myposts = get_posts( $args );
+			);*/
+			//$myposts = get_posts( $args );
 			foreach( $myposts as $post ) :  setup_postdata($post); ?>
-					<div class="recent-post">
+					<div class="recent-post" data-args="<?php echo json_encode($args); ?>" data-sql="<?php echo $wpdb->last_query; ?>">
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
