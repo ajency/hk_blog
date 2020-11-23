@@ -77,7 +77,7 @@ global $post, $wpdb;
 <div class="related-articles mt-4">
 	<div class="section-title pb-3" data-id="<?php echo $post->ID; ?>">Related Articles</div>
 		<?php 
-			
+			$number_of_posts = 8;
 			$tags = wp_get_post_tags($post->ID);
 			$post_ids = [];
 			if($tags){
@@ -87,14 +87,13 @@ global $post, $wpdb;
 				'fields'         => 'ids',
 				'tag__in' => $tag_ids,
 				'post__not_in' => array($post->ID),
-				'posts_per_page'=>4, // Number of related posts that will be shown.
+				'posts_per_page'=>$number_of_posts, // Number of related posts that will be shown.
 				'post_status'    => 'publish',
 				);
 				$post_ids = get_posts( $args );
 			}
 			$page_post_ids = get_query_var('post_ids');
-			if(count($post_ids) < 4){
-				$count = 4 ;
+			if(count($post_ids) < $number_of_posts){
 				$args = array(
 					'fields'         => 'ids',
 					'posts_per_page' => 4 - count($post_ids),
@@ -122,7 +121,7 @@ global $post, $wpdb;
 			);
 			$myposts = get_posts( $args );
 			foreach( $myposts as $post ) :  setup_postdata($post); ?>
-					<div class="recent-post" data-sql="<?php echo $wpdb->last_query; ?>" data-count="<?php echo $my_query->found_posts; ?>" data-ids="<?php echo json_encode($required_posts);?>" data-args="<?php echo json_encode($args); ?>">
+					<div class="recent-post">
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
