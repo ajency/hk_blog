@@ -80,7 +80,7 @@ global $post, $wpdb;
 			$number_of_posts = $atts['count'];
 			$tags = wp_get_post_tags($post->ID);
 			$post_ids = [];
-			if($tags){
+			/* if($tags){
 				$tag_ids = array();
 				foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
 				$args=array(
@@ -91,7 +91,7 @@ global $post, $wpdb;
 				'post_status'    => 'publish',
 				);
 				$post_ids = get_posts( $args );
-			}
+			} */
 			$page_post_ids = get_query_var('post_ids');
 			if(count($post_ids) < $number_of_posts){
 				$args = array(
