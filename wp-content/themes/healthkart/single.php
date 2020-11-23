@@ -122,6 +122,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<a href="whatsapp://send?text=<?php echo $postUrl; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
+							<div class="fb-comments" data-href="<?php the_permalink() ?>"></div>
 							<div class="latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
@@ -134,7 +135,6 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	                ?>
 				</div>
 			</div>
-			<div class="fb-comments" data-href="<?php the_permalink() ?>"></div>
 		</div>
 	</div>
 </div>
