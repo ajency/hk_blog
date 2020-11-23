@@ -109,7 +109,7 @@ do_action( 'genesis_after_header' );
 						<?php get_search_form(); ?>
 					</div>
 					<div class="action-block">
-						<a href=""> Shop at Healthkart <i class="fa fa-arrow-right pl-2" aria-hidden="true"></i></a>
+						<a href="https://www.healthkart.com/stores"> Shop at Healthkart <i class="fa fa-arrow-right pl-2" aria-hidden="true"></i></a>
 					</div>
 				</div>
 				<div class="navbar navbar-expand-md navbar-light header-menu p-0">
