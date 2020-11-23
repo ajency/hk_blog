@@ -47,7 +47,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					<?php			
 					while ( have_posts() ) :
 					  the_post();
-					  update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1);
+					  $views = (int) get_post_meta($post->ID, 'hk_views', true);
+					  update_post_meta($post->ID, 'hk_views', $views + 1);
 					?>
 						<header class="entry-header col-12">
 							<span>
