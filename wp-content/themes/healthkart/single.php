@@ -137,6 +137,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 			</div>
 		</div>
 	</div>
+	<div class="back-to-top"></div>
 </div>
 
 <?php
