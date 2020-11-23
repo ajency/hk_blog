@@ -71,11 +71,13 @@ add_shortcode( 'read-these-next', function(){?>
 <?php });
 
 
-add_shortcode( 'related-articles', function(){?>
+add_shortcode( 'related-articles', function(){
+global $post, $wpdb;
+?>
 <div class="related-articles mt-4">
-	<div class="section-title pb-3">Related Articles</div>
+	<div class="section-title pb-3" data-id="<?php echo $post->ID; ?>">Related Articles</div>
 		<?php 
-			global $post;
+			
 			$tags = wp_get_post_tags($post->ID);
 			$post_ids = [];
 			if($tags){
@@ -110,19 +112,17 @@ add_shortcode( 'related-articles', function(){?>
 				}
 				// Query posts
 				$cat_post_ids = get_posts( $args );		
-				$post_ids = array_merge($post_ids, $cat_post_ids);
+				$required_posts = array_merge($post_ids, $cat_post_ids);
 			}
-			$my_query = new WP_Query(array(
+			$args = array(
 			    'post_type' => 'any',
-			    'post__in'  => $post_ids, 
+			    'post__in'  => $required_posts, 
 			    'orderby'   => 'date', 
 			    'order'     => 'DESC'
-			));
-			if( $my_query->have_posts() ) {
-				while( $my_query->have_posts() ) {
-				$my_query->the_post(); ?>
-
-					<div class="recent-post">
+			);
+			$myposts = get_posts( $args );
+			foreach( $myposts as $post ) :  setup_postdata($post); ?>
+					<div class="recent-post" data-sql="<?php echo $wpdb->last_query; ?>" data-count="<?php echo $my_query->found_posts; ?>" data-ids="<?php echo json_encode($required_posts);?>" data-args="<?php echo json_encode($args); ?>">
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
@@ -154,10 +154,7 @@ add_shortcode( 'related-articles', function(){?>
 							</div>
 						</div>
 					</div>
-				<?php } ?>
-			<?php }else{ ?>
-			<p class="no-post"><?php _e( 'Sorry, there are no posts to show.' ); ?></p>
-		<?php } ?>
+				<?php endforeach; ?>
 	</div>
 <?php });
 
