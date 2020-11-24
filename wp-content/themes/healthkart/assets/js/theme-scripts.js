@@ -264,6 +264,19 @@ $( document ).ready(function() {
         }  
     });
     $('.read-these-next-content .slick-prev').hide();
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 50) {
+			$('#back-to-top').fadeIn();
+		} else {
+			$('#back-to-top').fadeOut();
+		}
+	});
+	$('#back-to-top').click(function () {
+		$('body,html').animate({
+			scrollTop: 0
+		}, 400);
+		return false;
+	});
 }); 
 let canBeLoaded = true;
 function get_category_posts(category_page, remove_posts = false){

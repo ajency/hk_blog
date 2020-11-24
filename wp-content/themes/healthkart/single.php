@@ -137,7 +137,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 			</div>
 		</div>
 	</div>
-	<div class="back-to-top"></div>
+	<a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
 </div>
 
 <?php
