@@ -68,14 +68,10 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<span class="last-read"><?php echo $views+1; ?> VIEWS</span>
 							</span>
 							<?php if($hindi_url): ?>
-								<div class="w-100 action-btn text-center">
-									<a href="<?php echo $hindi_url; ?>" class="btn hk-button mr-3">Read in Hindi</a>
-								</div>
+								<a href="<?php echo $hindi_url; ?>" class="btn hk-button">Read in Hindi</a>
 							<?php endif; ?>
 							<?php if($english_url): ?>
-								<div class="w-100 action-btn text-center">
-									<a href="<?php echo $english_url; ?>" class="btn hk-button mr-3">Read in English</a>
-								</div>
+								<a href="<?php echo $english_url; ?>" class="btn hk-button">Read in English</a>
 							<?php endif; ?>
 							<div class="post-title">
 								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
