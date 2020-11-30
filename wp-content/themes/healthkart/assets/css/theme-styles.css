@@ -8874,7 +8874,9 @@ strong {
       font-weight: bold;
       margin: 0; }
       .sidebar .form-wrapper .wrap .hk-btn:hover, .sidebar .form-wrapper .wrap .frm_button_submit:hover {
-        background: #ccc; }
+        background: #009999;
+        color: #fff;
+        border: none; }
       @media (max-width: 767px) {
         .sidebar .form-wrapper .wrap .hk-btn, .sidebar .form-wrapper .wrap .frm_button_submit {
           height: 43px;
@@ -9180,6 +9182,16 @@ strong {
 .widget-wrap img {
   width: auto;
   object-fit: contain; }
+
+#footer-widgets .frm_form_field {
+  width: 260px;
+  height: 20px; }
+#footer-widgets .frm_button_submit {
+  background: #18C7C7; }
+  #footer-widgets .frm_button_submit:hover {
+    background: #009999;
+    color: #fff;
+    border: none; }
 
 .banner-slider .slider {
   opacity: 0;

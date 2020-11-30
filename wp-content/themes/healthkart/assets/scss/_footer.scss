@@ -286,3 +286,18 @@
 	    object-fit: contain;
     }
 }
+
+#footer-widgets{
+	.frm_form_field{
+		width: 260px;
+		height: 20px;
+	}
+	.frm_button_submit{
+		background: #18C7C7;
+		&:hover{
+			background: #009999;
+			color: #fff;
+			border: none;
+		}
+	}
+}

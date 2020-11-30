@@ -65,7 +65,9 @@
 		        font-weight: bold;
 	            margin: 0;
 			    &:hover{
-			    	background: #ccc;
+					background: #009999;
+					color: #fff;
+					border: none;
 			    }
 				@media (max-width: 767px){
 					height: 43px;
