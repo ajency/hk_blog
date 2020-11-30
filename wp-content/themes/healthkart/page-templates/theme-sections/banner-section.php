@@ -3,7 +3,6 @@
 		<div class="slider stick-dots">
 		<?php 
 		$args = array(
-			'posts_per_page' => 3,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'meta_key' => 'hk_featured_banner_post',

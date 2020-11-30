@@ -12,7 +12,7 @@
 		if( $main_post->have_posts() ) :
 			while( $main_post->have_posts() ) :
 				$main_post->the_post(); 
-				$post_ids[] = get_the_id();?>
+				$post_id = get_the_id();?>
 				<div class="latest-articles-single latest-articles-single-main col-md-6 col-12">
 					<div class="latest-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php if ( has_post_thumbnail() ) {
@@ -51,6 +51,7 @@
 		'posts_per_page' => 3,
 		'post_type' => array('post'),
 		'post_status' => 'publish',
+		'post__not_in' => [$post_id]
 		);
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
