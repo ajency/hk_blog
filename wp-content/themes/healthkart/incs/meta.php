@@ -49,6 +49,16 @@ function hk_post_cpt__metabox() {
         'type' => 'file',
     ) );
     $cmb_term->add_field( array(
+        'name'    => 'Hindi Version',
+        'id'      =>  $prefix . 'hindi_post',
+        'type'    => 'textarea_small',
+    ) );
+    $cmb_term->add_field( array(
+        'name'    => 'English Version',
+        'id'      =>  $prefix . 'english_post',
+        'type'    => 'textarea_small',
+    ) );
+    $cmb_term->add_field( array(
         'name'    => 'Description',
         'id'      =>  $prefix . 'description',
         'type'    => 'textarea_small',

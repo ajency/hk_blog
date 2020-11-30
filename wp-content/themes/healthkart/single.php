@@ -49,6 +49,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					  the_post();
 					  $views = (int) get_post_meta($post->ID, 'hk_views', true);
 					  update_post_meta($post->ID, 'hk_views', $views + 1);
+					  $hindi_url = get_post_meta($post->ID, 'hk_hindi_post', true);
+					  $english_url = get_post_meta($post->ID, 'hk_english_post', true);
 					?>
 						<header class="entry-header col-12">
 							<span>
@@ -65,6 +67,16 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo $views+1; ?> VIEWS</span>
 							</span>
+							<?php if($hindi_url): ?>
+								<div class="w-100 action-btn text-center">
+									<a href="<?php echo $hindi_url; ?>" class="btn hk-button mr-3">Read in Hindi</a>
+								</div>
+							<?php endif; ?>
+							<?php if($english_url): ?>
+								<div class="w-100 action-btn text-center">
+									<a href="<?php echo $english_url; ?>" class="btn hk-button mr-3">Read in English</a>
+								</div>
+							<?php endif; ?>
 							<div class="post-title">
 								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
