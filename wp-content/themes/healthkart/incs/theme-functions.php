@@ -93,3 +93,39 @@ function hk_get_pagination($totalposts, $currentPage){
 	}
 	return $pages;
 }
+function display_human_readable_time($olddate){
+	$now = time();                  //pick present time from server     
+	$old = strtotime( $olddate);  //create integer value of old time
+	$diff =  $now-$old;             //calculate difference
+	$old = new DateTime($olddate);
+	$old = $old->format('Y M d');       //format date to "2015 Aug 2015" format
+
+    if ($diff /60 <1)                       //check the difference and do echo as required
+    {
+    echo intval($diff%60)." seconds ago";
+    }
+    else if (intval($diff/60) == 1) 
+    {
+    echo " 1 minute ago";
+    }
+    else if ($diff / 60 < 60)
+    {
+    echo intval($diff/60)." minutes ago";
+    }
+    else if (intval($diff / 3600) == 1)
+    {
+    echo "1 hour ago";
+    }
+    else if ($diff / 3600 <24)
+    {
+    echo intval($diff/3600) . " hours ago";
+    }
+    else if ($diff/86400 < 30)
+    {
+    echo intval($diff/86400) . " days ago";
+    }
+    else
+    {
+    echo $old;  ////format date to "2015 Aug 2015" format
+    }
+}
