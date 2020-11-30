@@ -66,13 +66,15 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo $views+1; ?> VIEWS</span>
+								<?php if($hindi_url): ?>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="category"><a href="/<?php echo $hindi_url; ?>">Read in Hindi</a></span>
+								<?php endif; ?>
+								<?php if($english_url): ?>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="category"><a href="/<?php echo $english_url; ?>">Read in English</a></span>
+								<?php endif; ?>
 							</span>
-							<?php if($hindi_url): ?>
-								<a href="/<?php echo $hindi_url; ?>" class="btn hk-button">Read in Hindi</a>
-							<?php endif; ?>
-							<?php if($english_url): ?>
-								<a href="/<?php echo $english_url; ?>" class="btn hk-button">Read in English</a>
-							<?php endif; ?>
 							<div class="post-title">
 								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
