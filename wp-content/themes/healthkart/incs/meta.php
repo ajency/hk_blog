@@ -51,12 +51,12 @@ function hk_post_cpt__metabox() {
     $cmb_term->add_field( array(
         'name'    => 'Hindi Version',
         'id'      =>  $prefix . 'hindi_post',
-        'type'    => 'textarea_small',
+        'type'    => 'text_url',
     ) );
     $cmb_term->add_field( array(
         'name'    => 'English Version',
         'id'      =>  $prefix . 'english_post',
-        'type'    => 'textarea_small',
+        'type'    => 'text_url',
     ) );
     $cmb_term->add_field( array(
         'name'    => 'Description',
