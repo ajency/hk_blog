@@ -125,7 +125,12 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<a href="whatsapp://send?text=<?php echo $postUrl; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
-							<div class="comment-block"><?php
+							<div class="comment-block">
+								<?php if($_GET['unapproved']): ?>
+								<div class="alert alert-success">
+								  <strong>Success!</strong> Your comment has been sent for moderation.
+								</div>
+							<?php endif;
 								$fields =  array(
 								    'author' =>
 								        '<input class="comment-input comment-input-name" required name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .'" size="30" placeholder="'.__('Name','text-domain').( $req ? ' (Required)' : '' ).'"/>',
