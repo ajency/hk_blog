@@ -17,15 +17,6 @@
 get_header(); 
 get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
- var js, fjs = d.getElementsByTagName(s)[0];
- if (d.getElementById(id)) return;
- js = d.createElement(s); js.id = id;
- js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo FB_APP_ID; ?>";
- fjs.parentNode.insertBefore(js, fjs); }
-(document, 'script', 'facebook-jssdk'));
-</script>
 
 <div class="single-post pt-25">
 	<div class="header_image position-relative">
@@ -134,7 +125,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<a href="whatsapp://send?text=<?php echo $postUrl; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
-							<div class="fb-comments" data-href="<?php the_permalink() ?>" data-num-posts="15" data-width="100%" data-colorscheme="light"></div>
+							<div class="comment-block"><?php comment_form(); ?></div>
 							<div class="latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
