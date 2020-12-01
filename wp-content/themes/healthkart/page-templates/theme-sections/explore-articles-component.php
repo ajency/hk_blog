@@ -1,12 +1,13 @@
 <div class="explore-articles row">
 <?php 
-
+	$hindi_cat = get_category_by_slug('hindi');
 	$post_ids = get_query_var('post_ids');
 	$args = array(
 		'posts_per_page' => 6,
 		'post_type' => array('post'),
 		'post_status' => 'publish',
-		'cat' => $_POST['category_id']
+		'cat' => $_POST['category_id'],
+		'category__not_in' => array($hindi_cat->term_id)
 	);
 	if(is_array($post_ids)){
 		$args['post__not_in'] = $post_ids;

@@ -1,5 +1,6 @@
 <?php
 $category = get_queried_object();
+$hindi_cat = get_category_by_slug('hindi');
 $args = array(
 	'posts_per_page' => 24,
 	'post_type' => array('post'),
@@ -8,6 +9,9 @@ $args = array(
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
+}
+if($category->term_id != $hindi_cat->term_id){
+	$args['category__not_in'] = array($hindi_cat->term_id);
 }
 query_posts( $args );
 global $wp_query; 

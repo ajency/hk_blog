@@ -7,12 +7,14 @@
 </div>
 <div class="nested-section-posts-container">
 	<?php 
+	$hindi_cat = get_category_by_slug('hindi'); 
 	$args = array(
 		'posts_per_page' => 10,
 		'post_type' => array('post'),
 		'post_status' => 'publish',
 		'cat' => $category_id,
 		'starts_with' => $posts_letter,
+		'category__not_in' => array($hindi_cat->term_id)
 	);
 	$query = new WP_Query(  $args ); 
 	if( $query->have_posts() ) :

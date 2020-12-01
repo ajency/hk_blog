@@ -20,6 +20,10 @@ function fetch_category_page_articles(){
 	);
 	if($_POST['type'] == 'post'){
 		$args['cat'] = $_POST['category'];
+		$hindi_cat = get_category_by_slug('hindi');
+		if($_POST['category'] != $hindi_cat->term_id){
+			$args['category__not_in'] = array($hindi_cat->term_id);
+		}
 	}
 	if($_POST['search']){
 		$args['s'] = $_POST['search'];
