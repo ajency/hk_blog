@@ -43,6 +43,7 @@
 										<span class="text-white"><?php echo $post_date; ?></span>
 									</span>
 									<h2 class="m-0 title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+									<span class="text-white"><?php echo hk_get_excerpt(150); ?></span>
 								</div>
 							</div>
 						</div>

@@ -59,11 +59,6 @@ function hk_post_cpt__metabox() {
         'type'    => 'text',
     ) );
     $cmb_term->add_field( array(
-        'name'    => 'Description',
-        'id'      =>  $prefix . 'description',
-        'type'    => 'textarea_small',
-    ) );
-    $cmb_term->add_field( array(
         'name' => 'Banner Article',
         'id'   => $prefix . 'featured_banner_post',
         'type' => 'checkbox',
