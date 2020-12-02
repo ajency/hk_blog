@@ -55,7 +55,7 @@ add_shortcode( 'read-these-next', function(){?>
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 							</div>
-							<div class="recent-post-excerpt content-desktop"><?php echo hk_get_excerpt(150); ?>
+							<div class="recent-post-excerpt content-desktop"><?php echo hk_get_excerpt(140); ?>
 							</div>
 							<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 							<div class="recent-post-icons">

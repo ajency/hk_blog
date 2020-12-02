@@ -33,7 +33,7 @@
 			<div class="recent-post-header">
 				<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 			</div>
-			<div class="recent-post-excerpt"><?php echo hk_get_excerpt(150); ?>
+			<div class="recent-post-excerpt"><?php echo hk_get_excerpt(140); ?>
 			</div>
 			<!-- <div class="recent-post-icons">
 				<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
