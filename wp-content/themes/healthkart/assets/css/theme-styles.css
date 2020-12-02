@@ -7730,10 +7730,10 @@ a.text-dark:hover, a.text-dark:focus {
       margin-bottom: 0; }
       .site-header .site-navigation .header-menu ul.menu li {
         list-style-type: none;
-        padding-right: 34px;
-        margin-right: 15px; }
+        padding-right: 29px;
+        margin-right: 10px; }
         .site-header .site-navigation .header-menu ul.menu li a {
-          font-size: 16px;
+          font-size: 15px;
           line-height: 20px;
           display: inline-block;
           position: relative;
@@ -7823,7 +7823,7 @@ a.text-dark:hover, a.text-dark:focus {
             content: '';
             position: absolute;
             top: 13px;
-            right: 20px;
+            right: 17px;
             width: 7px;
             height: 7px;
             background: transparent;
