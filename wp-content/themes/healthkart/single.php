@@ -89,7 +89,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							</div>
 						</header>
 						<div class="col-md-8 col-12 single-post-content">
-							<div class="entry-description"><?php echo get_the_excerpt(); ?></div>
+							<div class="entry-description mt-2"><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></div>
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
