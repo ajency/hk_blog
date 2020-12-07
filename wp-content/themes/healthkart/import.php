@@ -4,57 +4,47 @@
 * Template Name: Import
 * The template for migrating data
 */
-
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 set_time_limit(0);
 require_once("../../../wp-load.php");
 require_once( '../../../wp-admin/includes/post.php' );
 require_once(__DIR__."/config/field_mapping.php");
 header("Content-Type: text/plain");
+exit;
 
-// $post_types = ['ama', 'infographic', 'transformation', 'video'];
-// foreach ($post_types as $post_type) {
-// 	echo json_encode(get_object_taxonomies($post_type));
-// 	echo '<hr>';
-// }
-// exit;
-// $posts = $wpdb->get_results("SELECT *  FROM wp_posts order by id asc");
-// foreach ($posts as $post) {
-// 	$post_content = str_replace( "http://healthkart.wpengine.com", "https://healthkart.wpengine.com", $post->post_content );
-// 	$post_arr = array(
-// 			'ID'		 => $post->ID,			
-// 			'post_content' => $post_content,		
-// 		);
-// 	wp_update_post( $post_arr );
-// 	echo $post->ID."<hr>";
-// }
+/*$posts = $wpdb->get_results("SELECT *  FROM wp_posts WHERE `post_content` LIKE '%http://healthkart.wpengine.com%' order by id asc");
+foreach ($posts as $post) {
+	$post_content = str_replace( "http://healthkart.wpengine.com", "https://healthkart.wpengine.com", $post->post_content );
+	$post_arr = array(
+			'ID'		 => $post->ID,			
+			'post_content' => $post_content,		
+		);
+	wp_update_post( $post_arr );
+	echo $post->ID."<hr>";
+}*/
+
+
 /*$mydb = new wpdb('root','root','fitness_freak','localhost');
 $imgs = $mydb->get_results("select * from field_data_field_img_d where bundle='articles'");
 foreach ($imgs as $img) {
 	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
 	$image = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_file_id' and meta_value = '".$img->field_img_d_fid."'");
 	if($node && $image){
-		$image_url = wp_get_attachment_image_src( $image->post_id, 'full' )[0];
-		$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
-		add_post_meta($node->post_id, 'hk_thumbnail_image', $image_url);
-		add_post_meta($node->post_id, 'hk_thumbnail_image_id', $image->post_id);
-	}
-}*/
-//Remove duplicate posts
-/*$posts = $wpdb->get_results("SELECT *  FROM wp_posts order by id asc");
-$node_ids = [];
-foreach ($posts as $post) {
-	$node_id = get_post_meta($post->ID, 'hk_node_id', true);
-	if($node_id){
-		if(!in_array($node_id, $node_ids)){
-			$node_ids[] = $node_id;
-		}
-		else{
-			echo "Node: ".$node_id.", Post: ".$post->ID.", Type: ".$post->post_type.", Title: ".$post->post_title;
-			$deleted = wp_delete_post( $post->ID, true );
-			echo "Deleted: ".json_encode($deleted)."\n\n";
+		$media_id = get_post_meta($node->post_id, 'hk_thumbnail_image_id', true);
+		if(!$media_id){
+			$image_url = wp_get_attachment_image_src( $image->post_id, 'full' )[0];
+			$image_url = str_replace( get_site_url(), HK_DOMAIN, $image_url );
+			add_post_meta($node->post_id, 'hk_thumbnail_image', $image_url);
+			add_post_meta($node->post_id, 'hk_thumbnail_image_id', $image->post_id);
+			echo "Post: ".$node->post_id.", ".$image_url."\n\n";
 		}
 	}
-}*/
+}
+*/
+
+
 /*$mydb = new wpdb('root','root','fitness_freak','localhost');
 $posts = $wpdb->get_results("SELECT *  FROM wp_posts where post_type='infographic' order by id asc");
 $node_ids = [];
@@ -72,15 +62,20 @@ foreach ($posts as $post) {
 		$image = $mydb->get_row("select * from field_data_field_infographics_image where entity_id='".$node_id."'");
 		if($image){
 			$media_id = fetch_image($image->field_infographics_image_fid, $image->field_infographics_image_alt, $image->field_infographics_image_title);
-			if($media_id){
-				echo "\n".$media_id;
+			$wp_media_id = get_post_meta($post->ID, '_thumbnail_id', true);
+			if($media_id && !$wp_media_id){
+				echo "\nMedia: ".$media_id;
 				add_post_meta($post->ID, '_thumbnail_id', $media_id);
 			}
 		}
 	}
 	echo "\n\n";
 }*/
-/*$mydb = new wpdb('root','root','fitness_freak','localhost');
+
+
+
+/*
+$mydb = new wpdb('root','root','fitness_freak','localhost');
 $imgs = $mydb->get_results("select * from field_data_field_goal");
 foreach ($imgs as $img) {
 	$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '".$img->entity_id."'");
@@ -93,11 +88,15 @@ foreach ($imgs as $img) {
 				echo "Time: ".$time->field_timing_value.", Food: ".$food->field_food_value."\n";
 			}
 		}
-		echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Title: ".$node->post_name."\n\n";
-		//add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
+		
+		$wp_meta = get_post_meta($node->post_id, 'hk_challenges', true);
+		if(!$wp_postmeta){
+			echo "Node: ".$img->entity_id.", Post: ".$node->post_id.", Title: ".$node->post_name."\n\n";
+			//add_post_meta($node->post_id, 'hk_challenges', $img->field_what_challenges_did_you_fa_value);
+		}
 	}
-}*/
-
+}
+*/
 
 
 //migrate hk user ids
@@ -139,26 +138,70 @@ foreach ($users as $user) {
 	        'display_name' => $display_name,
 	   ) );
 	}
-	
 }*/
-$node = $wpdb->get_row("SELECT *  FROM wp_postmeta WHERE meta_key = 'hk_node_id' and meta_value = '9415'");
-$post = $wpdb->get_row("SELECT *  FROM wp_posts WHERE id = '".$node->post_id."'");
-preg_match_all( "/img(.*?)jpg/", $post->post_content , $matches);
-foreach ($matches[0] as $match) {
-	preg_match("/alt=\"(.*?)\"/", $match, $alt_match);
-	//echo $alt_match[1]."\n";
-	preg_match("/src=\"(.*)\/(.*?).jpg/", $match, $src_match);
-	print_r($src_match);
+
+$posts = $wpdb->get_results("SELECT *  FROM wp_posts WHERE post_content LIKE '%/sites/default/files/%' and post_status='publish' and post_type='post' order by id desc");
+foreach ($posts as $post) {
+	preg_match_all( "/<img(.*?)src=\"(.*?)\/sites\/default\/files\/(.*?)\"(.*?)>/", $post->post_content , $matches);
+	$content = $post->post_content;
+	for ($i=0; $i < count($matches[2]); $i++) { 
+		$image_url = "https://www.healthkart.com/connect/sites/default/files/".$matches[3][$i];
+		$image_data = get_data( $image_url );
+		if($image_data){
+			$upload_dir = wp_upload_dir();
+			$filename = str_replace(" ", "_", urldecode(strtolower(basename( $image_url )))); 
+
+			if ( wp_mkdir_p( $upload_dir['path'] ) ) {
+			  $file = $upload_dir['path'] . '/' . $filename;
+			}
+			else {
+			  $file = $upload_dir['basedir'] . '/' . $filename;
+			}
+
+			file_put_contents( $file, $image_data );
+
+			$wp_filetype = wp_check_filetype( $filename, null );
+
+			$attachment = array(
+			  'post_mime_type' => $wp_filetype['type'],
+			  'post_title' => sanitize_file_name( $filename ),
+			  'post_content' => '',
+			  'post_status' => 'inherit'
+			);
+
+			$attach_id = wp_insert_attachment( $attachment, $file );
+			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+			wp_update_attachment_metadata( $attach_id, $attach_data );
+			//add_post_meta($attach_id, 'hk_file_id', $image->fid);
+			$wp_url = str_replace("http://localhost/hk-blog", "", wp_get_attachment_url($attach_id)); 
+			echo "\nPost: ".$post->ID.", URL: ".$image_url.", WP URL: ".$wp_url."\n";
+			
+			
+			$img_tag = "<img".$matches[1][$i]."src=\"".$wp_url."\"".$matches[4][$i].">";
+			$filename =  str_replace("/", "\/", $matches[3][$i]);
+			$content = preg_replace("/<img(.*?)src=\"(.*?)\/sites\/default\/files\/".$filename."\"(.*?)>/", $img_tag ,$content);
+		}
+		else{
+			echo "\nError Image: -".$image_url."-\n";
+		}
+	}
+	//echo "\n\n".$content;
+	//exit;
+	$post_arr = array(
+		'ID'		 => $post->ID,			
+		'post_content' => $content,		
+	);
+	wp_update_post( $post_arr );
 }
-print_r($matches);
+exit;
 /*$post_arr = array(
 		'ID'		 => $post->ID,			
 		'post_content' => $post_content,		
 	);
 wp_update_post( $post_arr );
-echo $post->ID."<hr>";*/
-exit;
+echo $post->ID."<hr>";
 
+exit;
 $mydb = new wpdb('root','root','fitness_freak','localhost');
 $nodes = $mydb->get_results("select * from node where type in ('".implode("','", array_keys($post_types))."')");
 $x=1;

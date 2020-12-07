@@ -8,18 +8,18 @@ require_once("../../../wp-load.php");
 require_once( '../../../wp-admin/includes/image.php' );
 require_once(__DIR__."/config/field_mapping.php");
 
-/*$files = scandir('../../uploads/2020/09/');
+$files = scandir('../../uploads/2020/12/');
 $files = array_values(array_filter($files, function($var){
 	return !in_array($var, ['..','.']);
 }));
 echo count($files).'<hr>';
-$path = "/Applications/MAMP/htdocs/hk-blog/wp-content/uploads/2020/09/";
+$path = "/Applications/MAMP/htdocs/hk-blog/wp-content/uploads/2020/12/";
 foreach ($files as $index => $file) {
 	$lower = strtolower($file);
 	rename($path.$file, $path.$lower);
 	echo $index.'<br>'.$path.$file. '<br>'.$path.$lower.'<hr>';
 }
-exit;*/
+exit;
 
 $mydb = new wpdb('root','root','fitness_freak','localhost');
 $images = $mydb->get_results("SELECT *  FROM file_managed ORDER BY fid ASC");

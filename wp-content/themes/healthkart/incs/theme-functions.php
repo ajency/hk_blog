@@ -48,15 +48,15 @@ function get_mins_read(){
 }
 
 function hk_get_excerpt($limit) {
-	$content = get_the_excerpt();
+	$content = str_replace("[&hellip;]", "", get_the_excerpt());
 	if(strlen($content) > $limit){
 		$limit_pos = strpos($content, " ", $limit);
-		$excerpt = substr($content, 0, $limit_pos)."...";
+		$excerpt = substr($content, 0, $limit_pos);
 	}
 	else{
 		$excerpt = $content;
 	}
-	return $excerpt;
+	return $excerpt."...";
 }
 function hk_get_pagination($totalposts, $currentPage){
 	$limitPerPage = 6;
