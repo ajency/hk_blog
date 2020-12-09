@@ -5,7 +5,9 @@ add_shortcode( 'banner', function(){?>
 	</div>
 <?php });
 
-
+add_shortcode( 'year', function(){
+	return date('Y');
+});
 add_shortcode( 'read-these-next', function(){?>
 	<div class="read-these-next mt-4">
 		<div class="section-title pb-3">Read these next</div>
