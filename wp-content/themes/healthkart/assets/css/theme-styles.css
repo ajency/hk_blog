@@ -9188,7 +9188,8 @@ strong {
   width: 260px;
   height: 20px; }
 #footer-widgets .frm_button_submit {
-  background: #18C7C7; }
+  background: #18C7C7;
+  border-color: #18C7C7; }
   #footer-widgets .frm_button_submit:hover {
     background: #009999;
     color: #fff;
