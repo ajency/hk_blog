@@ -8983,6 +8983,9 @@ strong {
   padding-bottom: 20px; }
   .footer .footer-widgets .footer-wrapper .footer-sidebar .widget {
     margin-bottom: 0; }
+    .footer .footer-widgets .footer-wrapper .footer-sidebar .widget ul {
+      margin: 0;
+      padding: 0; }
   .footer .footer-widgets .footer-wrapper .footer-sidebar .widget-title {
     margin-top: 0;
     margin-bottom: 15px;
