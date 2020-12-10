@@ -94,11 +94,11 @@ function hk_get_pagination($totalposts, $currentPage){
 	return $pages;
 }
 function display_human_readable_time($olddate){
-	$now = time();                  //pick present time from server     
-	$old = strtotime( $olddate);  //create integer value of old time
+	$now = time();                  //pick present time from server   
+	$old_date = new DateTime($olddate, new DateTimeZone('Asia/Kolkata'));
+	$old = $old_date->format('U');  //create integer value of old time
 	$diff =  $now-$old;             //calculate difference
-	$old = new DateTime($olddate);
-	$old = $old->format('Y M d');       //format date to "2015 Aug 2015" format
+	$old = $old_date->format('Y M d');       //format date to "2015 Aug 2015" format
 
     if ($diff /60 <1)                       //check the difference and do echo as required
     {
