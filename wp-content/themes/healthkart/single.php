@@ -89,7 +89,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							</div>
 						</header>
 						<div class="col-md-8 col-12 single-post-content">
-							<div class="entry-description mt-2"><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></div>
+							<div class="entry-content entry-description mt-2"><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></div>
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
@@ -100,7 +100,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<?php
 								$description = get_post_meta($post->ID, 'hk_description', true);
 								if ($description) :
-								?><div class="entry-description"><?php echo $description; ?></div><?php 
+								?><div class="entry-content entry-description"><?php echo $description; ?></div><?php 
 								endif;
 							?>
 							<div class="entry-content"><?php the_content(); ?></div>  
