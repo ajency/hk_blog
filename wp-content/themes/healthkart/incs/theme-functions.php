@@ -150,7 +150,7 @@ function fetch_post_data($data){
 	else{
 		return ['success' => false];
 	}
-	$post = $wpdb->get_row("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and post_type='post' and ".$where);
+	$post = $wpdb->get_row("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and ".$where);
 	$response = [
 		'content' => $post->post_content,
 		'description' => $post->meta_value,
@@ -159,4 +159,60 @@ function fetch_post_data($data){
 	];
 
 	return ['success' => true, 'data' => $response];
+}
+
+
+add_action( 'rest_api_init', 'reset_data_api' );
+// API custom endpoints for WP-REST API
+function reset_data_api() {
+    register_rest_route(
+        'api/post', 'reset',
+        array(
+            'methods'  => 'POST',
+            'callback' => 'reset_post_data',
+        )
+    );
+}
+
+function reset_post_data($data){
+	global $wpdb;
+	if(isset($data['from']) && isset($data['to'])){
+		$where = "id >= ".$data['from']." and id <= ".$data['to'];
+	}
+	if(isset($data['id'])){
+		$where = "id = ".$data['id'];
+	}
+	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} where post_status = 'publish' and post_type='infographic' and {$where}");
+	foreach ($posts as $post) {
+		$remote_data = fetch_remote_post($post->ID);
+		if($remote_data['success']){
+			$post_arr = array(
+				'ID'		 => $post->ID,			
+				'post_content' => $remote_data['data']['content'],		
+				'post_title' => $remote_data['data']['title']
+			);
+			wp_update_post( $post_arr );
+			if($remote_data['data']['description']){
+				$post_arr['description'] = $remote_data['data']['description'];
+				update_post_meta($post->ID, 'hk_description', $remote_data['data']['description']);
+			}
+			$response[] = $post->ID;
+		}
+	}
+	return ['success' => true, 'data' => $response];
+}
+
+function fetch_remote_post($post_id){
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "https://healthkart.wpengine.com/wp-json/api/post/fetch");
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, ['id' => $post_id]);  
+	$header = [
+		'Content-type: application/json'
+	];
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$output = curl_exec ($ch);
+	curl_close ($ch);
+	$response = json_decode($output, true);
+	return $response;
 }
