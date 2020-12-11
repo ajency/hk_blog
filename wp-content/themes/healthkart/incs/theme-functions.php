@@ -129,3 +129,33 @@ function display_human_readable_time($olddate){
     echo $old;  ////format date to "2015 Aug 2015" format
     }
 }
+
+add_action( 'rest_api_init', 'fetch_data_api' );
+// API custom endpoints for WP-REST API
+function fetch_data_api() {
+    register_rest_route(
+        'api/post', 'fetch',
+        array(
+            'methods'  => 'POST',
+            'callback' => 'fetch_post_data',
+        )
+    );
+}
+
+function fetch_post_data($data){
+	global $wpdb;
+	if(isset($data['id'])){
+		$where = "id = ".$data['id'];
+	}
+	else{
+		return ['success' => false];
+	}
+	$post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} as p inner join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and post_type='post' and ".$where);
+	$response = [
+		'content' => $post->post_content,
+		'description' => $post->meta_value,
+		'title' => $post->post_title,
+	];
+
+	return ['success' => true, 'data' => $response];
+}
