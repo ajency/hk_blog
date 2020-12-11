@@ -150,14 +150,13 @@ function fetch_post_data($data){
 	else{
 		return ['success' => false];
 	}
-	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id where post_type='transfomation' and post_status = 'publish' and ".$where);
+	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id where post_type='transformation' and post_status = 'publish' and ".$where);
 	foreach ($posts as $post) {
-		$response['meta'][] = [
-			$post->meta_key => $post->meta_value,
-		];
+		$response['meta'][$post->meta_key] = $post->meta_value;
 	}
 	$response['content'] = $posts[0]->post_content;
 	$response['title'] = $posts[0]->post_title;
+	$response['query'] = $wpdb->last_query;
 	return ['success' => true, 'data' => $response];
 }
 
@@ -192,11 +191,13 @@ function reset_post_data($data){
 				'post_title' => $remote_data['data']['title']
 			);
 			wp_update_post( $post_arr );
-			if($remote_data['data']['description']){
-				$post_arr['description'] = $remote_data['data']['description'];
-				update_post_meta($post->ID, 'hk_description', $remote_data['data']['description']);
+			if($remote_data['data']['meta']){
+				foreach ($remote_data['data']['meta']as $meta_key => $meta_value) {
+					$meta[] = $meta_key;
+					update_post_meta($post->ID, $meta_key, $meta_value);
+				}
 			}
-			$response[] = $post->ID;
+			$response[] = ['id' => $post->ID, 'meta' => $meta];
 		}
 	}
 	return ['success' => true, 'data' => $response];
