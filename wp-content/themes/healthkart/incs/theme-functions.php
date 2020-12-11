@@ -150,11 +150,12 @@ function fetch_post_data($data){
 	else{
 		return ['success' => false];
 	}
-	$post = $wpdb->get_results("SELECT * FROM {$wpdb->posts} as p inner join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and post_type='post' and ".$where);
+	$post = $wpdb->get_row("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and post_type='post' and ".$where);
 	$response = [
 		'content' => $post->post_content,
 		'description' => $post->meta_value,
 		'title' => $post->post_title,
+		'query' => $wpdb->last_query
 	];
 
 	return ['success' => true, 'data' => $response];
