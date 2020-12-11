@@ -150,14 +150,14 @@ function fetch_post_data($data){
 	else{
 		return ['success' => false];
 	}
-	$post = $wpdb->get_row("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id && m.meta_key='hk_description' where post_status = 'publish' and ".$where);
-	$response = [
-		'content' => $post->post_content,
-		'description' => $post->meta_value,
-		'title' => $post->post_title,
-		'query' => $wpdb->last_query
-	];
-
+	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} as p left join {$wpdb->postmeta} as m on p.id=m.post_id where post_type='transfomation' and post_status = 'publish' and ".$where);
+	foreach ($posts as $post) {
+		$response['meta'][] = [
+			$post->meta_key => $post->meta_value,
+		];
+	}
+	$response['content'] = $posts[0]->post_content;
+	$response['title'] = $posts[0]->post_title;
 	return ['success' => true, 'data' => $response];
 }
 
@@ -182,7 +182,7 @@ function reset_post_data($data){
 	if(isset($data['id'])){
 		$where = "id = ".$data['id'];
 	}
-	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} where post_status = 'publish' and post_type='infographic' and {$where}");
+	$posts = $wpdb->get_results("SELECT * FROM {$wpdb->posts} where post_status = 'publish' and post_type='transformation' and {$where}");
 	foreach ($posts as $post) {
 		$remote_data = fetch_remote_post($post->ID);
 		if($remote_data['success']){
