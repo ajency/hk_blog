@@ -32,7 +32,7 @@ function hk_post_cpt__metabox() {
         'id'   => $prefix . 'featured_banner_post',
         'type' => 'checkbox',
     ) );
-     $cmb_term->add_field( array(
+    $cmb_term->add_field( array(
         'name' => 'More Videos Section',
         'id'   => $prefix . 'more_post',
         'type' => 'checkbox',
@@ -66,6 +66,11 @@ function hk_post_cpt__metabox() {
     $cmb_term->add_field( array(
         'name' => 'Banner Article',
         'id'   => $prefix . 'featured_banner_post',
+        'type' => 'checkbox',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => 'Explore Article Section',
+        'id'   => $prefix . 'explore_post',
         'type' => 'checkbox',
     ) );
     $cmb_term->add_field( array(

@@ -7,7 +7,14 @@
 		'post_type' => array('post'),
 		'post_status' => 'publish',
 		'cat' => $_POST['category_id'],
-		'category__not_in' => array($hindi_cat->term_id)
+		'category__not_in' => array($hindi_cat->term_id),
+		'meta_key' => 'hk_explore_post',
+		'meta_query'     => [
+	        [
+	            'key'      => 'hk_explore_post',
+	            'value'    => 'on',
+	        ]
+	    ],
 	);
 	if(is_array($post_ids)){
 		$args['post__not_in'] = $post_ids;
