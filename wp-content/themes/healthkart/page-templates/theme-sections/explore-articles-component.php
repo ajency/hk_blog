@@ -16,10 +16,8 @@
 	        ]
 	    ],
 	);
-	if(is_array($post_ids)){
-		$args['post__not_in'] = $post_ids;
-	};
 	$main_post = new wp_query( $args );
+
 	if( $main_post->have_posts() ) :
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); 
