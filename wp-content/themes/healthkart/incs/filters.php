@@ -43,6 +43,7 @@ function hkPrintBreadcrumbs(){
 		"datePublished": "'.get_the_date('F j, Y').'",
 		"datemodified": "'.get_the_modified_date('F j, Y').'",
 		"mainEntityOfPage": "True",
+		"inLanguage": "hi",
 		"image": {
 			"@type": "imageObject",
 			"url": "'.get_the_post_thumbnail_url( null, 'full' ).'",

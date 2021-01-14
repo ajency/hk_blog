@@ -18,6 +18,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 <?php 
 	set_query_var( 'post_ids', array() );
 	get_template_part( 'page-templates/theme-sections/banner', 'section' );
+?>
+	<h1 class="heading-title text-center pt-1 pb-1">HealthKart Blog</h1>
+<?php
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/trending-articles', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/explore-articles', 'section' );

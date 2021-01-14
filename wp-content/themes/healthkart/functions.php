@@ -263,3 +263,5 @@ function register_home_banner_space_sidebar() {
     ) );
 }
 add_action( 'widgets_init', 'register_home_banner_space_sidebar' );
+
+add_filter( 'wpseo_json_ld_output', '__return_false' );
