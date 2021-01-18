@@ -84,6 +84,45 @@ function hkPrintBreadcrumbs(){
 	}
 }
 
+add_filter('wp_head', 'hkSchema');
+function hkSchema(){
+	if (is_front_page()){
+	   	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	   	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		echo '<script type="application/ld+json">{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": "'.get_the_title().'",
+		"description": "'.get_the_excerpt().'",
+		"datePublished": "'.get_the_date('F j, Y').'",
+		"datemodified": "'.get_the_modified_date('F j, Y').'",
+		"mainEntityOfPage": "True",
+		"inLanguage": "hi",
+		"image": {
+			"@type": "imageObject",
+			"url": "'.get_the_post_thumbnail_url( null, 'full' ).'",
+			"height": "600",
+			"width": "800"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "Publisher name",
+			"sameAs": ["https://www.facebook.com/healthkart","https://twitter.com/healthkart","https://in.pinterest.com/healthkart/","https://www.instagram.com/healthkart/","https://www.youtube.com/user/healthkart"],
+			"logo": {
+				"@type": "imageObject",
+				"url": "'.$image[0].'"
+			}
+		},
+		"author": {
+			"@type": "Person",
+			"name": "Author Name"
+		}
+		}</script>
+		';
+	
+	}
+}
+
 function hk_remove_meta_box( $callback )
 {
     remove_meta_box( 'genesis_inpost_scripts_box' , 'post' , 'normal' );
