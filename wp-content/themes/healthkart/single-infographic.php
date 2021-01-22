@@ -116,6 +116,57 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<a href="whatsapp://send?text=<?php echo $title; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $title; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
 								</div>
 							</div>
+							<div class="comment-block">
+								<?php if(isset($_GET['unapproved']) && $_GET['unapproved']): ?>
+								<div class="alert alert-success">
+								  <strong>Success!</strong> Your comment has been sent for moderation.
+								</div>
+							<?php endif;
+								$fields =  array(
+								    'author' =>
+								        '<input class="comment-input comment-input-name" required name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .'" size="30" placeholder="'.__('Name','text-domain').( $req ? ' (Required)' : '' ).'"/>',
+								    'email' =>
+								        '<input required class="comment-input comment-input-email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .'" size="30" placeholder="'.__('Email','text-domain').( $req ? ' (Required)' : '' ).'"/>',
+								);
+								$args = array(
+								    'id_form'           => 'commentform',
+								    'class_form'        => 'comment-form',
+								    'id_submit'         => 'submit',
+								    'class_submit'      => 'submit',
+								    'name_submit'       => 'submit',
+								    'submit_button'     => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
+								    'title_reply'       => '',
+								    'title_reply_to'    => __( 'Reply to %s','text-domain' ),
+								    'cancel_reply_link' => __( 'Cancel comment','text-domain' ),
+								    'label_submit'      => __( 'Post comment','text-domain' ),
+								    'format'            => 'xhtml',
+								    'comment_field'     =>  '<textarea id="comment" name="comment" placeholder="'.__('Add a comment...','text-domain').'" cols="45" rows="2" aria-required="true">' .'</textarea>',
+								    'logged_in_as'      => '',
+								    'comment_notes_before' => '',
+								    'fields'            => $fields,
+								);
+
+								comment_form( $args );
+								$comments = get_comments( array('status' => 'approve','order' => 'DESC', 'post_id' => $post->ID) );
+								?>
+
+								<ul class="comments-list">
+								<?php foreach ($comments as $comment): ?>
+									<li>
+										<div class="my-4">
+											<div class="comment-author-image">
+												<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/avatar.jpg" alt="search" class="search-icon-white">
+											</div>
+											<div class="comment-text">
+												<div class="comment-text-author"><?php echo $comment->comment_author; ?></div>
+												<div class="comment-text-content"><?php echo $comment->comment_content; ?></div>
+												<div class="comment-text-date"><?php display_human_readable_time($comment->comment_date); ?></div>
+											</div>
+										</div>
+									</li>
+								<?php endforeach; ?>
+								</ul>
+							</div>
 							<div class="latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
@@ -128,7 +179,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	                ?>
 				</div>
 			</div>
-			<div class="fb-comments" data-href="<?php the_permalink() ?>"></div>
+			<!-- <div class="fb-comments" data-href="<?php the_permalink() ?>"></div> -->
 		</div>
 	</div>
 </div>
