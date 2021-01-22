@@ -34,9 +34,21 @@ do_action( 'genesis_title' );
 	<meta charset="utf-8"/>
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 height=device-height">
-<?php
-wp_head(); // We need this for plugins.
-?>
+	<meta name="google-site-verification" content="1G1FGxFV97lk1LTr0oYmJwlw2yuVID8KkHVp54xAD4Y" /> 
+	<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//web.archive.org/web/20200403194538/https://www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MN6BL8');
+	</script>
+
+	<?php
+	wp_head(); // We need this for plugins.
+	?>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-21820217-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
 </head>
 <?php
 genesis_markup(
