@@ -36,10 +36,16 @@ function hk_taxonomy()  {
                 'has_archive' => true,
                 'rewrite' => array('slug' => $post_type),
                 'show_in_rest' => true,
-                'menu_position' => 5
+                'menu_position' => 5,
+                'supports' => array('title',
+  'thumbnail',
+  'comments',
+  'editor')
             )
         );
     }
+
+
     foreach ($post_types as $post_type => $post_name) {
         foreach ($taxonomies as $post_type => $taxonomy_data) {
             foreach ($taxonomy_data as $taxonomy => $name) {
