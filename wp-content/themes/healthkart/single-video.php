@@ -65,6 +65,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<?php $post_date = get_the_date( 'M j, Y' ); ?>
+								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<div class="post-title">
 								<h1 class="entry-title"><?php the_title(); ?></h1>
