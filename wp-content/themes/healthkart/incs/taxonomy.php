@@ -38,9 +38,10 @@ function hk_taxonomy()  {
                 'show_in_rest' => true,
                 'menu_position' => 5,
                 'supports' => array('title',
-  'thumbnail',
-  'comments',
-  'editor')
+                                  'thumbnail',
+                                  'comments',
+                                  'author',
+                                  'editor')
             )
         );
     }
