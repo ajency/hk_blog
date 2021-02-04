@@ -1,6 +1,6 @@
 <?php 
 	$posts_letter = $_POST['posts_letter'] ?? 'A'; 
-	$category_id = $_POST['category_id'] ?? get_query_var('category_id'); 
+	$category_id = $_POST['cat'] ?? get_query_var('cat'); 
 ?>
 <div class="nested-section-posts-title">
 	Starting with - <span class="nested-section-posts-alphabet"><?php echo $posts_letter; ?></span>
