@@ -41,6 +41,9 @@
 										</span>
 										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+										<?php $post_date = get_the_date( 'M j, Y' ); ?>
+										<span class="last-read"><?php echo $post_date; ?></span>
 									</span>
 									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
@@ -101,6 +104,9 @@
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<?php $post_date = get_the_date( 'M j, Y' ); ?>
+								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						</div>

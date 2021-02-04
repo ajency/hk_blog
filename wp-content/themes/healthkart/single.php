@@ -57,6 +57,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo $views+1; ?> VIEWS</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<span class="last-read"><?php the_date(); ?></span>
 								<?php if($hindi_url): ?>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 									<span class="category"><a href="/<?php echo $hindi_url; ?>">Read in Hindi</a></span>

@@ -53,6 +53,9 @@ add_shortcode( 'read-these-next', function(){?>
 								</span>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<?php $post_date = get_the_date( 'M j, Y' ); ?>
+								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
@@ -142,6 +145,9 @@ global $post, $wpdb;
 									</span>
 									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 									<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<?php $post_date = get_the_date( 'M j, Y' ); ?>
+									<span class="last-read"><?php echo $post_date; ?></span>
 								</span>
 								<div class="recent-post-header">
 									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
@@ -182,7 +188,7 @@ add_shortcode( 'Subscribe-form', function(){?>
 	<div class="form-wrapper subscribe">
 		<div class="wrap">
 			<h2 class="form-title">Subscribe to Healthkart Blog</h2>
-			<p>We’ll email you the latest developments about the Fitness & nutrition and Muscleblaze’s top health news stories, daily.</p>
+			<p>Get your daily updates on fitness, bodybuilding, weight management, nutrition & much more.</p>
 			<div class="form-group">
 		      	<?php echo do_shortcode( '[formidable id=1]' ) ?>
 			</div>
@@ -234,6 +240,9 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 								<a target="_blank" title="Transformation" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag">Transformation</a>
 								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+								<?php $post_date = get_the_date( 'M j, Y' ); ?>
+								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
