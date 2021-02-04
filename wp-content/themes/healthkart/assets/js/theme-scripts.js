@@ -114,6 +114,7 @@ $( document ).ready(function() {
 			success : function( data ){
 				$(".nested-section-posts-wrapper").html('');
 				if( data ) { 
+					console.log("data-------->",data)
 					$(".nested-section-posts-loader").addClass("d-none").removeClass("d-block");
 					$(".nested-section-posts-wrapper").fadeTo(200, 1, function(){
 				        $(this).css("visibility", "visible");
