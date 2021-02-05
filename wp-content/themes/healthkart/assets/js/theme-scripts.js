@@ -96,7 +96,7 @@ $( document ).ready(function() {
 	})
 	$(".nested-section-chips .single-chip").click(function(){
 		var button = $(this);
-		console.log("nested-section-chips--->")
+		console.log("nested-section-chips--->");
 		$.ajax({ 
 			url : ajax_params.url, 
 			data: {
