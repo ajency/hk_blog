@@ -13,14 +13,14 @@ function hk_taxonomy()  {
             'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],*/
         'infographic' => [
-            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+            //'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'transformation' => [
-            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+            //'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
         'video' => [
             'category' => ['singular' => 'Category','plural' => 'Categories', 'slug' => 'videos'], 
-            'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
+            //'tag' => ['singular' => 'Tag','plural' => 'Tags'], 
         ],
     ];
     add_theme_support('post-thumbnails');

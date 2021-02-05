@@ -265,3 +265,29 @@ function register_home_banner_space_sidebar() {
 add_action( 'widgets_init', 'register_home_banner_space_sidebar' );
 
 add_filter( 'wpseo_json_ld_output', '__return_false' );
+
+
+/*********
+remove tags for blog post (change request)
+********/
+// Disable Tags Dashboard WP
+add_action('admin_menu', 'my_remove_sub_menus');
+
+function my_remove_sub_menus() {
+    remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+    remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=secondary_tag');
+}
+// Remove secondary tags support from posts
+function myprefix_unregister_tags() {
+    unregister_taxonomy_for_object_type('post_tag', 'infographic');
+    unregister_taxonomy_for_object_type('post_tag', 'transformation');
+    unregister_taxonomy_for_object_type('post_tag', 'video');
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+    unregister_taxonomy_for_object_type('secondary_tag', 'post');
+    
+}
+add_action('init', 'myprefix_unregister_tags');
+
+
+
+/*********/
