@@ -269,7 +269,7 @@ add_filter( 'wpseo_json_ld_output', '__return_false' );
 
 /*********
 remove tags for blog post (change request)
-********/
+********
 // Disable Tags Dashboard WP
 add_action('admin_menu', 'my_remove_sub_menus');
 
