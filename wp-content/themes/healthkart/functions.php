@@ -218,7 +218,7 @@ function enqueue_theme_scripts() {
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', get_stylesheet_directory_uri().'/assets/js/jquery.js' , '', '', true );
     wp_register_script( 'bootstrap', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js' , '', '', true );
-    wp_register_script( 'themescripts', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', '', true );
+    wp_register_script( 'themescripts', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', false, true );
     wp_register_script( 'slick', get_stylesheet_directory_uri().'/assets/js/slick.min.js' , '', '', true );
     wp_register_script( 'slickanimation', get_stylesheet_directory_uri().'/assets/js/slick-animation.min.js' , '', '', true );
 
@@ -284,7 +284,7 @@ function myprefix_unregister_tags() {
     unregister_taxonomy_for_object_type('post_tag', 'video');
     unregister_taxonomy_for_object_type('post_tag', 'post');
     unregister_taxonomy_for_object_type('secondary_tag', 'post');
-    
+
 }
 add_action('init', 'myprefix_unregister_tags');
 
