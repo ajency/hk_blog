@@ -10278,5 +10278,7 @@ strong {
   @media (max-width: 767px) {
     .videos-banner-iframe {
       height: 300px; } }
-
+.blog-date{
+  font-size: 14px;
+}
 /*# sourceMappingURL=theme-styles.css.map */
