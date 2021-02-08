@@ -412,8 +412,8 @@ function amp_custom_content_after_default_content() {
 	
 }
 
-add_action('amp_post_template_css', 'amp_custom_banner_extension_styling');
-function amp_custom_banner_extension_styling() { ?>
+add_action('amp_post_template_css', 'amp_custom_feild_styling');
+function amp_custom_feild_styling() { ?>
 	.amp-custom-banner-after-post {
 		text-align: center
 	}
