@@ -335,7 +335,7 @@ function amp_custom_content_after_default_content() {
 		$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
 
 		 ?>
-			<div class="content-fields p-3">
+			<div class="amp-content-fields p-3">
 				<div class="content-fields-titles row">
 					<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
 					<label class="content-fields-titles-single col-md-3 px-2">Than</label>
@@ -416,6 +416,13 @@ add_action('amp_post_template_css', 'amp_custom_banner_extension_styling');
 function amp_custom_banner_extension_styling() { ?>
 	.amp-custom-banner-after-post {
 		text-align: center
+	}
+	.amp-content-fields {
+	    background-color: #212121;
+	    color: #fff;
+	    border-radius: 10px;
+	    font-size: 13px;
+	    font-weight: bolder;
 	}
 <?php 
 }
