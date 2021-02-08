@@ -49,7 +49,9 @@
 						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 					</div>
 				</div>
-			<?php endwhile;
+			<?php
+			break;
+			 endwhile;
 		endif; ?>
 
 	<div class="col-12 col-md-6">
@@ -60,11 +62,14 @@
 		'post_status' => 'publish',
 		'post__not_in' => [$post_id]
 		);
+		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
 			while( $main_post->have_posts() ) :
 				$main_post->the_post(); 
-				$post_ids[] = get_the_id();?>
+				$post_ids[] = get_the_id();
+				$count ++;
+				?>
 				<div class="latest-articles-single row mb-4">
 					<div class="latest-articles-single-image col-md-5 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
@@ -101,7 +106,11 @@
 						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 					</div>
 				</div>
-			<?php endwhile;
+			<?php 
+		if($count == 3){
+			break;
+		}
+		endwhile;
 		endif; 
 		set_query_var( 'post_ids', $post_ids );
 	?>
