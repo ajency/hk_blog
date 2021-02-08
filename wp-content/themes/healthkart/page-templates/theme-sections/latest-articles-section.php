@@ -7,6 +7,7 @@
 			'posts_per_page' => 1,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
+			'ignore_sticky_posts'=>true
 		);
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
@@ -58,7 +59,8 @@
 		'posts_per_page' => 3,
 		'post_type' => array('post'),
 		'post_status' => 'publish',
-		'post__not_in' => [$post_id]
+		'post__not_in' => [$post_id],
+		'ignore_sticky_posts'=>true
 		);
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
