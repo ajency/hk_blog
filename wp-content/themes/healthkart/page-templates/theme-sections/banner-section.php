@@ -40,7 +40,7 @@
 										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
 										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 										<?php $post_date = get_the_date( 'M j, Y' ); ?>
-										<span class="text-white"><?php echo $post_date; ?></span>
+										<span class="text-white blog-date"><?php echo $post_date; ?></span>
 									</span>
 									<h2 class="m-0 title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 									<span class="text-white"><?php echo hk_get_excerpt(100); ?></span>
