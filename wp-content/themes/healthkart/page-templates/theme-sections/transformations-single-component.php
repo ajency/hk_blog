@@ -41,9 +41,9 @@
 		<div class="content-fields p-3">
 			<div class="content-fields-titles row">
 				<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
-				<label class="content-fields-titles-single col-md-3 px-2">Than</label>
+				<label class="content-fields-titles-single col-md-3 px-2">Then</label>
 				<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
-				<label class="content-fields-titles-single col-md-3 px-2">Bodyfat than</label>
+				<label class="content-fields-titles-single col-md-3 px-2">Bodyfat then</label>
 				<label class="content-fields-titles-single col-md-2 px-2">Now</label>
 			</div>
 			<div class="content-fields-values row">

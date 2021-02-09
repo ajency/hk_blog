@@ -291,3 +291,245 @@ add_action('init', 'myprefix_unregister_tags');
 
 
 /*********/
+
+
+/********Tansformaion for AMP **********/
+
+add_action('ampforwp_inside_post_content_before','amp_custom_image_before_content');
+function amp_custom_image_before_content() {
+
+	$post_type = get_post_type(); 
+	if($post_type == "transformation"){
+		$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
+		$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+		$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+		$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+
+		$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
+		$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
+		$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
+		$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
+		$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
+		$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
+		 ?>
+		 <div class="amp-content-fields p-3">
+				<div class="content-fields-titles row">
+					<div class="age-content border-r">
+						<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
+					</div>
+					<div class="fat-content border-r">
+						<label class="content-fields-titles-single col-md-3 px-2">Then</label>
+						<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
+					</div>
+					<div class="fat-content">
+						<label class="content-fields-titles-single col-md-3 px-2">Bodyfat then</label>
+						<label class="content-fields-titles-single col-md-2 px-2">Now</label>
+					</div>
+				</div>
+				<div class="content-fields-values row">
+					<div class="age-content border-r">
+						<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
+					</div>
+					<div class="fat-content border-r">
+						<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
+						<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
+						<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
+					</div>
+					<div class="fat-content">
+						<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
+						<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
+						<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="blog_featured_img my-4 content-mobile">
+				<a class="row amp-img-container" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				<div class="position-relative col-md-6 pl-3 pr-1 transform">
+					<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+					<div class="img-tag px-3 py-1">Before</div>
+				</div>
+				<div class="position-relative col-md-6 pl-1 pr-3 transform">
+					<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+					<div class="img-tag px-3 py-1">After</div>
+				</div>
+				</a>
+			</div>
+
+
+		<?php 
+	}
+	
+}
+
+
+add_action('ampforwp_after_post_content','amp_custom_content_after_default_content');
+function amp_custom_content_after_default_content() {
+	$post_type = get_post_type();  
+	if($post_type == "transformation"){
+		
+
+		 ?>
+			<div class="entry-content">
+				<?php $transform_reason = get_post_meta(get_the_id(), 'hk_transform_reason', true); 
+					if($transform_reason): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">Why you decided to Transform?</h2>
+							<div class="entry-content-single"><?php echo $transform_reason; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $accomplish_goal = get_post_meta(get_the_id(), 'hk_accomplish_goal', true); 
+					if($accomplish_goal): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">How did you accomplish your Goal:</h2>
+							<div class="entry-content-single"><?php echo $accomplish_goal; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $training_routine = get_post_meta(get_the_id(), 'hk_training_routine', true); 
+					if($training_routine): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">Training routine that helped you achieve your Goals</h2>
+							<div class="entry-content-single"><?php echo $training_routine; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $supplements_that_helped = get_post_meta(get_the_id(), 'hk_supplements_that_helped', true); 
+					if($supplements_that_helped): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">Supplements:</h2>
+							<div class="entry-content-single"><?php echo $supplements_that_helped; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $challenges = get_post_meta(get_the_id(), 'hk_challenges', true); 
+					if($challenges): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">What challenges did you face?</h2>
+							<div class="entry-content-single"><?php echo $challenges; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $how_did_you_overcome = get_post_meta(get_the_id(), 'hk_how_did_you_overcome', true); 
+					if($how_did_you_overcome): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">How did you overcome these challenges?</h2>
+							<div class="entry-content-single"><?php echo $how_did_you_overcome; ?></div>
+					</div>
+				<?php endif; ?>
+				<?php $future_suggestion = get_post_meta(get_the_id(), 'hk_future_suggestion', true); 
+					if($future_suggestion): ?>
+					<div class="my-2">
+							<h2 class="entry-content-heading">Suggestion for future transformers</h2>
+							<div class="entry-content-single"><?php echo $future_suggestion; ?></div>
+					</div>
+				<?php endif; ?>
+			</div> 
+
+		<?php 
+	}
+	
+}
+
+add_action('amp_post_template_css', 'amp_custom_feild_styling');
+function amp_custom_feild_styling() { ?>
+	.amp-custom-banner-after-post {
+		text-align: center
+	}
+	.amp-content-fields {
+	    background-color: #212121;
+	    color: #fff;
+	    border-radius: 10px;
+	    font-size: 13px;
+	    font-weight: bolder;
+		padding: 9px 0;
+		margin: 21px 0;
+		display: flex;
+    	flex-direction: column;
+	}
+	.img-tag{
+		position: absolute;
+		color: #fff;
+		background-color: #212121;
+		border-radius: 10px;
+		border: 1px solid #707070;
+		bottom: 22px;
+		left: 17px;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 2px 12px;
+	}
+	.amp-img-container{
+		/*justify-content: space-between;*/
+		justify-content: center;
+	}
+	.amp-img-container .transform {
+    	width: 46%;
+    	padding: 0px 5px;
+		max-width: 200px;
+	}
+	.amp-img-container .transform img {
+    	width: 100%;
+    	height: auto;
+	}
+	/*@media (max-width: 767px){*/
+		.amp-wp-article-content .the_content h2 {
+    		font-size: 17px;
+			color: #212529;
+		}
+		.amp-wp-article-content .the_content p {
+    		font-size: 15px;
+			line-height: 27px;
+			color: #333333;
+		}
+		.amp-wp-article-header h1.amp-wp-title{
+			font-size: 24px;
+			color: #000;
+			font-weight: 700;
+		}
+		/**For ordering of black box **/
+		.amp-wp-article-content .amp-wp-content.the_content{
+			display: grid;
+			padding-bottom: 24px;
+		}
+		.blog_featured_img.content-mobile{
+			order: -2;
+			margin-top: 8px;
+		}
+		.amp-content-fields{
+			order: -1;
+		}
+	/*}*/	
+	.fat-content {
+    	/* width: 42%; */
+		width: 35%;
+		padding: 0 10px;
+    	display: flex;
+    	justify-content: space-between;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+	@media (max-width:345px){
+		.fat-content {
+			padding: 0;
+			justify-content: space-around;
+		}
+	}
+	.border-r{
+		border-right: 1px solid #707070;
+	}
+	.age-content {
+    	width: 15%;
+		text-align: center;
+		margin-left: auto;
+   		margin-right: auto;
+	}
+	.transformation-before {
+ 	   color: #FC5A5A;
+	}
+	.transformation-seperator {
+		color: #707070;
+		font-size: 20px;
+	}
+	.transformation-after {
+    	color: #3DD598;
+	}
+<?php 
+}
+/*****************/
