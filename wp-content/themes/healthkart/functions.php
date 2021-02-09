@@ -428,108 +428,116 @@ function amp_custom_content_after_default_content() {
 }
 
 add_action('amp_post_template_css', 'amp_custom_feild_styling');
-function amp_custom_feild_styling() { ?>
-	.amp-custom-banner-after-post {
-		text-align: center
-	}
-	.amp-content-fields {
-	    background-color: #212121;
-	    color: #fff;
-	    border-radius: 10px;
-	    font-size: 13px;
-	    font-weight: bolder;
-		padding: 9px 0;
-		margin: 21px 0;
-		display: flex;
-    	flex-direction: column;
-	}
-	.img-tag{
-		position: absolute;
-		color: #fff;
-		background-color: #212121;
-		border-radius: 10px;
-		border: 1px solid #707070;
-		bottom: 22px;
-		left: 17px;
-		font-size: 18px;
-		font-weight: bold;
-		padding: 2px 12px;
-	}
-	.amp-img-container{
-		/*justify-content: space-between;*/
-		justify-content: center;
-	}
-	.amp-img-container .transform {
-    	width: 46%;
-    	padding: 0px 5px;
-		max-width: 200px;
-	}
-	.amp-img-container .transform img {
-    	width: 100%;
-    	height: auto;
-	}
-	/*@media (max-width: 767px){*/
-		.amp-wp-article-content .the_content h2 {
-    		font-size: 17px;
-			color: #212529;
+function amp_custom_feild_styling() { 
+	$post_type = get_post_type();  
+	if($post_type == "transformation"){
+
+		?>
+		.amp-wp-article-featured-image {
+			display: none;
 		}
-		.amp-wp-article-content .the_content p {
-    		font-size: 15px;
-			line-height: 27px;
-			color: #333333;
+		.amp-custom-banner-after-post {
+			text-align: center
 		}
-		.amp-wp-article-header h1.amp-wp-title{
-			font-size: 24px;
-			color: #000;
-			font-weight: 700;
+		.amp-content-fields {
+		    background-color: #212121;
+		    color: #fff;
+		    border-radius: 10px;
+		    font-size: 13px;
+		    font-weight: bolder;
+			padding: 9px 0;
+			margin: 21px 0;
+			display: flex;
+	    	flex-direction: column;
 		}
-		/**For ordering of black box **/
-		.amp-wp-article-content .amp-wp-content.the_content{
-			display: grid;
-			padding-bottom: 24px;
+		.img-tag{
+			position: absolute;
+			color: #fff;
+			background-color: #212121;
+			border-radius: 10px;
+			border: 1px solid #707070;
+			bottom: 22px;
+			left: 17px;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 2px 12px;
 		}
-		.blog_featured_img.content-mobile{
-			order: -2;
-			margin-top: 8px;
+		.amp-img-container{
+			/*justify-content: space-between;*/
+			justify-content: center;
 		}
-		.amp-content-fields{
-			order: -1;
+		.amp-img-container .transform {
+	    	width: 46%;
+	    	padding: 0px 5px;
+			max-width: 200px;
 		}
-	/*}*/	
-	.fat-content {
-    	/* width: 42%; */
-		width: 35%;
-		padding: 0 10px;
-    	display: flex;
-    	justify-content: space-between;
-		margin-left: auto;
-    	margin-right: auto;
-	}
-	@media (max-width:345px){
+		.amp-img-container .transform img {
+	    	width: 100%;
+	    	height: auto;
+		}
+		/*@media (max-width: 767px){*/
+			.amp-wp-article-content .the_content h2 {
+	    		font-size: 17px;
+				color: #212529;
+			}
+			.amp-wp-article-content .the_content p {
+	    		font-size: 15px;
+				line-height: 27px;
+				color: #333333;
+			}
+			.amp-wp-article-header h1.amp-wp-title{
+				font-size: 24px;
+				color: #000;
+				font-weight: 700;
+			}
+			/**For ordering of black box **/
+			.amp-wp-article-content .amp-wp-content.the_content{
+				display: grid;
+				padding-bottom: 24px;
+			}
+			.blog_featured_img.content-mobile{
+				order: -2;
+				margin-top: 8px;
+			}
+			.amp-content-fields{
+				order: -1;
+			}
+		/*}*/	
 		.fat-content {
-			padding: 0;
-			justify-content: space-around;
+	    	/* width: 42%; */
+			width: 35%;
+			padding: 0 10px;
+	    	display: flex;
+	    	justify-content: space-between;
+			margin-left: auto;
+	    	margin-right: auto;
 		}
+		@media (max-width:345px){
+			.fat-content {
+				padding: 0;
+				justify-content: space-around;
+			}
+		}
+		.border-r{
+			border-right: 1px solid #707070;
+		}
+		.age-content {
+	    	width: 15%;
+			text-align: center;
+			margin-left: auto;
+	   		margin-right: auto;
+		}
+		.transformation-before {
+	 	   color: #FC5A5A;
+		}
+		.transformation-seperator {
+			color: #707070;
+			font-size: 20px;
+		}
+		.transformation-after {
+	    	color: #3DD598;
+		}
+	<?php 
 	}
-	.border-r{
-		border-right: 1px solid #707070;
-	}
-	.age-content {
-    	width: 15%;
-		text-align: center;
-		margin-left: auto;
-   		margin-right: auto;
-	}
-	.transformation-before {
- 	   color: #FC5A5A;
-	}
-	.transformation-seperator {
-		color: #707070;
-		font-size: 20px;
-	}
-	.transformation-after {
-    	color: #3DD598;
-	}
-<?php 
 }
 /*****************/
