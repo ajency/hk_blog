@@ -456,19 +456,21 @@ function amp_custom_feild_styling() { ?>
 		padding: 2px 12px;
 	}
 	.amp-img-container{
-		justify-content: space-between;
+		/*justify-content: space-between;*/
+		justify-content: center;
 	}
 	.amp-img-container .transform {
     	width: 46%;
     	padding: 0px 5px;
+		max-width: 200px;
 	}
 	.amp-img-container .transform img {
     	width: 100%;
     	height: auto;
 	}
-	@media (max-width: 767px){
+	/*@media (max-width: 767px){*/
 		.amp-wp-article-content .the_content h2 {
-    		font-size: 18px;
+    		font-size: 17px;
 			color: #212529;
 		}
 		.amp-wp-article-content .the_content p {
@@ -493,7 +495,7 @@ function amp_custom_feild_styling() { ?>
 		.amp-content-fields{
 			order: -1;
 		}
-	}	
+	/*}*/	
 	.fat-content {
     	/* width: 42%; */
 		width: 35%;
