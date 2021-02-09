@@ -306,7 +306,7 @@ function amp_custom_image_before_content() {
 		$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
 		 ?>
 			<div class="blog_featured_img my-4 content-mobile">
-				<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				<a class="row amp-img-container" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 				<div class="position-relative col-md-6 pl-3 pr-1 transform">
 					<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
 					<div class="img-tag px-3 py-1">Before</div>
@@ -337,20 +337,32 @@ function amp_custom_content_after_default_content() {
 		 ?>
 			<div class="amp-content-fields p-3">
 				<div class="content-fields-titles row">
-					<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
-					<label class="content-fields-titles-single col-md-3 px-2">Than</label>
-					<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
-					<label class="content-fields-titles-single col-md-3 px-2">Bodyfat than</label>
-					<label class="content-fields-titles-single col-md-2 px-2">Now</label>
+					<div class="age-content border-r">
+						<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
+					</div>
+					<div class="fat-content border-r">
+						<label class="content-fields-titles-single col-md-3 px-2">Then</label>
+						<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
+					</div>
+					<div class="fat-content">
+						<label class="content-fields-titles-single col-md-3 px-2">Bodyfat then</label>
+						<label class="content-fields-titles-single col-md-2 px-2">Now</label>
+					</div>
 				</div>
 				<div class="content-fields-values row">
-					<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
-					<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
-					<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
-					<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
-					<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
-					<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
-					<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
+					<div class="age-content border-r">
+						<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
+					</div>
+					<div class="fat-content border-r">
+						<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
+						<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
+						<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
+					</div>
+					<div class="fat-content">
+						<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
+						<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
+						<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
+					</div>
 				</div>
 			</div>
 
@@ -423,6 +435,95 @@ function amp_custom_feild_styling() { ?>
 	    border-radius: 10px;
 	    font-size: 13px;
 	    font-weight: bolder;
+		padding: 9px 0;
+		margin: 21px 0;
+		display: flex;
+    	flex-direction: column;
+	}
+	.img-tag{
+		position: absolute;
+		color: #fff;
+		background-color: #212121;
+		border-radius: 10px;
+		border: 1px solid #707070;
+		bottom: 22px;
+		left: 17px;
+		font-size: 18px;
+		font-weight: bold;
+		padding: 2px 12px;
+	}
+	.amp-img-container{
+		justify-content: space-between;
+	}
+	.amp-img-container .transform {
+    	width: 46%;
+    	padding: 0px 5px;
+	}
+	.amp-img-container .transform img {
+    	width: 100%;
+    	height: auto;
+	}
+	@media (max-width: 767px){
+		.amp-wp-article-content .the_content h2 {
+    		font-size: 18px;
+			color: #212529;
+		}
+		.amp-wp-article-content .the_content p {
+    		font-size: 15px;
+			line-height: 27px;
+			color: #333333;
+		}
+		.amp-wp-article-header h1.amp-wp-title{
+			font-size: 24px;
+			color: #000;
+			font-weight: 700;
+		}
+		/**For ordering of black box **/
+		.amp-wp-article-content .amp-wp-content.the_content{
+			display: grid;
+			padding-bottom: 24px;
+		}
+		.blog_featured_img.content-mobile{
+			order: -2;
+			margin-top: 8px;
+		}
+		.amp-content-fields{
+			order: -1;
+		}
+	}	
+	.fat-content {
+    	/* width: 42%; */
+		width: 35%;
+		padding: 0 10px;
+    	display: flex;
+    	justify-content: space-between;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+	@media (max-width:345px){
+		.fat-content {
+			padding: 0;
+			justify-content: space-around;
+		}
+	}
+	.border-r{
+		border-right: 1px solid #707070;
+	}
+	.age-content {
+    	width: 15%;
+		text-align: center;
+		margin-left: auto;
+   		margin-right: auto;
+	}
+	.transformation-before {
+ 	   color: #FC5A5A;
+	}
+	.transformation-seperator {
+		color: #707070;
+		font-size: 20px;
+	}
+	.transformation-after {
+    	color: #3DD598;
 	}
 <?php 
 }
