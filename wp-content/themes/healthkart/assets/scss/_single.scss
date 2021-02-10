@@ -509,6 +509,29 @@
 		}
 	}
 }
+/*banner css*/
+.popupOverlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000000a6;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 99;
+    
+	img{
+	width: 80%;
+	height: auto;
+	@media (max-width:767px){
+		width: 95%;
+	}
+  }
+}
+
+
 /* Place Holder CSS */
 ::-webkit-input-placeholder {
   color: #000;
