@@ -11592,13 +11592,13 @@ strong {
   margin-top: 0;
   margin-bottom: 15px;
   color: #141516;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .footer .footer-widgets .footer-wrapper .footer-sidebar .widget-title {
-    height: 42px;
+    /*height: 42px;*/
   }
 }
 
