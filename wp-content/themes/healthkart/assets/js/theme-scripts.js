@@ -454,3 +454,11 @@ $(function() {
 		return showPage(currentPage - 1);
 	});
 });
+$(document).ready(function(){
+	$(".blog_featured_img img").click(function(){
+	  $(".popupOverlay").css("display", "flex");
+	});
+	$(".popupOverlay").click(function(){
+	  $(this).css("display", "none");
+	});
+});

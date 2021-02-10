@@ -92,6 +92,13 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 						</header>
 						<div class="col-md-8 col-12 single-post-content">
 							<div class="entry-content entry-description mt-2"><p><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></p></div>
+							<div class="popupOverlay">
+								<?php
+								if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'large', ['title' => get_the_title()] );
+								endif;
+								?>
+							</div>
 							<div class="blog_featured_img my-4">
 								<?php
 								if ( has_post_thumbnail() ) :
