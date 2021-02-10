@@ -525,6 +525,9 @@
 	img{
 	width: 80%;
 	height: auto;
+	@media (max-width:767px){
+		width: 95%;
+	}
   }
 }
 

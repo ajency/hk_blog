@@ -11019,6 +11019,12 @@ strong {
   height: auto;
 }
 
+@media (max-width: 767px) {
+  .popupOverlay img {
+    width: 95%;
+  }
+}
+
 /* Place Holder CSS */
 ::-webkit-input-placeholder {
   color: #000;
