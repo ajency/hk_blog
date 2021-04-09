@@ -58,7 +58,7 @@
 						</span>
 						<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 					</div>
-					<div class="content-description"><?php echo hk_get_excerpt(140); ?></div>
+					<div class="content-description text-justify"><?php echo hk_get_excerpt(140); ?></div>
 				</div>
 			</div>
 		<?php endwhile;

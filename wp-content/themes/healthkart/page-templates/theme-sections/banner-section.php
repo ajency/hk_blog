@@ -5,7 +5,9 @@
 		$args = array(
 			'post_type' => array('post'),
 			'post_status' => 'publish',
+			'posts_per_page' => 5,
 			'meta_key' => 'hk_featured_banner_post',
+			'ignore_sticky_posts' => true,
 			'meta_query'     => [
 		        [
 		            'key'      => 'hk_featured_banner_post',
@@ -13,7 +15,8 @@
 		        ]
 		    ],
 		);
-		$banner_posts = new wp_query( $args );?>
+		$banner_posts = new wp_query( $args );
+		?>
 		<?php  // Loop through posts
 			if( $banner_posts->have_posts() ) :
 				while( $banner_posts->have_posts() ) :
