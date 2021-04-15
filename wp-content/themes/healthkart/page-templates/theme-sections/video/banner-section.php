@@ -19,13 +19,17 @@
 				while( $banner_posts->have_posts() ) :
 					$banner_posts->the_post(); 
 					$post_ids[] = get_the_ID(); 
-					preg_match("/<!-- wp:core-embed\/youtube(.*?)-->/", get_the_content(), $matches);
-					if(isset($matches[1])):
-						$embed_video = json_decode($matches[1], true);
-						if(isset($embed_video['url'])): ?>
-							<iframe class="videos-banner-iframe" width="100%" src="<?php echo $embed_video['url'];?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-						<?php endif;
-					endif;
+
+preg_match('/<div[^>]*>(.*?)<\/div>/s', get_the_content(), $matches);
+if(isset($matches[1])):
+foreach ($matches as $video) { 
+ ?>
+									<iframe class="videos-banner-iframe banner-video" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+	<?php 
+
+	}
+endif;
 				endwhile;
 		endif; ?>
 	</div>

@@ -1847,3 +1847,6 @@ p.entry-meta {
 	}
 
 }
+.banner-video:nth-child(odd),.explore-articles-single:nth-child(odd),.more-articles-single:nth-child(odd),.trending-articles-single:nth-child(odd),.videos-single:nth-child(odd) {
+    display: none;
+}

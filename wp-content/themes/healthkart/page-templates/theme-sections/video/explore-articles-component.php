@@ -21,15 +21,17 @@
 	if( $main_post->have_posts() ) :
 		while( $main_post->have_posts() ) :
 			$main_post->the_post(); 
-			preg_match("/<!-- wp:core-embed\/youtube(.*?)-->/", get_the_content(), $matches);
-			if(isset($matches[1])):
-				$embed_video = json_decode($matches[1], true);
-				if(isset($embed_video['url'])):?>
-					<div class="explore-articles-single row mb-4 col-6 m-0">
+
+
+preg_match('/<div[^>]*>(.*?)<\/div>/s', get_the_content(), $matches);
+if(isset($matches[1])):
+foreach ($matches as $video) { 
+ ?>
+			<div class="explore-articles-single row mb-4 col-6 m-0">
 						<div class="explore-articles-single-image mb-2 col-md-5 col-12 pl-0">
 							<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 								<div class="videos-single-image-overlay"></div>
-									<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $embed_video['url'];?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+									<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 							</a>
 						</div>
 						<div class="explore-articles-single-content col-md-7 col-12 p-0">
@@ -48,8 +50,10 @@
 							</div>
 						</div>
 					</div>
-				<?php endif;
-			endif;
+	<?php 
+
+	}
+endif;
 		endwhile;
 	endif; 
 	set_query_var( 'post_ids', $post_ids );
