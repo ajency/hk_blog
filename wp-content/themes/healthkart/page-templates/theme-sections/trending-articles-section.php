@@ -1,4 +1,4 @@
-<div class="trending-articles-section mt-3">
+<div class="trending-articles-section trending-articles-section-article mt-3">
 	<div class="trending-articles-heading pt-3 pb-3">TRENDING ARTICLES</div>
 	<div class="trending-articles mt-4">
 		<div class="row">
