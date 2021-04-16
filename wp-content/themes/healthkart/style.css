@@ -78,14 +78,156 @@ Requires PHP: 5.6
 - Print Styles
 */
 
-
 /* HTML5 Reset
 ---------------------------------------------------------------------------- */
 
 /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
 ---------------------------------------------------------------------------- */
 /* stylelint-disable */
-html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+body {
+	margin: 0;
+}
+main {
+	display: block;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+a {
+	background-color: transparent;
+}
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+b,
+strong {
+	font-weight: bolder;
+}
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+small {
+	font-size: 80%;
+}
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
+img {
+	border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+button,
+input {
+	overflow: visible;
+}
+button,
+select {
+	text-transform: none;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+	-webkit-appearance: button;
+}
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring,
+button:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+legend {
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+progress {
+	vertical-align: baseline;
+}
+textarea {
+	overflow: auto;
+}
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+details {
+	display: block;
+}
+summary {
+	display: list-item;
+}
+[hidden],
+template {
+	display: none;
+}
 /* stylelint-enable */
 
 /* Box Sizing
@@ -140,7 +282,6 @@ html {
 	content: " ";
 	display: table;
 }
-
 
 /* Defaults
 ---------------------------------------------------------------------------- */
@@ -356,14 +497,14 @@ figure {
 	width: 11.1111%;
 }
 
-.gallery-columns-2 .gallery-item:nth-child(2n+1),
-.gallery-columns-3 .gallery-item:nth-child(3n+1),
-.gallery-columns-4 .gallery-item:nth-child(4n+1),
-.gallery-columns-5 .gallery-item:nth-child(5n+1),
-.gallery-columns-6 .gallery-item:nth-child(6n+1),
-.gallery-columns-7 .gallery-item:nth-child(7n+1),
-.gallery-columns-8 .gallery-item:nth-child(8n+1),
-.gallery-columns-9 .gallery-item:nth-child(9n+1) {
+.gallery-columns-2 .gallery-item:nth-child(2n + 1),
+.gallery-columns-3 .gallery-item:nth-child(3n + 1),
+.gallery-columns-4 .gallery-item:nth-child(4n + 1),
+.gallery-columns-5 .gallery-item:nth-child(5n + 1),
+.gallery-columns-6 .gallery-item:nth-child(6n + 1),
+.gallery-columns-7 .gallery-item:nth-child(7n + 1),
+.gallery-columns-8 .gallery-item:nth-child(8n + 1),
+.gallery-columns-9 .gallery-item:nth-child(9n + 1) {
 	clear: left;
 }
 
@@ -558,7 +699,6 @@ th {
 	margin-bottom: 30px;
 }
 
-
 /* Structure and Layout
 ---------------------------------------------------------------------------- */
 
@@ -571,7 +711,6 @@ th {
 }
 
 @keyframes fadein {
-
 	from {
 		opacity: 0;
 	}
@@ -579,7 +718,6 @@ th {
 	to {
 		opacity: 1;
 	}
-
 }
 
 /* Site Inner
@@ -590,7 +728,6 @@ th {
 	margin: 0 auto;
 	padding: 60px 30px 0;
 }
-
 
 /* Common Classes
 ---------------------------------------------------------------------------- */
@@ -849,7 +986,6 @@ figcaption,
 	margin-top: 10px;
 }
 
-
 /* Plugins
 ---------------------------------------------------------------------------- */
 
@@ -961,7 +1097,6 @@ figcaption,
 	height: 300px;
 }
 
-
 /* Skip Links
 ---------------------------------------------------------------------------- */
 
@@ -985,7 +1120,6 @@ figcaption,
 	color: #333;
 	outline: #ccc solid 1px;
 }
-
 
 /* Site Header
 ---------------------------------------------------------------------------- */
@@ -1040,7 +1174,6 @@ figcaption,
 	width: 1px;
 	word-wrap: normal !important;
 }
-
 
 /* Site Navigation
 ---------------------------------------------------------------------------- */
@@ -1234,7 +1367,6 @@ figcaption,
 	margin-right: 10px;
 	padding: 0;
 }
-
 
 /* Content Area
 ---------------------------------------------------------------------------- */
@@ -1436,7 +1568,6 @@ p.entry-meta {
 	margin-bottom: 0;
 }
 
-
 /* Site Footer
 ---------------------------------------------------------------------------- */
 
@@ -1453,21 +1584,17 @@ p.entry-meta {
 	margin-bottom: 0;
 }
 
-
 /* Media Queries
 ---------------------------------------------------------------------------- */
 
 @media only screen and (min-width: 480px) {
-
 	table {
 		table-layout: auto;
 		word-break: normal;
 	}
-
 }
 
 @media only screen and (min-width: 960px) {
-
 	/* Site Header
 	--------------------------------------------- */
 
@@ -1702,14 +1829,12 @@ p.entry-meta {
 		margin-bottom: 0;
 		width: calc(100% / 3);
 	}
-
 }
 
 /* Print Styles
 ---------------------------------------------------------------------------- */
 
 @media print {
-
 	*,
 	*::before,
 	*::after {
@@ -1828,7 +1953,6 @@ p.entry-meta {
 		widows: 3;
 	}
 
-
 	img {
 		page-break-after: avoid;
 		page-break-inside: avoid;
@@ -1845,8 +1969,17 @@ p.entry-meta {
 	ul {
 		page-break-before: avoid;
 	}
-
 }
-.banner-video:nth-child(odd),.explore-articles-single:nth-child(odd),.more-articles-single:nth-child(odd),.trending-articles-single:nth-child(odd),.videos-single:nth-child(odd) {
-    display: none;
+.banner-video:nth-child(odd),
+.explore-articles-single:nth-child(odd),
+.more-articles-single:nth-child(odd),
+.trending-articles-single:nth-child(odd),
+.videos-single:nth-child(odd) {
+	display: none;
+}
+.latest-reads .recent-post {
+	display: none;
+}
+.latest-reads .recent-post:nth-child(-n + 5) {
+		display: block;
 }
