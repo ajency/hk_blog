@@ -1972,15 +1972,23 @@ p.entry-meta {
 }
 
 .explore-articles-single:nth-child(odd){}
+
+.trending-articles-section .trending-articles-single.trending-articles-single-main{
+	display: none;
+}
+.trending-articles-section .trending-articles-single.trending-articles-single-main:nth-child(-n + 2) {
+	display: block;
+}
 .banner-video:nth-child(odd),
-.more-articles-single:nth-child(odd),
-.trending-articles-single:nth-child(odd),
 .videos-single:nth-child(odd) {
 	display: none;
 }
 .latest-reads .recent-post {
 	display: none;
 }
+.more-articles-section{}
+
+.more-articles-single:nth-child(odd){}
 .latest-reads .recent-post:nth-child(-n + 6) {
 	display: block;
 }
