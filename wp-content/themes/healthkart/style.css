@@ -1981,5 +1981,10 @@ p.entry-meta {
 	display: none;
 }
 .latest-reads .recent-post:nth-child(-n + 6) {
-		display: block;
+	display: block;
+}
+@media (min-width: 768px) {
+	.infographics-articles-single:after {
+	display: none;
+	}
 }
