@@ -1980,6 +1980,6 @@ p.entry-meta {
 .latest-reads .recent-post {
 	display: none;
 }
-.latest-reads .recent-post:nth-child(-n + 5) {
+.latest-reads .recent-post:nth-child(-n + 6) {
 		display: block;
 }
