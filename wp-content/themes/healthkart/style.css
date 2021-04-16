@@ -1988,7 +1988,6 @@ p.entry-meta {
 .latest-reads .recent-post {
 	display: none;
 }
-.more-articles-section{}
 
 .more-videos-section .more-articles-single:nth-child(odd){display: none;}
 .latest-reads .recent-post:nth-child(-n + 6) {
