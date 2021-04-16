@@ -1970,8 +1970,9 @@ p.entry-meta {
 		page-break-before: avoid;
 	}
 }
+
+.explore-articles-single:nth-child(odd){}
 .banner-video:nth-child(odd),
-.explore-articles-single:nth-child(odd),
 .more-articles-single:nth-child(odd),
 .trending-articles-single:nth-child(odd),
 .videos-single:nth-child(odd) {
