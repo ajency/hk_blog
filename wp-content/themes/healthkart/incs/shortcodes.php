@@ -10,10 +10,10 @@ add_shortcode( 'year', function(){
 });
 add_shortcode( 'read-these-next', function(){?>
 	<div class="read-these-next mt-4">
-		<div class="section-title pb-3">Read these next</div>
+		<div class="section-title pb-3"> Read these next</div>
 		<?php
 			$args = array(
-				'posts_per_page' => 5,
+				'posts_per_page' => 4,
 				'post_type' => 'post',
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
@@ -22,6 +22,11 @@ add_shortcode( 'read-these-next', function(){?>
 			        'before'   => get_the_date('Y-m-d')
 			    ),
 			);
+// 			foreach($args as $val){
+//   if(!is_array($val)){
+//         echo $val, '<br>';
+//     }
+// }
 			// Query posts
 			$wpex_query = new wp_query( $args );?>
 			<?php  // Loop through posts

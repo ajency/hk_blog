@@ -1,4 +1,4 @@
-<div class="explore-articles-section">
+<div class="explore-articles-section explore-video-section">
 	<div class="explore-articles-heading pt-3 pb-3">EXPLORE VIDEOS</div>
 	<?php 
 	$args = array(

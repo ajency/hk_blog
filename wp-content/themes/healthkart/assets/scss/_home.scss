@@ -91,7 +91,7 @@
 					font-weight: 600;
 					color: black;
 					@media (max-width: 767px) {
-						font-size: 18px;
+						font-size: 16px;
 					}
 				}
 			}
@@ -138,7 +138,7 @@
 			.title {
 				line-height: 22px !important;
 				a {
-					font-size: 18px;
+					font-size: 16px;
 					font-weight: 600;
 					color: #000;
 				}
@@ -275,7 +275,7 @@
 				.title {
 					line-height: 22px !important;
 					a {
-						font-size: 18px;
+						font-size: 16px;
 						font-weight: 600;
 						color: black;
 					}
@@ -368,7 +368,7 @@
 				.title {
 					line-height: 22px !important;
 					a {
-						font-size: 18px;
+						font-size: 16px;
 						font-weight: 600;
 						color: black;
 					}
@@ -545,7 +545,7 @@
 				.title {
 					line-height: 22px !important;
 					a {
-						font-size: 18px;
+						font-size: 16px;
 						font-weight: 600;
 						color: black;
 					}
@@ -666,7 +666,7 @@
 			.title {
 				line-height: 26px;
 				a {
-					font-size: 18px;
+					font-size: 16px;
 					font-weight: 600;
 					color: #000;
 				}
@@ -941,4 +941,10 @@
 }
 .blog-date {
 	font-size: 14px;
+}
+h2.title a {
+	font-size: 25px;
+	@media (max-width: 767px) {
+		font-size: 16px !important;
+	}
 }
