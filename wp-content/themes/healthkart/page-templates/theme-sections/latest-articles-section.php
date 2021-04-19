@@ -111,6 +111,7 @@
 			break;
 		}
 		endwhile;
+		wp_reset_postdata();
 		endif; 
 		set_query_var( 'post_ids', $post_ids );
 	?>

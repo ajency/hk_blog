@@ -56,6 +56,7 @@
 							</div>
 						</div>
 					<?php endwhile;
+					wp_reset_postdata();
 				endif; ?>
 			</div>
 			<div class="col-md-4 col-12 sidebar">
