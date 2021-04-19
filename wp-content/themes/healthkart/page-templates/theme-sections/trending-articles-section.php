@@ -17,6 +17,7 @@
 					'update_post_term_cache' => false, 
         			'update_post_meta_cache' => false 
 				);
+				$count = 0;
 				$main_post = new wp_query( $args );
 				if( $main_post->have_posts() ) :
 					while( $main_post->have_posts() ) :
@@ -54,9 +55,13 @@
 								<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 							</div>
 						</div>
-					<?php endwhile;
+					<?php 
+					if($count == 2){
+						break;
+					}
+					endwhile;
 					wp_reset_postdata();
-				endif; ?>
+					endif; ?>
 			</div>
 			<div class="col-md-4 col-12 sidebar">
 				<?php
