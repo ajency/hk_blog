@@ -74,6 +74,7 @@
 		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
 		<?php
+		wp_reset_query();
 		$args = array(
 			'posts_per_page' => 6,
 			'post_type' => array('post'),
@@ -124,6 +125,7 @@
 					</div>
 				</div>
 			<?php endwhile;
+			wp_reset_postdata();
 		endif; 
 		set_query_var( 'post_ids', $post_ids );
 	?>
