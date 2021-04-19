@@ -4,27 +4,21 @@
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
 			<?php 
-        		wp_reset_query();
 				$post_ids = get_query_var('post_ids');
 				$args = array(
-					'posts_per_page' => 2, 
+					'posts_per_page' => 2,
 					'post_type' => array('post'),
 					'post_status' => 'publish',
-					'post_not_in' => $post_ids,
+					'post__not_in' => $post_ids,
 					'meta_key' => 'hk_views',
 					'order' => 'DESC',
-					'orderby' => 'meta_value_num',
-					'update_post_term_cache' => false, 
-        			'update_post_meta_cache' => false 
+					'orderby' => 'meta_value_num'
 				);
-				$count = 0;
 				$main_post = new wp_query( $args );
 				if( $main_post->have_posts() ) :
 					while( $main_post->have_posts() ) :
 						$main_post->the_post(); 
-						$post_ids[] = get_the_id();
-						$count ++;
-						?>
+						$post_ids[] = get_the_id();?>
 						<div class="trending-articles-single trending-articles-single-main col-md-6 col-12">
 							<div class="trending-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 								<?php if ( has_post_thumbnail() ) {
@@ -57,13 +51,8 @@
 								<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 							</div>
 						</div>
-					<?php 
-					if($count == 2){
-						break;
-					}
-					endwhile;
-					wp_reset_postdata();
-					endif; ?>
+					<?php endwhile;
+				endif; ?>
 			</div>
 			<div class="col-md-4 col-12 sidebar">
 				<?php
@@ -74,7 +63,6 @@
 		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
 		<?php
-		wp_reset_query();
 		$args = array(
 			'posts_per_page' => 6,
 			'post_type' => array('post'),
@@ -125,7 +113,6 @@
 					</div>
 				</div>
 			<?php endwhile;
-			wp_reset_postdata();
 		endif; 
 		set_query_var( 'post_ids', $post_ids );
 	?>
