@@ -4,15 +4,19 @@
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
 			<?php 
+				global $post;
+        		wp_reset_query();
 				$post_ids = get_query_var('post_ids');
 				$args = array(
-					'numberposts'	=> 2,
+					'posts_per_page' => 2, 
 					'post_type' => array('post'),
 					'post_status' => 'publish',
 					'post_not_in' => $post_ids,
 					'meta_key' => 'hk_views',
 					'order' => 'DESC',
-					'orderby' => 'meta_value_num'
+					'orderby' => 'meta_value_num',
+					'update_post_term_cache' => false, 
+        			'update_post_meta_cache' => false 
 				);
 				$main_post = new wp_query( $args );
 				if( $main_post->have_posts() ) :
