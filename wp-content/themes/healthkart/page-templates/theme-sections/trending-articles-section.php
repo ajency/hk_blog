@@ -22,7 +22,9 @@
 				if( $main_post->have_posts() ) :
 					while( $main_post->have_posts() ) :
 						$main_post->the_post(); 
-						$post_ids[] = get_the_id();?>
+						$post_ids[] = get_the_id();
+						$count ++;
+						?>
 						<div class="trending-articles-single trending-articles-single-main col-md-6 col-12">
 							<div class="trending-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 								<?php if ( has_post_thumbnail() ) {
