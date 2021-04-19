@@ -1,43 +1,20 @@
-<div class="trending-articles-section trending-articles-section-article mt-3">
+<div class="trending-articles-section mt-3">
 	<div class="trending-articles-heading pt-3 pb-3">TRENDING ARTICLES</div>
 	<div class="trending-articles mt-4">
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
 			<?php 
-				// $post_ids = get_query_var('post_ids');
-				// $args = array(
-				// 	'posts_per_page' => 2,
-				// 	'post_type' => array('post'),
-				// 	'post_status' => 'publish',
-				// 	'post__not_in' => $post_ids,
-				// 	'meta_key' => 'hk_views',
-				// 	'order' => 'DESC',
-				// 	'orderby' => 'meta_value_num'
-				// );
-
-				global $post;
-        wp_reset_query();
-        $args = array( 
-        'posts_per_page' => 1, 
-        'post_type' => array('post'),
-       'post_status' => 'publish',
-	   'post__not_in' => $post_ids,
-        'order' => 'DESC', 
-        'update_post_term_cache' => false, 
-        'update_post_meta_cache' => false,
+				$post_ids = get_query_var('post_ids');
+				$args = array(
+					'posts_per_page' => 2,
+					'post_type' => array('post'),
+					'post_status' => 'publish',
+					'post__not_in' => $post_ids,
+					'meta_key' => 'hk_views',
+					'order' => 'DESC',
 					'orderby' => 'meta_value_num'
-
-    );
-
-
-
-
-
-
-
-
-				
-				$main_post = new WP_Query( $args );
+				);
+				$main_post = new wp_query( $args );
 				if( $main_post->have_posts() ) :
 					while( $main_post->have_posts() ) :
 						$main_post->the_post(); 
