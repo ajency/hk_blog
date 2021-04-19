@@ -1980,11 +1980,12 @@ p.entry-meta {
 }
 .trending-articles-section-article .trending-articles-single.trending-articles-single-main:nth-child(-n + 2) {
 	display: block;
-}
+}*/
 .banner-video:nth-child(odd),.trending-videos-section .trending-articles-single:nth-child(odd),
 .videos-single:nth-child(odd) {
 	display: none;
-}
+} 
+/* 
 .latest-reads .recent-post {
 	display: none;
 }
@@ -1997,4 +1998,5 @@ p.entry-meta {
 	.infographics-articles-single:after {
 	display: none;
 	}
-} */
+}
+*/
