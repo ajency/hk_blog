@@ -2,6 +2,7 @@
 	<div class="latest-articles-heading pt-3 pb-3">LATEST ARTICLES</div>
 	<div class="latest-articles row mt-4">
 	<?php 
+		wp_reset_query();
 		$post_ids = (array) get_query_var('post_ids');
 		$args = array(
 			'posts_per_page' => 1,
@@ -52,10 +53,12 @@
 			<?php
 			break;
 			 endwhile;
+			 wp_reset_postdata();
 		endif; ?>
 
 	<div class="col-12 col-md-6">
 	<?php
+	wp_reset_query();
 	$args = array(
 		'posts_per_page' => 3,
 		'post_type' => array('post'),

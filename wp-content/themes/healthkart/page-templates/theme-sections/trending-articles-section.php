@@ -4,7 +4,6 @@
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
 			<?php 
-				global $post;
         		wp_reset_query();
 				$post_ids = get_query_var('post_ids');
 				$args = array(
