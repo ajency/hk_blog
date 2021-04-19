@@ -6,10 +6,10 @@
 			<?php 
 				$post_ids = get_query_var('post_ids');
 				$args = array(
-					'posts_per_page' => 2,
+					'numberposts'	=> 2,
 					'post_type' => array('post'),
 					'post_status' => 'publish',
-					'post__not_in' => $post_ids,
+					'post_not_in' => $post_ids,
 					'meta_key' => 'hk_views',
 					'order' => 'DESC',
 					'orderby' => 'meta_value_num'
