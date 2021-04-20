@@ -17,11 +17,14 @@
 		        ]
 		    ],
 		);
+		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
 			while( $main_post->have_posts() ) :
 				$main_post->the_post(); 
-				$post_ids[] = get_the_id();?>
+				$post_ids[] = get_the_id();
+				$count ++;
+				?>
 				<div class="more-articles-single row mb-4">
 					<div class="more-articles-single-image col-md-5 col-lg-4 col-12 pr-0"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
@@ -57,7 +60,12 @@
 						<div class="content-description"><?php echo hk_get_excerpt(140); ?></div>
 					</div>
 				</div>
-			<?php endwhile;
+			<?php 
+			if($count == 3){
+				break;
+			}
+
+			endwhile;
 		endif; ?>
 		</div>
 		<div class="col-md-6 col-12">
