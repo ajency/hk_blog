@@ -34,7 +34,7 @@
 							<div class="trending-articles-single-content">
 								<div class="content-title">
 									<?php $categories = hk_get_category(get_the_ID());  ?>
-									<span>
+									<div class="cat-detail">
 										<span class="category">
 											<?php foreach($categories as $index => $category): ?>
 											<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
@@ -47,7 +47,7 @@
 										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 										<?php $post_date = get_the_date( 'M j, Y' ); ?>
 										<span class="last-read"><?php echo $post_date; ?></span>
-									</span>
+									</div>
 									<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 								<div class="content-description content-desktop"><?php echo hk_get_excerpt(140); ?></div>

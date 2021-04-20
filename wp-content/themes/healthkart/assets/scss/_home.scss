@@ -272,12 +272,20 @@
 		}
 		&-content {
 			.content-title {
+				.cat-detail{
+					@media(min-width: 1200px){
+						min-height: 60px;
+					}
+				}
 				.title {
 					line-height: 22px !important;
 					a {
 						font-size: 16px;
 						font-weight: 600;
 						color: black;
+					}
+					@media(min-width: 1200px){
+						min-height: 56px;
 					}
 				}
 			}
@@ -371,6 +379,9 @@
 						font-size: 16px;
 						font-weight: 600;
 						color: black;
+					}
+					@media(min-width: 1200px){
+						min-height: 56px;
 					}
 				}
 			}
