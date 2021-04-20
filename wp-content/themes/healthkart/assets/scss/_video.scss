@@ -6,3 +6,27 @@
 		height: 300px;
 	}
 }
+.banner-video {
+	&:nth-child(odd) {
+		display: none;
+	}
+}
+.trending-videos-section {
+	.trending-articles-single {
+		&:nth-child(odd) {
+			display: none;
+		}
+	}
+}
+.videos-single {
+	&:nth-child(odd) {
+		display: none;
+	}
+}
+.explore-video-section {
+	.explore-articles-single {
+		&:nth-child(odd) {
+			display: none;
+		}
+	}
+}
