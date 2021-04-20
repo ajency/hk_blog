@@ -1984,6 +1984,9 @@ p.entry-meta {
 .banner-video:nth-child(odd),.trending-videos-section .trending-articles-single:nth-child(odd),
 .videos-single:nth-child(odd) {
 	display: none;
+}
+.explore-video-section .explore-articles-single:nth-child(odd){
+	display: none;
 } 
 /* 
 .latest-reads .recent-post {
