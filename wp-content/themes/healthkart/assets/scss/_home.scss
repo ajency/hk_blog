@@ -948,3 +948,8 @@ h2.title a {
 		font-size: 16px !important;
 	}
 }
+.videos-single{
+	&:nth-child(odd) {
+		display: none;
+	}
+} 
