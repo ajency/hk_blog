@@ -28,11 +28,15 @@ add_shortcode( 'read-these-next', function(){?>
 //     }
 // }
 			// Query posts
+			$count = 0;
 			$wpex_query = new wp_query( $args );?>
 			<?php  // Loop through posts
 			if( $wpex_query->have_posts() ) :
 			while( $wpex_query->have_posts() ) :
-			$wpex_query->the_post(); ?>
+			$wpex_query->the_post(); 
+			$post_ids[] = get_the_id();
+			$count ++;
+			?>
 				<div class="col-12 recent-post p-0">
 					<div class="row py-4">
 						<div class="col-md-4 col-12">
@@ -75,7 +79,11 @@ add_shortcode( 'read-these-next', function(){?>
 						</div>
 					</div>
 				</div>
-			<?php endwhile; ?>
+			<?php 
+			if($count == 5){
+				break;
+			}
+			endwhile; ?>
 		<?php endif; ?>
 	</div>
 <?php });
