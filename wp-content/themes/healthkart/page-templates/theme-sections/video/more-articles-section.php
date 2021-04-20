@@ -27,7 +27,7 @@ preg_match('/<div[^>]*>(.*?)<\/div>/s', get_the_content(), $matches);
 if(isset($matches[1])):
 foreach ($matches as $video) { 
  ?>
-			<div class="more-articles-single row mb-4">
+			<div class="more-articles-single more-articles-video row mb-4">
 							<div class="more-articles-single-image col-md-5 col-lg-4 col-12 pr-0">
 								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 									<div class="videos-single-image-overlay"></div>

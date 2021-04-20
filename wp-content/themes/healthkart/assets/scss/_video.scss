@@ -23,6 +23,11 @@
 		display: none;
 	}
 }
+.more-articles-video {
+	&:nth-child(odd) {
+		display: none;
+	}
+}
 .explore-video-section {
 	.explore-articles-single {
 		&:nth-child(odd) {
