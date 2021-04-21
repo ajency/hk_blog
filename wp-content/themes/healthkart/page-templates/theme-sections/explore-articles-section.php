@@ -31,27 +31,11 @@
 
 	<!-- desktop -->
 	<div class = "category_articles_container position-relative content-desktop">
-	    <div class="explore-articles row">
-			<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
-		</div>
-		<div class="w-100 action-btn text-center">
-			<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">VIEW ALL</a>
-		</div>
-		<div class="my-5 loader explore-articles-loader d-none">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
-		</div>
+		<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
 	</div>
 
 	<!-- mobile -->
 	<div class = "category_articles_container position-relative content-mobile">
-	    <div class="explore-articles row explore-articles-slider">
-			<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
-		</div>
-		<div class="w-100 action-btn text-center">
-			<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">VIEW ALL</a>
-		</div>
-		<div class="my-5 loader explore-articles-loader d-none">
-			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
-		</div>
+		<?php get_template_part( 'page-templates/theme-sections/explore-articles-slider', 'component' ); ?>
 	</div>
 </div>
