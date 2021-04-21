@@ -88,6 +88,7 @@ $( document ).ready(function() {
 					$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
 					if( data ) { 
 						$(".category_articles_container").html(data);
+						$('.explore-articles').addClass('explore-articles-slider');
 						$(".category-buttons-single").removeClass("category-buttons-single-active");
 						button.addClass("category-buttons-single-active");
 					}
