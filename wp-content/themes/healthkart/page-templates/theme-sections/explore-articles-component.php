@@ -1,4 +1,4 @@
-<div class="explore-articles row">
+
 <?php 
 	$hindi_cat = get_category_by_slug('hindi');
 	$post_ids = get_query_var('post_ids');
@@ -65,10 +65,3 @@
 	endif; 
 	set_query_var( 'post_ids', $post_ids );
 ?>
-</div>
-<div class="w-100 action-btn text-center">
-	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">VIEW ALL</a>
-</div>
-<div class="my-5 loader explore-articles-loader d-none">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
-</div>

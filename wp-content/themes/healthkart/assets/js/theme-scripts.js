@@ -463,3 +463,12 @@ $(document).ready(function(){
 	  $(this).css("display", "none");
 	});
 }); 
+
+$(".explore-articles-slider").slick({
+		draggable: true,
+		arrows: true,
+		dots: false,
+		speed: 900,
+ 		slidesToShow: 2,
+  		slidesToScroll: 2,
+	});
