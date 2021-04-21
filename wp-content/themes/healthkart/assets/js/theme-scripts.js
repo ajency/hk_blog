@@ -468,7 +468,7 @@ $(function() {
 		infinite: true,
 		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
         nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
-		dots: false,
+		dots: true,
 		speed: 900,
 		slidesToShow: 2,
 		slidesToScroll: 2
