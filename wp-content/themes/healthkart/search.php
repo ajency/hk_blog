@@ -7,6 +7,7 @@ global $query_string;
 
 wp_parse_str( $query_string, $search_query );
 $search_query['paged'] = $search_query['page'];
+$search_query[$query_split[0]] = urldecode($query_split[1]);
 $search = new WP_Query( $search_query );
 ?>	
 <div class="header_image position-relative">
