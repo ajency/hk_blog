@@ -969,3 +969,42 @@ h2.title a {
 		display: none;
 	}
 } 
+.explore-articles-slider{
+	button {
+		&:focus{
+			outline: 0;
+		}
+	}
+	.slick-arrow {
+	    position: absolute;
+	    width: 30px;
+	    height: 30px;
+	    padding: 0;
+	    margin-top: -20px;
+	    z-index: 1;
+	    top: 50%;
+	    border: 0;
+	    background: rgba(0,0,0,.4);
+	    text-indent: -9999px;
+	    border-radius: 50%;
+	    &.next-arrow {
+		    right: 20px;
+		    transform: rotate(135deg);
+		}
+	    &.prev-arrow {
+		    left: 20px;
+		    transform: rotate(135deg);
+		}
+	    &::after {
+		    content: "";
+		    position: absolute;
+		    top: 13px;
+		    left: 12px;
+		    width: 8px;
+		    height: 8px;
+		    border: 2px solid #000;
+		    border-bottom: 0;
+		    border-right: 0;
+		}
+	}
+}

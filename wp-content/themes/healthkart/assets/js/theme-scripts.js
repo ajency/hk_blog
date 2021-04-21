@@ -463,12 +463,14 @@ $(document).ready(function(){
 	  $(this).css("display", "none");
 	});
 }); 
-
-$(".explore-articles-slider").slick({
-		draggable: true,
-		arrows: true,
+$(function() {
+	$(".explore-articles-slider").slick({
+		infinite: true,
+		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
+        nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
 		dots: false,
 		speed: 900,
- 		slidesToShow: 2,
-  		slidesToScroll: 2,
+		slidesToShow: 2,
+		slidesToScroll: 2
 	});
+});
