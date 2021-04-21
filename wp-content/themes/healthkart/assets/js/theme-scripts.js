@@ -93,28 +93,6 @@ $( document ).ready(function() {
 					}
 				}
 			});
-			$.ajax({ 
-				url : ajax_params.url, 
-				data: {
-					'action' : 'fetch_category_slider_articles',
-					'category_id' : $(this).data('val'),
-					'type' : $(this).data('type'),
-				},
-				type : 'POST',
-				beforeSend : function ( xhr ) {
-					$(".explore-articles").css('visibility', 'hidden');
-					$(".explore-articles-loader").addClass("d-block").removeClass("d-none");
-				},
-				success : function( data ){
-					$(".category_articles_container").html('');
-					$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
-					if( data ) { 
-						$(".category_articles_container").html(data);
-						$(".category-buttons-single").removeClass("category-buttons-single-active");
-						button.addClass("category-buttons-single-active");
-					}
-				}
-			});
 		}
 	})
 	$(".nested-section-chips .single-chip").click(function(){

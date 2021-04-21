@@ -11,18 +11,6 @@ function fetch_category_articles(){
 add_action('wp_ajax_fetch_category_articles', 'fetch_category_articles'); 
 add_action('wp_ajax_nopriv_fetch_category_articles', 'fetch_category_articles');
 
-function fetch_category_slider_articles(){
-	if($_POST['type'] == 'video'){
-		get_template_part( 'page-templates/theme-sections/video/explore-articles', 'component' );
-	}
-	else{
-		get_template_part( 'page-templates/theme-sections/explore-articles-slider', 'component' );
-	}
-	die;
-}
-add_action('wp_ajax_fetch_category_slider_articles', 'fetch_category_slider_articles'); 
-add_action('wp_ajax_nopriv_fetch_category_slider_articles', 'fetch_category_slider_articles');
-
 function fetch_category_page_articles(){
 	$args = array(
 		'posts_per_page' => 24,
