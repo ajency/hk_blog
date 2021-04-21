@@ -473,4 +473,16 @@ $(function() {
 		slidesToShow: 2,
 		slidesToScroll: 2
 	});
+	$(".explore-cat-slider").slick({
+		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
+        nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
+		dots: false,
+		speed: 300,
+		infinite: true,
+		cssEase: 'linear',
+		variableWidth: true,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+  		centerPadding: '30px',
+	});
 });

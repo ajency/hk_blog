@@ -21,7 +21,7 @@
 
 	<!-- mobile -->
 	<div class="content-mobile">
-		<div class="category-buttons mt-2">
+		<div class="category-buttons pt-5 explore-cat-slider">
 			<?php foreach ($categories as $index => $category): ?>
 				<button type="button" class="btn m-0 mt-2 mr-3 py-2 px-3 category-buttons-single <?php if(!$index){
 					echo 'category-buttons-single-active'; $_POST['category_id'] = $category->term_id; }?>" data-val="<?php echo $category->term_id; ?>"><?php echo $category->name; ?></button>
