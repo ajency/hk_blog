@@ -85,6 +85,7 @@ $( document ).ready(function() {
 				},
 				success : function( data ){
 					$(".category_articles_container").html('');
+					$(".explore-articles").css('visibility', 'visible');
 					$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
 					if( data ) { 
 						$(".category_articles_container").html(data);
