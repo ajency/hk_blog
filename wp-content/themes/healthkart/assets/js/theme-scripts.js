@@ -29,7 +29,7 @@ $( document ).ready(function() {
     });
     if( $(window).width() < 992 ){
 	 	$("ul.menu li:not(li li)").click(function(e) {
-			e.preventDefault();
+			//e.preventDefault();
 	 		$("ul.menu > li").removeClass('selected');
 	     	$(this).toggleClass('selected');
 	    });
