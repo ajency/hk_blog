@@ -1,4 +1,4 @@
-<div class="explore-articles row">
+<div class="explore-articles row explore-articles-slider">
 <?php 
 	$hindi_cat = get_category_by_slug('hindi');
 	$post_ids = get_query_var('post_ids');
