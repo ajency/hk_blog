@@ -20,7 +20,7 @@ $( document ).ready(function() {
         $(".close-icon").show();
         $("body").addClass("no-scrolling");
 		$('.menu li li ul').parent().addClass('hasSubChild');
-		$(".list-view ul li:not(li li):nth-child(2)").addClass('selected');
+		//$(".list-view ul li:not(li li):nth-child(2)").addClass('selected');
     });
     $(".close-icon").click(function(e) {
         $(".menu-content-list>div").removeClass("visible");
