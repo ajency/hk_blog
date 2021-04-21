@@ -86,6 +86,9 @@ $( document ).ready(function() {
 				success : function( data ){
 					$(".category_articles_container").html('');
 					$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
+					if (window.matchMedia("(max-width: 767px)").matches) {
+					  $('.explore-articles-slider').slick();
+					} 
 					if( data ) { 
 						$(".category_articles_container").html(data);
 						$(".category-buttons-single").removeClass("category-buttons-single-active");
