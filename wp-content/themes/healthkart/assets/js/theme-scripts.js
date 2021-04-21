@@ -463,11 +463,3 @@ $(document).ready(function(){
 	  $(this).css("display", "none");
 	});
 }); 
-
-$(function(){
-	$('#searchform').click(function(){
-		var url="<?php echo get_site_url(); ?>/search?q=";
-		url+=$('#search').val();
-		window.location=url.replace(new RegExp(' ','g'),'+');
-	});
-});
