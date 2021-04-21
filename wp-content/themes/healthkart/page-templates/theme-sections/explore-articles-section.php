@@ -36,6 +36,6 @@
 
 	<!-- mobile -->
 	<div class = "category_articles_container position-relative content-mobile">
-		<?php get_template_part( 'page-templates/theme-sections/explore-articles', 'component' ); ?>
+		<?php get_template_part( 'page-templates/theme-sections/explore-articles-slider', 'component' ); ?>
 	</div>
 </div>
