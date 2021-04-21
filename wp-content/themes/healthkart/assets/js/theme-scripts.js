@@ -214,7 +214,7 @@ $( document ).ready(function() {
     });
     $("#searchform").on('submit', function(e) {
 	    e.preventDefault();
-	    window.location = $("#searchform").attr('action') +'/'+ $("#searchform #search").val();
+	    window.location = $("#searchform").attr('action') +'/'+ $("#searchform #search").val().replace(/ /g,'+');
 	});
 	$(".read-these-next-content").slick({
 		draggable: true,
