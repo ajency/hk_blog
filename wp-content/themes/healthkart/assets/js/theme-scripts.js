@@ -483,11 +483,6 @@ $(function() {
             }
         ]
     });
-
-    $(window).on('resize', function() {
-        $('.explore-articles-slider').slick('setPosition');
-    });
-
 	$(".explore-cat-slider").slick({
 		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
         nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
@@ -500,4 +495,9 @@ $(function() {
 		slidesToScroll: 1,
   		centerPadding: '30px',
 	});
+});
+$(document).ready(function(){
+    $(window).on('resize', function() {
+        $('.explore-articles-slider').slick('resize');
+    });
 });
