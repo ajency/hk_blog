@@ -485,7 +485,7 @@ $(function() {
     });
 
     $(window).on('resize', function() {
-        $('.explore-articles-slider').slick('resize');
+        $('.explore-articles-slider').slick('setPosition');
     });
 
 	$(".explore-cat-slider").slick({
