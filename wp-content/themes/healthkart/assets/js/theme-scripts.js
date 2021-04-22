@@ -86,11 +86,24 @@ $( document ).ready(function() {
 				success : function( data ){
 					$(".category_articles_container").html('');
 					$(".explore-articles-loader").addClass("d-none").removeClass("d-block");
-					if (window.matchMedia("(max-width: 767px)").matches) {
-					  $('.explore-articles-slider').slick();
-					} 
 					if( data ) { 
 						$(".category_articles_container").html(data);
+						$(".explore-articles-slider").slick({
+							infinite: true,
+							prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
+							nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
+							dots: false,
+							speed: 900,
+							slidesToShow: 2,
+							slidesToScroll: 2,
+							mobileFirst: true,
+							responsive: [
+								{
+									breakpoint: 769,
+									settings: 'unslick'
+								}
+							]
+						});
 						$(".category-buttons-single").removeClass("category-buttons-single-active");
 						button.addClass("category-buttons-single-active");
 					}
