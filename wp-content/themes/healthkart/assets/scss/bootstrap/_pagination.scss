@@ -71,3 +71,9 @@
 .pagination-sm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
 }
+.navigation li:nth-last-child(-n + 6){
+display: none;    
+}
+.navigation li:last-child{
+display: block;    
+}
