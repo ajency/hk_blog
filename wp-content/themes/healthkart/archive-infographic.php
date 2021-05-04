@@ -39,8 +39,9 @@ query_posts( $args );
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
 			</div>
 		</div>
+		<!-- wpbeginner_numeric_posts_nav();  -->
 		<nav class="my-4">
-			<ul class="pagination justify-content-center pagination-sm">
+			<ul class="navigation pagination justify-content-center pagination-sm">
 				<?php 
 				$currentPage = $_GET['page'] ?? 1;
 				$pages = hk_get_pagination($wp_query->found_posts, $currentPage); ?>

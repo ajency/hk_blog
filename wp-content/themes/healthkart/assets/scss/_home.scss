@@ -1093,3 +1093,9 @@ h2.title a {
 		}
 	}
 }
+.navigation li:nth-last-child(-n + 6){
+display: none;    
+}
+.navigation li:last-child{
+display: block;    
+}
