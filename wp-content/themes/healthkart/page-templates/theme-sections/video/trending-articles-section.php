@@ -27,7 +27,7 @@ foreach ($matches as $video) {
  ?>
 	<div class="trending-articles-single trending-articles-single-main col-md-6 col-12">
 									<div class="trending-articles-single-image mb-4">
-										<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 											<div class="videos-single-image-overlay"></div>
 												<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 										</a>
@@ -44,7 +44,7 @@ foreach ($matches as $video) {
 													<?php endif; endforeach; ?>
 												</span>
 											</span>
-											<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+											<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 										</div>
 									</div>
 								</div>
@@ -85,7 +85,7 @@ foreach ($matches as $video) {
  ?>
 			<div class="trending-articles-single row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
 							<div class="trending-articles-single-image mb-3 col-md-5 col-lg-4 col-12">
-								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<a href="<?php the_permalink(); ?>"  title="<?php the_title(); ?>">
 									<div class="videos-single-image-overlay"></div>
 										<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 								</a>
@@ -102,7 +102,7 @@ foreach ($matches as $video) {
 											<?php endif; endforeach; ?>
 										</span>
 									</span>
-									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 							</div>
 						</div>
