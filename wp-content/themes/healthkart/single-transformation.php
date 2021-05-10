@@ -79,7 +79,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 						<div class="col-md-8 col-12 transformation-template-section">
 							<div class="transformation-section-single-image mb-2">
 								<div class="blog_featured_img my-4 content-mobile">
-									<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+									<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<div class="position-relative col-md-6 pl-3 pr-1 transform">
 										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
 										<div class="img-tag px-3 py-1">Before</div>
@@ -109,7 +109,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									</div>
 								</div>
 								<div class="blog_featured_img my-4 content-desktop">
-									<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+									<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<div class="position-relative col-md-6 pl-3 pr-1 transform">
 										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
 										<div class="img-tag px-3 py-1">Before</div>
