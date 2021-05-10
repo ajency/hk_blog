@@ -360,8 +360,12 @@
 				h2.title{
 					line-height: 24px;
 					padding: 6px 0px;
+					min-height: 75px;
 					a{
 						text-transform: capitalize;
+					}
+					@media (max-width: 767px){
+						min-height: 100%;
 					}
 				}
 			}
