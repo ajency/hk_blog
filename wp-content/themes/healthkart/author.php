@@ -70,7 +70,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 										<div class="row py-4">
 											<div class="col-md-4 col-12">
 												<div class="recent-post-featured-img">
-													<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+													<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 														<?php 
 														$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 														if ( $thumbnail ) { ?>
@@ -96,7 +96,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 													<span class="last-read"><?php echo $post_date; ?></span>
 												</span>
 												<div class="recent-post-header">
-													<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+													<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 												</div>
 												<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
 												</div>

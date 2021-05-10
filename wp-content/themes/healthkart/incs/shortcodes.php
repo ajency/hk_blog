@@ -41,7 +41,7 @@ add_shortcode( 'read-these-next', function(){?>
 					<div class="row py-4">
 						<div class="col-md-4 col-12">
 							<div class="recent-post-featured-img">
-								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php 
 									$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 									if ( $thumbnail ) { ?>
@@ -67,7 +67,7 @@ add_shortcode( 'read-these-next', function(){?>
 								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<div class="recent-post-header">
-								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 							</div>
 							<div class="recent-post-excerpt content-desktop"><?php echo hk_get_excerpt(140); ?>
 							</div>
@@ -137,7 +137,7 @@ global $post, $wpdb;
 						<div class="row py-4">
 							<div class="col-4">
 								<div class="recent-post-featured-img">
-									<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 										<?php 
 										$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 										if ( $thumbnail ) { ?>
@@ -163,7 +163,7 @@ global $post, $wpdb;
 									<span class="last-read"><?php echo $post_date; ?></span>
 								</span>
 								<div class="recent-post-header">
-									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 							</div>
 						</div>
@@ -230,7 +230,7 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 					<div class="row py-4">
 						<div class="col-md-4 col-12">
 							<div class="transformation-section-single-image mb-2">
-								<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 								<?php
 									$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
 									$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
@@ -258,7 +258,7 @@ add_shortcode( 'read-these-next-transformations', function(){?>
 								<span class="last-read"><?php echo $post_date; ?></span>
 							</span>
 							<div class="recent-post-header">
-								<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 							</div>
 							<div class="recent-post-excerpt"><?php echo wp_trim_words(get_the_content(), 18, '...'); ?>
 							</div>
