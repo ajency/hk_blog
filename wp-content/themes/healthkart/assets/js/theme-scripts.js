@@ -405,7 +405,7 @@ function isScrolledIntoView(elem)
 $(function() {
 	// Number of items and limits the number of items per page
 	var numberOfItems = $(".category-list-view").data('count');
-	var limitPerPage = 6;
+	var limitPerPage = 24;
 	// Total pages rounded upwards
 	var totalPages = Math.ceil(numberOfItems / limitPerPage);
 	// Number of buttons at the top, not counting prev/next,
