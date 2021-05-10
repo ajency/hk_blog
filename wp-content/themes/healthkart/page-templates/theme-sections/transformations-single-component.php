@@ -1,6 +1,6 @@
 <div class="transformation-section-single col-md-4 col-12 my-4">
 	<div class="transformation-section-single-image mb-2">
-		<a class="row" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+		<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 		<?php
 			$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
 			$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
