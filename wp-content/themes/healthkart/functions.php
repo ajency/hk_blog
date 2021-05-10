@@ -203,7 +203,7 @@ add_action( 'wp_enqueue_scripts', 'my_child_theme_scripts' );
 
 function my_child_theme_scripts() {
     wp_enqueue_style( 'parent-theme-css', get_stylesheet_directory_uri() . '/style.css' );
- 	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '3.1', false);
+ 	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '3.2', false);
  	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=5.4.2', array(), '', false);
     wp_enqueue_style('font-family', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">', array(), '', false);
     wp_enqueue_style('slick', get_stylesheet_directory_uri() . '/assets/css/slick.css', array(), '', false);
@@ -234,82 +234,6 @@ function enqueue_theme_scripts() {
 add_action("wp_enqueue_scripts", "enqueue_theme_scripts");
 
 
-
-
-
-
-
-
-
-
-function wpbeginner_numeric_posts_nav() {
- 
-    if( is_singular() )
-        return;
- 
-    global $wp_query;
- 
-    /** Stop execution if there's only 1 page */
-    if( $wp_query->max_num_pages <= 1 )
-        return;
- 
-    $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-    $max   = intval( $wp_query->max_num_pages );
- 
-    /** Add current page to the array */
-    if ( $paged >= 1 )
-        $links[] = $paged;
- 
-    /** Add the pages around the current page to the array */
-    if ( $paged >= 3 ) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
- 
-    if ( ( $paged + 2 ) <= $max ) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
- 
-    echo '<div ><ul class="navigation justify-content-center navigation-sm">' . "\n";
- 
-    /** Previous Post Link */
-    if ( get_previous_posts_link() )
-        printf( '<li>%s</li>' . "\n", get_previous_posts_link('prev') );
- 
-    /** Link to first page, plus ellipses if necessary */
-    if ( ! in_array( 1, $links ) ) {
-        $class = 1 == $paged ? ' class="active"' : '';
- 
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
- 
-        if ( ! in_array( 2, $links ) )
-            echo '<li>…</li>';
-    }
- 
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort( $links );
-    foreach ( (array) $links as $link ) {
-        $class = $paged == $link ? ' class="active"' : '';
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $link ) ), $link );
-    }
- 
-    /** Link to last page, plus ellipses if necessary */
-    if ( ! in_array( $max, $links ) ) {
-        if ( ! in_array( $max - 1, $links ) )
-            echo '<li>…</li>' . "\n";
- 
-        $class = $paged == $max ? ' class="active"' : '';
-        printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( $max ) ), $max );
-    }
- 
-    /** Next Post Link */
-    
-        printf( '<li>%s</li>' . "\n", get_next_posts_link('next') );
- 
-    echo '</ul></div>' . "\n";
- 
-}
 /*
 =============================================================
 Register Menus
