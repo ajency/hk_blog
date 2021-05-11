@@ -59,7 +59,7 @@ function hk_get_excerpt($limit) {
 	return $excerpt."...";
 }
 function hk_get_pagination($totalposts, $currentPage){
-	$limitPerPage = 6;
+	$limitPerPage = 24;
 	// Total pages rounded upwards
 	$totalPages = ceil($totalposts / $limitPerPage);
 	// Number of buttons at the top, not counting prev/next,
