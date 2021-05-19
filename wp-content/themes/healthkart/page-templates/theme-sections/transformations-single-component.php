@@ -4,7 +4,7 @@
 		<?php
 			$thumbnail_before_image_id = get_post_meta(get_the_id(), 'hk_thumbnail_image_before_diet_id', true);
 			$thumbnail_before_image_url = wp_get_attachment_image_src($thumbnail_before_image_id, 'medium')[0];
-			$thumbnail_after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+			$thumbnail_after_image_id = get_post_meta(get_the_id(), 'hk_thumbnail_image_after_diet_id', true);
 			$thumbnail_after_image_url = wp_get_attachment_image_src($thumbnail_after_image_id, 'medium')[0];
 
 			$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
