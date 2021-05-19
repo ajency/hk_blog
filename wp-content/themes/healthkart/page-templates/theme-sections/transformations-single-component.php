@@ -4,8 +4,8 @@
 		<?php
 			$thumbnail_before_image_id = get_post_meta(get_the_id(), 'hk_thumbnail_image_before_diet_id', true);
 			$thumbnail_before_image_url = wp_get_attachment_image_src($thumbnail_before_image_id, 'medium')[0];
-			$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
-			$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
+			$thumbnail_after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
+			$thumbnail_after_image_url = wp_get_attachment_image_src($thumbnail_after_image_id, 'medium')[0];
 
 			$before_weight = get_post_meta(get_the_id(), 'hk_weight_before_diet', true);
 			$after_weight = get_post_meta(get_the_id(), 'hk_weight_after_diet', true);
@@ -19,7 +19,7 @@
 			<div class="img-tag px-3 py-1">Before</div>
 		</div>
 		<div class="position-relative col-md-6 pl-1 pr-3 transform">
-			<img src="<?php echo $after_image_url; ?>"/>
+			<img src="<?php echo $thumbnail_after_image_url; ?>"/>
 			<div class="img-tag px-3 py-1">After</div>
 		</div>
 		</a>
