@@ -313,7 +313,7 @@
 				top: -16px;
 				left: 14px;
 				right: 0;
-				background: #white;
+				background: #fff;
 				width: 0px;
 				height: 0px;
 			}
@@ -374,8 +374,8 @@
 		&-content {
 			.content-title {
 				.cat-detail{
-					@media(min-width: 768px) and (max-width: 1199px){
-						min-height: 56px;
+					@media(min-width: 768px) {
+						min-height: 60px;
 					}
 				}
 				.title {

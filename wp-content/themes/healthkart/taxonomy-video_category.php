@@ -90,7 +90,7 @@ global $wp_query;
 					while( have_posts() ): the_post(); $post_ids[] = get_the_id();?>
 						<div class="recent-post mx-4">
 							<div class="recent-post-featured-img">
-								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php 
 									$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 									if ( $thumbnail ) { ?>
@@ -120,7 +120,7 @@ global $wp_query;
 									<span class="last-read"><?php echo $post_date; ?></span>
 								</span>
 								<div class="recent-post-header">
-									<h2 class="title"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+									<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 								</div>
 								<div class="recent-post-excerpt"><?php echo hk_get_excerpt(140); ?>
 								</div>

@@ -203,7 +203,7 @@ add_action( 'wp_enqueue_scripts', 'my_child_theme_scripts' );
 
 function my_child_theme_scripts() {
     wp_enqueue_style( 'parent-theme-css', get_stylesheet_directory_uri() . '/style.css' );
- 	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '2.9', false);
+ 	wp_enqueue_style('theme-styles', get_stylesheet_directory_uri() . '/assets/css/theme-styles.css', array(), '3.4', false);
  	wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=5.4.2', array(), '', false);
     wp_enqueue_style('font-family', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">', array(), '', false);
     wp_enqueue_style('slick', get_stylesheet_directory_uri() . '/assets/css/slick.css', array(), '', false);
@@ -218,7 +218,7 @@ function enqueue_theme_scripts() {
 	wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', get_stylesheet_directory_uri().'/assets/js/jquery.js' , '', '', true );
     wp_register_script( 'bootstrap', get_stylesheet_directory_uri().'/assets/js/bootstrap.min.js' , '', '', true );
-    wp_register_script( 'themescripts', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', '2.8', true );
+    wp_register_script( 'themescripts', get_stylesheet_directory_uri().'/assets/js/theme-scripts.js' , '', '3.1', true );
     wp_register_script( 'slick', get_stylesheet_directory_uri().'/assets/js/slick.min.js' , '', '', true );
     wp_register_script( 'slickanimation', get_stylesheet_directory_uri().'/assets/js/slick-animation.min.js' , '', '', true );
 
@@ -340,7 +340,7 @@ function register_home_banner_space_sidebar() {
 }
 add_action( 'widgets_init', 'register_home_banner_space_sidebar' );
 
-add_filter( 'wpseo_json_ld_output', '__return_false' );
+// add_filter( 'wpseo_json_ld_output', '__return_false' );
 
 
 /*********
@@ -420,13 +420,13 @@ function amp_custom_image_before_content() {
 			</div>
 			
 			<div class="blog_featured_img my-4 content-mobile">
-				<a class="row amp-img-container" href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				<a class="row amp-img-container" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<div class="position-relative col-md-6 pl-3 pr-1 transform">
-					<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+					<amp-img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" layout="responsive" width="200" height="400"></amp-img>
 					<div class="img-tag px-3 py-1">Before</div>
 				</div>
 				<div class="position-relative col-md-6 pl-1 pr-3 transform">
-					<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
+					<amp-img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" layout="responsive" width="200" height="400" ></amp-img>
 					<div class="img-tag px-3 py-1">After</div>
 				</div>
 				</a>
