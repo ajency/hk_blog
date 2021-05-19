@@ -1380,8 +1380,8 @@ figcaption,
 
 .entry-content ol,
 .entry-content ul {
-	margin-bottom: 30px;
-	padding-left: 40px;
+	margin-bottom: 10px;
+	padding-left: 30px;
 }
 
 .entry-content ol > li {
@@ -1389,9 +1389,23 @@ figcaption,
 }
 
 .entry-content ul > li {
-	list-style-type: disc;
-}
+	list-style-type: none;
 
+}
+.entry-content ul > li strong {
+
+	position: relative;
+}
+.entry-content ul > li strong::before{
+content: '';
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    left: -20px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 5px;
+}
 .entry-content ol ul > li,
 .entry-content ul ul > li {
 	list-style-type: circle;

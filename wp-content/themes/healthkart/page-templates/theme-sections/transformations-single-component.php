@@ -2,8 +2,8 @@
 	<div class="transformation-section-single-image mb-2">
 		<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 		<?php
-			$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
-			$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
+			$thumbnail_before_image_id = get_post_meta(get_the_id(), 'hk_thumbnail_image_before_diet_id', true);
+			$thumbnail_before_image_url = wp_get_attachment_image_src($thumbnail_before_image_id, 'medium')[0];
 			$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
 			$after_image_url = wp_get_attachment_image_src($after_image_id, 'medium')[0];
 
@@ -15,7 +15,7 @@
 			$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
 		?>
 		<div class="position-relative col-md-6 pl-3 pr-1 transform">
-			<img src="<?php echo $before_image_url; ?>"/>
+			<img src="<?php echo $thumbnail_before_image_url; ?>"/>
 			<div class="img-tag px-3 py-1">Before</div>
 		</div>
 		<div class="position-relative col-md-6 pl-1 pr-3 transform">
