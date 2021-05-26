@@ -231,6 +231,18 @@ function hk_post_cpt__metabox() {
         'id'   => $prefix . 'image_after_diet',
         'type' => 'file',
     ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Thumbnail Image Before', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an Thumbnail image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'thumbnail_image_before_diet',
+        'type' => 'file',
+    ) );
+    $cmb_term->add_field( array(
+        'name' => esc_html__( 'Thumbnail Image After', 'cmb2' ),
+        'desc' => esc_html__( 'Upload an Thumbnail image or enter a URL.', 'cmb2' ),
+        'id'   => $prefix . 'thumbnail_image_after_diet',
+        'type' => 'file',
+    ) );
     $cmb_term = new_cmb2_box( array(
         'id'               => $prefix . 'edit',
         'title'            => esc_html__( 'Featured Metabox', 'cmb2' ), // Doesn't output for term boxes
