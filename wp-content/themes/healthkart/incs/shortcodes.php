@@ -308,3 +308,82 @@ add_shortcode( 'amp-section', function(){
 	<?php $content = ob_get_clean();
 	return $content;
 });
+
+add_shortcode( 'product-listing', function(){?>
+	<div class="product-listing">
+		<?php
+
+			$categories = hk_get_category(get_the_ID());
+
+			$article_cat_name = '';
+
+			foreach($categories as $index => $category): 
+				$article_cat_name = $category->name;
+
+				 if($index+1 != count($categories)): 
+					
+			 endif; endforeach; 
+
+			$api_url = 'https://api.healthkart.com/api/category/all/1';
+
+			$json_data = file_get_contents($api_url);
+
+			$response_data = json_decode($json_data);
+ 							
+			$user_data = $response_data->results;
+
+			$product_data = $user_data->allCat;
+
+			$product_api_url = '';
+
+			foreach ($product_data as $product) {
+
+				$value = $product->prCatNm ;
+			 	
+		 		if( $value == $article_cat_name ){
+
+		 			$product_api_url = 'http://api.healthkart.com/api/catalog/results?catPrefix='. $product->catPre.'&pageNo=1&perPage=2&excludeOOS=true&plt=1&st=1';
+
+		 		}
+
+			}
+				
+			if ($product_api_url != ''){
+
+				$pr_json_data = file_get_contents($product_api_url);
+
+
+				$pr_response_data = json_decode($pr_json_data);
+
+				$product_info = $pr_response_data->results;
+
+				$product_detail_info = $product_info->variants;
+			?>
+
+			<div class="section-title pb-3"> Recommended Products </div>
+			<div class="grid-view row">
+								
+				<?php foreach ($product_detail_info as $pr) { ?>
+					<div class="recommend-products col-md-12 col-sm-6">
+						<div class="product-stack row">
+							<div class="product-stack-image col-md-6 col-sm-12">
+								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>">
+									<img src="<?php echo $pr->m_img->m_link ?>" class="img-responsive product-image" title="<?php echo $pr->m_img->alt ?>" alt="<?php echo $pr->m_img->alt ?>">
+								</a>
+							</div>
+							<div class="col-md-6"> 
+								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> 
+									<span class="product-des product-desc"> <?php echo $pr->nm ?> </span> 
+								</a>
+								<div class="buy-now-btn"> 
+									<a class="article-btn" href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> Buy now </a>
+								</div>
+							</div>
+						</div>
+					</div> 
+				<?php }  ?>
+			</div>
+			<?php }  ?>
+		</div>
+<?php });
+
