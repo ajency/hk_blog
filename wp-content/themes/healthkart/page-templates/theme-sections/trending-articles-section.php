@@ -98,7 +98,7 @@
 //                             ),
 //                         )
 //     )
-$date_range = strtotime ( '-30 days' );
+
 		$args = array(
 			'posts_per_page' => 6,
 			'post_type' => array('post'),
@@ -110,9 +110,7 @@ $date_range = strtotime ( '-30 days' );
 			 // Using the date_query to filter posts from last week
     'date_query' => array(
         array(
-            'year'  => date('Y', $date_range ),
-'month' => date('m', $date_range ),
-'day'   => date('d', $date_range ),
+            'after' => '2 week ago'
         )
     )
 		);
