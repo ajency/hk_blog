@@ -103,8 +103,9 @@
 //     )
 
 		$args = array(
-
-'meta_key' => 'post_views_count', 
+'post_status' => 'publish',
+			'post__not_in' => $post_ids,
+			'meta_key' => 'hk_views',
 'orderby' => 'meta_value_num', 
 'order' => 'DESC', 
 'posts_per_page' => 10, 
