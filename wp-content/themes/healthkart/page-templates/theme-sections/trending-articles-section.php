@@ -112,7 +112,7 @@
 'meta_key' => 'hk_views',
 		'orderby' => 'meta_value_num', 
 		'order' => 'DESC',
-		'w' => '. date( "W", current_time( "timestamp" ) )' ); 
+		 'year' =>date('Y') , 'w' => date('W'); ); 
 		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
