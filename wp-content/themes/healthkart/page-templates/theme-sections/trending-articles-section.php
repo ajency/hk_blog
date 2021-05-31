@@ -98,7 +98,7 @@
 //                             ),
 //                         )
 //     )
-$date_range = strtotime ( '-15 days' );
+$date_range = strtotime ( '-30 days' );
 		$args = array(
 			'posts_per_page' => 6,
 			'post_type' => array('post'),
