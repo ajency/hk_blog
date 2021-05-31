@@ -110,7 +110,7 @@
 			 // Using the date_query to filter posts from last week
     'date_query' => array(
         array(
-            'after' => '20 week ago'
+            'after' => '2 week ago'
         )
     )
 		);
