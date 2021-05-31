@@ -45,10 +45,14 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					?>
 						<header class="entry-header col-12">
 							<span>
-								<?php $categories = hk_get_category(get_the_ID()); ?>
+								<?php $categories = hk_get_category(get_the_ID()); 
+								 	$GLOBALS['global_article_id']  = get_the_ID();
+
+								 ?>
 								<span class="category">
 									<?php foreach($categories as $index => $category): ?>
 									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+
 									<?php if($index+1 != count($categories)): ?>
 										,
 									<?php endif; endforeach; ?>
