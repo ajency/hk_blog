@@ -170,29 +170,6 @@
 	<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
 		<?php
-
-
-// $date_range = strtotime ( '-15 day' );  
-
-// 		$args = array(
-// 			'posts_per_page' => 6,
-// 			'post_type' => array('post'),
-// 			'post_status' => 'publish',
-// 			'post__not_in' => $post_ids,
-// 			'meta_key' => 'hk_views',
-// 			'order' => 'DESC',
-// 			'orderby' => 'date',
-// 			 // Using the date_query to filter posts from last week
-//     'date_query' => array(
-//        array(
-//                             'after' => array(
-//                                 'year'  => date('Y', $date_range ),
-//                                 'month' => date('m', $date_range ),
-//                                 'day'   => date('d', $date_range ),
-//                             ),
-//                         )
-//     )
-
 		$today = getdate();
 $args = array(
     'meta_key'          => 'post_views_count',
