@@ -313,16 +313,40 @@ add_shortcode( 'product-listing', function(){?>
 	<div class="product-listing">
 		<?php
 
-			$categories = hk_get_category(get_the_ID());
+			$categoryMapping = [
+				"Pre & Post Workout Nutrition" => ["Pre/Post Workout"],
+				"Workout Routine" => ["Workout Essentials"],
+				"Weight Loss Diet" => ["Weight Loss"],
+				"Weight Gain Diet" => ["Weight Gain"],
+				"Lifestyle Changes" => ["Lifestyle Concerns"],
+				"Home Workout Plans" => ["Workout Programs"],
+				"Vitamins and Minerals" => ["Vitamins", "Vitamin B" , "Vitamins & Supplements" , "Minerals" ],
+				"Nutrition for Women" => ["Nutrition" , "Sports Nutrition"],
+				"Fitness Tips for Women" =>["Fitness","Fitness Clothing","Fitness & Weight Management", "Fitness Accessories"],
+				"Vitamins for Hair" => ["Hair Care"],
+				"Essential Nutrients for Skin" =>  ["Skin Care"],
+				"Nutrition for Nails" => ["Nails"],
+				"Nutrition and Stress" => ["Nutrition"],
+				"Yoga Exercises" => ["Gym Accessories"]
+			];
+
+			$categories = hk_get_category($GLOBALS['global_article_id']);
 
 			$article_cat_name = '';
 
 			foreach($categories as $index => $category): 
+
 				$article_cat_name = $category->name;
 
-				 if($index+1 != count($categories)): 
-					
-			 endif; endforeach; 
+			endforeach; 
+
+			$categoryMappingValue = $article_cat_name;
+
+			if(isset($categoryMapping[$article_cat_name])){
+				$categoryMappingList = $categoryMapping[$article_cat_name];
+				shuffle($categoryMappingList);
+				$categoryMappingValue = $categoryMappingList[0]; 
+			}
 
 			$api_url = 'https://api.healthkart.com/api/category/all/1';
 
@@ -339,15 +363,15 @@ add_shortcode( 'product-listing', function(){?>
 			foreach ($product_data as $product) {
 
 				$value = $product->prCatNm ;
+
 			 	
-		 		if( $value == $article_cat_name ){
+		 		if( $value == $categoryMappingValue ){
 
 		 			$product_api_url = 'http://api.healthkart.com/api/catalog/results?catPrefix='. $product->catPre.'&pageNo=1&perPage=2&excludeOOS=true&plt=1&st=1';
-
 		 		}
 
-			}
-				
+	 		}
+			
 			if ($product_api_url != ''){
 
 				$pr_json_data = file_get_contents($product_api_url);
@@ -358,6 +382,7 @@ add_shortcode( 'product-listing', function(){?>
 				$product_info = $pr_response_data->results;
 
 				$product_detail_info = $product_info->variants;
+
 			?>
 
 			<div class="section-title pb-3"> Recommended Products </div>
