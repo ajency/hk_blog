@@ -95,6 +95,7 @@ $date_range = strtotime ( '-15 day' );
                           'after' => array(
                               'year'  => date('Y', $date_range ),
                               'month' => date('m', $date_range ),
+                              'week' => date('m', $date_range ),
                               'day'   => date('d', $date_range ),
                           ),
  )
