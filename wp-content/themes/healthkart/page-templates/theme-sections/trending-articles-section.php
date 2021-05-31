@@ -75,6 +75,9 @@
 		</div>
 		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
+
+
+
 		<?php
 
 
@@ -100,20 +103,19 @@
 //     )
 
 		$args = array(
-			'posts_per_page' => 6,
-			'post_type' => array('post'),
-			'post_status' => 'publish',
-			'post__not_in' => $post_ids,
-			'meta_key' => 'hk_views',
-			'order' => 'DESC',
-			'orderby' => 'date',
-			 // Using the date_query to filter posts from last week
-    'date_query' => array(
+					'posts_per_page' => 2,
+					'post_type' => array('post'),
+					'post_status' => 'publish',
+					'post__not_in' => $post_ids,
+					'meta_key' => 'hk_views',
+					'order' => 'DESC',
+					'orderby' => 'date',
+					'date_query' => array(
         array(
             'after' => '2 week ago'
         )
     )
-		);
+				);
 		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
