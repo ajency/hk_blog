@@ -82,7 +82,9 @@ query_posts( array( 'meta_key' => 'hk_views',
   'showposts' => '6', 
   'w' => '. date( "W", current_time( "timestamp" ) )' ) );
 while(have_posts()) : the_post();?>
+<ul>
 <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+</ul>
 <?php endwhile;wp_reset_query();
 ?>
 		<?php
