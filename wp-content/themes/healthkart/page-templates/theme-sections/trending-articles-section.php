@@ -75,9 +75,6 @@
 		</div>
 		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
-
-
-
 		<?php
 
 
@@ -102,20 +99,11 @@
 //                         )
 //     )
 
-		$args = array(
-					'posts_per_page' => 2,
-					'post_type' => array('post'),
-					'post_status' => 'publish',
-					'post__not_in' => $post_ids,
-					'meta_key' => 'hk_views',
-					'order' => 'DESC',
-					'orderby' => 'date',
-					'date_query' => array(
-        array(
-            'after' => '2 week ago'
-        )
-    )
-				);
+		$args =array( 'meta_key' => 'views', 
+		'orderby' => 'meta_value_num', 
+		'order' => 'DESC',
+		'showposts' => '6', 
+		'w' => '. date( "W", current_time( "timestamp" ) )' ); 
 		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
