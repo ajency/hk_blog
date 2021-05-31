@@ -103,18 +103,19 @@
 //     )
 
 		$args = array(
-'post_status' => 'publish',
-'post__not_in' => $post_ids,
-'meta_key' => 'hk_views',
-'orderby' => 'meta_value_num', 
-'order' => 'DESC', 
-'posts_per_page' => 10, 
-'date_query' => array( 
-array(
-'after' => '1 week ago',
-),
-),
-);
+					'posts_per_page' => 2,
+					'post_type' => array('post'),
+					'post_status' => 'publish',
+					'post__not_in' => $post_ids,
+					'meta_key' => 'hk_views',
+					'order' => 'DESC',
+					'orderby' => 'date',
+					'date_query' => array(
+        array(
+            'after' => '1 week ago'
+        )
+    )
+				);
 		$count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
