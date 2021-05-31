@@ -88,7 +88,7 @@ $date_range = strtotime ( '-15 day' );
 		'post__not_in' => $post_ids,
 		'meta_key' => 'hk_views',
 		'order' => 'DESC',
-		'orderby' => 'date',
+		'orderby' => 'meta_value_num',
 		 // Using the date_query to filter posts from last week
   'date_query' => array(
      array(
