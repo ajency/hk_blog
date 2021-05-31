@@ -314,6 +314,11 @@ add_shortcode( 'product-listing', function(){?>
 		<?php
 
 			$categoryMapping = [
+				"Bodybuilding" => ["Workout Essentials"],
+				"Weight Management" => ["Weight Management"],
+				"Diet & Nutrition" => ["Nutrition"],
+				"Women's Wellness" => [ "Women", "Women Care"],
+				"Hair, Skin & Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art"],
 				"Pre & Post Workout Nutrition" => ["Pre/Post Workout"],
 				"Workout Routine" => ["Workout Essentials"],
 				"Weight Loss Diet" => ["Weight Loss"],
