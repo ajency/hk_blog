@@ -100,7 +100,7 @@
 //     )
 
 		$args = array(
-			'posts_per_page' => 7,
+			'posts_per_page' => 6,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
@@ -110,7 +110,7 @@
 			 // Using the date_query to filter posts from last week
     'date_query' => array(
         array(
-            'after' => '2 week ago'
+            'after' => '3 week ago'
         )
     )
 		);
