@@ -100,7 +100,7 @@ function hk_post_cpt__metabox() {
     ) );
    
     $cmb_term->add_field( array(
-        'name'    => 'Views',
+        'name'    => 'Total Views',
         'id'      => $prefix . 'views',
         'type'    => 'text',
         'save_field' => false,
