@@ -79,27 +79,28 @@
 
 
 		<?php
+
+
 // $date_range = strtotime ( '-15 day' );  
 
-// 	$args = array(
-// 		'posts_per_page' => 6,
-// 		'post_type' => array('post'),
-// 		'post_status' => 'publish',
-// 		'post__not_in' => $post_ids,
-// 		'meta_key' => 'hk_views',
-// 		'order' => 'DESC',
-// 		'orderby' => 'date meta_value_num',
-// 		 // Using the date_query to filter posts from last week
-//   'date_query' => array(
-   
-//                           'after' => array(
-//                               'year'  => date('Y', $date_range ),
-//                               'month' => date('m', $date_range ),
-//                               'week' => date('m', $date_range ),
-//                               'day'   => date('d', $date_range ),
-//                           ),
-//  )
-//  );
+// 		$args = array(
+// 			'posts_per_page' => 6,
+// 			'post_type' => array('post'),
+// 			'post_status' => 'publish',
+// 			'post__not_in' => $post_ids,
+// 			'meta_key' => 'hk_views',
+// 			'order' => 'DESC',
+// 			'orderby' => 'date',
+// 			 // Using the date_query to filter posts from last week
+//     'date_query' => array(
+//        array(
+//                             'after' => array(
+//                                 'year'  => date('Y', $date_range ),
+//                                 'month' => date('m', $date_range ),
+//                                 'day'   => date('d', $date_range ),
+//                             ),
+//                         )
+//     )
 
 		$args = array(
 'post_status' => 'publish',
@@ -110,7 +111,7 @@
 'posts_per_page' => 10, 
 'date_query' => array( 
 array(
-'after' => '2 week ago',
+'after' => '1 week ago',
 ),
 ),
 );
