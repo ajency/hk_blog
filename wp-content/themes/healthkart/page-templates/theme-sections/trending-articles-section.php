@@ -76,18 +76,6 @@
 		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
 		<?php
-query_posts( array( 'meta_key' => 'hk_views',
- 'orderby' => 'meta_value_num',
-  'order' => 'DESC',
-  'showposts' => '6', 
-  'year' => '. date( "W", current_time( "timestamp" ) )' ) );
-while(have_posts()) : the_post();?>
-<ul>
-<li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
-</ul>
-<?php endwhile;wp_reset_query();
-?>
-		<?php
 
 
 // $date_range = strtotime ( '-15 day' );  
