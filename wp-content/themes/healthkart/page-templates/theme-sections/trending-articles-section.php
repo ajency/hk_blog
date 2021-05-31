@@ -100,7 +100,7 @@
 //     )
 
 		$args = array(
-			'posts_per_page' => 6,
+			'posts_per_page' => 7,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
