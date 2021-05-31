@@ -91,13 +91,12 @@ $date_range = strtotime ( '-15 day' );
 		'orderby' => 'meta_value_num',
 		 // Using the date_query to filter posts from last week
   'date_query' => array(
-     array(
+   
                           'after' => array(
                               'year'  => date('Y', $date_range ),
                               'month' => date('m', $date_range ),
                               'day'   => date('d', $date_range ),
                           ),
-                      )
  )
  );
 
