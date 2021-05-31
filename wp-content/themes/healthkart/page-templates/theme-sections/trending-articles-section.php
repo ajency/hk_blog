@@ -104,14 +104,14 @@
 
 		$args = array(
 'post_status' => 'publish',
-			'post__not_in' => $post_ids,
-			'meta_key' => 'hk_views',
+'post__not_in' => $post_ids,
+'meta_key' => 'hk_views',
 'orderby' => 'meta_value_num', 
 'order' => 'DESC', 
 'posts_per_page' => 10, 
 'date_query' => array( 
 array(
-'after' => '1 week ago',
+'after' => '2 week ago',
 ),
 ),
 );
