@@ -80,7 +80,7 @@ query_posts( array( 'meta_key' => 'hk_views',
  'orderby' => 'meta_value_num',
   'order' => 'DESC',
   'showposts' => '6', 
-  'w' => '. date( "W", current_time( "timestamp" ) )' ) );
+  'year' => date('Y') , 'w' => date('W');  ) );
 while(have_posts()) : the_post();?>
 <ul>
 <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
