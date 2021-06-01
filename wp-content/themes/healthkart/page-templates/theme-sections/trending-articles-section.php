@@ -13,7 +13,7 @@
 					'post__not_in' => $post_ids,
 					'meta_key' => 'hk_views',
 					'order' => 'DESC',
-					'orderby' => 'meta_value_num',
+					'orderby' => 'meta_value_num date',
 	// 				'date_query' => array(
     //     array(
     //         'after' => '1 week ago'
