@@ -376,7 +376,7 @@ add_shortcode( 'product-listing', function(){?>
 
 		 			$product_api_url = 'http://api.healthkart.com/api/catalog/results?catPrefix='. $product->catPre.'&pageNo=1&perPage=2&excludeOOS=true&plt=1&st=1';
 
-		 			//echo $product->catPre;
+		 			break;
 		 		}
 
 	 		}
