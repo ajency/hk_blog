@@ -392,9 +392,12 @@ add_shortcode( 'product-listing', function(){?>
 
 				$product_detail_info = $product_info->variants;
 
-			?>
+				//print_r($product_detail_info);
 
-			<div class="section-title pb-3"> Recommended Products </div>
+			
+			if (!empty($product_detail_info)){?>
+				<div class="section-title pb-3"> Recommended Products </div>
+			<?php } ?>
 			<div class="grid-view row">
 								
 				<?php foreach ($product_detail_info as $pr) { ?>
