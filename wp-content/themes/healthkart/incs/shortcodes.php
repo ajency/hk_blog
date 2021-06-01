@@ -314,6 +314,11 @@ add_shortcode( 'product-listing', function(){?>
 		<?php
 
 			$categoryMapping = [
+				"Bodybuilding" => ["Workout Essentials"],
+				"Weight Management" => ["Weight Management"],
+				"Diet & Nutrition" => ["Nutrition"],
+				"Women's Wellness" => [ "Women", "Women Care"],
+				"Hair, Skin & Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art"],
 				"Pre & Post Workout Nutrition" => ["Pre/Post Workout"],
 				"Workout Routine" => ["Workout Essentials"],
 				"Weight Loss Diet" => ["Weight Loss"],
@@ -348,6 +353,8 @@ add_shortcode( 'product-listing', function(){?>
 				$categoryMappingValue = $categoryMappingList[0]; 
 			}
 
+			//echo $categoryMappingValue;
+
 			$api_url = 'https://api.healthkart.com/api/category/all/1';
 
 			$json_data = file_get_contents($api_url);
@@ -368,6 +375,8 @@ add_shortcode( 'product-listing', function(){?>
 		 		if( $value == $categoryMappingValue ){
 
 		 			$product_api_url = 'http://api.healthkart.com/api/catalog/results?catPrefix='. $product->catPre.'&pageNo=1&perPage=2&excludeOOS=true&plt=1&st=1';
+
+		 			//echo $product->catPre;
 		 		}
 
 	 		}
