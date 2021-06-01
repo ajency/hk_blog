@@ -1,5 +1,6 @@
 <div class="trending-articles-section mt-3">
 	<div class="trending-articles-heading pt-3 pb-3">TRENDING ARTICLES</div>
+	<!-- TRENDING ARTICLES -->
 	<div class="trending-articles mt-4">
 		<div class="row">
 			<div class="col-md-8 col-12 row m-0 p-0">
