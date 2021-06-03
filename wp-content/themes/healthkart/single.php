@@ -95,6 +95,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							</div>
 						</header>
 						<div class="col-md-8 col-12 single-post-content">
+						<div class="category">
+									<?php the_category(' <span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span> '); ?>
+								</div>
 							<div class="entry-content entry-description mt-2"><p><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></p></div>
 							<div class="popupOverlay">
 								<?php
@@ -103,7 +106,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								endif;
 								?>
 							</div>
-							<div class="blog_featured_img my-4">
+							<div class="blog_featured_img mb-4">
 								<?php
 								if ( has_post_thumbnail() ) :
 								the_post_thumbnail( 'large', ['title' => get_the_title()] );
