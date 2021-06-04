@@ -73,8 +73,8 @@
 	            ?>
 			</div>
 		</div>
-		<h2 class="trending-articles-heading editors similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
-		<div class="row similar-articles">
+		<h2 class="trending-articles-heading  similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
+		<div class="row similar-articles editors ">
 		<?php
 		$count = 0;
 		$main_post = new wp_query( $args );
@@ -96,7 +96,7 @@
 			'orderby' => 'meta_value_num date',
 			'date_query' => array(
         array(
-            'after' => '15 days ago'
+            'after' => '15 day ago'
         )
     )
 		);
@@ -153,7 +153,7 @@
 			'orderby' => 'meta_value_num date',
 			'date_query' => array(
         array(
-            'after' => '20days week ago'
+            'after' => '20 day ago'
         )
     )
 		);
