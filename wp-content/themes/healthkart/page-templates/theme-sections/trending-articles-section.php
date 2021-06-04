@@ -73,7 +73,7 @@
 	            ?>
 			</div>
 		</div>
-		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
+		<h2 class="trending-articles-heading editors similar-articles pt-3 pb-3 mt-5 mb-4">EDITOR'S PICK</h2>
 		<div class="row similar-articles">
 		<?php
 		$count = 0;
@@ -85,7 +85,7 @@
 				$count ++;
 				?>
 
-				<?php if($count < 6){ 
+				<?php if($count < 6 ){ 
 					$args = array(
 			'posts_per_page' => 6,
 			'post_type' => array('post'),
@@ -96,7 +96,7 @@
 			'orderby' => 'meta_value_num date',
 			'date_query' => array(
         array(
-            'after' => '3 week ago'
+            'after' => '15 days ago'
         )
     )
 		);
@@ -142,14 +142,9 @@
 						</div>
 					</div>
 				</div>
-			
-			<?php endwhile;
-				endif;  ?>
-				<?php } 
-				else
-				{ 
+				<?php 	if($count == 6){ 
 					$args = array(
-			'posts_per_page' => 6,
+			'posts_per_page' => 1,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
@@ -158,7 +153,7 @@
 			'orderby' => 'meta_value_num date',
 			'date_query' => array(
         array(
-            'after' => '2 week ago'
+            'after' => '20days week ago'
         )
     )
 		);
@@ -168,8 +163,8 @@
 				$main_post->the_post(); 
 				$post_ids[] = get_the_id();
 				$count ++;
-				?>
-				<div class="trending-articles-single q2 row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
+					?>
+				<div class="trending-articles-single q1 row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
 					<div class="trending-articles-single-image mb-3 col-md-5 col-lg-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
@@ -204,10 +199,18 @@
 						</div>
 					</div>
 				</div>
-			
-			<?php  endwhile;
+					<?php 
+					if($count == 1){
+				break;
+			}
+					endwhile;
 				endif;  ?>
-				<?php }  ?>
+			<?php	
+			} ?>
+			
+			<?php endwhile;
+				endif;  ?>
+				<?php } ?>
 			<?php 
 			if($count = 6){
 				break;
