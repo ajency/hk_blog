@@ -96,7 +96,7 @@
 			'orderby' => 'meta_value_num ',
 			'date_query' => array(
         array(
-            'after' => '315 day ago'
+            'after' => '15 day ago'
         )
     )
 		);
