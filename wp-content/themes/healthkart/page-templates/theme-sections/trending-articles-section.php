@@ -12,12 +12,12 @@
 					'post__not_in' => $post_ids,
 					'meta_key' => 'hk_views',
 					'order' => 'DESC',
-					'orderby' => 'meta_value_num',
-	// 				'date_query' => array(
-    //     array(
-    //         'after' => '1 week ago'
-    //     )
-    // )
+				'orderby' => 'meta_value_num ',
+	 				'date_query' => array(
+         array(
+             'after' => '1 week ago'
+         )
+     )
 				);
 				$count = 0;
 				$main_post = new wp_query( $args );
@@ -93,7 +93,7 @@
 			'post__not_in' => $post_ids,
 			'meta_key' => 'hk_views',
 			'order' => 'DESC',
-			'orderby' => 'meta_value_num date',
+			'orderby' => 'meta_value_num ',
 			'date_query' => array(
         array(
             'after' => '15 day ago'
@@ -150,7 +150,7 @@
 			'post__not_in' => $post_ids,
 			'meta_key' => 'hk_views',
 			'order' => 'DESC',
-			'orderby' => 'meta_value_num date',
+			'orderby' => 'meta_value_num ',
 			'date_query' => array(
         array(
             'after' => '20 day ago'
