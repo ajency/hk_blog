@@ -107,10 +107,9 @@
 			'meta_key' => 'hk_views',
 			'order' => 'DESC',
 			'orderby' => 'meta_value_num',
-			 // Using the date_query to filter posts from last week
     'date_query' => array(
         array(
-            'after' => '15 day ago'
+            'after' => '2 week ago'
         )
     )
 		);
