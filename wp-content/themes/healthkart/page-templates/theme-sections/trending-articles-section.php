@@ -96,7 +96,7 @@
 			'orderby' => 'meta_value_num date',
 			'date_query' => array(
         array(
-            'after' => '1 week ago'
+            'after' => '2 week ago'
         )
     )
 		);
