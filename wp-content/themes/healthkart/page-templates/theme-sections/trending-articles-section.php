@@ -87,7 +87,7 @@
 
 				<?php if($count < 6 ){ 
 					$args = array(
-			'posts_per_page' => 6,
+			'posts_per_page' => 15,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
@@ -96,7 +96,7 @@
 			'orderby' => 'meta_value_num ',
 			'date_query' => array(
         array(
-            'after' => '15 day ago'
+            'after' => '315 day ago'
         )
     )
 		);
@@ -201,7 +201,7 @@
 				</div>
 					<?php 
 					if($count == 1){
-				break;
+			
 			}
 					endwhile;
 				endif;  ?>
@@ -213,7 +213,7 @@
 				<?php } ?>
 			<?php 
 			if($count = 6){
-				break;
+			
 			}
 		endwhile;
 		endif; 
