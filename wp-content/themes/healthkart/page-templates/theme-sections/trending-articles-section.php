@@ -107,7 +107,7 @@
 				$post_ids[] = get_the_id();
 				$count ++;
 				?>
-				<div class="trending-articles-single row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
+				<div class="trending-articles-single quer1 row mb-3 col-md-6 col-12 m-0 pl-0 pr-0">
 					<div class="trending-articles-single-image mb-3 col-md-5 col-lg-4 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
