@@ -401,7 +401,7 @@ add_shortcode( 'product-listing', function(){?>
 			<div class="grid-view row">
 								
 				<?php foreach ($product_detail_info as $pr) { ?>
-					<div class="recommend-products col-md-12 col-sm-6">
+					<div class="recommend-products col-md-12 col-6">
 						<div class="product-stack row">
 							<div class="product-stack-image col-md-6 col-sm-12">
 								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>">
