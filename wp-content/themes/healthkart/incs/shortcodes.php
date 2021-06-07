@@ -316,9 +316,9 @@ add_shortcode( 'product-listing', function(){?>
 			$categoryMapping = [
 				"Bodybuilding" => ["Workout Essentials"],
 				"Weight Management" => ["Weight Management"],
-				"Diet & Nutrition" => ["Nutrition"],
+				"Diet Nutrition" => ["Nutrition"],
 				"Women's Wellness" => [ "Women", "Women Care"],
-				"Hair, Skin & Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art"],
+				"Hair Skin Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art"],
 				"Pre & Post Workout Nutrition" => ["Pre/Post Workout"],
 				"Workout Routine" => ["Workout Essentials"],
 				"Weight Loss Diet" => ["Weight Loss"],
@@ -345,6 +345,16 @@ add_shortcode( 'product-listing', function(){?>
 
 			endforeach; 
 
+
+			$replace_character = str_replace("&","",$article_cat_name);
+
+			if($replace_character == 'Hair, Skin amp; Nails'){
+				$article_cat_name = 'Hair Skin Nails';
+			}
+			if($replace_character == 'Diet amp; Nutrition'){
+				$article_cat_name = 'Diet Nutrition';
+			}
+
 			$categoryMappingValue = $article_cat_name;
 
 			if(isset($categoryMapping[$article_cat_name])){
@@ -352,8 +362,6 @@ add_shortcode( 'product-listing', function(){?>
 				shuffle($categoryMappingList);
 				$categoryMappingValue = $categoryMappingList[0]; 
 			}
-
-			//echo $categoryMappingValue;
 
 			$api_url = 'https://api.healthkart.com/api/category/all/1';
 
