@@ -419,7 +419,7 @@ add_shortcode( 'product-listing', function(){?>
 			<div class="grid-view row">
 				<?php $i = 0 ;?>				
 				<?php foreach ($product_detail_info as $pr) { 
-					if (++$i > 4) break; ?>
+					if (++$i > 3) break; ?>
 
 					<div class="recommend-products col-md-12 col-6">
 						<div class="product-stack row">
