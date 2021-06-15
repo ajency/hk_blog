@@ -318,7 +318,7 @@ add_shortcode( 'product-listing', function(){?>
 				"Weight Management" => ["Weight Management"],
 				"Diet Nutrition" => ["Nutrition"],
 				"Women's Wellness" => [ "Women", "Women Care"],
-				"Hair Skin Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art", "Biotin", "Glutathione", "Collagen","Shampoo"],
+				"Hair Skin Nails" => ["Hair Care", "Hair Styling Tools", "Hair Loss", "Hair Spa & Beauty", "Skin Care", "Bath & Skin Care", "Nails", "Nail Art", "Biotin","Glutathione","Collagen", "Shampoo"],
 				"Pre & Post Workout Nutrition" => ["Pre/Post Workout"],
 				"Workout Routine" => ["Workout Essentials"],
 				"Weight Loss Diet" => ["Weight Loss"],
@@ -329,7 +329,7 @@ add_shortcode( 'product-listing', function(){?>
 				"Nutrition for Women" => ["Nutrition" , "Sports Nutrition", "Proteins"],
 				"Fitness Tips for Women" =>["Fitness","Fitness Clothing","Fitness & Weight Management", "Fitness Accessories"],
 				"Vitamins for Hair" => ["Hair Care", "Biotin", "Collagen", "Glutathione"],
-				"Essential Nutrients for Skin" =>  ["Skin Care", "Antioxidants", "Biotin", "Collagen", "Glutathione"],
+				"Essential Nutrients for Skin" => ["Skin Care", "Antioxidants", "Biotin", "Collagen", "Glutathione"],
 				"Nutrition for Nails" => ["Nails", "Biotin", "Collagen", "Glutathione"],
 				"Nutrition and Stress" => ["Nutrition"],
 				"Yoga Exercises" => ["Gym Accessories"],
@@ -419,7 +419,7 @@ add_shortcode( 'product-listing', function(){?>
 			<div class="grid-view row">
 				<?php $i = 0 ;?>				
 				<?php foreach ($product_detail_info as $pr) { 
-					if (++$i > 3) break; ?>
+					if (++$i > 6) break; ?>
 
 					<div class="recommend-products col-md-12 col-6">
 						<div class="product-stack row">
