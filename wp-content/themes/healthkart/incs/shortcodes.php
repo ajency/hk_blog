@@ -314,7 +314,7 @@ add_shortcode( 'product-listing', function(){?>
 		<?php
 
 			$categoryMapping = [
-				"Bodybuilding" => ["Workout Essentials", "Proteins", "Pre/Post Workout", "Plant proteins"],
+				"Bodybuilding" => ["Workout Essentials", "Proteins", "Pre/Post Workout", "Plant Proteins"],
 				"Weight Management" => ["Weight Management"],
 				"Diet Nutrition" => ["Nutrition"],
 				"Women's Wellness" => [ "Women", "Women Care"],
@@ -345,11 +345,16 @@ add_shortcode( 'product-listing', function(){?>
 
 			$categories = hk_get_category($GLOBALS['global_article_id']);
 
+
 			$article_cat_name = '';
 
 			foreach($categories as $index => $category): 
 
 				$article_cat_name = $category->name;
+
+				if($category->parent != 0){
+					$article_cat_name = get_cat_name($category->parent);
+				}
 
 			endforeach; 
 
@@ -365,10 +370,25 @@ add_shortcode( 'product-listing', function(){?>
 
 			$categoryMappingValue = $article_cat_name;
 
+
 			if(isset($categoryMapping[$article_cat_name])){
-				$categoryMappingList = $categoryMapping[$article_cat_name];
+				if(!isset($_SESSION["CATEGORY_MAP"])){
+				$_SESSION["CATEGORY_MAP"] = $categoryMapping;
+				}
+				$categoryMappingList = $_SESSION["CATEGORY_MAP"][$article_cat_name];
 				shuffle($categoryMappingList);
-				$categoryMappingValue = $categoryMappingList[0]; 
+
+				if(isset($categoryMappingList[0])){
+				$categoryMappingValue = $categoryMappingList[0];
+				}
+				else{
+				$_SESSION["CATEGORY_MAP"][$article_cat_name] = $categoryMapping[$article_cat_name];
+				}
+
+				if (($key = array_search($categoryMappingValue, $_SESSION["CATEGORY_MAP"][$article_cat_name])) !== false) {
+				   unset($_SESSION["CATEGORY_MAP"][$article_cat_name][$key]);
+				}
+
 			}
 
 			$api_url = 'https://api.healthkart.com/api/category/all/1';
@@ -385,8 +405,7 @@ add_shortcode( 'product-listing', function(){?>
 
 			foreach ($product_data as $product) {
 
-				$value = $product->prCatNm ;
-
+				$value = $product->nm ;
 			 	
 		 		if( $value == $categoryMappingValue ){
 
