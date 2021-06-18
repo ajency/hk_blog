@@ -396,6 +396,12 @@ add_shortcode( 'product-listing', function(){?>
 		 		}
 
 	 		}
+	 		?>
+	 		<p style="display: none"> CatPre Value: <?php echo  $product->catPre ?></p>
+			<p style="display: none">Category Name: <?php echo  $article_cat_name ?></p>
+			<p style="display: none">Category Mapping Value:<?php echo  $categoryMappingValue ; ?></p>
+
+			<?php
 			
 			if ($product_api_url != ''){
 
@@ -413,9 +419,7 @@ add_shortcode( 'product-listing', function(){?>
 			
 			if (!empty($product_detail_info)){?>
 				<div class="section-title pb-3"> Recommended Products </div>
-				<p style="display: none"> CatPre Value: <?php echo  $product->catPre ?></p>
-				<p style="display: none">Category Name: <?php echo  $article_cat_name ?></p>
-				<p style="display: none">Category Mapping Value:<?php echo  $categoryMappingValue ; ?></p>
+				
 			<?php } ?>
 			<div class="grid-view row">
 				<?php $i = 0 ;?>				
