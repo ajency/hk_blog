@@ -422,16 +422,16 @@ add_shortcode( 'product-listing', function(){?>
 					<div class="recommend-products col-md-12 col-6">
 						<div class="product-stack row">
 							<div class="product-stack-image col-md-6 col-sm-12">
-								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>">
+								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>">
 									<img src="<?php echo $pr->m_img->m_link ?>" class="img-responsive product-image" title="<?php echo $pr->m_img->alt ?>" alt="<?php echo $pr->m_img->alt ?>">
 								</a>
 							</div>
 							<div class="col-md-6"> 
-								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> 
+								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> 
 									<span class="product-des product-desc"> <?php echo $pr->nm ?> </span> 
 								</a>
 								<div class="buy-now-btn"> 
-									<a class="article-btn" href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> Buy now </a>
+									<a class="article-btn" href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> Buy now </a>
 								</div>
 							</div>
 						</div>
