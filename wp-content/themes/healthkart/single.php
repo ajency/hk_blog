@@ -76,6 +76,27 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 										?>
 									</div>
 									<div class="">
+									<?php 
+												$reviewedby = get_field('medically_reviewed_by');
+												if(!empty($reviewedby)){
+													$reviewedby = get_field('medically_reviewed_by');
+													$username = sanitize_user($reviewedby);
+													if ( username_exists( $username) ) {
+														$user_data = get_user_by('login', $username);
+														if(!empty($user_data->user_lastname || $user_data->user_firstname)){
+										?>
+										<div class="date f-12 text-black font-weight-bold reviewer">Medically Reviewed By
+										<a href="<?php echo get_author_posts_url($user_data->ID); ?>" class="author-link"> 
+											<?php 
+														echo $user_data->display_name;
+											?>
+										</a>
+										</div>
+										<?php
+														}
+													}
+												}
+										 ?>
 										<div class="date f-12 text-black font-weight-bold">Written By
 										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
 											<?php 

@@ -1,0 +1,43 @@
+.reviewer{
+    &-avatar{
+        height: 150px;
+        border-radius:100px;
+        width: 150px;
+        object-fit: cover;
+    }
+    &-dname{
+        margin: 0.3em 0 !important;
+    }
+    &-social-media{
+        display: flex;
+        align-items: center;
+        .social-media-icons{
+            line-height: 2;
+            font-size: 20px;
+
+            &:not(:last-child){
+                padding-right:10px;
+            }
+            &:not(:first-child){
+                padding-left:10px;
+            }
+        }
+    }
+}
+
+.single-post{
+    .single_post_page{
+        .entry-content{
+            p{
+                &.reviewer-designation{
+                    margin-bottom: 0 !important;
+                    color: $sky-blue !important;
+                    font-weight: 500;
+                }
+                &.reviewer-bio{
+                    margin-top: 40px !important;
+                }
+            }
+        }
+    }
+}
