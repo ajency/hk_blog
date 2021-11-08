@@ -110,7 +110,6 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 											?>
 										</a>
 										</div>
-										<div class="role f-12"><?php echo get_the_author_meta( 'hk_designation', $user_info->ID); ?></div>
 									</div>
 								</div>
 							</div>
