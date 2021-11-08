@@ -107,7 +107,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<p class="reviewer-bio"> <?php echo $reviewer_bio ?> </p>
 							<?php } ?>
 						</div>
-					</div>  
+					</div> 
 					<div class="latest-reads">
 						<div class="read-these-next">
 							<div class="section-title pb-3">Latest Articles</div>
@@ -117,7 +117,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								$args = array(
 									'posts_per_page' => 5,
 									'author__in'   => array( $author->ID ),
-									'no_found_rows'  => true, 
+									'no_found_rows'  => true,
+									'author'        =>  $author->ID,
 								);
 								
 								// Query posts
