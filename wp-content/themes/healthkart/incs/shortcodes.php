@@ -93,6 +93,59 @@ add_shortcode( 'related-articles', function($atts){
 global $post, $wpdb;
 ?>
 <div class="related-articles mt-4">
+	<?php if(is_author()){?>
+		<?php $number_of_posts = $atts['count'];
+		$author = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		$args = array(
+			'posts_per_page' => $number_of_posts,
+			'author'     => $author->ID,
+		);
+		
+		$author_query = new wp_query( $args);
+		if( $author_query->have_posts() ) {?>
+			<div class="section-title pb-3">Related Articles</div>
+			<?php while( $author_query->have_posts() ){
+				$author_query->the_post();
+				$author_post_ids[] = get_the_id();?>
+						<div class="recent-post">
+						<div class="row py-4">
+							<div class="col-4">
+								<div class="recent-post-featured-img">
+									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+										<?php 
+										$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+										if ( $thumbnail ) { ?>
+											<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+										<?php } else if ( has_post_thumbnail() ) {
+										the_post_thumbnail('medium', ['title' => get_the_title()]); ?>
+										<?php
+										} else { ?>
+										<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+										<?php } ?>
+									</a>
+								</div>
+							</div>
+							<div class="col-8 pl-0">
+								<span>
+									<span class="category">
+									<?php the_category(' , '); ?>
+									</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
+									<?php $post_date = get_the_date( 'M j, Y' ); ?>
+									<span class="last-read"><?php echo $post_date; ?></span>
+								</span>
+								<div class="recent-post-header">
+									<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								</div>
+							</div>
+						</div>
+					</div>
+			<?php }
+		}
+		?>
+	<?php } else { ?>
 	<div class="section-title pb-3">Related Articles</div>
 		<?php 
 			$number_of_posts = $atts['count'];
@@ -170,7 +223,7 @@ global $post, $wpdb;
 					</div>
 				<?php endforeach; ?>
 	</div>
-<?php });
+<?php } });
 
 
 
