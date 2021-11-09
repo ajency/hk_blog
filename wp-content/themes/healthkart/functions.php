@@ -617,3 +617,6 @@ function amp_custom_feild_styling() {
 	}
 }
 /*****************/
+
+/* Create reviewer User Role */
+add_role( 'reviewer', 'Reviewer', get_role( 'author' )->capabilities );
