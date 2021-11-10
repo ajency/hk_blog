@@ -137,7 +137,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								$post_ids[] = get_the_id(); 
 								?>
 								<?php $reviewedby = get_field('medically_reviewed_by');
-								if(!empty($reviewedby) && ($reviewer_username == $reviewedby)){
+								if(!empty($reviewedby) && ($reviewer_username == $reviewedby->user_login)){
 									/* echo "this post has reviewer = ".$reviewedby;
 									echo "<br> required reviewer = ".$reviewer_username."<br>"; */
 									?>

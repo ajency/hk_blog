@@ -112,7 +112,7 @@ global $post, $wpdb;
 					$author_query->the_post();
 					$author_post_ids[] = get_the_id();
 					$reviewedby = get_field('medically_reviewed_by');
-					if(!empty($reviewedby) && ($reviewer_username == $reviewedby)){?>
+					if(!empty($reviewedby) && ($reviewer_username == $reviewedby->user_login)){?>
 							<div class="recent-post">
 							<div class="row py-4">
 								<div class="col-4">

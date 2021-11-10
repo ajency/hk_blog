@@ -82,8 +82,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<?php 
 										$reviewedby = get_field('medically_reviewed_by');
 										if(!empty($reviewedby)){
-											$reviewedby = get_field('medically_reviewed_by');
-											$username = sanitize_user($reviewedby);
+											$username = sanitize_user($reviewedby->user_login);
 											if ( username_exists( $username) ) {
 												$user_data = get_user_by('login', $username);
 												if(!empty($user_data->user_lastname || $user_data->user_firstname)){
