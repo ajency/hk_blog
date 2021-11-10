@@ -125,9 +125,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							echo "<br> current reviewer = ".$reviewer_username."<br>";
  */
 								$args = array(
-									'post_type' => array('post','page'),
+									'post_type' => array('post'),
 									'post_status' => 'publish',
-									'posts_per_page' => 5
+									'posts_per_page' => -1
 								  );
 								  $qry = new WP_Query($args);?>
 								  <?php  // Loop through posts
@@ -186,6 +186,16 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								<?php endwhile; ?>
 							<?php endif; ?>
 							<!-- end loop -->
+							<?php 
+							$req_post_limit = 5;
+							$final_post_limit = $req_post_limit + 1;
+								echo '<style>
+								.recent-post { display:none;}
+								.recent-post:nth-child(-n + ';
+								echo $final_post_limit;
+								echo ') { display:block;}
+								</style>';
+							?>
 							<?php }
 							else{
 								$post_ids = [];

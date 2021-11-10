@@ -101,7 +101,7 @@ global $post, $wpdb;
 		$reviewer_roles =$author->roles;
 		if ( in_array( 'reviewer', $reviewer_roles, true ) ){
 			$args = array(
-				'posts_per_page' => $number_of_posts,
+				'posts_per_page' => -1,
 				'post_type' => array('post','page'),
 				'post_status' => 'publish',
 			);
@@ -152,6 +152,14 @@ global $post, $wpdb;
 				<?php
 				}
 			}
+				$req_post_limit = $number_of_posts;
+				$final_post_limit = $req_post_limit + 1;
+					echo '<style>
+					.recent-post { display:none !important;}
+					.recent-post:nth-child(-n + ';
+					echo $final_post_limit;
+					echo ') { display:block !important;}
+					</style>';
 		} else{
 			$args = array(
 				'posts_per_page' => $number_of_posts,
