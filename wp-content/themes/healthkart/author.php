@@ -104,7 +104,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<?php } ?>
 							<?php $reviewer_bio = get_the_author_meta('description');
 							if(!empty($reviewer_bio)){?>
-								<p class="reviewer-bio"> <?php echo $reviewer_bio ?> </p>
+								<p class="reviewer-bio"> <?php echo esc_textarea($reviewer_bio) ?> </p>
 							<?php } ?>
 						</div>
 					</div> 

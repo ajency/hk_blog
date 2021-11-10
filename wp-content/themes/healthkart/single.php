@@ -75,12 +75,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<div class="post-title">
 								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
 								<div class="d-flex flex-row align-items-center author">
-									<div class="author-image">
 										<?php 
 										$user_info = get_userdata($post->post_author);
-										echo get_avatar($user_info->ID);
 										?>
-									</div>
 									<div class="">
 									<?php 
 										$reviewedby = get_field('medically_reviewed_by');
