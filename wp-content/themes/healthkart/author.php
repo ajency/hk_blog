@@ -105,7 +105,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<?php $reviewer_bio = get_the_author_meta('description');
 							if(!empty($reviewer_bio)){?>
 								<p class="reviewer-bio"> <?php echo esc_textarea($reviewer_bio) ?> </p>
-							<?php } else{ echo "bio field is empty!"} ?>
+							<?php } ?>
 						</div>
 					</div> 
 					<div class="latest-reads">
