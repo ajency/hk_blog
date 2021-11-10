@@ -102,7 +102,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 											<?php } ?>
 								</div>
 							<?php } ?>
-							<?php $reviewer_bio = get_the_author_meta('description');
+							<?php $reviewer_bio = get_the_author_meta( 'user_description', $user_info->ID);
 							if(!empty($reviewer_bio)){?>
 								<p class="reviewer-bio"> <?php echo esc_textarea($reviewer_bio) ?> </p>
 							<?php } ?>
