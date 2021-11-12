@@ -79,6 +79,13 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 										$user_info = get_userdata($post->post_author);
 										?>
 									<div class="">
+									<div class="date f-12 text-black font-weight-bold" style="margin-bottom:10px;">Written By
+										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
+											<?php 
+												echo $user_info->display_name;
+											?>
+										</a>
+									</div>
 									<?php 
 										$reviewedby = get_field('medically_reviewed_by');
 										if(!empty($reviewedby)){
@@ -87,7 +94,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 												$user_data = get_user_by('login', $username);
 												if(!empty($user_data->user_lastname || $user_data->user_firstname)){
 										?>
-										<div class="date f-12 text-black font-weight-bold reviewer">Medically Reviewed By
+										<div class="date f-12 text-black font-weight-bold reviewer" style="margin-bottom:0 !important;">Medically Reviewed By
 										<a href="<?php echo get_author_posts_url($user_data->ID); ?>" class="author-link"> 
 											<?php 
 														echo $user_data->display_name;
@@ -99,13 +106,6 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 													}
 												}
 										 ?>
-										<div class="date f-12 text-black font-weight-bold">Written By
-										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
-											<?php 
-												echo $user_info->display_name;
-											?>
-										</a>
-										</div>
 									</div>
 								</div>
 							</div>
