@@ -99,11 +99,8 @@ do_action( 'genesis_after_header' );
 ?>
 <header id="site-header" class="site-header">
 		<div class="container">
-			<div class="tob-bar-menu">
-				<?php wp_nav_menu( array( 'theme_location' => 'top-menu' ) ); ?>
-			</div>
 			<div id="site-navigation" class="site-navigation">
-				<div class="main-header d-flex justify-content-between pt-3 pb-4">
+				<div class="main-header">
 					<div class="logo-text">
 						<div class="site-logo d-flex align-items-center">
 							<!--Toggle Start -->
@@ -118,15 +115,17 @@ do_action( 'genesis_after_header' );
 					      	?>
 							<a href="<?php echo get_site_url(); ?>/" class="d-flex align-items-center"><img src="<?php echo $image[0]; ?>" alt="" class="pr-2"></a>
 						</div>
+						<div class="left-header-menu">
+							<?php wp_nav_menu( array( 'theme_location' => 'header-left-menu' ) ); ?>
+						</div>
 						<?php get_search_form(); ?>
 					</div>
-					<div class="action-block">
-						<a href="https://www.healthkart.com/stores"> Shop at Healthkart <i class="fa fa-arrow-right pl-2" aria-hidden="true"></i></a>
+				</div>
+				<?php if ( is_front_page() || is_home() ){?>
+					<div class="navbar navbar-expand-md navbar-light header-menu p-0">
+					  <?php wp_nav_menu(array( 'theme_location' => 'main-menu' )); ?>
 					</div>
-				</div>
-				<div class="navbar navbar-expand-md navbar-light header-menu p-0">
-					  <?php wp_nav_menu(); ?>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 		<!-- Mobile Menu -->

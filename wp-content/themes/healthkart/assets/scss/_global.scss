@@ -3,7 +3,7 @@
 	padding: 0;
 }
 body {
-	font-family: "Roboto", sans-serif;
+	font-family: "Nunito", sans-serif;
 	position: relative;
 	&.no-scrolling {
 		overflow: hidden;
@@ -21,7 +21,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-	font-family: "Roboto", sans-serif;
+	font-family: "Nunito", sans-serif;
 }
 .container {
 	@media (min-width: 1200px) {
@@ -174,7 +174,7 @@ strong {
 				}
 			}
 			p {
-				font-family: "Roboto", sans-serif !important;
+				font-family: "Nunito", sans-serif !important;
 				font-size: 17px;
 				line-height: 2 !important;
 				color: #333 !important;
@@ -189,9 +189,9 @@ strong {
 			}
 		}
 		.entry-content {
-			font-family: "Roboto", sans-serif !important;
+			font-family: "Nunito", sans-serif !important;
 			p {
-				font-family: "Roboto", sans-serif !important;
+				font-family: "Nunito", sans-serif !important;
 				font-size: 17px;
 				line-height: 2 !important;
 				color: #333 !important;
@@ -204,7 +204,7 @@ strong {
 			ul,
 			ol {
 				li {
-					font-family: "Roboto", sans-serif !important;
+					font-family: "Nunito", sans-serif !important;
 					font-size: 17px;
 					line-height: 2 !important;
 					color: #333 !important;
@@ -219,7 +219,7 @@ strong {
 		}
 		.entry-footer {
 			p {
-				font-family: "Roboto", sans-serif !important;
+				font-family: "Nunito", sans-serif !important;
 				font-size: 17px;
 				line-height: 2 !important;
 				color: #333 !important;

@@ -1,4 +1,5 @@
 .banner {
+	margin-top:30px;
 	&-slider {
 		.slider {
 			opacity: 0;
@@ -63,6 +64,9 @@
 				margin: 15px 0;
 			}
 		}
+	}
+	@media(max-width:768px){
+		margin-top:20px;
 	}
 }
 
