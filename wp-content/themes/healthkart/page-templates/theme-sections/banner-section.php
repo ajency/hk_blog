@@ -1,5 +1,5 @@
-<div class="banner row">
-	<div class="banner-slider slideshow col-12 col-md-8">
+<div class="banner">
+	<div class="banner-slider slideshow col-12">
 		<div class="slider stick-dots">
 		<?php 
 		$args = array(
@@ -55,25 +55,27 @@
 		endif; ?>
 		</div>
 	</div>
-	<div class="banner-category col-12 col-md-4">
-		<div class="banner-category-title">Top Topics</div>
-		<?php $categories = get_terms(['taxonomy' => 'category' ]); 
-		foreach ($categories as $category):
-			$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
-			if($is_featured == 'on'): ?>
-				<div class="banner-category-single"><a href="<?php echo get_category_link($category->term_id); ?>" >
-					<div class="banner-category-single-image">
-						<?php
-						$image_id = get_term_meta( $category->term_id, 'hk_featured_image_id', true );
-						$image_url = wp_get_attachment_image_src($image_id, 'large')[0];
-						?>
-						<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>" alt="<?php echo $category->name; ?>"/>
-						<div class="overlay"></div>
-					</div>
-					<div class="banner-category-single-title"><?php echo $category->name; ?></div>
-				</a></div>
-			<?php endif; ?>
-		<?php endforeach; ?>
+	<div class="banner-category col-12">
+		<div class="banner-category-title">Top stories</div>
+		<div class="d-flex category-container">
+			<?php $categories = get_terms(['taxonomy' => 'category' ]); 
+			foreach ($categories as $category):
+				$is_featured = get_term_meta( $category->term_id, 'hk_featured_category', true );
+				if($is_featured == 'on'): ?>
+					<div class="flex-grow-1 banner-category-single"><a href="<?php echo get_category_link($category->term_id); ?>" >
+						<div class="banner-category-single-image">
+							<?php
+							$image_id = get_term_meta( $category->term_id, 'hk_featured_image_id', true );
+							$image_url = wp_get_attachment_image_src($image_id, 'large')[0];
+							?>
+							<img title="<?php echo $category->name; ?>" src="<?php echo $image_url; ?>" alt="<?php echo $category->name; ?>"/>
+							<div class="overlay"></div>
+						</div>
+						<div class="banner-category-single-title"><?php echo $category->name; ?></div>
+					</a></div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</div>
 	</div>
 </div>
 <?php 
