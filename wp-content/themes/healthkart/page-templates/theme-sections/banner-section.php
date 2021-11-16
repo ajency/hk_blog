@@ -1,6 +1,5 @@
 <div class="banner">
-	<div class="banner-slider slideshow col-12">
-		<div class="slider stick-dots">
+	<div class="banner-animated col-12">
 		<?php 
 		$args = array(
 			'post_type' => array('post'),
@@ -22,38 +21,43 @@
 				while( $banner_posts->have_posts() ) :
 					$banner_posts->the_post(); 
 					$post_ids[] = get_the_ID(); ?>
-					<div class="slide item"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-						<div class="slide__img">
-							<img src="" alt="<?php echo get_the_title();?>" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image animated" data-animation-in="zoomInImage"/>
-						</div>
-						<div class="overlay"></div>
-						<div class="slide__content">
-							<div class="slide__content--headings">
-								<div class="content-title ml-2">
-									<?php $categories = hk_get_category(get_the_ID());  ?>
-									<span>
+					<div class="slide-box">
+							<div class="slide-box__img">
+								<img src="<?php echo the_post_thumbnail_url('large');?>" alt="<?php echo get_the_title();?>" title="<?php echo get_the_title();?>" data-lazy="<?php echo the_post_thumbnail_url('large');?>" class="full-image"/>
+							</div>
+							<div class="overlay"></div>
+
+							<div class="slide-box__content1">
+								<h2 class="f-20 blog-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<span class="f-18 text-white"><?php echo hk_get_excerpt(100); ?></span>
+								<?php $categories = hk_get_category(get_the_ID());  ?>
+									<div class="category-container">
 										<span class="category">
 											<?php foreach($categories as $index => $category): ?>
-											<a class="category" title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
+											<a class="f-16 category" title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
 											<?php if($index+1 != count($categories)): ?>
 												,
 											<?php endif; endforeach; ?>
 										</span>
 										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-										<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
+										<span class="last-read"><?php echo get_mins_read(); ?> Min Read</span>
 										<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 										<?php $post_date = get_the_date( 'M j, Y' ); ?>
-										<span class="text-white blog-date"><?php echo $post_date; ?></span>
-									</span>
-									<h2 class="m-0 title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-									<span class="text-white"><?php echo hk_get_excerpt(100); ?></span>
-								</div>
+										<span class="text-white f-16 date"><?php echo $post_date; ?></span>
+									</div>
+									<div class="w-100 action-btn">
+										<a href="<?php the_permalink(); ?>" class="btn hk-button hk-button--transparent"><span>Read More</span></a>
+									</div>
 							</div>
-						</div>
-					</a></div>
+							<div class="slide-box__content2 hide-mob">
+									<h2 class="f-20 blog-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),4);?></a></h2>
+							</div>
+							<div class="slide-box__content2 hide-desk">
+									<h2 class="f-20 blog-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
+							</div>
+					</div>
 				<?php endwhile;
 		endif; ?>
-		</div>
 	</div>
 	<div class="banner-category col-12">
 		<div class="banner-category-title">Top stories</div>

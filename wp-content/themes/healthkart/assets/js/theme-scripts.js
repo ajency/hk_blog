@@ -514,3 +514,12 @@ $(document).ready(function(){
         $('.explore-articles-slider').slick('resize');
     });
 });
+
+/* homepeage banner */
+$(document).ready(function(){
+	$(".banner-animated .slide-box:first-child").addClass("show");
+	$(".banner-animated .slide-box").click(function(){
+		$(".banner-animated .slide-box").removeClass("show");
+		$(this).addClass("show");
+	});
+}); 

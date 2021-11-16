@@ -39,14 +39,29 @@ h6,
 }
 .f-18 {
 	font-size: 18px;
-	@media (max-width: 767px) {
-		font-size: 14px;
+	@media (max-width: 768px) {
+		font-size: 14px !important;
+		line-height: 18px !important;
 	}
 }
 .f-24 {
 	font-size: 24px;
 	@media (max-width: 767px) {
 		font-size: 16px;
+	}
+}
+.f-20{
+	font-size: 20px;
+	line-height: 32px;
+	@media(max-width:768px){
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+.f-16{
+	font-size: 16px;
+	@media(max-width:768px){
+		font-size: 12px;
 	}
 }
 .font-weight-500 {
@@ -299,5 +314,16 @@ strong {
 				}
 			}
 		}
+	}
+}
+
+.hide-mob{
+	@media(max-width:768px){
+		display: none !important;
+	}
+}
+.hide-desk{
+	@media(min-width:769px){
+		display: none !important;
 	}
 }
