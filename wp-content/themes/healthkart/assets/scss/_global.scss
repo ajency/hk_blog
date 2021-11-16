@@ -30,6 +30,10 @@ h6,
 	@media (max-width: 992px) {
 		max-width: 100%;
 	}
+	@media (max-width: 768px) {
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+	}
 }
 .f-12 {
 	font-size: 12px;

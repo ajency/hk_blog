@@ -1,21 +1,28 @@
-<div class="latest-articles-section my-3">
-	<div class="latest-articles-heading pt-3 pb-3">LATEST ARTICLES</div>
-	<div class="latest-articles row mt-4">
+
+<div class="latest-articles-section">
+	<div class="container">
+		<div class="latest-articles-heading">Latest & Trending Articles</div>
+	</div>
+	<div class="latest-articles">
 	<?php 
 		wp_reset_query();
 		$post_ids = (array) get_query_var('post_ids');
+		$required_posts = 2;
 		$args = array(
-			'posts_per_page' => 1,
+			'posts_per_page' => $required_posts,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 		);
+		$post_count = 0;
 		$main_post = new wp_query( $args );
 		if( $main_post->have_posts() ) :
 			while( $main_post->have_posts() ) :
 				$main_post->the_post(); 
-				$post_id = get_the_id();?>
-				<div class="latest-articles-single latest-articles-single-main col-md-6 col-12">
-					<div class="latest-articles-single-image mb-4"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+				$post_id = get_the_id();
+				$post_count++;
+				?>
+				<div class="latest-articles-single latest-articles-single-main col-12">
+					<div class="latest-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
 						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
 						if ( $thumbnail ) { ?>
@@ -29,95 +36,21 @@
 					</a></div>
 					<div class="latest-articles-single-content">
 						<div class="content-title">
-							<?php $categories = hk_get_category(get_the_ID());  ?>
-							<span>
-								<span class="category">
-									<?php foreach($categories as $index => $category): ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-									<?php if($index+1 != count($categories)): ?>
-										,
-									<?php endif; endforeach; ?>
-								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<?php $post_date = get_the_date( 'M j, Y' ); ?>
-								<span class="last-read"><?php echo $post_date; ?></span>
-							</span>
 							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						</div>
-						<div class="content-description content-desktop"><?php echo hk_get_excerpt(300); ?></div>
+						<div class="content-description content-desktop"><?php echo hk_get_excerpt(190); ?></div>
 						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
+						<div class="w-100 action-btn hide-mob">
+							<a href="<?php the_permalink(); ?>" class="btn hk-button">Read More</a>
+						</div>
 					</div>
 				</div>
 			<?php
-			break;
+			if($post_count == $required_posts){
+				break;
+			}
 			 endwhile;
 			 wp_reset_postdata();
 		endif; ?>
-
-	<div class="col-12 col-md-6">
-	<?php
-	wp_reset_query();
-	$args = array(
-		'posts_per_page' => 3,
-		'post_type' => array('post'),
-		'post_status' => 'publish',
-		'post__not_in' => [$post_id]
-		);
-		$count = 0;
-		$main_post = new wp_query( $args );
-		if( $main_post->have_posts() ) :
-			while( $main_post->have_posts() ) :
-				$main_post->the_post(); 
-				$post_ids[] = get_the_id();
-				$count ++;
-				?>
-				<div class="latest-articles-single row mb-4">
-					<div class="latest-articles-single-image col-md-5 col-12"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-						<?php 
-						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
-						if ( $thumbnail ) { ?>
-							<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-						<?php } else if ( has_post_thumbnail() ) {
-						the_post_thumbnail('medium', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
-						<?php
-						} else { ?>
-						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-						<?php } ?>
-					</a></div>
-					<div class="latest-articles-single-content col-md-7 col-12">
-						<div class="content-title">
-							<?php $categories = hk_get_category(get_the_ID()); ?>
-							<span>
-								<span class="category">
-									<?php foreach($categories as $index => $category): ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-									<?php if($index+1 != count($categories)): ?>
-										,
-									<?php endif; endforeach; ?>
-								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<?php $post_date = get_the_date( 'M j, Y' ); ?>
-								<span class="last-read"><?php echo $post_date; ?></span>
-							</span>
-							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						</div>
-						<div class="content-description content-desktop"><?php echo hk_get_excerpt(140); ?></div>
-						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
-					</div>
-				</div>
-			<?php 
-		if($count == 3){
-			break;
-		}
-		endwhile;
-		wp_reset_postdata();
-		endif; 
-		set_query_var( 'post_ids', $post_ids );
-	?>
-		</div>
 	</div>
 </div>

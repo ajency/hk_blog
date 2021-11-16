@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="container banner">
 	<div class="banner-animated col-12">
 		<?php 
 		$args = array(

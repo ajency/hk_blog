@@ -14,7 +14,7 @@
 get_header(); 
 get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
-<div class="container">
+<div class="container-main">
 <?php 
 	set_query_var( 'post_ids', array() );
 	get_template_part( 'page-templates/theme-sections/banner', 'section' );
@@ -22,7 +22,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 <!-- 	<h1 class="heading-title text-center pt-1 pb-1">HealthKart Blog</h1> -->
 <?php
 	get_template_part( 'page-templates/theme-sections/latest-articles', 'section' ); 
-	get_template_part( 'page-templates/theme-sections/trending-articles', 'section' ); 
+	/* get_template_part( 'page-templates/theme-sections/trending-articles', 'section' );  */
 	get_template_part( 'page-templates/theme-sections/explore-articles', 'section' );
 	get_template_part( 'page-templates/theme-sections/videos', 'section' ); 
 	get_template_part( 'page-templates/theme-sections/infographics', 'section' ); 

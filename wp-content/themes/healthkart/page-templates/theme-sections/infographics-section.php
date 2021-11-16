@@ -1,4 +1,4 @@
-<div class="infographics-section mb-3">
+<div class="container infographics-section mb-3">
 	<div class="infographics-heading pt-3 pb-3">TRENDING INFOGRAPHICS</div>
 	<div class="infographics-articles mt-4 row">
 	<?php 
