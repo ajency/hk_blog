@@ -523,3 +523,26 @@ $(document).ready(function(){
 		$(this).addClass("show");
 	});
 }); 
+
+/* transformation slider */
+$(function() {
+	$(".transformation-section-articles").slick({
+		arrows:false,
+		dots: true,
+		speed: 300,
+		infinite: true,
+		cssEase: 'linear',
+		slidesToShow: 3,
+		slidesToScroll: 2,
+
+		responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+				}
+            }
+        ]
+	});
+});

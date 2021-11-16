@@ -1,10 +1,10 @@
-<div class="container transformation-section my-4">
-	<div class="transformation-section-heading pt-3 pb-3">TRANSFORMATION STORIES</div>
-	<div class="transformation-section-articles mt-4 row">
+<div class="container transformation-section">
+	<div class="section-heading transformation-section-heading">Transformations Stories</div>
+	<div class="transformation-section-articles">
 	<?php 
 	$post_ids = get_query_var('post_ids');
 	$args = array(
-		'posts_per_page' => 3,
+		'posts_per_page' => 6,
 		'post_type' => array('transformation'),
 		'post_status' => 'publish',
 		'post__not_in' => $post_ids,
@@ -23,9 +23,6 @@
 			get_template_part( 'page-templates/theme-sections/transformations-single', 'component' ); 
 		endwhile;
 	endif; ?>
-	</div>
-	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link(get_post_type()); ?>" class="btn hk-button mr-3">MORE FROM TRANSFORMATIONS</a>
 	</div>
 </div>
 

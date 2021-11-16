@@ -331,3 +331,45 @@ strong {
 		display: none !important;
 	}
 }
+
+.section-heading{
+	font-size: 40px;
+	line-height: 45px;
+	color: theme-color("dark-blue");
+	font-weight: bold;
+	margin:80px 0 40px;
+	@media(max-width:768px){
+		font-size: 20px;
+		margin:20px 0 10px;
+	}
+}
+
+/* slick dots */
+.slick-dots{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	li{
+		button{
+			background-color: theme-color("dark-blue") !important;
+			outline:none !important;
+			font-size: 0;
+    		height: 8px;
+    		width: 8px;
+    		padding: 0;
+    		border-radius: 100%;
+			opacity: 20%;
+		}
+		&.slick-active{
+			button{
+				opacity: 100%;
+			}
+		}
+		&:not(:last-child){
+			margin-right: 6px;
+		}
+	}
+	@media(max-width:768px){
+		margin-top: 15px;
+	}
+}
