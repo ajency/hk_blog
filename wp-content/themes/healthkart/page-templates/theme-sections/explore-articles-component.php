@@ -41,7 +41,7 @@
 					<div class="gradient-overlay"></div>
 				</a>
 				<div class="cat-detail">
-							<span class="last-read"><?php echo get_mins_read(); ?> Min Read</span>
+							<span class="last-read"><?php echo get_mins_read(); ?> Min read</span>
 							<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
 							<?php $post_date = get_the_date( 'M j, Y' ); ?>
 							<span class="last-read"><?php echo $post_date; ?></span>
