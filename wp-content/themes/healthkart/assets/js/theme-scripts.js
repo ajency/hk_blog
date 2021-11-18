@@ -479,36 +479,6 @@ $(document).ready(function(){
 	  $(this).css("display", "none");
 	});
 }); 
-$(function() {
-	$(".explore-articles-slider").slick({
-		infinite: true,
-		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
-        nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
-		dots: false,
-		speed: 900,
-		slidesToShow: 2,
-		slidesToScroll: 2,
-		mobileFirst: true,
-        responsive: [
-            {
-                breakpoint: 769,
-                settings: 'unslick'
-            }
-        ]
-    });
-	$(".explore-cat-slider").slick({
-		prevArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-arrow-left"></i></button>',
-        nextArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-arrow-right"></i></button>',
-		dots: false,
-		speed: 300,
-		infinite: true,
-		cssEase: 'linear',
-		variableWidth: true,
-		slidesToShow: 2,
-		slidesToScroll: 1,
-  		centerPadding: '30px',
-	});
-});
 $(document).ready(function(){
     $(window).on('resize', function() {
         $('.explore-articles-slider').slick('resize');
@@ -518,7 +488,7 @@ $(document).ready(function(){
 /* homepeage banner */
 $(document).ready(function(){
 	$(".banner-animated .slide-box:first-child").addClass("show");
-	$(".banner-animated .slide-box").click(function(){
+	$(".banner-animated .slide-box").hover(function(){
 		$(".banner-animated .slide-box").removeClass("show");
 		$(this).addClass("show");
 	});
