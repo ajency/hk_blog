@@ -1,6 +1,6 @@
 <div class="container videos-section mb-3">
-	<div class="videos-heading pt-3 pb-3">TRENDING VIDEOS</div>
-	<div class="videos-articles mt-4 row">
+	<div class="section-heading videos-heading text-center">Trending Video’s</div>
+	<div class="videos-articles row">
 	<?php 
 	$post_ids = get_query_var('post_ids');
 	$args = array(
@@ -25,7 +25,7 @@
 					foreach ($matches as $video) { 
  						?>
  					<div class="videos-single col-md-4 col-12">
-						<div class="videos-single-image mb-4">
+						<div class="videos-single-image">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 								<div class="videos-single-image-overlay"></div>
 									<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -39,8 +39,8 @@ endif;
 		endwhile;
 	endif; ?>
 	</div>
-	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button mr-3">MORE VIDEOS</a>
+	<div class="hide-desk w-100 action-btn text-center">
+		<a href="<?php echo get_post_type_archive_link( 'video' ); ?>" class="btn hk-button">More videos</a>
 	</div>
 </div>
 
