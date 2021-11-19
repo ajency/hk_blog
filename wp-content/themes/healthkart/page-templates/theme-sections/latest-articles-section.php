@@ -41,7 +41,7 @@
 						<div class="content-description content-desktop"><?php echo hk_get_excerpt(190); ?></div>
 						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
 						<div class="w-100 action-btn hide-mob">
-							<a href="<?php the_permalink(); ?>" class="btn hk-button">Read More</a>
+							<a href="<?php the_permalink(); ?>" class="btn hk-button">Read more</a>
 						</div>
 					</div>
 				</div>

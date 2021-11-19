@@ -61,7 +61,7 @@
 ?>
 </div>
 <div class="w-100 action-btn text-center">
-	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">View More</a>
+	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">View more</a>
 </div>
 <div class="my-5 loader explore-articles-loader d-none">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">

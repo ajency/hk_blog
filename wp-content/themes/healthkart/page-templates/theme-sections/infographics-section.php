@@ -50,7 +50,7 @@
 	endif; ?>
 	</div>
 	<div class="w-100 action-btn text-center">
-		<a href="<?php echo get_post_type_archive_link( 'infographic' ); ?>" class="btn hk-button mr-3">View More</a>
+		<a href="<?php echo get_post_type_archive_link( 'infographic' ); ?>" class="btn hk-button mr-3">View more</a>
 	</div>
 </div>
 

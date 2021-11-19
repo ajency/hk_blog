@@ -46,7 +46,7 @@
 										<span class="text-white f-16 date"><?php echo $post_date; ?></span>
 									</div>
 									<div class="w-100 action-btn">
-										<a href="<?php the_permalink(); ?>" class="btn hk-button hk-button--transparent"><span>Read More</span></a>
+										<a href="<?php the_permalink(); ?>" class="btn hk-button hk-button--transparent"><span>Read more</span></a>
 									</div>
 							</div>
 							<div class="slide-box__content2 hide-mob">
