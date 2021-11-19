@@ -119,6 +119,10 @@
 								a{
 									color: theme-color("dark-blue");
 									font-weight: 700;
+									transition: color 250ms ease-in-out;
+									&:hover{
+										color: theme-color("dark-turquoise");
+									}
 								}
 							}
 						}
@@ -213,8 +217,9 @@
 					    color: theme-color("dark-blue");
 						text-decoration: none;
 						padding: 10px 0;
+						transition: color 250ms ease-in-out;
 						&:hover{
-							color: #212121;
+							color: theme-color("dark-turquoise");
 						}
 						&:focus{
 							outline: 0;
@@ -333,9 +338,25 @@
 							transform: rotate(-135deg);
 						}
 						&:hover{
+							a{
+								color:theme-color("dark-turquoise");
+							}
+							.sub-menu{
+								li{
+									a{
+										color: theme-color("dark-blue");
+									}
+									&:hover{
+										a{
+											color:theme-color("dark-turquoise");
+										}
+									}
+								}
+							}
 							&:before{
 								transform: rotate(45deg);
 								top: 16px;
+								border-color: theme-color("dark-turquoise");
 							}
 						}
 					}

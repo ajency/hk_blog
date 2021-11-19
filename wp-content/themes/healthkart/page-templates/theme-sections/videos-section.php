@@ -1,4 +1,4 @@
-<div class="container videos-section mb-3">
+<div class="container videos-section">
 	<div class="section-heading videos-heading text-center">Trending Video’s</div>
 	<div class="videos-articles row">
 	<?php 
