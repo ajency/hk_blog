@@ -178,7 +178,8 @@
 			}
 			.overlay{
 				border-radius: 0px;
-				background: rgba(0, 0, 0, 0.6);
+				background: linear-gradient(0deg, #0d1014 0%, #090B0E00 100%);
+				opacity: 0.8;
 			}
 		}
 		@media(max-width:768px) {
@@ -1078,6 +1079,9 @@
 				background: #ececec;
 				width: 0px;
 				height: 0px;
+			}
+			.content-description{
+				min-height: 50px;
 			}
 		}
 	}

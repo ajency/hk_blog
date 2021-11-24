@@ -60,9 +60,21 @@
 	set_query_var( 'post_ids', $post_ids );
 ?>
 </div>
-<div class="w-100 action-btn text-center">
-	<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">View more</a>
-</div>
+<?php
+		$args1 = array(
+		'posts_per_page' => -1,
+		'post_type' => array('post'),
+		'post_status' => 'publish',
+		'cat' => $_POST['category_id'],
+		'category__not_in' => array($hindi_cat->term_id),
+	);
+	$posts_in_cat = new wp_query( $args1 );
+	$total_post_in_cat = $posts_in_cat->found_posts;
+	if($total_post_in_cat >= 7){?>
+		<div class="w-100 action-btn text-center">
+			<a href="<?php echo get_category_link($_POST['category_id']); ?>" class="btn hk-button">View more</a>
+		</div>
+	<?php } ?>
 <div class="my-5 loader explore-articles-loader d-none">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/loader.svg">
 </div>
