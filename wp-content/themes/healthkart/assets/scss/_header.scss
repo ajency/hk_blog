@@ -225,13 +225,13 @@
 							outline: 0;
 						}
 					}
-					&:nth-child(-n+2){
+/* 					&:nth-child(-n+2){
 						@media (min-width: 992px){
 							.sub-menu{
 								min-height: 440px;
 							}
 						}
-					}
+					} */
 					@media (min-width: 992px){
 						.sub-menu{
 			 				display: none; 

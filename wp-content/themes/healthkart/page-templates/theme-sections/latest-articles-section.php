@@ -24,11 +24,11 @@
 				<div class="latest-articles-single latest-articles-single-main col-12">
 					<div class="latest-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 						<?php 
-						$thumbnail = get_post_meta(get_the_id(), 'hk_thumbnail_image', true);
+						$thumbnail = get_post_meta(get_the_id(), 'hk_large_image', true);
 						if ( $thumbnail ) { ?>
 							<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
 						<?php } else if ( has_post_thumbnail() ) {
-						the_post_thumbnail('medium', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
+						the_post_thumbnail('large', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
 						<?php
 						} else { ?>
 						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
