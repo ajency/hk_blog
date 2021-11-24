@@ -564,3 +564,12 @@ $(".infographics-articles-single-image a").hover(function(){
 	$(this).find("img").toggleClass("scaleup");
 	$(this).parent().parent().find(".infographics-articles-single-content .content-title a").toggleClass("hovered-link");
 });
+
+/* accordion menu */
+$("footer .footer-widgets .footer-wrapper .footer-sidebar:first-child .widget_nav_menu .widget-wrap").addClass("accordion-menu");
+$(".accordion-menu .widget-title").addClass("accordion-menu__header");
+$(".accordion-menu nav").addClass("accordion-menu__content");
+
+$(document).on("touchstart", ".accordion-menu__header", function() {
+	$(this).parent().toggleClass("show");
+});
