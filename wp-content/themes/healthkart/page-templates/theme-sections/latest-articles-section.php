@@ -38,8 +38,8 @@
 						<div class="content-title">
 							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						</div>
-						<div class="content-description content-desktop"><?php echo hk_get_excerpt(190); ?></div>
-						<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
+						<div class="content-description hide-desk"><?php echo hk_get_excerpt(140); ?></div>
+						<div class="content-description hide-mob"><?php echo hk_get_excerpt(260); ?></div>
 						<div class="w-100 action-btn hide-mob">
 							<a href="<?php the_permalink(); ?>" class="btn hk-button">Read more</a>
 						</div>

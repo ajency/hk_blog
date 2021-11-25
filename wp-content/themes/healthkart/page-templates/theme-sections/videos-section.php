@@ -27,7 +27,7 @@
  					<div class="videos-single col-md-4 col-12">
 						<div class="videos-single-image">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<div class="videos-single-image-overlay"></div>
+								<!-- <div class="videos-single-image-overlay"></div> -->
 									<iframe class="videos-single-image-iframe" width="100%" src="<?php echo $video;?>?modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 							</a>
 						</div>
