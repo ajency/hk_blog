@@ -1451,12 +1451,13 @@
 
 #social-follow-sidebar {
 	position: fixed;
-	left: 0;
+	right: 0;
 	top: 200px;
 	z-index: 9;
 	.contact-button-link {
 		display: block;
 		margin-bottom: 1px;
+		margin-left: auto;
 		text-align: center;
 		line-height: 50px;
 		color: #fff;

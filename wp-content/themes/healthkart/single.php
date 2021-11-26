@@ -18,7 +18,7 @@ get_header();
 get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
 
-<div class="single-post pt-25">
+<div class="single-post">
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
@@ -32,8 +32,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	</div>
 
 	<div class="single_post_page">
-		<div class="container">
-			<div class="row">
+		<div>
+			<div>
 				<?php if ( have_posts() ) : ?>
 					<?php			
 					while ( have_posts() ) :
@@ -43,77 +43,26 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					  $hindi_url = get_post_meta($post->ID, 'hk_hindi_post', true);
 					  $english_url = get_post_meta($post->ID, 'hk_english_post', true);
 					?>
-						<header class="entry-header col-12">
-							<span>
-								<?php $categories = hk_get_category(get_the_ID()); 
-								 	$GLOBALS['global_article_id']  = get_the_ID();
-
-								 ?>
-								<span class="category">
-									<?php foreach($categories as $index => $category): ?>
-									<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link($category); ?>" rel="category tag"><?php echo $category->name; ?></a>
-
-									<?php if($index+1 != count($categories)): ?>
-										,
-									<?php endif; endforeach; ?>
-								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo $views+1; ?> VIEWS</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php the_date(); ?></span>
-								<?php if($hindi_url): ?>
-									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-									<span class="category"><a href="/<?php echo $hindi_url; ?>">Read in Hindi</a></span>
-								<?php endif; ?>
-								<?php if($english_url): ?>
-									<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-									<span class="category"><a href="/<?php echo $english_url; ?>">Read in English</a></span>
-								<?php endif; ?>
-							</span>
-							<div class="post-title">
-								<h1 class="entry-title mt-2"><?php the_title(); ?></h1>
-								<div class="d-flex flex-row align-items-center author">
-										<?php 
-										$user_info = get_userdata($post->post_author);
-										?>
-									<div class="">
-									<div class="date f-12 text-black font-weight-bold" style="margin-bottom:10px;">Written By
-										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
-											<?php 
-												echo $user_info->display_name;
-											?>
-										</a>
-									</div>
-									<?php 
-										$reviewedby = get_field('medically_reviewed_by');
-										if(!empty($reviewedby)){
-											$username = sanitize_user($reviewedby->user_login);
-											if ( username_exists( $username) ) {
-												$user_data = get_user_by('login', $username);
-												if(!empty($user_data->user_lastname || $user_data->user_firstname)){
-										?>
-										<div class="date f-12 text-black font-weight-bold reviewer" style="margin-bottom:0 !important;">Medically Reviewed By
-										<a href="<?php echo get_author_posts_url($user_data->ID); ?>" class="author-link"> 
-											<?php 
-														echo $user_data->display_name;
-											?>
-										</a>
-										</div>
-										<?php
-														}
-													}
-												}
-										 ?>
-									</div>
-								</div>
+						<header class="entry-header">
+							<div class="blog_featured_img">
+								<?php
+								if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'large', ['title' => get_the_title()] );
+								endif;
+								?>
+							</div>
+							<div class="container post-title">
+								<h1 class="entry-title"><?php the_title(); ?></h1>
+							</div>
+							<div class="container">
+								<?php get_template_part( 'page-templates/theme-sections/author-bar-top', 'section' ); ?>
 							</div>
 						</header>
-						<div class="col-md-8 col-12 single-post-content">
-						<div class="category">
-									<?php the_category(' <span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span> '); ?>
-								</div>
+						<div class="container single-post-content">
+							<?php
+								$description = get_post_meta($post->ID, 'hk_description', true);
+								if ($description) :
+							?>
 							<div class="entry-content entry-description mt-2"><p><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></p></div>
 							<div class="popupOverlay">
 								<?php
@@ -122,17 +71,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								endif;
 								?>
 							</div>
-							<div class="blog_featured_img mb-4">
-								<?php
-								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'large', ['title' => get_the_title()] );
-								endif;
-								?>
-							</div>
-							<?php
-								$description = get_post_meta($post->ID, 'hk_description', true);
-								if ($description) :
-								?><div class="entry-content entry-description"><p><?php echo $description; ?></p></div><?php 
+								<div class="entry-content entry-description"><p><?php echo $description; ?></p></div><?php 
 								endif;
 							?>
 							<div class="entry-content"><?php the_content(); ?></div>  
@@ -214,11 +153,6 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<div class="col-md-4 col-12">
-					<?php
-	                    get_sidebar();
-	                ?>
-				</div>
 			</div>
 		</div>
 	</div>
