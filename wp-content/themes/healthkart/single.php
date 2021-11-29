@@ -80,74 +80,42 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
                                 $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
                             ?>
 							<div class="share share-desktop">
-								<div class="share-title section-title"> Share </div>
 								<div class="share-icons">
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="share-icons__icon" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>Share on Facebook</a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Share on Twitter</a>
+									<!-- linkedin -->
+									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=healthkart.com/connect/" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>Share on LinkedIn</a>
 									<!-- Whatsapp sharing onn desktop -->
-									<a href="https://web.whatsapp.com/send?text=<?php echo $postUrl; ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+									<!-- <a href="https://web.whatsapp.com/send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
 							<div class="share share-mob">
-								<div class="share-title section-title"> Share Article </div>
 								<div class="share-icons">
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="share-icons__icon" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=healthkart.com/connect/" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
 									<!-- Whatsapp sharing onn mobile -->
-									<a href="whatsapp://send?text=<?php echo $postUrl; ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php echo $postUrl; ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a>
+									<!-- <a href="whatsapp://send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
-							<div class="comment-block">
-								<?php if($_GET['unapproved']): ?>
-								<div class="alert alert-success">
-								  <strong>Success!</strong> Your comment has been sent for moderation.
-								</div>
-							<?php endif;
-								$fields =  array(
-								    'author' =>
-								        '<input class="comment-input comment-input-name" required name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .'" size="30" placeholder="'.__('Name','text-domain').( $req ? ' (Required)' : '' ).'"/>',
-								    'email' =>
-								        '<input required class="comment-input comment-input-email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .'" size="30" placeholder="'.__('Email','text-domain').( $req ? ' (Required)' : '' ).'"/>',
-								);
-								$args = array(
-								    'id_form'           => 'commentform',
-								    'class_form'        => 'comment-form',
-								    'id_submit'         => 'submit',
-								    'class_submit'      => 'submit',
-								    'name_submit'       => 'submit',
-								    'submit_button'     => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
-								    'title_reply'       => '',
-								    'title_reply_to'    => __( 'Reply to %s','text-domain' ),
-								    'cancel_reply_link' => __( 'Cancel comment','text-domain' ),
-								    'label_submit'      => __( 'Post comment','text-domain' ),
-								    'format'            => 'xhtml',
-								    'comment_field'     =>  '<textarea id="comment" name="comment" placeholder="'.__('Add a comment...','text-domain').'" cols="45" rows="2" aria-required="true">' .'</textarea>',
-								    'logged_in_as'      => '',
-								    'comment_notes_before' => '',
-								    'fields'            => $fields,
-								);
-
-								comment_form( $args );
-								$comments = get_comments( array('status' => 'approve','order' => 'DESC', 'post_id' => get_the_id()) );
-								?>
-								<ul class="comments-list">
-								<?php foreach ($comments as $comment): ?>
-									<li>
-										<div class="my-4">
-											<div class="comment-author-image">
-												<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/avatar.jpg" alt="search" class="search-icon-white">
-											</div>
-											<div class="comment-text">
-												<div class="comment-text-author"><?php echo $comment->comment_author; ?></div>
-												<div class="comment-text-content"><?php echo $comment->comment_content; ?></div>
-												<div class="comment-text-date"><?php display_human_readable_time($comment->comment_date); ?></div>
-											</div>
-										</div>
-									</li>
-								<?php endforeach; ?>
-								</ul>
+								<?php $post_tags = get_the_tags();
+ 
+ 									if ( $post_tags ) { ?>
+										<div class="article-tags">
+										<span class="article-tags__heading">Tags:</span>
+	 									<?php foreach( $post_tags as $tag ) { ?>
+											 <a href="" class="article-tags__tag"><?php echo $tag->name ?></a>
+	 									<?php 
+										 }
+ 									} ?>
 							</div>
-							<div class="latest-reads">
+							<div class="container">
+								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
+							</div>
+							<div class="container product-listing-section">
+								<?php echo do_shortcode('[product-listing]'); ?>
+							</div>
+							<div class="container m-auto latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
 						</div>
@@ -158,7 +126,6 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	</div>
 	<a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
 </div>
-
 <?php
 get_footer();
 

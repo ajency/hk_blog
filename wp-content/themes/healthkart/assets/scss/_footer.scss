@@ -322,7 +322,11 @@
 						color: #515455;
 					    margin-bottom: 15px;
 						strong{
-							color: #212121;
+							color: theme-color("dark-blue");
+
+							@media(max-width:768px){
+								color: theme-color("mobile-text");
+							}
 						}
 					}
 				}

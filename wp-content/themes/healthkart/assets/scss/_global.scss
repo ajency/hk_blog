@@ -9,6 +9,9 @@ body {
 	&.no-scrolling {
 		overflow: hidden;
 	}
+	@media(max-width:768px){
+		color: theme-color("mobile-text");
+	}
 }
 h1,
 h2,
@@ -32,8 +35,11 @@ h6,
 		max-width: 100%;
 	}
 	@media (max-width: 768px) {
-		padding-left: 16px !important;
-		padding-right: 16px !important;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	@media (min-width: 992px) {
+		padding: 0;
 	}
 }
 .f-12 {
@@ -73,7 +79,11 @@ h6,
 	font-weight: 500 !important;
 }
 strong {
-	color: #212121;
+	color: theme-color("dark-blue");
+
+	@media(max-width:768px){
+		color: theme-color("mobile-text");
+	}
 }
 .action-block {
 	a {
@@ -119,7 +129,11 @@ a {
 	}
 }
 strong {
-	color: #212326 !important;
+	color: theme-color("dark-blue");
+
+	@media(max-width:768px){
+		color: theme-color("mobile-text");
+	}
 }
 .overlay {
 	position: absolute;
