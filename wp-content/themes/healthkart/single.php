@@ -44,6 +44,10 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					  $english_url = get_post_meta($post->ID, 'hk_english_post', true);
 					?>
 						<header class="entry-header">
+						<?php $categories = hk_get_category(get_the_ID()); 
+								 	$GLOBALS['global_article_id']  = get_the_ID();
+
+								 ?>
 							<div class="blog_featured_img">
 								<?php
 								if ( has_post_thumbnail() ) :
