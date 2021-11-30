@@ -9,11 +9,11 @@ add_shortcode( 'year', function(){
 	return date('Y');
 });
 add_shortcode( 'read-these-next', function(){?>
-	<div class="read-these-next mt-4">
-		<div class="section-title pb-3"> Read these next</div>
+<div class="section-title"> What to read next</div>
+	<div class="read-these-next">
 		<?php
 			$args = array(
-				'posts_per_page' => 4,
+				'posts_per_page' => 6,
 				'post_type' => 'post',
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
@@ -37,9 +37,9 @@ add_shortcode( 'read-these-next', function(){?>
 			$post_ids[] = get_the_id();
 			$count ++;
 			?>
-				<div class="col-12 recent-post p-0">
-					<div class="row py-4">
-						<div class="col-md-4 col-12">
+				<div class="col-md-4 col-12 recent-post p-0">
+					<div class="single-post row">
+						<div class="col-12">
 							<div class="recent-post-featured-img">
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php 
@@ -55,7 +55,7 @@ add_shortcode( 'read-these-next', function(){?>
 								</a>
 							</div>
 						</div>
-						<div class="col-md-8 col-12 next-articles">
+						<div class="col-12 next-articles">
 							<span>
 								<span class="category">
 									<?php the_category(' , '); ?>
@@ -80,7 +80,7 @@ add_shortcode( 'read-these-next', function(){?>
 					</div>
 				</div>
 			<?php 
-			if($count == 5){
+			if($count == 6){
 				break;
 			}
 			endwhile; ?>
@@ -430,7 +430,6 @@ add_shortcode( 'amp-section', function(){
 });
 
 add_shortcode( 'product-listing', function(){?>
-	<div class="product-listing">
 		<?php
 
 			$categoryMapping = [
@@ -536,9 +535,9 @@ add_shortcode( 'product-listing', function(){?>
 
 	 		}
 	 		?>
-	 		<p style="display: none"> CatPre Value: <?php echo  $product->catPre ?></p>
-			<p style="display: none">Category Name: <?php echo  $article_cat_name ?></p>
-			<p style="display: none">Category Mapping Value:<?php echo  $categoryMappingValue ; ?></p>
+	 		<p style="display:none;"> CatPre Value: <?php echo  $product->catPre ?></p>
+			<p style="display:none;">Category Name: <?php echo  $article_cat_name ?></p>
+			<p style="display:none;">Category Mapping Value:<?php echo  $categoryMappingValue ; ?></p>
 
 			<?php
 			
@@ -557,28 +556,33 @@ add_shortcode( 'product-listing', function(){?>
 
 			
 			if (!empty($product_detail_info)){?>
+			<div class="hide-mob product-listing-section">
+				<div class="container product-listing">
 				<div class="section-title pb-3"> Recommended Products </div>
 				
 			<?php } ?>
-			<div class="grid-view row">
+			<div class="grid-view row products-list">
 				<?php $i = 0 ;?>				
 				<?php foreach ($product_detail_info as $pr) { 
 					if (++$i > 3) break; ?>
 
-					<div class="recommend-products col-md-12 col-6">
+					<div class="recommend-products">
 						<div class="product-stack row">
-							<div class="product-stack-image col-md-6 col-sm-12">
+							<div class="wraper">
+							<div class="product-stack-image">
 								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>">
 									<img src="<?php echo $pr->m_img->m_link ?>" class="img-responsive product-image" title="<?php echo $pr->m_img->alt ?>" alt="<?php echo $pr->m_img->alt ?>">
 								</a>
 							</div>
-							<div class="col-md-6"> 
+							<div class="product-stack-content"> 
 								<a href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> 
-									<span class="product-des product-desc"> <?php echo $pr->nm ?> </span> 
+									<p class="product-des product-desc"> <?php echo $pr->nm ?> </p> 
 								</a>
-								<div class="buy-now-btn"> 
+								<p class="discount">Upto <?php echo $pr->discount?>% Off </p>
+								<div class="btn hk-button buy-now-btn"> 
 									<a class="article-btn" href="https://www.healthkart.com/sv<?php echo $pr->urlFragment ?>?navKey=<?php echo $pr->navKey ?>" target="_blank" title="<?php echo $pr->m_img->alt ?>"> Buy now </a>
 								</div>
+							</div>
 							</div>
 						</div>
 					</div> 
@@ -586,5 +590,6 @@ add_shortcode( 'product-listing', function(){?>
 			</div>
 			<?php }  ?>
 		</div>
+</div>
 <?php });
 

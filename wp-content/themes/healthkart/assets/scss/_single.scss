@@ -523,6 +523,11 @@
 				}
 			}
 		}
+	.divider-eyes{
+		@media(max-width:768px){
+			margin-top: 20px;
+		}
+	}
 	}
 	&-content{
 		padding-right: 50px;
@@ -564,7 +569,7 @@
 	margin-bottom: 0;
 }
 
-.single-post .latest-reads .recent-post{
+.single-post .latest-reads{
 	border-top: 1px solid #bfbfbf;
 }
 .latest-reads{
@@ -611,9 +616,6 @@
 		&-icons{
 			display: none;
 		}
-	}
-	@media (max-width: 768px){
-		display: none;
 	}
 	&.category-list-view{
 		display: block !important;
@@ -895,3 +897,131 @@
   transition: opacity 0.35s ease-in-out;
 }
 
+/* product-listing section */
+.product-listing-section{
+	margin:60px 0 0;
+	background-color: theme-color("light-gray-1");
+
+	.product-listing{
+		padding:30px 0 80px;
+
+		.section-title{
+			font-size: 40px;
+			line-height: 45px;
+			text-transform: capitalize;
+			text-align: center;
+			padding-bottom: 54px !important;
+		}
+		.products-list{
+			flex-wrap: nowrap;
+			margin: 0;
+			justify-content: center;
+			grid-gap: 18px;
+
+			.recommend-products {
+				width:331px;
+				.product-stack{
+					flex-direction: column;
+					margin: 0;
+					align-items: center;
+					
+					.wraper{
+						border: 1px solid #2D374833;
+    					border-radius: 10px;
+    					overflow: hidden;
+
+						.product-stack-image{
+							height: 269px;
+							overflow: hidden;
+							text-align: center;
+							background: #fff;
+							padding: 30px;
+							a{
+								img{
+									width: auto;
+									height: 100%;
+								}
+							}
+						}
+						.product-stack-content{
+							padding: 10px 20px 20px;
+							.product-desc{
+								font-size: 20px;
+								line-height: 25px;
+								color:theme-color("dark-blue");
+								font-weight: bold;
+								min-height: 78.5px;
+								margin: 0;
+							}
+							.discount{
+								font-size: 16px;
+								line-height: 20px;
+								margin: 0;
+								margin-top: 5px;
+							}
+							.buy-now-btn{
+								display: block;
+								width: 166px;
+								margin-top: 10px;
+
+								.article-btn{
+									color:#fff;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* eyes divider */
+.divider-eyes{
+	height: 2px;
+	background-color: #00000066;
+	position: relative;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+
+	@media(max-width:768px){
+		width: calc(100% - 32px);
+		margin: auto;
+		height: 1px;
+		img{
+			width: 40px;
+		}
+	}
+}
+
+/* read-these-next */
+.latest-reads{
+	.section-title{
+		font-size: 55px;
+		line-height: 75px;
+		font-weight: bold;
+		text-align: center;
+		text-transform: capitalize;
+		padding:80px 0 33px;
+	}
+	.read-these-next{
+		display: flex;
+		flex-wrap: wrap;
+
+		.recent-post{
+			.single-post{
+				margin: 0;
+				flex-direction: column;
+				margin-bottom: 20px;
+			}
+		}
+	}
+	@media(max-width:768px){
+		.section-title{
+			font-size: 20px;
+			line-height: 25px;
+			padding: 35px 0 10px;
+		}
+	}
+}

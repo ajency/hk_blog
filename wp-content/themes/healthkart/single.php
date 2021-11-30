@@ -44,10 +44,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 					  $english_url = get_post_meta($post->ID, 'hk_english_post', true);
 					?>
 						<header class="entry-header">
-						<?php $categories = hk_get_category(get_the_ID()); 
-								 	$GLOBALS['global_article_id']  = get_the_ID();
-
-								 ?>
+							<?php $categories = hk_get_category(get_the_ID()); 
+								$GLOBALS['global_article_id']  = get_the_ID();
+							?>
 							<div class="blog_featured_img">
 								<?php
 								if ( has_post_thumbnail() ) :
@@ -116,8 +115,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<div class="container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
 							</div>
-							<div class="container product-listing-section">
 								<?php echo do_shortcode('[product-listing]'); ?>
+							<div class="divider-eyes">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/eyes.svg" alt="divider">
 							</div>
 							<div class="container m-auto latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
