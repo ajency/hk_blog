@@ -170,6 +170,9 @@
 			}
 		}
 	}
+	@media(min-width:769px){
+			margin-bottom:60px;
+	}
 	@media(max-width:768px){
 		.author{
 			&__profile{
@@ -567,10 +570,6 @@
 }
 .article-count{
 	margin-bottom: 0;
-}
-
-.single-post .latest-reads{
-	border-top: 1px solid #bfbfbf;
 }
 .latest-reads{
 	 margin: 60px 0 30px;
@@ -1010,10 +1009,41 @@
 		flex-wrap: wrap;
 
 		.recent-post{
+			&:not(:nth-child(3n)){
+				padding-right:27px !important;
+			}
 			.single-post{
 				margin: 0;
 				flex-direction: column;
 				margin-bottom: 20px;
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+
+				.recent-post-featured-img{
+					img{
+						height: 270px;
+					}
+				}
+
+				.next-articles{
+					position: absolute;
+    				bottom: 0;
+    				padding: 20px;
+
+					.recent-post-header{
+						h2.title{
+							min-height: auto;
+							margin: 0;
+							a{
+								color:#ffffff;
+								font-size: 20px !important;
+								line-height: 28px;
+								font-weight: bold;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1022,6 +1052,33 @@
 			font-size: 20px;
 			line-height: 25px;
 			padding: 35px 0 10px;
+		}
+		.read-these-next{
+			.recent-post{
+				&:not(:nth-child(3n)){
+					padding-right:0px !important;
+				}
+				.single-post{
+					margin-bottom: 10px;
+
+					.recent-post-featured-img{
+						img{
+							height: 260px;
+						}
+					}
+
+					.next-articles{
+						.recent-post-header{
+							h2.title{
+								a{
+									font-size: 17px !important;
+									line-height: 25px;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

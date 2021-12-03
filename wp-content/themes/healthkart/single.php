@@ -122,9 +122,12 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<div class="container m-auto latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
+							<?php endwhile; ?>
+							<?php endif; ?>
+<!-- 							<div class="container m-auto">
+								<?php /* echo do_shortcode('[Subscribe-form]'); */ ?>
+							</div> -->
 						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
 			</div>
 		</div>
 	</div>

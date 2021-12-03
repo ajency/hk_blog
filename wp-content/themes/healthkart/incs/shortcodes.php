@@ -39,7 +39,7 @@ add_shortcode( 'read-these-next', function(){?>
 			?>
 				<div class="col-md-4 col-12 recent-post p-0">
 					<div class="single-post row">
-						<div class="col-12">
+						<div class="img-container">
 							<div class="recent-post-featured-img">
 								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php 
@@ -55,26 +55,10 @@ add_shortcode( 'read-these-next', function(){?>
 								</a>
 							</div>
 						</div>
-						<div class="col-12 next-articles">
-							<span>
-								<span class="category">
-									<?php the_category(' , '); ?>
-								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<?php $post_date = get_the_date( 'M j, Y' ); ?>
-								<span class="last-read"><?php echo $post_date; ?></span>
-							</span>
+						<div class="gradient-overlay"></div>
+						<div class="next-articles">
 							<div class="recent-post-header">
-								<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-							</div>
-							<div class="recent-post-excerpt content-desktop"><?php echo hk_get_excerpt(140); ?>
-							</div>
-							<div class="content-description content-mobile"><?php echo hk_get_excerpt(220); ?></div>
-							<div class="recent-post-icons">
-								<span class="mr-3 f-14 heart"><i class="fa fa-heart" aria-hidden="true"></i> 15 </span>
-								<span class="mr-3 f-14 comment"><i class="fa fa-comments" aria-hidden="true"></i> 3</span>
+								<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php echo ((strlen(get_the_title())>100) ? (substr(get_the_title(), 0, 100) . "...") : get_the_title()) ?></a></h2>
 							</div>
 						</div>
 					</div>
