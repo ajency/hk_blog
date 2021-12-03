@@ -22,6 +22,16 @@ $authorId = $user_info->ID;
 			<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
             <span class="last-read"><?php echo get_mins_read(); ?> min read</span>
             </p>
+            <?php 
+				$reviewedby = get_field('medically_reviewed_by');
+					if(!empty($reviewedby)){
+						$username = sanitize_user($reviewedby->user_login);
+							if ( username_exists( $username) ) {
+								$user_data = get_user_by('login', $username);
+									if(!empty($user_data->user_lastname || $user_data->user_firstname)){
+			?>
+            <p class="reviewer-name">Medically Reviewed By <a href="<?php echo get_author_posts_url($user_data->ID); ?>" class="author-link"> <?php echo $user_data->display_name; ?></a></p>
+            <?php } } } ?>
         </div>
         <div class="author__social">
             <!-- twitter -->

@@ -470,3 +470,10 @@ strong {
 .hovered-link{
 	color: theme-color("dark-turquoise") !important;
 }
+
+.smaller-container{
+	@media(min-width:1300px){
+		padding-left: 45px;
+		padding-right: 45px;
+	}
+}

@@ -54,14 +54,14 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								endif;
 								?>
 							</div>
-							<div class="container post-title">
+							<div class="smaller-container container post-title">
 								<h1 class="entry-title"><?php the_title(); ?></h1>
 							</div>
-							<div class="container">
+							<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-top', 'section' ); ?>
 							</div>
 						</header>
-						<div class="container single-post-content">
+						<div class="smaller-container container single-post-content">
 							<?php
 								$description = get_post_meta($post->ID, 'hk_description', true);
 								if ($description) :
@@ -112,7 +112,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 										 }
  									} ?>
 							</div>
-							<div class="container">
+							<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
 							</div>
 								<?php echo do_shortcode('[product-listing]'); ?>
@@ -124,9 +124,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							</div>
 							<?php endwhile; ?>
 							<?php endif; ?>
-<!-- 							<div class="container m-auto">
-								<?php /* echo do_shortcode('[Subscribe-form]'); */ ?>
-							</div> -->
+							<div class="container subscribe-container">
+								<?php echo do_shortcode('[Subscribe-form]'); ?>
+							</div>
 						</div>
 			</div>
 		</div>

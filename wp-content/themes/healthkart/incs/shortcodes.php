@@ -302,12 +302,13 @@ add_shortcode( 'Question_form', function(){?>
 
 
 add_shortcode( 'Subscribe-form', function(){?>
-	<div class="form-wrapper subscribe">
+	<div class="form-wrapper subscribe-section">
 		<div class="wrap">
-			<h2 class="form-title">Subscribe to Healthkart Blog</h2>
-			<p>Get your daily updates on fitness, bodybuilding, weight management, nutrition & much more.</p>
+			<h2 class="form-title">Sign up for the newsletter</h2>
+			<p>If you want relevant updates occasionally, sign up for the private newsletter.</p>
+			<p> Your email is never shared.</p>
 			<div class="form-group">
-		      	<?php echo do_shortcode( '[formidable id=1]' ) ?>
+		      	<?php echo do_shortcode( '[formidable id=2]' ) ?>
 			</div>
 		</div>
 	</div>
