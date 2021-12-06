@@ -573,3 +573,22 @@ $(".accordion-menu nav").addClass("accordion-menu__content");
 $(document).on("touchstart", ".accordion-menu__header", function() {
 	$(this).parent().toggleClass("show");
 });
+
+/* latest articles */
+$(window).on('load resize', function () {
+    $item = $(".latest-articles-section .latest-articles-single");
+$FullWidth = $item.width();
+$contWidth = $(".latest-articles-section .container").width();
+$calcMarg = ($FullWidth - $contWidth)/2;
+
+//add calculated margin
+$(".latest-articles-section .latest-articles-single:nth-child(odd) .wraper").css("margin-left", $calcMarg);
+$(".latest-articles-section .latest-articles-single:nth-child(even) .wraper").css("margin-right", $calcMarg);
+});
+
+/* hero-banner */
+$item1 = $(".banner-animated .slide-box");
+$slideWidth = $item1.outerWidth()-48;
+
+// add calculated width
+$(".banner .slide-box__content2").css("width", $slideWidth);

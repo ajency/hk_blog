@@ -10,6 +10,12 @@
 	    padding-bottom: 5px;
 	    .footer-wrapper{
 	    	.footer-sidebar{
+				padding-left: 0;
+				padding-right: 0;
+				@media(max-width:768px){
+					padding-left: 16px;
+					padding-right: 16px;
+				}
 	    		.widget{
 	    			margin-bottom: 0;
 	    			ul{

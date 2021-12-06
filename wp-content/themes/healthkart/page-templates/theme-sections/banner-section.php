@@ -29,7 +29,8 @@
 
 							<div class="slide-box__content1">
 								<h2 class="f-20 blog-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-								<span class="f-18 text-white"><?php echo hk_get_excerpt(100); ?></span>
+								<span class="f-18 text-white hide-mob"><?php echo hk_get_excerpt(100); ?></span>
+								<span class="f-18 text-white hide-desk"><?php echo hk_get_excerpt(70); ?></span>
 								<?php $categories = hk_get_category(get_the_ID());  ?>
 									<div class="category-container">
 										<span class="category">

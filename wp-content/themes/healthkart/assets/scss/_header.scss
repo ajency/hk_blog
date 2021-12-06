@@ -68,6 +68,7 @@
 							width: 1.7rem;
 							height: 2.36px;
 							margin: 6px;
+							border-radius: 20px;
 						}
 						@media (min-width: 992px){
 							display: none;
@@ -204,16 +205,25 @@
 				display: flex;
 				margin-bottom: 0;
 				justify-content: center;
+				@media(max-width:1200px) and (min-width:992px){
+					width: calc(100% - 166px);
+					margin: auto;
+				}
 				li{
 					list-style-type: none;
-					padding-right: 29px;
-					margin-right: 10px;
+					padding-right: 0px;
+					&:not(:last-child){
+						margin-right: 10px;
+					}
+					&.hassub{
+						padding-right: 29px;
+					}
 					a{
 						font-size: 15px;
 						line-height: 20px;
 						display: inline-block;
 						position: relative;
-						font-weight: bold;
+						font-weight: 600;
 					    color: theme-color("dark-blue");
 						text-decoration: none;
 						padding: 10px 0;

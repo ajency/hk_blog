@@ -40,9 +40,11 @@
 			</div>
 				<div class="infographics-articles-single-content">
 					<div class="content-title">
-						<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<h2 class="on-smaller-hide title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<h2 class="on-smaller-show title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 6) ?></a></h2>
 					</div>
-					<div class="content-description"><?php echo hk_get_excerpt(64); ?></div>
+					<div class="on-smaller-hide content-description"><?php echo hk_get_excerpt(64); ?></div>
+					<div class="on-smaller-show content-description"><?php echo hk_get_excerpt(50); ?></div>
 				</div>
 				</div>
 			</div><?php

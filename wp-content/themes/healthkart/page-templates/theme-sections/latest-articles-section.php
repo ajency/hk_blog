@@ -22,26 +22,28 @@
 				$post_count++;
 				?>
 				<div class="latest-articles-single latest-articles-single-main col-12">
-					<div class="latest-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
-						<?php 
-						$thumbnail = get_post_meta(get_the_id(), 'hk_large_image', true);
-						if ( $thumbnail ) { ?>
-							<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-						<?php } else if ( has_post_thumbnail() ) {
-						the_post_thumbnail('large', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
-						<?php
-						} else { ?>
-						<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
-						<?php } ?>
-					</a></div>
-					<div class="latest-articles-single-content">
-						<div class="content-title">
-							<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						</div>
-						<div class="content-description hide-desk"><?php echo hk_get_excerpt(140); ?></div>
-						<div class="content-description hide-mob"><?php echo hk_get_excerpt(260); ?></div>
-						<div class="w-100 action-btn hide-mob">
-							<a href="<?php the_permalink(); ?>" class="btn hk-button">Read more</a>
+					<div class="wraper">
+						<div class="latest-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
+							<?php 
+							$thumbnail = get_post_meta(get_the_id(), 'hk_large_image', true);
+							if ( $thumbnail ) { ?>
+								<img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+							<?php } else if ( has_post_thumbnail() ) {
+							the_post_thumbnail('large', ['title' => get_the_title()], ['alt' => get_the_title()]); ?>
+							<?php
+							} else { ?>
+							<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2020/09/default.jpg" alt="<?php the_title(); ?>" title="<?php the_title(); ?>"/>
+							<?php } ?>
+						</a></div>
+						<div class="latest-articles-single-content">
+							<div class="content-title">
+								<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							</div>
+							<div class="content-description hide-desk"><?php echo hk_get_excerpt(140); ?></div>
+							<div class="content-description hide-mob"><?php echo hk_get_excerpt(260); ?></div>
+							<div class="w-100 action-btn hide-mob">
+								<a href="<?php the_permalink(); ?>" class="btn hk-button">Read more</a>
+							</div>
 						</div>
 					</div>
 				</div>
