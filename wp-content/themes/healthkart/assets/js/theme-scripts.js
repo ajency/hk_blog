@@ -532,7 +532,7 @@ $(function() {
 
 		responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 769,
                 settings: {
 					slidesToShow: 1,
 					slidesToScroll: 1,
@@ -584,6 +584,8 @@ $calcMarg = ($FullWidth - $contWidth)/2;
 //add calculated margin
 $(".latest-articles-section .latest-articles-single:nth-child(odd) .wraper").css("margin-left", $calcMarg);
 $(".latest-articles-section .latest-articles-single:nth-child(even) .wraper").css("margin-right", $calcMarg);
+$(".more-articles-slider .more-articles-single .wraper").css("margin-left", $calcMarg);
+$(".more-articles .slider-nav").css("padding-left", $calcMarg);
 });
 
 /* hero-banner */

@@ -98,6 +98,22 @@
     					padding-bottom: 19px;
 						section{
 							width: 100%;
+
+							&:nth-child(5){
+								order: 1;
+							}
+							&:nth-child(4){
+								order: 5;
+							}
+							&:nth-child(3){
+								order: 4;
+							}
+							&:nth-child(2){
+								order: 3;
+							}
+							&:nth-child(1){
+								order: 2;
+							}
 						}
 					}
 		    	}
@@ -368,6 +384,18 @@
 			align-items: center;
     		grid-gap: 22px;
     		gap: 22px;
+			a{
+				&:nth-child(3){
+					i{
+						font-size: 21px;
+    					color: #fff !important;
+    					align-items: center;
+    					justify-content: center;
+    					background: #007CB6;
+    					padding: 5px 6px;
+					}
+				}
+			}
 
 			@media(min-width:992px){
 				padding-top:8px;
@@ -386,8 +414,11 @@
 			flex: 0 0 30%;
 			display: flex;
 			align-items: center;
-			grid-gap: 35px;
-			gap: 35px;
+			a{
+				&:not(:last-child){
+					margin-right: 35px;
+				}
+			}
 		}
 		.disclaimer{
 			flex: 1 1;
@@ -398,10 +429,14 @@
 			.icons-box{
 				justify-content: center;
 				flex:0 0 100%;
-				grid-gap: 20px;
-				gap: 20px;
 				padding-top: 17px;
 				padding-bottom: 23px;
+
+				a{
+					&:not(:last-child){
+						margin-right: 20px;
+					}
+				}
 			}
 			.disclaimer{
 				display: none;
@@ -465,10 +500,11 @@
 				.download-btns{
 					display: flex;
 					justify-content: center;
-    				grid-gap: 4px;
-    				gap: 4px;
 					img{
 						width: 170.32px;
+						&:not(:last-child){
+							margin-right: 4px;
+						}
 					}
 				}
 			}
@@ -525,9 +561,23 @@
 		}
 		.socials-box{
 			display: flex;
-			grid-gap: 27px;
-			gap: 27px;
 			align-items: center;
+
+			a{
+				&:not(:last-child){
+					margin-right: 27px;
+				}
+				&:nth-child(3){
+					i{
+						font-size: 21px;
+    					color: #fff !important;
+    					align-items: center;
+    					justify-content: center;
+    					background: #007CB6;
+    					padding: 5px 6px;
+					}
+				}
+			}
 		}
 	}
 }
@@ -539,8 +589,8 @@
 			padding: 9px 0;
 			position: relative;
 			&:after{
-				content:"\f067";
-				font-family: 'FontAwesome';
+				content: "\f543";
+    			font-family: 'dashicons';
 				position: absolute;
 				right: 0;
 				width: 25px;
@@ -564,7 +614,7 @@
 		}
 		.accordion-menu__header{
 			&:after{
-				content: "\f068";
+				content: "\f460";
 			}
 		}
 	}

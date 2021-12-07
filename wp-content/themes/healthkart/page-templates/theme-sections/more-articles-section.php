@@ -5,7 +5,7 @@
 		<?php
 		$post_ids = get_query_var('post_ids');
 		$args = array(
-			'posts_per_page' => 3,
+			'posts_per_page' => 5,
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 			<?php 
-			if($count == 3){
+			if($count == 5){
 				break;
 			}
 

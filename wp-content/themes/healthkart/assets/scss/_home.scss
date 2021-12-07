@@ -1211,11 +1211,12 @@
 
 			@media(max-width:768px){
 				flex-direction: column;
+				margin: 0 !important;
 			}
 		}
 		&-content {
 			width:45%;
-			padding: 0px 56px 0px 99px;
+			padding: 0px 57px 0px 0px;
 
 			@media(min-width:992px){
 				margin-top: auto;
@@ -1240,18 +1241,11 @@
 		}
 	}
 	.slider-nav{
-		padding-left: 99px;
 		position: absolute;
 		bottom: 55px;
 	}
 	@media(max-width:1024px) and (min-width:991px){
-		&-single{
-			&-content{
-				padding: 46px 56px;
-			}
-		}
 		.slider-nav{
-			padding-left:56px;
 			bottom:28px;
 		}
 	}
