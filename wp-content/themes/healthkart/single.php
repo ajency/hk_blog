@@ -35,14 +35,12 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 		<div>
 			<div>
 				<?php if ( have_posts() ) : ?>
-					<?php			
-					while ( have_posts() ) :
-					  the_post();
-					  $views = (int) get_post_meta($post->ID, 'hk_views', true);
-					  update_post_meta($post->ID, 'hk_views', $views + 1);
-					  $hindi_url = get_post_meta($post->ID, 'hk_hindi_post', true);
-					  $english_url = get_post_meta($post->ID, 'hk_english_post', true);
-					?>
+					<?php while ( have_posts() ) :
+					  	the_post();
+					  	$views = (int) get_post_meta($post->ID, 'hk_views', true);
+					  	update_post_meta($post->ID, 'hk_views', $views + 1);
+					  	$hindi_url = get_post_meta($post->ID, 'hk_hindi_post', true);
+					  	$english_url = get_post_meta($post->ID, 'hk_english_post', true); ?>
 						<header class="entry-header">
 							<?php $categories = hk_get_category(get_the_ID()); 
 								$GLOBALS['global_article_id']  = get_the_ID();
@@ -62,23 +60,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							</div>
 						</header>
 						<div class="smaller-container container single-post-content">
-							<?php
-								$description = get_post_meta($post->ID, 'hk_description', true);
-								if ($description) :
-							?>
-							<div class="entry-content entry-description mt-2"><p><?php if(has_excerpt(get_the_ID())): echo get_the_excerpt(); endif; ?></p></div>
-							<div class="popupOverlay">
-								<?php
-								if ( has_post_thumbnail() ) :
-								the_post_thumbnail( 'large', ['title' => get_the_title()] );
-								endif;
-								?>
-							</div>
-								<div class="entry-content entry-description"><p><?php echo $description; ?></p></div><?php 
-								endif;
-							?>
 							<div class="entry-content"><?php the_content(); ?></div>  
-							  <?php 
+							<?php 
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
                                 $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
                             ?>
@@ -101,17 +84,15 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<!-- <a href="whatsapp://send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
-								<?php $post_tags = get_the_tags();
- 
- 									if ( $post_tags ) { ?>
-										<div class="article-tags">
+							<?php $post_tags = get_the_tags();
+ 								if ( $post_tags ) { ?>
+									<div class="article-tags">
 										<span class="article-tags__heading">Tags:</span>
 	 									<?php foreach( $post_tags as $tag ) { ?>
 											 <a href="" class="article-tags__tag"><?php echo $tag->name ?></a>
-	 									<?php 
-										 }
- 									} ?>
-							</div>
+	 									<?php }
+ 								} ?>
+						</div>
 							<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
 							</div>
@@ -122,18 +103,16 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<div class="container m-auto latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
 							</div>
-							<?php endwhile; ?>
-							<?php endif; ?>
-							<div class="container subscribe-container">
-								<?php echo do_shortcode('[Subscribe-form]'); ?>
-							</div>
-						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+				<div class="container subscribe-container">
+					<?php echo do_shortcode('[Subscribe-form]'); ?>
+				</div>
 			</div>
 		</div>
 	</div>
-	<a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
 </div>
+	<a id="back-to-top" href="#" class="btn btn-lg back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
 <?php
 get_footer();
-
 ?>

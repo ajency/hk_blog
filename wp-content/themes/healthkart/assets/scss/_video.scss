@@ -35,3 +35,34 @@
 		}
 	}
 }
+
+.video-template-default{
+	.entry-title{
+		margin-top: 52px !important;
+	}
+	.embed-container { 
+		position: relative; 
+		/* padding-bottom: 56.25%; */
+		overflow: hidden;
+		max-width: 100%;
+		height: 464px;
+	} 
+	
+	.embed-container iframe,
+	.embed-container object,
+	.embed-container embed { 
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	@media(max-width:768px){
+		.entry-title{
+			margin-top: 20px !important;
+		}
+		.embed-container{
+			height: 225px;
+		}
+	}
+}

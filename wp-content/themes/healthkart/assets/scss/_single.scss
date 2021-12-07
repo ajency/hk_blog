@@ -275,7 +275,7 @@
 				display: flex;
 			    align-items: flex-end;
 				.entry-title{
-				    max-width: 788px;
+				    max-width: 100%;
 				    float: left;
 					@media (max-width: 768px){
 						max-width: 100%;
