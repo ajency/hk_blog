@@ -55,7 +55,7 @@ add_shortcode( 'read-these-next', function(){?>
 								</a>
 							</div>
 						</div>
-						<div class="gradient-overlay"></div>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="article-link"><div class="gradient-overlay"></div></a>
 						<div class="next-articles">
 							<div class="recent-post-header">
 								<h2 class="title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php echo ((strlen(get_the_title())>100) ? (substr(get_the_title(), 0, 100) . "...") : get_the_title()) ?></a></h2>

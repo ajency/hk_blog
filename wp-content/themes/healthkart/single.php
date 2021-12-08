@@ -93,16 +93,16 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	 									<?php }
  								} ?>
 						</div>
-							<div class="smaller-container container">
+						<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
-							</div>
-							<?php echo do_shortcode('[product-listing]'); ?>
-							<div class="divider-eyes">
+						</div>
+						<?php echo do_shortcode('[product-listing]'); ?>
+						<div class="divider-eyes">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/eyes.svg" alt="divider">
-							</div>
-							<div class="container m-auto latest-reads">
+						</div>
+						<div class="container m-auto latest-reads">
 								<?php echo do_shortcode('[read-these-next]'); ?>
-							</div>
+						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
 				<div class="container subscribe-container">

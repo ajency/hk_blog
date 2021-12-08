@@ -46,7 +46,8 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) :
 					  		the_post();
-					  		update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1); ?>
+							/* update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1); */
+					  		update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true)); ?>
 						<header class="entry-header">
 							<?php 
 								$featured_video = get_field('featured_video_link');
@@ -90,7 +91,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 								</div>
 							</div>
 							<?php
-								$tag_list = $tags = get_the_term_list( $post->ID, 'video_tag', '',' ',''); 
+								$tag_list = $tags = get_the_term_list( $post->ID, $post->post_type.'_tag', '',' ',''); 
 								if ($tags){ ?>
 									<div class="article-tags">
 										<span class="article-tags__heading">Tags:</span>

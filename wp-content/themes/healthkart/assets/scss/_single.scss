@@ -1073,6 +1073,11 @@
 						}
 					}
 				}
+				&.hovered{
+					.gradient-overlay{
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}
@@ -1252,4 +1257,11 @@
 			color:#2D3748 !important;
 		}
 	}
+}
+
+.article-heading {
+    font-size: 40px;
+    line-height: 45px;
+    font-weight: bold;
+    margin-bottom: 52px;
 }
