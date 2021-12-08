@@ -594,3 +594,6 @@ $slideWidth = $item1.outerWidth()-48;
 
 // add calculated width
 $(".banner .slide-box__content2").css("width", $slideWidth);
+
+/* video blog page */
+$(".article-tags a").addClass("article-tags__tag");

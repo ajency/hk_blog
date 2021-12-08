@@ -96,7 +96,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 							<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
 							</div>
-								<?php echo do_shortcode('[product-listing]'); ?>
+							<?php echo do_shortcode('[product-listing]'); ?>
 							<div class="divider-eyes">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/eyes.svg" alt="divider">
 							</div>

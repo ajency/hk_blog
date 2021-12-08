@@ -89,14 +89,13 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									<!-- <a href="whatsapp://send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
-							<?php $post_tags = get_the_tags();
- 								if ( $post_tags ) { ?>
-									<div class="article-tags">
-										<span class="article-tags__heading">Tags:</span>
-	 									<?php foreach( $post_tags as $tag ) { ?>
-											 <a href="" class="article-tags__tag"><?php echo $tag->name ?></a>
-	 									<?php }
- 								} ?>
+							<div class="article-tags">
+								<span class="article-tags__heading">Tags:</span>
+								<?php 
+									$tag_list = $tags = get_the_term_list( $post->ID, 'video_tag', '',' ','');
+									print_r ($tags);
+								?>
+							</div>
 						</div>
 						<div class="smaller-container container">
 							<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
