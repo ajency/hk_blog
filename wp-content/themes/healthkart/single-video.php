@@ -27,7 +27,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 (document, 'script', 'facebook-jssdk'));
 </script> -->
 
-<div class="single-post pt-25">
+<div class="single-post">
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
