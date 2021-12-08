@@ -1263,5 +1263,25 @@
     font-size: 40px;
     line-height: 45px;
     font-weight: bold;
-    margin-bottom: 52px;
+
+	@media(max-width:768px){
+		font-size: 18px;
+		line-height: 25px;
+	}
+}
+.single-infographic{
+	.article-heading {
+		margin-bottom: 52px;
+	}
+	.img-without-heading {
+		margin-top: 82px !important;
+	}
+	@media(max-width:768px){
+		.article-heading{
+			margin-bottom: 10px;
+		}
+		.img-without-heading {
+			margin-top: 10px !important;
+		}
+	}
 }
