@@ -17,17 +17,17 @@
 get_header(); 
 get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' ); 
 ?>
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
  if (d.getElementById(id)) return;
  js = d.createElement(s); js.id = id;
- js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo FB_APP_ID; ?>";
+ js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php /* echo FB_APP_ID; */ ?>";
  fjs.parentNode.insertBefore(js, fjs); }
 (document, 'script', 'facebook-jssdk'));
-</script>
+</script> -->
 
-<div class="single-post pt-25">
+<div class="single-post">
 	<div class="header_image position-relative">
 		<div class="header">
 			<div class="container">
@@ -41,13 +41,14 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 	</div>
 
 	<div class="single_post_page">
-		<div class="container">
-			<div class="row">
+		<div>
+			<div>
 				<?php if ( have_posts() ) : ?>
 					<?php			
 					while ( have_posts() ) :
 					  	the_post();
-					 	update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1);
+						/* update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true) + 1); */
+					 	update_post_meta($post->ID, 'hk_views', get_post_meta($post->ID, 'hk_views', true));
 						$before_image_id = get_post_meta(get_the_id(), 'hk_image_before_diet_id', true);
 						$before_image_url = wp_get_attachment_image_src($before_image_id, 'medium')[0];
 						$after_image_id = get_post_meta(get_the_id(), 'hk_image_after_diet_id', true);
@@ -58,215 +59,119 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 						$before_age = get_post_meta(get_the_id(), 'hk_age_before_diet', true);
 						$after_age = get_post_meta(get_the_id(), 'hk_age_after_diet', true);
 						$before_fat = get_post_meta(get_the_id(), 'hk_body_fat_before_diet', true);
-						$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true);
-					?>
-						<header class="entry-header col-12">
-							<span>
-								<span class="category">
-									<a target="_blank" title="Transformation" href="<?php echo get_post_type_archive_link(get_post_type()); ?>" rel="category tag">Transformation</a>
-								</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<span class="last-read"><?php echo get_mins_read(); ?> MIN READ</span>
-								<span class="dot"><i class="fa fa-circle" aria-hidden="true"></i></span>
-								<?php $post_date = get_the_date( 'M j, Y' ); ?>
-								<span class="last-read"><?php echo $post_date; ?></span>
-							</span>
+						$after_fat = get_post_meta(get_the_id(), 'hk_body_fat_after_diet', true); ?>
+						<header class="entry-header">
+							<div class="blog_featured_img">
+								<?php
+								if ( has_post_thumbnail() ) {
+									the_post_thumbnail( 'large', ['title' => get_the_title()] );
+								} else { ?>
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/transformation-banner.png" alt="before & after">
+								<?php } ?>
+							</div>
+							<div class="smaller-container container post-title">
+								<h1 class="entry-title"><?php the_title(); ?></h1>
+							</div>
+							<div class="smaller-container container">
+								<?php get_template_part( 'page-templates/theme-sections/author-bar-top', 'section' ); ?>
+							</div>
 						</header>
-
-						<div class="post-title col-12">
-							<h1 class="entry-title pb-3"><?php the_title(); ?></h1>
-						</div>
-						<div class="col-md-8 col-12 transformation-template-section">
-							<div class="transformation-section-single-image mb-2">
-								<div class="blog_featured_img my-4 content-mobile">
-									<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-									<div class="position-relative col-md-6 pl-3 pr-1 transform">
-										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-										<div class="img-tag px-3 py-1">Before</div>
-									</div>
-									<div class="position-relative col-md-6 pl-1 pr-3 transform">
-										<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-										<div class="img-tag px-3 py-1">After</div>
-									</div>
-									</a>
+						<div class="smaller-container container single-post-content">
+							<div class="transformation-details">
+								<div class="transformation-details-table">
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col"></th>
+												<th scope="col">Then</th>
+												<th scope="col">Now</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">Age</th>
+												<td><?php echo $before_age ?> years</td>
+												<td><?php echo $after_age ?> years</td>
+											</tr>
+											<tr>
+												<th scope="row">Weight</th>
+												<td><?php echo $before_weight ?>kg</td>
+												<td><?php echo $after_weight ?>kg</td>
+											</tr>
+											<tr>
+												<th scope="row">Body Fat</th>
+												<td><?php echo $before_fat ?>%</td>
+												<td><?php echo $after_fat ?>%</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
-								<div class="content-fields p-3">
-									<div class="content-fields-titles row">
-										<label class="content-fields-titles-single col-md-2 pr-2">Age</label>
-										<label class="content-fields-titles-single col-md-3 px-2">Then</label>
-										<label class="content-fields-titles-single col-md-2 px-2 transformation-border-right">Now</label>
-										<label class="content-fields-titles-single col-md-3 px-2">Bodyfat then</label>
-										<label class="content-fields-titles-single col-md-2 px-2">Now</label>
+								<div class="transformation-details-images">
+									<div class="arrow-before">
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow.svg" alt="arrow" class="arrow">
+										<span class="arrow-text">Before</span>
 									</div>
-									<div class="content-fields-values row">
-										<span class="content-fields-values-single col-md-2 pr-2"><?php echo $before_age.'/'.$after_age; ?></span>
-										<span class="content-fields-value-single transformation-before col-md-2 px-2"><?php echo $before_weight; ?>kg</span>
-										<span class="content-fields-value-single transformation-seperator col-md-1 px-2">></span>
-										<span class="content-fields-values-single transformation-after transformation-border-right col-md-2 px-2"><?php echo $after_weight; ?>kg</span>
-										<span class="content-fields-values-single transformation-before col-md-2 px-2"><?php echo is_numeric($before_fat) ? $before_fat.'%' : $before_fat; ?></span>
-										<span class="content-fields-values-single transformation-seperator col-md-1 px-2">></span>
-										<span class="content-fields-values-single transformation-after col-md-2 px-2"><?php echo is_numeric($after_fat) ? $after_fat.'%' : $after_fat; ?></span>
+									<img src="<?php echo $before_image_url; ?>" alt="before image" class="image-before">
+									<div class="hide-mob arrow-after">
+										<span class="arrow-text">After</span>
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow.svg" alt="arrow" class="arrow">
 									</div>
-								</div>
-								<div class="blog_featured_img my-4 content-desktop">
-									<a class="row" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-									<div class="position-relative col-md-6 pl-3 pr-1 transform">
-										<img src="<?php echo $before_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-										<div class="img-tag px-3 py-1">Before</div>
+									<div class="hide-desk arrow-after">
+										<span class="arrow-text">After</span>
+										<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow.svg" alt="arrow" class="arrow">
 									</div>
-									<div class="position-relative col-md-6 pl-1 pr-3 transform">
-										<img src="<?php echo $after_image_url; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" />
-										<div class="img-tag px-3 py-1">After</div>
-									</div>
-									</a>
+									<img src="<?php echo $after_image_url; ?>" alt="after image" class="image-after">
 								</div>
 							</div>
-							<?php
-								$description = get_post_meta($post->ID, 'hk_description', true);
-								if ($description) :
-								?><div class="entry-description"><?php echo $description; ?></div><?php 
-								endif;
-							?>
-							<div class="entry-content">
-								<div class="my-2">
-									<?php the_content(); ?>
-								</div>
-								<?php $transform_reason = get_post_meta($post->ID, 'hk_transform_reason', true); 
-									if($transform_reason): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">Why you decided to Transform?</h2>
-											<div class="entry-content-single"><?php echo $transform_reason; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $accomplish_goal = get_post_meta($post->ID, 'hk_accomplish_goal', true); 
-									if($accomplish_goal): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">How did you accomplish your Goal:</h2>
-											<div class="entry-content-single"><?php echo $accomplish_goal; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $training_routine = get_post_meta($post->ID, 'hk_training_routine', true); 
-									if($training_routine): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">Training routine that helped you achieve your Goals</h2>
-											<div class="entry-content-single"><?php echo $training_routine; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $supplements_that_helped = get_post_meta($post->ID, 'hk_supplements_that_helped', true); 
-									if($supplements_that_helped): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">Supplements:</h2>
-											<div class="entry-content-single"><?php echo $supplements_that_helped; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $challenges = get_post_meta($post->ID, 'hk_challenges', true); 
-									if($challenges): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">What challenges did you face?</h2>
-											<div class="entry-content-single"><?php echo $challenges; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $how_did_you_overcome = get_post_meta($post->ID, 'hk_how_did_you_overcome', true); 
-									if($how_did_you_overcome): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">How did you overcome these challenges?</h2>
-											<div class="entry-content-single"><?php echo $how_did_you_overcome; ?></div>
-									</div>
-								<?php endif; ?>
-								<?php $future_suggestion = get_post_meta($post->ID, 'hk_future_suggestion', true); 
-									if($future_suggestion): ?>
-									<div class="my-2">
-											<h2 class="entry-content-heading">Suggestion for future transformers</h2>
-											<div class="entry-content-single"><?php echo $future_suggestion; ?></div>
-									</div>
-								<?php endif; ?>
-							</div>  
-							<!-- <div class="transformation-story">
-								<h4 class="transformation-story_heading">Submit your transformation story and motivate other people to change their life.</h4>
-								<a type="submit" class="btn hk-btn">Submit Now</a>
-							</div> -->
-							  <?php 
+							<div class="entry-content"><?php the_content(); ?></div>
+							<?php 
                                 $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
                                 $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
                             ?>
 							<div class="share share-desktop">
-								<div class="share-title section-title"> Share </div>
 								<div class="share-icons">
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="share-icons__icon" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>Share on Facebook</a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Share on Twitter</a>
+									<!-- linkedin -->
+									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=healthkart.com/connect/" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>Share on LinkedIn</a>
+									<!-- Whatsapp sharing onn desktop -->
+									<!-- <a href="https://web.whatsapp.com/send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-desktop" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
 							<div class="share share-mob">
-								<div class="share-title section-title"> Share Article </div>
 								<div class="share-icons">
-									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="text-orange f-28" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=WPCrumbs" class="text-orange f-28" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" class="share-icons__icon" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+									<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="share-icons__icon" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+									<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $postUrl; ?>&amp;title=<?php echo $title; ?>&amp;source=healthkart.com/connect/" class="share-icons__icon" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+									<!-- Whatsapp sharing onn mobile -->
+									<!-- <a href="whatsapp://send?text=<?php /* echo $postUrl; */ ?>" id="whatsapp-mobile" class="whatsapp social boxed-icon white-fill" data-href="<?php /* echo $postUrl; */ ?>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i></a> -->
 								</div>
 							</div>
-							<div class="comment-block">
-								<?php if(isset($_GET['unapproved']) && $_GET['unapproved']): ?>
-								<div class="alert alert-success">
-								  <strong>Success!</strong> Your comment has been sent for moderation.
-								</div>
-							<?php endif;
-								$fields =  array(
-								    'author' =>
-								        '<input class="comment-input comment-input-name" required name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .'" size="30" placeholder="'.__('Name','text-domain').( $req ? ' (Required)' : '' ).'"/>',
-								    'email' =>
-								        '<input required class="comment-input comment-input-email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .'" size="30" placeholder="'.__('Email','text-domain').( $req ? ' (Required)' : '' ).'"/>',
-								);
-								$args = array(
-								    'id_form'           => 'commentform',
-								    'class_form'        => 'comment-form',
-								    'id_submit'         => 'submit',
-								    'class_submit'      => 'submit',
-								    'name_submit'       => 'submit',
-								    'submit_button'     => '<input name="%1$s" type="submit" id="%2$s" class="%3$s" value="%4$s" />',
-								    'title_reply'       => '',
-								    'title_reply_to'    => __( 'Reply to %s','text-domain' ),
-								    'cancel_reply_link' => __( 'Cancel comment','text-domain' ),
-								    'label_submit'      => __( 'Post comment','text-domain' ),
-								    'format'            => 'xhtml',
-								    'comment_field'     =>  '<textarea id="comment" name="comment" placeholder="'.__('Add a comment...','text-domain').'" cols="45" rows="2" aria-required="true">' .'</textarea>',
-								    'logged_in_as'      => '',
-								    'comment_notes_before' => '',
-								    'fields'            => $fields,
-								);
-
-								comment_form( $args );
-								$comments = get_comments( array('status' => 'approve','order' => 'DESC', 'post_id' => $post->ID) );
-								?>
-
-								<ul class="comments-list">
-								<?php foreach ($comments as $comment): ?>
-									<li>
-										<div class="my-4">
-											<div class="comment-author-image">
-												<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/avatar.jpg" alt="search" class="search-icon-white">
-											</div>
-											<div class="comment-text">
-												<div class="comment-text-author"><?php echo $comment->comment_author; ?></div>
-												<div class="comment-text-content"><?php echo $comment->comment_content; ?></div>
-												<div class="comment-text-date"><?php display_human_readable_time($comment->comment_date); ?></div>
-											</div>
-										</div>
-									</li>
-								<?php endforeach; ?>
-								</ul>
-							</div>
-							<div class="latest-reads">
-								<?php echo do_shortcode('[read-these-next-transformations]'); ?>
-							</div>
+							<?php
+								$tag_list = $tags = get_the_term_list( $post->ID, $post->post_type.'_tag', '',' ',''); 
+								if ($tags){ ?>
+									<div class="article-tags">
+										<span class="article-tags__heading">Tags:</span>
+										<?php print_r ($tags);?>
+									</div>
+								<?php } ?>
+						</div>
+						<div class="smaller-container container">
+								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>
+						</div>
+						<div class="divider-eyes">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/eyes.svg" alt="divider">
+						</div>
+						<div class="container m-auto latest-reads">
+								<?php echo do_shortcode('[read-these-next]'); ?>
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<div class="col-md-4 col-12">
-					<?php
-	                    get_sidebar();
-	                ?>
+				<div class="container subscribe-container">
+					<?php echo do_shortcode('[Subscribe-form]'); ?>
 				</div>
 			</div>
-			<!-- <div class="fb-comments" data-href="<?php the_permalink() ?>"></div> -->
+			<!-- <div class="fb-comments" data-href="<?php /* the_permalink() */ ?>"></div> -->
 		</div>
 	</div>
 </div>

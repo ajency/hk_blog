@@ -544,7 +544,7 @@
 	}
 	}
 	&-content{
-		padding-right: 50px;
+		/* padding-right: 50px; */
 		@media (max-width: 768px){
 			padding-right: 15px;
 		}
@@ -1275,6 +1275,7 @@
 		line-height: 25px;
 	}
 }
+/* infographic blog page */
 .single-infographic{
 	.article-heading {
 		margin-bottom: 52px;
