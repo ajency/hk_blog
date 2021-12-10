@@ -231,3 +231,47 @@
 		}
 	}
 }
+
+/* archive page */
+.category .read-these-next, .post-type-archive .read-these-next{
+	display:block;
+}
+
+.post-type-archive-transformation{
+    .category-name, .article-count{
+        padding-left: 0 !important;
+        font-weight: bold;
+    }
+    .transformation-list-view{
+        margin-top: 30px;
+        .category-post-row{
+            .transformation-section-single{
+                width: 33.33%;
+                margin-bottom: 20px;
+    
+                &:not(:nth-child(3n)){
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+    @media(max-width:768px){
+        .category-name, .article-count{
+            padding-left: 10px !important;
+        }
+        .transformation-list-view{
+            margin-top: 10px;
+            .category-post-row{
+                padding: 0 16px;
+                .transformation-section-single{
+                    width: 100%;
+                    margin-bottom: 10px;
+
+                    &:not(:nth-child(3n)){
+                        padding-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
