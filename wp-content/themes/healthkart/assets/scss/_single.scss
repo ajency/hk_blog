@@ -1,5 +1,5 @@
 .breadcrumbs-wrapper{
-	.breadcrumbs-inside{ 
+	.breadcrumbs-inside{
 		margin: 28px 0;
 		a{
 			font-size: 14px;
@@ -208,6 +208,13 @@
 	}
 }
 .single-post{
+	.single-post, footer{
+		.container{
+			@media (min-width: 1200px) {
+				max-width: 1090px;
+			}
+		}
+	}
 	.single_post_page{
 		.transformation-section-single-image img{
 			height: auto;
@@ -444,7 +451,7 @@
 				}
 				a{
 					font-size: 20px;
-					line-height: 45px;
+					line-height: 22px;
 					color:theme-color("dark-blue");
 					font-weight: bold;
 					transition:color 250ms ease-in-out;
@@ -994,9 +1001,13 @@
 								margin-top: 5px;
 							}
 							.buy-now-btn{
-								display: block;
+								/* display: block; */
 								width: 166px;
 								margin-top: 10px;
+
+								a{
+									line-height: 18px;
+								}
 
 								.article-btn{
 									color:#fff;

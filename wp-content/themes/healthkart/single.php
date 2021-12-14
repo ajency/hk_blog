@@ -90,8 +90,9 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 										<span class="article-tags__heading">Tags:</span>
 	 									<?php foreach( $post_tags as $tag ) { ?>
 											 <a href="" class="article-tags__tag"><?php echo $tag->name ?></a>
-	 									<?php }
- 								} ?>
+	 									<?php } ?>
+									</div>
+ 								<?php } ?>
 						</div>
 						<div class="smaller-container container">
 								<?php get_template_part( 'page-templates/theme-sections/author-bar-bottom', 'section' ); ?>

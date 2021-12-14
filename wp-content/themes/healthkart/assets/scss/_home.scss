@@ -699,6 +699,7 @@
 	height: 300px;
 }
 .explore-articles {
+	margin: 0;
 	&-section {
 		.category-buttons {
 			margin-bottom: 40px;
@@ -993,6 +994,9 @@
 				}
 			}
 		}
+		&-articles{
+			margin: 0;
+		}
 	}
 	@media(max-width:768px){
 		padding: 41px 0 0;
@@ -1224,6 +1228,7 @@
 			}
 			.title {
 				line-height: 26px;
+				min-height: 92.2px;
 				a {
 					font-size: 35px;
 					font-weight: bold;
@@ -1237,6 +1242,9 @@
 			}
 			@media (max-width: 768px) {
 				margin-bottom: 20px;
+				.title{
+					min-height: 59.6px;
+				}
 			}
 		}
 	}

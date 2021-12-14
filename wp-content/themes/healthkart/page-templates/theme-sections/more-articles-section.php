@@ -9,6 +9,7 @@
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
+			'ignore_sticky_posts' => true,
 			'meta_key' => 'hk_more_post',
 			'meta_query'     => [
 		        [
@@ -29,10 +30,11 @@
 					<div class="wraper">
 						<div class="more-articles-single-content">
 							<div class="content-title">
-								<h2 class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="hide-mob title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),7); ?></a></h2>
+								<h2 class="hide-desk title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),6); ?></a></h2>
 							</div>
 							<div class="content-description hide-mob"><?php echo hk_get_excerpt(240); ?></div>
-							<div class="content-description hide-desk"><?php echo hk_get_excerpt(140); ?></div>
+							<div class="content-description hide-desk"><?php echo hk_get_excerpt(100); ?></div>
 						</div>
 						<div class="more-articles-single-image"><a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>">
 							<?php 
