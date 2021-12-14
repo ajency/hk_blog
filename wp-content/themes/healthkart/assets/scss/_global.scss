@@ -487,7 +487,6 @@ strong {
 
 .smaller-container{
 	@media(min-width:1300px){
-		padding-left: 45px;
-		padding-right: 45px;
+		max-width: 980px !important;
 	}
 }

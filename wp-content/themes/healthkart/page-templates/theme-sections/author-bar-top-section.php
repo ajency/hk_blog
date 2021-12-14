@@ -34,6 +34,10 @@ $authorId = $user_info->ID;
             <?php } } } ?>
         </div>
         <div class="author__social">
+            <?php 
+                $postUrl = 'http' . ( isset( $_SERVER['HTTPS'] ) ? 's' : '' ) . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"; 
+                $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
+            ?>
             <!-- twitter -->
 			<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $postUrl; ?>&amp;via=Healthkart" class="author__social__icons" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <!-- linkedin -->
