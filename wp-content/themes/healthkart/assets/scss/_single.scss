@@ -342,6 +342,11 @@
 			ul>li strong::before{
 				content: none;
 			}
+			strong{
+				img{
+					height: auto !important;
+				}
+			}
 			table{
 				border: 0;
 			}
@@ -750,11 +755,7 @@
 		}
 	}
 	.entry-content{
-		strong{
-			img{
-				height: auto !important;
-			}
-		}
+
 		&-heading{
 		    padding: 30px 0 0;
 		    font-size: 24px !important;
