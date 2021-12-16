@@ -42,6 +42,22 @@
 		}
 	}
 }
+.single-transformation, .single-infographic, .single-video{
+	.breadcrumbs-wrapper{
+		.breadcrumbs-inside{
+			span{
+				span{
+					span{
+						a{
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 /* author top bar */
 .author-bar-top, .author-bar-bottom{
 	.author{
@@ -364,12 +380,12 @@
 			}
 			p, span{
 			    font-family: 'Nunito', sans-serif !important;
-				font-size: 24px;
+				font-size: 24px !important;
 				line-height: 45px !important;
 				margin: 0px 0 40px !important;
 				text-align: justify;
 				@media (max-width: 768px){
-					font-size: 14px;
+					font-size: 14px !important;
 					line-height: 20px !important;
 					margin-bottom: 20px !important;
 				}
@@ -1308,7 +1324,7 @@
 		}
 	}
 }
-.single-post, .single-video, .single-transformation{
+.single-post, .single-video, .single-transformation, .single-infographic{
 	.single-post, footer{
 		.container{
 			@media (min-width: 1200px) {

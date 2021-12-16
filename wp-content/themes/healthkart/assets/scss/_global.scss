@@ -490,3 +490,8 @@ strong {
 		max-width: 980px !important;
 	}
 }
+
+/* removed bullet points */
+#menu-header-left-menu li, footer li, .slick-dots li{
+	list-style-type:none !important;
+}
