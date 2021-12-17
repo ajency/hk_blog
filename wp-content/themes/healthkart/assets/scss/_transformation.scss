@@ -53,13 +53,14 @@
                 &-images{
                     height: 883px;
                     position: relative;
-                    max-width: 849px;
+                    max-width: 670px;
                     margin: auto;
                     .image-before, .image-after{
-                        width: 396px;
-                        height: 716px;
+                        width: 296px;
+                        height: 535px;
                         object-fit: cover;
                         position: absolute;
+                        object-position: top;
                     }
                     .image-before{
                         left: 0;
@@ -86,7 +87,7 @@
                         }
                     }
                     .arrow-before {
-                        left: 424px;
+                        left: 324px;
                         top: 20px;
 
                         .arrow{
@@ -98,7 +99,7 @@
                         }
                     }
                     .arrow-after {
-                        right: 453px;
+                        right: 341px;
                         bottom: 30px;
                         .arrow{
                             transform: rotate(180deg);
@@ -195,10 +196,13 @@
                         height: auto;
                         position: relative;
                         .image-before, .image-after{
-                            width: 100%;
-                            height: 549px;
+                            width: 296px;
+                            height: 535px;
                             object-fit: cover;
                             position: relative;
+                        }
+                        .image-after{
+                            margin-left: calc(100% - 296px);
                         }
                         .arrow-before, .arrow-after{
                             position: relative;
