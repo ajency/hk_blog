@@ -523,3 +523,25 @@ content: '';
     display: none;
 
 }
+
+.archive {
+	.read-these-next .section-title{
+		border:none;
+	}
+	.read-these-next-content{
+		
+		.component-articles-single{
+			&-image{
+				.cat-detail{
+					span{
+						color:#fff;
+						font-size: 18px;
+						&.dot i{
+							font-size: 8px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}

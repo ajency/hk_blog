@@ -1,5 +1,5 @@
 <div class="latest-articles-section my-3">
-    <div class="latest-articles-heading pt-3 pb-3">LATEST VIDEOS</div>
+    <div class="latest-articles-heading pt-3 pb-3">Latest Videos</div>
     <div class="latest-articles row mt-4">
        <?php
 $post_ids = get_query_var('post_ids');

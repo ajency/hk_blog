@@ -5,7 +5,7 @@ $args = array(
 	'posts_per_page' => 24,
 	'post_type' => array('post'),
 	'post_status' => 'publish',
-	'cat' => $category->term_id,
+	'tag_id' => $category->term_id,
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
@@ -34,7 +34,7 @@ global $wp_query;
 	<p class="text-black f-14 article-count" style="margin-left:10px;">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
-	<div class="latest-reads category-list-view position-relative mt-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
+	<div class="latest-reads category-list-view position-relative mt-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>" data-taxonomy="<?php echo $category->taxonomy; ?>">
 		<div class="category-post-row row m-0">
 			<?php if( have_posts() ) :
 				while( have_posts() ): the_post();

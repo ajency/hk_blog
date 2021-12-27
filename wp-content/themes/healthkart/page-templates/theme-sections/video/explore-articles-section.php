@@ -1,5 +1,5 @@
 <div class="explore-articles-section explore-video-section">
-	<div class="explore-articles-heading pt-3 pb-3">EXPLORE VIDEOS</div>
+	<div class="section-heading pt-3 pb-3">Explore Videos</div>
 	<?php 
 	$args = array(
 		'hide_empty'      => true,

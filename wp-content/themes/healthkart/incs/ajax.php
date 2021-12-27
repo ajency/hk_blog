@@ -18,17 +18,36 @@ function fetch_category_page_articles(){
 		'post_status' => 'publish',
 		'paged' => $_POST['page'],
 	);
-	if($_POST['type'] == 'post'){
+	if($_POST['taxonomy'] == 'category'){
 		$args['cat'] = $_POST['category'];
 		$hindi_cat = get_category_by_slug('hindi');
 		if($_POST['category'] != $hindi_cat->term_id){
 			$args['category__not_in'] = array($hindi_cat->term_id);
 		}
 	}
+	if($_POST['taxonomy'] == 'post_tag'){
+		$args['tag_id'] = $_POST['category'];
+	}
+	if($_POST['taxonomy'] == 'transformation_tag'){
+		$args = array(
+			'posts_per_page' => 24,
+			'post_type' => array($_POST['type']),
+			'post_status' => 'publish',
+			'paged' => $_POST['page'],
+			'tax_query' => array(
+				array(
+					'taxonomy' => $_POST['taxonomy'],
+					'field' => 'term_id',
+					'terms' => $_POST['category'],
+				)
+			)
+		);
+	}
+
 	if($_POST['search']){
 		$args['s'] = $_POST['search'];
 	}
-	if($_POST['taxonomy']){
+/* 	if($_POST['taxonomy']){
 		$args['tax_query'] = array(
 	        array (
 	            'taxonomy' => $_POST['taxtype'],
@@ -36,10 +55,14 @@ function fetch_category_page_articles(){
 	            'terms' => $_POST['taxonomy'],
 	        )
 	    );
-	}
+	} */
 	query_posts( $args ); 
 	switch($_POST['type']){
-		case 'post' || 'infographic':
+		case 'post':
+			$template['primary'] = 'page-templates/theme-sections/category';
+			$template['secondary'] = 'component';
+		break;
+		case 'infographic':
 			$template['primary'] = 'page-templates/theme-sections/category';
 			$template['secondary'] = 'component';
 		break;

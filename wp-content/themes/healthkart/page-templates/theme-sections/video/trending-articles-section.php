@@ -1,12 +1,12 @@
 <div class="trending-articles-section trending-videos-section  mt-3">
-	<div class="trending-articles-heading pt-3 pb-3">TRENDING VIDEOS</div>
+	<div class="section-heading pt-3 pb-3">Trending Videos</div>
 	<div class="trending-articles mt-4">
 		<div class="row">
-			<div class="col-md-8 col-12 row m-0 p-0">
+			<div class="col-12 row m-0 p-0">
 			<?php 
 				$post_ids = get_query_var('post_ids');
 				$args = array(
-					'posts_per_page' => 2,
+					'posts_per_page' => 3,
 					'post_type' => array('video'),
 					'post_status' => 'publish',
 					'post__not_in' => $post_ids,
@@ -25,7 +25,7 @@ preg_match('/<div[^>]*>(.*?)<\/div>/s', get_the_content(), $matches);
 if(isset($matches[1])):
 foreach ($matches as $video) { 
  ?>
-	<div class="trending-articles-single trending-articles-single-main col-md-6 col-12">
+	<div class="trending-articles-single trending-articles-single-main col-md-4 col-12">
 									<div class="trending-articles-single-image mb-4">
 										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 											<div class="videos-single-image-overlay"></div>
@@ -55,13 +55,16 @@ endif;
 					endwhile;
 				endif; ?>
 			</div>
-			<div class="col-md-4 col-12 sidebar">
+<!-- 			<div class="col-md-4 col-12 sidebar">
 				<?php
-	                do_shortcode('[Subscribe-form]');
+	                /* do_shortcode('[Subscribe-form]'); */
 	            ?>
-			</div>
+			</div> -->
 		</div>
-		<h2 class="trending-articles-heading similar-articles pt-3 pb-3 mt-5 mb-4"> SIMILAR</h2>
+		<div class="newsletter-section">
+			<?php do_shortcode('[Subscribe-form]'); ?>
+		</div>
+		<h2 class="section-heading similar-articles pt-3 pb-3 mt-5 mb-4">Similar</h2>
 		<div class="row similar-articles">
 		<?php
 		$args = array(

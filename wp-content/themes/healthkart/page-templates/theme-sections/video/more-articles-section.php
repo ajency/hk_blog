@@ -1,5 +1,5 @@
 <div class="more-articles-section more-videos-section my-4">
-	<div class="more-articles-heading pt-3 pb-3">MORE VIDEOS</div>
+	<div class="section-heading pt-3 pb-3">More Videos</div>
 	<div class="more-articles row mt-4">
 		<div class="col-md-6 col-12">
 		<?php
