@@ -28,10 +28,10 @@ global $wp_query;
 	</div>
 </div>
 <div class="container p-0 category-container">
-	<h1 class="category-name" style="margin-left:10px;">
+	<h1 class="category-name">
 		<?php echo $category->name;  ?>
 	</h1>
-	<p class="text-black f-14 article-count" style="margin-left:10px;">
+	<p class="text-black f-14 article-count">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
 	<div class="latest-reads category-list-view position-relative mt-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>" data-taxonomy="<?php echo $category->taxonomy; ?>">

@@ -258,7 +258,7 @@
 .post-type-archive-transformation{
     .category-name, .article-count{
         padding-left: 0 !important;
-        font-weight: bold;
+        /* font-weight: bold; */
     }
     .transformation-list-view{
         margin-top: 30px;
@@ -275,7 +275,7 @@
     }
     @media(max-width:768px){
         .category-name, .article-count{
-            padding-left: 10px !important;
+            padding-left: 16px !important;
         }
         .transformation-list-view{
             margin-top: 10px;

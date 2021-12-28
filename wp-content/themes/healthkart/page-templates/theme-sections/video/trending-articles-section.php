@@ -1,5 +1,5 @@
 <div class="trending-articles-section trending-videos-section  mt-3">
-	<div class="section-heading pt-3 pb-3">Trending Videos</div>
+	<div class="section-heading">Trending Videos</div>
 	<div class="trending-articles mt-4">
 		<div class="row">
 			<div class="col-12 row m-0 p-0">
@@ -64,7 +64,7 @@ endif;
 		<div class="newsletter-section">
 			<?php do_shortcode('[Subscribe-form]'); ?>
 		</div>
-		<h2 class="section-heading similar-articles pt-3 pb-3 mt-5 mb-4">Similar</h2>
+		<h2 class="section-heading similar-articles">Similar</h2>
 		<div class="row similar-articles">
 		<?php
 		$args = array(

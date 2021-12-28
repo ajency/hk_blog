@@ -1,5 +1,5 @@
 <div class="latest-articles-section my-3">
-    <div class="latest-articles-heading pt-3 pb-3">Latest Videos</div>
+    <div class="latest-articles-heading">Latest Videos</div>
     <div class="latest-articles row mt-4">
        <?php
 $post_ids = get_query_var('post_ids');
@@ -55,7 +55,7 @@ if ($main_post->have_posts()):
 endif; ?>
 
 
-        <div class="col-12 col-md-6">
+        <div class="other-latest-articles col-12 col-md-6">
             <?php
 	$args = array(
 		'posts_per_page' => 3,

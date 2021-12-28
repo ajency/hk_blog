@@ -171,6 +171,15 @@ $( document ).ready(function() {
 				get_category_posts(page, false);
 			}
 		}
+		if ($('.category-list-view .category-post-row').find('.videos-single.video-each').length) {
+			if($(".category-list-view").length && $(window).width() < 767 && ($(window).scrollTop() > $(".category-list-view .category-post-row .videos-single.video-each:last").position().top) && canBeLoaded == true){
+				canBeLoaded = false;			
+				var url = new URL(window.location.href);
+				var page = url.searchParams.get("page");
+				page = parseInt(page) + 1;
+				get_category_posts(page, false);
+			}
+		}
 	});
 	if($(".category-list-view").length && $(window).width() < 767){
 		var url = new URL(window.location.href);

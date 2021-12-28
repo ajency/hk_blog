@@ -3,9 +3,15 @@ $category = get_queried_object();
 $hindi_cat = get_category_by_slug('hindi');
 $args = array(
 	'posts_per_page' => 24,
-	'post_type' => array('post'),
+	'post_type' => 'infographic',
 	'post_status' => 'publish',
-	'cat' => $category->term_id,
+	'tax_query' => array(
+		array(
+			'taxonomy' => $category->taxonomy,
+			'field' => 'term_id',
+			'terms' => $category->term_id,
+		)
+	)
 );
 if(isset($_GET['page'])){
 	$args['paged'] = $_GET['page'];
@@ -27,14 +33,14 @@ global $wp_query;
 		</div>
 	</div>
 </div>
-<div class="container p-0 category-container">
+<div class="container category-container">
 	<h1 class="category-name">
 		<?php echo $category->name;  ?>
 	</h1>
 	<p class="text-black f-14 article-count">
 		<?php echo $category->count . ' Articles '; ?>
 	</p>
-	<div class="latest-reads category-list-view position-relative mt-4" data-category="<?php echo $category->term_id; ?>" data-type="post" data-count="<?php echo $wp_query->found_posts; ?>">
+	<div class="latest-reads category-list-view position-relative mt-4" data-category="<?php echo $category->term_id; ?>" data-type="infographic" data-count="<?php echo $wp_query->found_posts; ?>" data-taxonomy="<?php echo $category->taxonomy; ?>">
 		<div class="category-post-row row m-0">
 			<?php if( have_posts() ) :
 				while( have_posts() ): the_post();

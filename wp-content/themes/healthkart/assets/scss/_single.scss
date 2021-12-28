@@ -73,7 +73,6 @@
 			img{
 				height: 72px;
 				width: 72px;
-				border: 1px solid #707070;
 				border-radius: 100%;
 			}
 			@media(max-width:768px){
@@ -265,7 +264,11 @@
 			font-weight: bold;
 			padding-bottom: 0;
 			margin: 80px 0 40px;
-		    text-transform: capitalize;
+		    text-transform:lowercase;
+
+			&::first-letter{
+				text-transform: uppercase;
+			}
 			@media (max-width: 768px){
 				font-size: 20px;
 			    line-height: 25px;
@@ -382,7 +385,7 @@
 			    font-family: 'Nunito', sans-serif !important;
 				font-size: 24px !important;
 				line-height: 45px !important;
-				margin: 0px 0 40px !important;
+				margin: 0px 0 30px !important;
 				text-align: justify;
 				@media (max-width: 768px){
 					font-size: 14px !important;
