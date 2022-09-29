@@ -12,9 +12,14 @@ add_shortcode( 'read-these-next', function(){?>
 	<div class="read-these-next mt-4">
 		<div class="section-title pb-3">Read these next</div>
 		<?php
+			$categories = get_the_category();
+			if ( ! empty( $categories ) ) {
+				$currentCat = $categories[0]->slug;
+			}
 			$args = array(
 				'posts_per_page' => 5,
 				'post_type' => 'post',
+				'category_name' => $currentCat,
 				'post__not_in'   => array( get_the_ID() ),
 				'no_found_rows'  => true, 
 				'date_query'    => array(
