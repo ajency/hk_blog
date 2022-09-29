@@ -40,7 +40,12 @@ function genesis_html5_doctype() {
 
 	?>
 <!DOCTYPE html>
-<html <?php language_attributes( 'html' ); ?>>
+<html lang="<?php if (in_category( '440' )) {
+    echo 'hi-in';
+} else {
+    echo 'en-US';
+} ?>">
+<!-- disabling to add condition manually to set lang tag when post is in hindi <html <?php language_attributes( 'html' ); ?>> -->
 <head <?php echo genesis_attr( 'head' ); ?>>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <?php // phpcs:ignore Generic.WhiteSpace.ScopeIndent.IncorrectExact -- To keep layout of existing HTML output.
