@@ -34,6 +34,21 @@ do_action( 'genesis_title' );
 	<meta charset="utf-8"/>
 	<meta http-equiv="x-ua-compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0 height=device-height">
+<?php if (have_posts()) : ?>
+	<?php
+	while (have_posts()) :
+		the_post();
+		$hindi_url = get_post_meta($post->ID, 'hk_hindi_post', true);
+		$english_url = get_post_meta($post->ID, 'hk_english_post', true);
+	?>
+<?php if($english_url): ?>
+<link rel="alternate" href="https://staging-healthtkart-staging.kinsta/<?php echo $english_url; ?>" hreflang="en-us" />
+<?php endif; ?>
+<?php if($hindi_url): ?>
+<link rel="alternate" href="https://staging-healthtkart-staging.kinsta/<?php echo $hindi_url; ?>" hreflang="hi-in" />
+<?php endif; ?>
+	<?php endwhile; ?>
+<?php endif; ?>
 <?php
 wp_head(); // We need this for plugins.
 ?>
