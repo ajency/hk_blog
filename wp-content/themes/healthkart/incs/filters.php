@@ -51,7 +51,7 @@ function hkPrintBreadcrumbs(){
 		},
 		"publisher": {
 			"@type": "Organization",
-			"name": "Publisher name",
+			"name": "HealthKart",
 			"sameAs": ["https://www.facebook.com/healthkart","https://twitter.com/healthkart","https://in.pinterest.com/healthkart/","https://www.instagram.com/healthkart/","https://www.youtube.com/user/healthkart"],
 			"logo": {
 				"@type": "imageObject",
@@ -60,7 +60,7 @@ function hkPrintBreadcrumbs(){
 		},
 		"author": {
 			"@type": "Person",
-			"name": "Author Name"
+			"name": "'.get_the_author_meta( 'display_name').'"
 		}
 		}</script>
 		';
