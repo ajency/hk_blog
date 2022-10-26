@@ -77,7 +77,7 @@ get_template_part( 'page-templates/theme-sections/follow-sidebar', 'section' );
 									</div>
 									<div class="">
 										<div class="date f-12 text-black font-weight-bold">Written By
-										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link"> 
+										<a href="<?php echo get_author_posts_url($user_info->ID); ?>" class="author-link" rel="dofollow" target="_blank"> 
 											<?php 
 												echo $user_info->display_name;
 											?>
