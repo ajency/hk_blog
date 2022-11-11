@@ -15,6 +15,11 @@ function hk_post_cpt__metabox() {
         'type' => 'checkbox',
     ) );
     $cmb_term->add_field( array(
+    'name' => 'Editors Choice',
+    'id'   => $prefix . 'editors_choice',
+    'type' => 'checkbox',
+    ) );
+    $cmb_term->add_field( array(
         'name' => 'Minutes Read',
         'id'   => $prefix . 'mins_read',
         'type' => 'text',
