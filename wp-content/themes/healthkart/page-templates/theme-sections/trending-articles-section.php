@@ -104,14 +104,8 @@
 			'post_type' => array('post'),
 			'post_status' => 'publish',
 			'post__not_in' => $post_ids,
-			'meta_key' => 'hk_views',
+			'meta_key' => 'hk_editors_choice',
 			'order' => 'DESC',
-			'orderby' => 'meta_value_num',
-    'date_query' => array(
-        array(
-            'after' => '2 week ago'
-        )
-    )
 		);
 		$count = 0;
 		$main_post = new wp_query( $args );
